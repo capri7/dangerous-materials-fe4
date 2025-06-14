@@ -34,15 +34,22 @@
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-    const { data, error } = await supabase.auth.signUp({ email, password });
-    if (error) {
-      alert('登録に失敗しました: ' + error.message);
-    } else {
-      alert('仮登録が完了しました。認証メールを送信しました。');
-      window.location.href = '/signup_complete.html';
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      emailRedirectTo: 'https://dangerous-materials-fe4.vercel.app/signup_complete.html'
     }
-      
-   });
+  });
+
+  if (error) {
+    alert('登録に失敗しました: ' + error.message);
+  } else {
+    alert('仮登録が完了しました。認証メールを送信しました。');
+    window.location.href = '/signup_complete.html';
+  }
+});
+    
   </script>
 </body>
 </html>
