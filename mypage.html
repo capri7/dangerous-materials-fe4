@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>マイページ - 危険物乙4対策サイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="module" src="./supabaseClient.js"></script>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 2rem; }
+    .container { max-width: 600px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    h1 { font-size: 1.5rem; text-align: center; }
+    .progress { background: #eee; border-radius: 5px; overflow: hidden; margin: 1rem 0; }
+    .progress-bar { background: #0070f3; color: white; padding: 0.5rem; width: 50%; text-align: center; }
+    .section { margin-top: 2rem; }
+    .logout-btn { display: block; width: 100%; padding: 1rem; background: #f44336; color: white; border: none; border-radius: 8px; font-size: 1rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>ようこそ、<span id="user-email">...</span> さん</h1>
+
+    <div class="section">
+      <h2>学習進捗</h2>
+      <div class="progress">
+        <div class="progress-bar" id="progress-bar">50%（15/30問）</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>分野別の進捗（例）</h2>
+      <ul>
+        <li>法令：◎</li>
+        <li>危険物の性質：○</li>
+        <li>消火方法：△</li>
+      </ul>
+    </div>
+
+    <button class="logout-btn" id="logout-btn">ログアウト</button>
+  </div>
+
+  <script type="module">
+    import { supabase } from './supabaseClient.js';
+
+    // セッションチェック
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      window.location.href = '/login.html';
+    } else {
+      document.getElementById('user-email').textContent = session.user.email;
+    }
+
+    // 仮データ表示（将来は Supabase から取得）
+    const total = 30;
+    const correct = 15;
+    const percent = Math.round((correct / total) * 100);
+    const bar = document.getElementById('progress-bar');
+    bar.style.width = `${percent}%`;
+    bar.textContent = `${percent}%（${correct}/${total}問）`;
+
+    // ログアウト処理
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      await supabase.auth.signOut();
+      window.location.href = '/login.html';
+    });
+  </script>
+
+</body>
+</html>
+
