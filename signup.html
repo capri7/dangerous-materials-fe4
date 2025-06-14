@@ -25,11 +25,11 @@
   </form>
 
   <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm',
 
     const supabase = createClient(
-      'https://vyzkkkskmwyctznbczzr.supabase.co', // ← あなたのURL
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....'     // ← anon key（public）
+      'https://vyzkkkskmwyctznbczzr.supabase.co';
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5emtra3NrbXd5Y3R6bmJjenpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NzUxNzEsImV4cCI6MjA2NTQ1MTE3MX0.OXCQww5s83c4y1KFN_60Bo7aftKDiXfOT6hQsoGcJ2w' 
     );
 
     const form = document.getElementById('signup-form');
