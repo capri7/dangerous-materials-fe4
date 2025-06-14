@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ログイン - 危険物乙4対策サイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f8f8f8; }
+    form { max-width: 400px; margin: auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+    h1 { text-align: center; }
+    input { width: 100%; margin: 0.5rem 0; padding: 0.8rem; font-size: 1rem; }
+    button { width: 100%; padding: 0.8rem; background: #0070f3; color: white; font-size: 1rem; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <form id="login-form">
+    <h1>ログイン</h1>
+    <input type="email" id="email" placeholder="メールアドレス" required />
+    <input type="password" id="password" placeholder="パスワード" required />
+    <button type="submit">ログイン</button>
+    <p style="text-align:center; margin-top: 1rem;">
+      初めての方は <a href="signup.html">新規登録</a>
+    </p>
+  </form>
+
+  <script type="module">
+    import { supabase } from './supabaseClient.js';
+
+    const form = document.getElementById('login-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        alert('ログイン失敗: ' + error.message);
+      } else {
+        // ✅ ここでリダイレクトされます（次項）
+        window.location.href = '/mypage.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
