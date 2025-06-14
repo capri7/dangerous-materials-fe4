@@ -49,8 +49,7 @@
       if (error) {
         alert('登録に失敗しました: ' + error.message);
       } else {
-        alert('仮登録が完了しました。認証メールを送信しました。');
-        window.location.href = '/signup_complete.html';
+        alert('認証メールを送信しました。メール内のリンクをクリックして本登録を完了してください');
       }
     });
   </script>
