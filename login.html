@@ -26,7 +26,12 @@
   </form>
 
   <script type="module">
-    import { supabase } from './supabaseClient.js';
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const supabase = createClient(
+      'https://vyzkkkskmwyctznbczzr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5emtra3NrbXd5Y3R6bmJjenpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NzUxNzEsImV4cCI6MjA2NTQ1MTE3MX0.OXCQww5s83c4y1KFN_60Bo7aftKDiXfOT6hQsoGcJ2w'
+    );
 
     const form = document.getElementById('login-form');
     form.addEventListener('submit', async (e) => {
@@ -34,17 +39,16 @@
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
-        alert('ログイン失敗: ' + error.message);
+        alert('ログインに失敗しました: ' + error.message);
       } else {
-        // ✅ ここでリダイレクトされます（次項）
-        window.location.href = '/mypage.html';
+        alert('ログイン成功！');
+        window.location.href = '/mypage.html'; // ログイン後に遷移するページ
       }
     });
-  </script>
-
+  </script>  
 </body>
 </html>
 
