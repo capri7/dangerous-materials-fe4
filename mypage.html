@@ -40,8 +40,12 @@
   </div>
 
   <script type="module">
-    import { supabase } from './supabaseClient.js';
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
+    const supabase = createClient(
+      'https://vyzkkkskmwyctznbczzr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5emtra3NrbXd5Y3R6bmJjenpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NzUxNzEsImV4cCI6MjA2NTQ1MTE3MX0.OXCQww5s83c4y1KFN_60Bo7aftKDiXfOT6hQsoGcJ2w'
+    );
     // セッションチェック
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
@@ -58,13 +62,17 @@
     bar.style.width = `${percent}%`;
     bar.textContent = `${percent}%（${correct}/${total}問）`;
 
-    // ログアウト処理
-    document.getElementById('logout-btn').addEventListener('click', async () => {
-      await supabase.auth.signOut();
-      window.location.href = '/login.html';
+    const logoutButton = document.getElementById('logout-btn');
+    logoutButton.addEventListener('click', async () => {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        alert('ログアウトに失敗しました: ' + error.message);
+      } else {
+        alert('ログアウトしました');
+        window.location.href = '/login.html';
+      }
     });
-  </script>
-
+  </script>  
 </body>
 </html>
 
