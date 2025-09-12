@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乙種4類危険物取扱者試験対策 - 練習問題</title>
+  <!-- SEO -->
+  <meta name="description" content="乙4の過去傾向を反映した一問一答。法令・物理化学・性質と予防を網羅。進捗・誤答はマイページに自動記録。">
+  <!-- Open Graph -->
+  <meta property="og:title" content="乙種4類危険物取扱者試験対策 - 練習問題">
+  <meta property="og:description" content="乙4の過去傾向を反映した一問一答。法令・物理化学・性質と予防を網羅。進捗・誤答はマイページに自動記録。">
+  <meta property="og:type" content="website">
+  <!-- 本番ドメインが決まり次第、絶対URLに変更 -->
+  <meta property="og:url" content="https://kikenbutsu-z4.com/contents/">
+  <meta property="og:image" content="https://kikenbutsu-z4.com/images/ogp.png">
+  <meta property="og:site_name" content="危険物乙4 対策">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kikenbutsu-z4.com/images/ogp.png">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+</head>
+<body class="contents">
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/index.html">
+        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
+      </a>
+      <h1 class="site-title">乙種4類危険物取扱者試験対策 | 練習問題</h1>
+      <!-- ここからハンバーガー -->
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- ここまで -->
+    </div>
+
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/index.html">基礎知識</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a id="logout-link" href="#" class="nav-link logout">ログアウト</a>
+    </nav>
+  </header>  
+
+  <nav class="breadcrumbs" aria-label="パンくず">
+  <a href="/index.html">トップ</a> &gt;
+  <a href="/contents/index.html">練習問題</a> &gt;
+  <span>乙種4類危険物取扱者試験対策</span>
+  </nav>
+
+  <main class="site-main">
+    <section class="intro">
+    <h2>練習問題セクションのご案内</h2>
+    <p>当教材は、過去10年分の出題データをもとに一問一答形式の練習問題を収録しています。３つの出題分野（法令／物理・化学／性質と予防）を網羅し、本番と同様の形式で演習できます。</p>
+    <p>乙種４類試験は同じテーマが繰り返し出題される傾向が強いので、反復学習が合格への最短ルートです。何度も解いて、知識を確実に定着させましょう。</p>
+    <p>メール登録でマイページをご利用ください。<br>未解答や間違えた問題を振り返りながら、全分野を着実にクリアしていきましょう。</p>
+    </section>
+
+    <section class="legend">
+      <h3>重要度マークについて</h3>
+      <ul>
+        <li>⭐️⭐️⭐️ … 最重要（必ず押さえておきたい問題）</li>
+        <li>⭐️⭐️ … 重要（頻出項目の練習におすすめ）</li>
+        <li>⭐️ … 要チェック（出題を確認しておこう）</li>
+      </ul>
+      <p>【改】：法改正で内容を更新した問題 ／ 【編】：類似問題を再編成した問題</p>
+    </section>
+
+    <section class="cta-free">
+
+       <a href="/contents/free.html?reset=1" class="btn btn-primary" id="btn-free">サインアップなしで32問に挑戦</a>
+       <a href="/mypage.html" class="btn btn-ghost" id="btn-resume" aria-label="前回の続きから再開（マイページ）">
+        ログインして続きから再開
+       </a>
+    </section>
+
+
+    <script type="module">
+    import { supabase } from '/js/supabaseClient.js';
+
+    const { data: { session } } = await supabase.auth.getSession();
+    const resume = document.getElementById('btn-resume');
+
+    if (session) {
+      // すでにログイン済み
+      resume.textContent = 'マイページで続きから再開';
+      resume.href = '/mypage.html#review';   // 進捗タブに直行するならここ
+      resume.setAttribute('aria-label', 'マイページで前回の続きから再開');
+    } else {
+      // 未ログイン
+      resume.textContent = 'ログインして続きから再開';
+      // /mypage.html 側で未ログインならログイン導線にリダイレクトする想定
+      resume.href = '/mypage.html';
+      resume.setAttribute('aria-label', 'ログインして前回の続きから再開');
+    }
+    </script>
+
+    <section class="exam-guide">
+      <h3>本試験の構成と合格基準</h3>
+      <p>本試験は以下の3科目を一括して実施し、制限時間は2時間です。</p>
+      <ul>
+        <li>危険物に関する法令：15問</li>
+        <li>基礎的な物理学及び基礎的な科学：10問</li>
+        <li>危険物の性質並びにその火災予防及び消化の方法：10問</li>
+      </ul>
+      <p>本試験は全35問で構成され、各科目ごとに60%以上（法令科目は9問以上、他2科目はそれぞれ6問以上）の正解が合格基準です。例えば法令科目で8問正解の場合、他科目が満点でも不合格となるのでご注意ください。</p>
+      <p>演習は本番形式にならい、まずは本番と同じ120分で35問を解き、慣れてきたら90分、さらに60分と制限時間を段階的に短縮しながら取り組みましょう。</p>
+      <p>演習後はマイページで結果を確認し、間違えた問題を中心に復習をお勧めします。</p>
+      <p>※ 実際の試験日程や申込方法は、<a href="https://www.shoubo-shiken.or.jp/" target="_blank" rel="noopener">消防試験研究センター</a>公式サイトをご覧ください。</p>
+    </section>
+
+    <section class="dashboard-note">
+       <h3>解答・復習登録の進捗をマイページで確認</h3>
+       <p>練習問題を解くと、自動でマイページに以下のデータが記録されます：</p>
+       <ul>
+         <li>全問題数</li>
+         <li>解答済み問題数（正答／誤答 内訳）</li>
+         <li>復習登録済み問題数</li>
+       </ul>
+       <p>バーグラフで進捗を確認しながら学習を進めてください。</p>
+       <p>「誤答のみ再挑戦」「復習登録のみ出題」など、演習効率を高める機能が含まれています。</p>
+       <a href="/mypage.html" class="button">マイページを見る</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン - 乙種4類危険物取扱者試験対策</title>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <style>
+    .auth-card .form-feedback{
+  min-height: 1.25em;
+  font-size: .9rem;
+  line-height: 1.5;
+  margin: 8px 0 0;          /* 上だけ少し空ける */
+    }
+    .auth-card .form-feedback.ok{
+      color: #0f766e;           /* 濃すぎない緑 */
+      background: #ecfdf5;      /* うっすら背景 */
+      border: 1px solid #99f6e4;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .auth-card .form-feedback.error{
+      color: #b91c1c;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    /* 「再設定メール」ボタンを signup と同じニュートラル(ゴースト)調に */
+    .auth-card .ghost-btn{
+      width:100%;padding:10px 12px;border-radius:8px;
+      background:#fff;border:1px solid #cbd5e1;color:#1f2937
+    }
+    .auth-card h2 {font-size: var(--fs-h1);letter-spacing: .02em;margin: 0 0 16px}
+    .auth-card .ghost-btn:hover{background:#f3f4f6}
+    .auth-card .ghost-btn:disabled{opacity:.6;cursor:not-allowed}
+    .secure-info{display:flex;align-items:center;gap:8px;color:#6b7280;margin:4px 0 16px}
+    .secure-info .secure-icon{font-size:1.1rem}
+    .hidden { display: none !important; }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html">
+        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
+      </a>
+      <h1 class="site-title">乙種4類危険物取扱者試験対策</h1>
+      <!-- ここからハンバーガー -->
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- ここまで -->
+    </div>
+
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="index.html">トップ</a>
+      <a href="/basics/index.html">基礎知識</a>
+      <a href="/contents/index.html">練習問題</a>
+      <a href="mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <div class="auth-card">
+      <h2>ログイン</h2>
+      <div class="secure-info">
+        <span class="secure-icon">🔒</span>
+        <span class="secure-text">安全に送信されます</span>
+      </div>
+
+      <form id="login-form" novalidate>
+        <label for="email" class="sr-only">メールアドレス</label>
+        <input
+          type="email"
+          id="email"
+          inputmode="email"
+          placeholder="メールアドレス"
+          autocomplete="email"
+          aria-describedby="login-feedback"
+          required
+        />
+
+        <div class="input-wrapper">
+          <label for="password" class="sr-only">パスワード</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="パスワード"
+            autocomplete="current-password" aria-describedby="login-feedback" 
+            required
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            aria-label="パスワード表示切替"
+          >
+            <!-- シンプルな目アイコン（SVG） -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+
+        <button id="login-submit" type="submit">ログイン</button>
+
+        <!-- メッセージ表示（失敗/成功どちらもここへ） -->
+        <p id="login-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+        <!-- パスワード再設定（常時表示：signup と統一感のある“ゴースト”ボタン） -->
+        <button id="send-reset" type="button" class="ghost-btn">
+          パスワード再設定メールを送る
+        </button>
+      </form>
+
+      <p>
+        初めての方は
+        <a href="signup.html">新規登録</a>
+      </p>
+    </div>
+  </main>
+      <!-- フッター -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/login.js"></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script>
+</body>
+</html>
+
+

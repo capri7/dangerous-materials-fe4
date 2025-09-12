@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎知識 | 第1章 2節 ：消防法で規定する危険物</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/basics_law.css">
+  <link rel="stylesheet" href="/css/basics_law_defined_substances.css">
+  <link rel="stylesheet" href="/css/quiz.css">
+
+  <base href="/basics/law/">
+</head>
+<body class="basics">
+  <header class="site-header basics-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.png" alt="ロゴ" class="logo"></a>
+      <h1 class="site-title">基礎知識 | 第1章 2節 ：消防法で規定する危険物</h1>
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/" class="active">基礎知識</a>
+      <a href="/contents/">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>      
+    </nav>
+  </header>
+
+  <!-- パンくず -->
+  <nav class="breadcrumbs">
+    <a href="/index.html">トップ</a> &gt;
+    <a href="/basics/index.html">基礎知識</a> &gt;
+    <span>第1章 2節：消防法で規定する危険物</span>
+  </nav>
+
+  <main class="site-main">
+    <!-- 1. 消防法で規定する危険物のポイント -->
+    <section class="intro">
+      <h2>消防法で規定する危険物のポイント</h2>
+      <p>消防法で規定する「危険物」とは火災や爆発の危険性がある物質のうち、法別表第1の品名欄に掲げる物質で同表に定める区分に応じその性質欄に掲げる性状を有するものを言います。また、法別表第1では、危険物を第1類から第6類に分類しています。</p>
+      <p>危険物はすべて固体もしくは液体です。気体は含まないことに注意してください。例えば、メタンガス、アセチレン、プロパンガス、液化石油ガス、液体酸素ガス、液体水素ガスなどは常温常圧（20°C、1気圧）では気体であるため、消防法で定める危険物に該当しません。</p>
+    </section>
+
+    <!-- 2. 法別表第1：危険物の分類） -->
+      <h2>法別表第1：危険物の分類</h2>
+      <section class="table-section law-defined">
+      <div id="law-table1"></div>
+      <script type="module">
+       import { renderTable } from '../../../includes/table-renderer.js';
+       await renderTable('#law-table1', '../../../data/tables/Otsux_Law_Defined_Substances_001.json');
+
+       const tbl = document.querySelector('#law-table1 table');
+       if (tbl) {
+         tbl.classList.add('law-defined-table');   // スタイル用クラス
+         const cg = document.createElement('colgroup');
+         cg.innerHTML = `
+          <col class="col-kind">
+          <col class="col-nature">
+          <col class="col-name">
+          <col class="col-feature">
+         `;
+         tbl.prepend(cg);
+       }
+       </script>
+
+
+      <p>※第2類の鉄粉や金属粉などは、規定の目開きの網ふるいを通過しないものの割合や形状（棒状・塊状）、サイズによって、危険物に該当しないものがあります。</P>
+      <p>※第2類の引火性固体とは、固形アルコールその他1気圧において引火点が40°C未満のものを言います。</p>
+      <p>法別表第1の性質欄に掲げる性状の2以上を有する物品の品名は、総務省令で定めます。</P>
+      <p>＜補足コラム＞<br>酸化性の物質は、相手物質に酸素を提供して酸化させる働きがあります。<br>禁水性物質とは、水と接触して発火し、あるいは可燃性ガスを発生するものです。</p>
+    </section>
+
+    <!-- 3. 消防法での固体・気体・液体の定義 -->
+    <section class="table-section">
+      <h2>消防法での固体・気体・液体の定義</h2>
+      <table>
+        <thead>
+          <tr><th>状態</th><th>定義</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>固体</td><td>液体・気体以外のもの</td></tr>
+          <tr><td>液体</td><td>20°C・1気圧で液状のもの / 20°Cを超え40°C以下の間で液状となるもの</td></tr>
+          <tr><td>気体</td><td>20°C・1気圧で気体状のもの</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 4. 政令で定める類ごとの試験 -->
+    <section class="law-section">
+      <h2>政令で定める類ごとの試験<br>（法別表第1 備考、政令第1条の3～第1条の8）</h2>
+      <p>危険物に該当するかどうかは、それぞれの類に応じて、該当する危険性があるかどうかを試験によって判定します。</p>
+      <ul class="law-list">
+        <li>第2類 ➡︎ 火災や引火のおそれを確認するための試験</li>
+        <li>第4類 ➡︎ 引火の可能性を確認するための試験</li>
+      </ul>
+    </section>
+
+    <!-- 5. 指定可燃物 -->
+    <section class="law-section">
+      <h2>指定可燃物<br>（政令第1条の12、別表第4）</h2>
+      <p>指定可燃物とは、火災時に炎が急速に燃え広がり、消火が非常に難しくなるような物品のうち、政令（危険物の規制に関する政令）別表第4で品名と数量が定められているものを指します。なお、燃えにくいものや燃えないものは、たとえ品名が該当していても対象外となります。</p>
+      <ul class="law-list">
+        <li>綿花類 ➡︎ 200kg</li>
+        <li>わら類、ぼろ、紙くず ➡︎ 1,000kg</li>
+        <li>合成樹脂類の天然ゴム・合成ゴム類 ➡︎ 3,000kg</li>
+        <li>合成樹脂類の発泡スチロール・断熱材等 ➡︎ 20m<sup>3</sup></li>
+      </ul>
+    </section>
+
+    <!-- 6. インタラクティブクイズ -->
+    <section class="quiz-section">
+      <h2>クイズ</h2>
+
+      <div class="quiz"
+           data-feedback-correct="正解です！マグネシウムは第2類であり、第3類には該当しません。"
+           data-feedback-incorrect="不正解です。第3類に含まれる物質をもう一度確認してみましょう。">
+
+      <p>次のうち、法別表第1の第3類に該当しないものはどれか？</p>
+      <div class="quiz-options">
+          <button data-correct="true">マグネシウム</button>
+          <button data-correct="false">黄りん</button>
+          <button data-correct="false">ナトリウム</button>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+      </div>
+    </section>
+
+    <!-- 7. 複数性状物品の属する品名 -->
+    <section class="law-02-classification-rules">
+      <h2>複数の性状をもつ物品の分類</h2>
+    <p>法別表第1において、2つ以上の性質（性状）をもつ物品（複数性状物品）は、どの品名に分類されるかが定められています。分類は以下のように、性質の組み合わせに応じて対応する項目・号の品名が適用されます。</p>
+    <ul class="law-list">
+       <li>第1類（酸化性固体）＋ 第2類（可燃性固体） → 第2類 項第8号</li>
+       <li>第1類（酸化性固体）＋ 第5類（自己反応性物質） → 第5類 項第11号</li>
+       <li>第2類（可燃性固体）＋ 第3類（自然発火性・禁水性） → 第3類 項第12号</li>
+       <li>第3類（自然発火性・禁水性）＋ 第4類（引火性液体） → 第3類 項第12号</li>
+       <li>第4類（引火性液体）＋ 第5類（自己反応性物質） → 第5類 項第11号</li>
+    </ul>
+
+      <p>次は<strong>第4類危険物</strong>に進みます。</p>
+    </section>
+
+    <!-- 次の基礎知識に進むのボタン -->
+    <section class="next-button">
+      <a href="class4_substances/Otsux_Law_Class4_Substances_001.html" class="button">第4類危険物</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/quiz.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "caption": "定義は法別表第1の備考11~17を抜粋",
+  "headers": [
+    "品名",
+    "区分",
+    "代表的な危険物の物品名",
+    "定義"
+  ],
+  "rows": [
+    {
+      "cells": [
+        {"text": "特殊引火物"},
+        {"text":" "},
+        {"text": "・<strong>ジエチルエーテル</strong><br>・<strong>二硫化炭素</strong><br>・アセドアルデヒド<br>・酸化プロピレン"},
+        {"text": "1気圧において発火点が<strong>100°C以下</strong>のもの、または引火点が<strong>-20°C以下</strong>で沸点が<strong>40°C以下</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第1石油類", "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},
+        {"text": "・<strong>ガソリン</strong><br>・ベンゼン<br>・トルエン<br>・酢酸エチル<br>・エチルメチルケトン"},
+        {"text": "1気圧において引火点が<strong>21°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},
+        {"text": "・<strong>アセトン</strong><br>・ピリジン"},
+        {"text": "1気圧において引火点が<strong>21°C未満</strong>のもの"}
+      ]
+    },    
+    {
+      "cells": [
+        {"text": "アルコール類"},
+        {"text":" "},        
+        {"text": "・メチルアルコール（メタノール）<br>・エチルアルコール（エタノール）"},
+        {"text": "1分子を構成する炭素の原子の数が<strong>1個から3個</strong>までの<strong>飽和1価アルコール</strong>の含有量が<strong>60%未満</strong>の水溶性は除く"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第2石油類",  "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},
+        {"text": "・<strong>灯油</strong><br>・<strong>軽油</strong><br>・キシレン<br>・スチレン<br>・クロロベンゼン"},
+        {"text": "気圧において引火点が<strong>21°C以上70°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},        
+        {"text": "・酢酸<br>・クレオソート油<br>・アニリン<br>・ニトロベンゼン"},
+        {"text": "気圧において引火点が<strong>21°C以上70°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第3石油類",  "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},        
+        {"text": "・<strong>重油</strong><br>・<strong>クレオソート油</strong><br>・<strong>アニソン</strong><br>・ニトロベンゼン"},
+        {"text": "1気圧において引火点が<strong>70°C以上200°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},        
+        {"text": "・グリセリン<br>・二チレングリコール"},
+        {"text": "1気圧において引火点が<strong>70°C以上200°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第4石油類"},
+        {"text":" "},         
+        {"text": "・<strong>ギヤー油</strong><br>・<strong>シリンダー油</strong><br>・タービン油<br>・モーター油<br>・マシン油<br>・可塑剤"},
+        {"text": "潤滑油・可塑剤などで、1気圧において20°Cで液状であり、引火点が<strong>200°C以上250°C未満</strong>のもの"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "動植物油"},
+        {"text":" "}, 
+        {"text": "・ナタネ油<br>・ヤシ油<br>・オリーブ油<br>・ニシン油<br>・アマ二油"},
+        {"text": "動物の脂肉または植物の種子などから抽出した油で、1気圧において引火点が<strong>250°C未満</strong>のもの"}
+      ]
+    }
+  ]
+}
+
+
+

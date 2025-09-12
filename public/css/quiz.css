@@ -1,0 +1,75 @@
+/* quiz.css */
+/* 選択肢は縦に並べる */
+.quiz .quiz-options {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 400px;
+}
+
+/*.quiz .quiz-options button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #1a355a;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+
+/* 各ボタンの見た目調整 */
+.quiz .quiz-options button {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1a355a;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ホバー時 */
+.quiz .quiz-options button:hover {
+  background-color: #1a355a;
+  color: #fff;
+}
+
+.quiz .quiz-options button.correct {
+  background-color: #50e3c2;
+  border-color: #50e3c2;
+  color: #fff;
+}
+
+.quiz .quiz-options button.incorrect {
+  background-color: #f5a623;
+  border-color: #f5a623;
+  color: #fff;
+}
+
+/* フィードバック */
+.quiz-feedback {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  max-width: 500px;
+  background-color: #f8f8f8;
+}
+
+/* 正解・不正解の色 */
+.quiz-feedback.correct {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #3c763d;
+}
+
+.quiz-feedback.incorrect {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #a94442;
+}
+
+
+

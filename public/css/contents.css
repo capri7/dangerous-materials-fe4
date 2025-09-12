@@ -1,0 +1,422 @@
+/* contents.css */
+
+/* 進捗バー */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.progress span {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.progress-bar {
+  flex: 1;
+  background: #e0e0e0;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar .fill {
+  background: var(--brand-color);
+  width: 0%;
+  height: 100%;
+  transition: width .3s ease;
+}
+
+/* 次へボタン：常に表示 */
+.btn-next {
+  display: inline-block !important;
+  margin: 32px auto 0;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-radius: 6px;
+  font-weight: 600;
+  text-align: center;
+  width: fit-content;
+}
+
+
+/* 選択肢カードの余白調整 */
+.choice {
+  margin-bottom: 16px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+/* フッター上の余白 */
+footer.site-footer {
+  padding-top: 48px;
+}
+
+/* ボディ全体 */
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+/* 選択肢リスト */
+#choices {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* 各選択肢 */
+.choice-item {
+  cursor: pointer;
+  padding: 10px 14px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s;
+}
+.choice-item:hover {
+  background-color: #e9e9e9;
+}
+.choice-item.selected {
+  background-color: #d0e7ff;
+  border-color: #007bff;
+}
+
+/* 汎用ボタン */
+.button {
+  margin-top: 16px;
+  cursor: pointer;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* 非表示切り替え */
+.hidden {
+  display: none;
+}
+
+/* anchor your-answer as positioning context */
+.your-answer {
+  position: relative;
+  display: inline-block;       /* ブロック要素として幅いっぱいに */
+  margin: 16px 0;       /* 上下に余白 */
+  font-weight: bold;    /* 太字に */
+}
+
+
+/* フィードバック */
+#feedback {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+/* ヒント／解説 */
+#hint,
+#explanation {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* タイトルと問題文の整形 */
+#title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  word-break: keep-all;
+}
+
+#question {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* 👇 ここに追加すると自然です */
+.site-main {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: flex-start;
+}
+
+/* タイトルと問題文を中央寄せに整える */
+#title,
+#question {
+  max-width: 100%;
+  width: auto;
+  display: block;
+}
+
+
+/* choices-table 用 */
+.choices-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.choices-table th,
+.choices-table td {
+  border: 1px solid #ccc;
+  padding: 0.75em;
+  text-align: left;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: normal; 
+  overflow-wrap: anywhere;
+}
+
+.choices-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.choices-table th:first-child,
+.choices-table td:first-child {
+  width: 3ch;
+  max-width: 3ch;
+  text-align: center;
+}
+
+.choices-table tr:hover {
+  background-color: #e9e9e9;
+}
+
+
+/* 選択時の共通スタイル（表でもリストでも同じ色に統一） */
+tr.selected,
+li.selected {
+  background-color: #d0e7ff;
+  font-weight: bold;
+}
+
+/* ────────────────────────────────
+   演習ページ専用：中央寄せ＆幅制限／表・ボタン調整
+──────────────────────────────── */
+
+/* 1) 本文全体（site-main）を最大幅760pxにし、画面中央に配置 */
+main.site-main {
+  /* 上下のマージンは既存の var(--header-height) で確保 */
+  margin: var(--header-height) auto 0;
+  max-width: 760px;
+  /* 既存の padding を残したい場合は再宣言 */
+  padding: 0 20px 48px;
+}
+
+/* 2) choices-table（表）が親幅いっぱいに収まるように調整 */
+main.site-main .choices-table {
+  width: 100%;              /* .site-main の幅にリンク */
+  max-width: 100%;          /* テーブル自体は制限せず */
+  margin: 16px auto;        /* 前後に余白を入れて中央寄せ */
+}
+
+/* 3) ナビボタン群を左右に振って、親幅いっぱいに広げる */
+main.site-main .nav-buttons {
+  display: flex;                
+  justify-content: space-between; /* 左に「次へ」、右に「分野を変える」 */
+  gap: 16px;                      
+  margin: 32px auto 0;            /* 上マージン32px、左右は auto で中央寄せ */
+  width: 100%;                    /* site-mainいっぱいに広げる */
+}
+
+/* 必要なら .btn-next だけ余裕をもたせる */
+main.site-main .btn-next {
+  margin: 0;      /* .nav-buttons の gap だけでOK */
+}
+
+/* ────────────────────────────────
+   下段ナビゲーション（次へ／分野変更）だけをリンク風に
+──────────────────────────────── */
+
+/* 1) ボタンの背景色・影・余白をリセットして透過リンク風に */
+main.site-main .nav-buttons button#btn-next,
+main.site-main .nav-buttons button#btn-change {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* テキストだけにしておく */
+  text-decoration: underline;
+  color: var(--accent-primary) !important;
+  font-weight: normal !important;
+  cursor: pointer;
+}
+
+/* 2) ホバー時に色を変えてクリック感を出す */
+main.site-main .nav-buttons button#btn-next:hover,
+main.site-main .nav-buttons button#btn-change:hover {
+  color: var(--accent-primary-dark) !important;
+}
+
+/* 3) 元の .button, .btn-next の幅指定を打ち消し */
+main.site-main .nav-buttons button {
+  width: auto !important;
+  min-width: auto !important;
+}
+
+/* 選択肢の table 全体を tap 無効化 */
+.site-main table.disabled tr {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+/* 背景・余白を消して、文字色だけで見せるスタイル例 */
+.toast {
+  background: transparent;   /* 背景を透過 */
+  padding: 0;                /* パディングも不要 */
+  margin: 0;          /* トースト間の余白はマージンで */
+  border-radius: 0;          /* 角丸も無し */
+  box-shadow: none;          /* 影も無し */
+  color: inherit;            /* 親要素（レイアウト）に合わせるなら inherit、 */
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 回答エリア内にトーストを相対配置するラッパー */
+.answer-wrapper {
+  position: relative;
+  display: inline-block;      /* 横幅を your-answer に合わせる */
+  vertical-align: middle;     /* テキスト行内で縦揃え */
+}
+
+.question-body { white-space: pre-line; }
+
+/* PCのみ：回答行の右側にインライン表示 */
+@media (min-width: 769px) {
+  .answer-wrapper #toast-container {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    margin-left: .75rem;
+    z-index: 1000;
+    pointer-events: none;
+  }
+
+  .answer-wrapper #toast-container .toast {
+    pointer-events: auto;
+    background: rgba(33,33,33,.95);
+    color: #fff;
+    border-radius: 10px;
+    padding: 8px 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    line-height: 1.4;
+    max-width: 420px;     /* 長文でも1文字縦並びにならない */
+    white-space: normal;  /* 折り返し可 */
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    /* アニメは .toast / .toast.show を継続使用 */
+  }
+}
+
+@media (min-width: 769px) {
+  #toast-container.toast-fallback {
+    position: fixed; top:16px; right:16px; z-index:9999;
+    display:flex; flex-direction:column; gap:.5rem;
+  }
+  #toast-container.toast-fallback .toast {
+    background: rgba(33,33,33,.95); color:#fff; border-radius:10px;
+    padding:8px 10px; box-shadow:0 8px 24px rgba(0,0,0,.25);
+    max-width:480px; white-space:normal; word-break:break-word; overflow-wrap:anywhere;
+  }
+}
+
+/* PCのトーストを必ず横書きに固定 */
+@media (min-width: 769px) {
+  .answer-wrapper #toast-container,
+  .answer-wrapper #toast-container *,
+  #toast-container.toast-fallback,
+  #toast-container.toast-fallback * {
+    writing-mode: horizontal-tb !important;
+    -webkit-writing-mode: horizontal-tb !important; /* 念のため */
+    /* 文字方向の補助（横組みのときの既定） */
+    text-orientation: mixed !important;
+    direction: ltr !important;
+    white-space: normal !important;
+  }
+}
+
+
+
+/* モバイル：画面下中央に固定 */
+@media (max-width: 768px) {
+  #toast-container {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    top: auto;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 100%;
+    max-width: min(92vw, 480px);
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none; /* ← コンテナは操作不可のまま */
+    background: transparent; /* 念のため透明 */
+  }
+
+  /* ← こちらだけに見た目・操作を付与 */
+  #toast-container .toast {
+    pointer-events: auto;
+    white-space: normal;
+    word-break: break-word;
+    background: rgba(33,33,33,.95);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  }
+}
+
+
+/* 共通：左に細い色バー */
+#toast-container .toast::before {
+  content: "";
+  display: inline-block;
+  width: .4rem;
+  height: 1.2em;
+  border-radius: 2px;
+  margin-right: .5rem;
+}
+#toast-container .toast.success::before { background-color: #28a745; }
+#toast-container .toast.error::before   { background-color: #dc3545; }
+#toast-container .toast.info::before    { background-color: #17a2b8; }
+
+
+
+/* Toast を常に横書きに固定（継承の縦書きを打ち消す） */
+#toast-container,
+#toast-container * {
+  writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  white-space: normal !important;
+  direction: ltr !important;
+}
+
+/* マーカーと文字を横並びで中央揃えに（見た目安定化） */
+#toast-container .toast {
+  display: inline-flex;
+  align-items: center;
+}

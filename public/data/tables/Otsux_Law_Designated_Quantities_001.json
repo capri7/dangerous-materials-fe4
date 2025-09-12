@@ -1,0 +1,91 @@
+{
+  "caption": "第4類危険物の貯蔵・取扱いにおける数量基準",
+  "headers": [
+    "品名",
+    "区分",
+    "指定数量",
+    "代表的な物品名"
+  ],
+  "rows": [
+    {
+      "cells": [
+        {"text": "特殊引火物"},
+        {"text":" "},
+        {"text": "50L"},
+        {"text": "・<strong>ジエチルエーテル</strong><br>・<strong>二流化炭素</strong><br>・<strong>アセトアルデヒド</strong><br>・<strong>酸化プロピレン</strong>"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第1石油類",  "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},
+        {"text": "200L", "className": "gray"},
+        {"text": "・<strong>ガソリン</strong><br>・<strong>ベンゼン</strong><br>・<strong>トルエン</strong><br>・<strong>酢酸エチル</strong><br>・エチルメチルケトン"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},
+        {"text": "400L"},
+        {"text": "・<strong>アセトン</strong><br>・ピリジン<br>"}
+      ]
+    },    
+    {
+      "cells": [
+        {"text": "アルコール類"},
+        {"text":" "},        
+        {"text": "400L"},
+        {"text": "・<strong>メタノール</strong>（メチルアルコール）<br>・<strong>エタノール</strong>（エチルアルコール）"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第2石油類",  "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},
+        {"text": "1,000L", "className": "gray"},
+        {"text": "・<strong>灯油</strong><br>・<strong>軽油</strong><br>・<strong>キシレン</strong><br>・スチレン<br>・<strong>1-ブタノール</strong><br>・クロロベンゼン"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},        
+        {"text": "2,000L"},
+        {"text": "・<strong>酢酸</strong><br>・<strong>アクリル酸</strong><br>・プロピオン酸"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第3石油類",  "rowSpan": 2},
+        {"text":"非水溶性", "className": "gray"},        
+        {"text": "2,000L", "className": "gray"},
+        {"text": "・<strong>重油</strong><br>・<strong>クレオソート油</strong><br>・アニソン<br>・ニトロベンゼン"}
+      ]
+    },
+    {
+      "cells": [
+        {"text":"水溶性"},        
+        {"text": "4,000L"},
+        {"text": "・<strong>グリセリン</strong><br>・二チレングリコール"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "第4石油類"},
+        {"text":" "},         
+        {"text": "6,000L"},
+        {"text": "・ギヤー油<br>・<strong>シリンダー油</strong><br>・タービン油<br>・モーター油<br>・マシン油<br>・フタル酸ジオクチル<br>・リン酸トリクレジル"}
+      ]
+    },
+    {
+      "cells": [
+        {"text": "動植物油類"},
+        {"text":" "}, 
+        {"text": "10,000L"},
+        {"text": "・アマニ油<br>・イワシ油<br>・ナタネ油<br>・ヤシ油<br>・オリーブ油<br>・ニシン油"}
+      ]
+    }
+  ]
+}
+
+
+

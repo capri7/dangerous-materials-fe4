@@ -1,0 +1,170 @@
+  /* complete.css */
+  .hero { 
+    margin: var(--header-height, 64px) auto 0; 
+    max-width: 760px; padding: 0 20px 48px; 
+   }
+  .card { 
+    background:#fff; 
+    border:1px solid #e5e7eb; 
+    border-radius:12px; 
+    padding:24px;
+    box-shadow:0 8px 24px rgba(0,0,0,.04); 
+  }
+  .title { 
+    font-size:1.5rem; 
+    font-weight:800; 
+    line-height:1.4;
+    margin:0 0 .5rem;
+  }
+  .lead {
+    font-size:1rem; 
+    color:#374151; 
+    margin:0 0 1rem; 
+  }
+  .badges { 
+    display:flex; 
+    gap:8px; 
+    flex-wrap:wrap; 
+    margin:.25rem 0 1rem;
+  }
+  .badge { 
+    font-size:.875rem; 
+    background:#eef2ff; 
+    color:#3730a3; 
+    padding:.25rem .5rem; 
+    border-radius:999px; 
+  }
+
+.list {
+  list-style: none;
+  margin:.5rem 0 1rem;
+  padding-left: 0;
+  text-align: center;
+}
+
+  .cta-row { 
+    display:flex; 
+    gap:12px; 
+    flex-wrap:wrap; 
+    margin-top:12px; 
+  }
+  .btn-primary { 
+    background: var(--accent-primary, #2563eb); 
+    color:#fff; border:none; border-radius:8px; 
+    padding:.75rem 1.25rem; cursor:pointer; 
+    font-weight:700; 
+  }
+  .btn-ghost { 
+    background:transparent; 
+    color: var(--accent-primary, #2563eb); 
+    border:1px solid currentColor; 
+    border-radius:8px; 
+    padding:.65rem 1rem; 
+    cursor:pointer; font-weight:600; 
+  }
+
+  .muted { 
+    color:#6b7280; 
+    font-size:.9rem; 
+  }
+
+  /* 出し分け用：data-sub="on"=会員、"off"=未加入 */
+  [data-sub="on"]  .block-upsell { display:none; }
+  [data-sub="off"] .block-continue { display:none; }
+  
+  .title .eyebrow {
+  display:block;
+  font-size:1rem;
+  font-weight:800;
+  color:#111827;
+  margin-bottom:.25rem;
+  letter-spacing:.02em;
+}
+  .title .title-main {
+  display:block;
+  font-size:1.5rem;
+  font-weight:800;
+  line-height:1.35;
+}
+@media (min-width: 768px){
+  .title .title-main { font-size:1.75rem; }
+}
+
+.price{
+  margin:.5rem 0 0;
+  font-size:.95rem;
+  color:#374151;
+}
+.price strong{ font-weight:800; }
+.price .tax{ margin-left:.25rem; color:#6b7280; }
+
+/* 既存 .cta-row を少しだけ調整 */
+.cta-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn-primary, .btn-ghost{
+  align-items:center;
+  justify-content:center;
+}
+
+/* ゴーストを“同格だけど軽め”に */
+.btn-ghost{
+  border:1px solid currentColor;
+  color: var(--accent-primary, #2563eb);
+  background:transparent;
+  padding:.7rem 1rem;
+}
+
+/* ===== モバイルでの左右のズレ対策：コンテナを厳密に中央へ ===== */
+.site-main.hero {
+  width: min(760px, 100%);              /* 画面幅を超えないコンテナ幅 */
+  margin: var(--header-height, 64px) auto 0;
+  padding-inline: 16px;                 /* 左右を必ず同じ値に */
+  box-sizing: border-box;               /* パディングを幅に含める */
+}
+
+/* 480px以上は少し広めに（任意・好み） */
+@media (min-width: 480px){
+  .site-main.hero { padding-inline: 20px; }
+}
+
+/* 横スクロールの発生源を潰す（はみ出し保険） */
+html, body { overflow-x: hidden; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+
+
+/* ===== CTA を統一：PCは中央で横並び / モバイルは縦積み ===== */
+
+/* PC（横並び・中央） */
+@media (min-width: 601px){
+  .cta-row{
+    justify-content:center !important;   /* ← 中央に寄せる */
+    align-items:center;
+  }
+  .cta-row .btn-primary,
+  .cta-row .btn-ghost{
+    display:inline-flex;        /* PCはinline-flexでOK */
+  }
+}
+
+
+/* モバイル（<=600px）：縦積み・中央寄せ・ほどよい幅 */
+@media (max-width: 600px){
+  .cta-row{
+    display: block;                 /* flexの影響を断つ */
+  }
+  .cta-row > a{
+    display: block;
+    width: clamp(240px, 88%, 320px);/* 全幅ではなく程よい幅に */
+    margin: 0 auto 16px;            /* 中央寄せ＋ボタン間の余白 */
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .cta-row > a:last-child{
+    margin-bottom: 0;
+  }
+}
+

@@ -1,0 +1,36 @@
+{
+  "id": "Otsux_Phy_Combustion_Chemistry_012",
+  "category": "physical_chemistry",
+  "subcategory": "combustion_chemistry",
+  "title": "【問12】基礎的な物理・化学 : 燃焼の化学",
+  "question": "次のうち、炎色反応の組み合わせとして誤っているものはどれか。",
+  "fields":  ["description"],
+  "headers": [""],
+  "choices": [
+    { "name": "1", "description": "リチウム・・・・・・・・・・赤色"},
+    { "name": "2", "description": "ナトリウム・・・・・・・・・青紫色"},
+    { "name": "3", "description": "カリウム・・・・・・・・・・赤紫色" },
+    { "name": "4", "description": "バリウム・・・・・・・・・・黄緑色"},
+    { "name": "5", "description": "銅・・・・・・・・・・・・・青緑色"}
+  ],
+
+  "answer": 2,
+  "hint": "ヒント：炎色反応では、金属イオンが加熱されて放出する光の色が異なります。各金属の典型的な色をイメージしながら、誤った組み合わせを探してみましょう。",
+  "explanations": [
+    "選択肢1は正しいです。リチウムは<span style=\"color:#FF0000;\">赤色・深赤色</span>の炎色を示します。<br>",
+    "選択肟2は誤りです。ナトリウムは<span style=\"color:#FFD700;\">黄色</span>の炎色を示します。<br>",
+    "選択肟3は正しいです。カリウムは<span style=\"color:#800080;\">赤紫色</span>（または淡い紫色）の炎色を示します。<br>",
+    "選択肟4は正しいです。バリウムは<span style=\"color:#ADFF2F;\">黄緑色</span>の炎色を示します。<br>",
+    "選択肟5は正しいです。銅は<span style=\"color:#00CED1;\">青緑色</span>の炎色を示します。<br>"
+  ],
+
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼の化学", "燃焼の三要素", "炎色反応"],
+    "version": "2025.7.21"
+  }
+}

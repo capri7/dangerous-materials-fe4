@@ -1,0 +1,37 @@
+{
+  "id": "Otsux_Phy_Combustion_Chemistry_010",
+  "category": "physical_chemistry",
+  "subcategory": "combustion_chemistry",
+  "title": "【問10】基礎的な物理・化学：燃焼の化学",
+  "question": "燃焼の三要素の可燃物に該当しないものは、次のうちどれか。",
+
+  "fields": ["class"],
+  "headers": [""],
+  "choices": [
+  { "name": "1", "class": "硫黄"},
+  { "name": "2", "class": "炭素"},
+  { "name": "3", "class": "ナトリウム"},
+  { "name": "4", "class": "ヘリウム"},
+  { "name": "5", "class": "マグネシウム"}
+  ],
+  "answer": 4,
+  "hint": "ヒント：イオン化しにくく、ほとんど化合物を作らない<strong>希ガス</strong>（不活性ガス）に注目し、その中から選んでみましょう。",
+  "explanations": [
+    "選択肢1（硫黄）は誤りです。硫黄は可燃物に該当します。<br>",
+    "選択肢2（炭素）は誤りです。炭素は可燃物に該当します。<br>",
+    "選択肢3（ナトリウム）は誤りです。ナトリウムは可燃物に該当します。<br>",
+    "選択肢4（ヘリウム）は正しいです。ヘリウムは不活性ガスで、可燃物にも酸素供給源にも該当しません。<br>",
+    "選択肢5（マグネシウム）は誤りです。マグネシウムは可燃物に該当します。<br>"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼の化学", "燃焼の三要素", "不活性ガス"],
+    "version": "2025.7.21"
+  }
+}
+
+
+

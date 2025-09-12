@@ -1,0 +1,115 @@
+/* basics_law.css */
+
+/* 政令による試験セクション */
+.law-test-section {
+  margin-block: 2em;
+  padding: 1em;
+  border-left: 4px solid #666;
+  background-color: #fdfdfd;
+}
+
+/* 法律テーブルの共通ルール */
+.law-table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.law-table-section th,
+.law-table-section td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.law-section {
+  margin-block: 2em;
+}
+
+.law-list {
+  background-color: #fcfcfc;
+  border-left: 4px solid #888;
+  padding: 1em 1em 1em 1.5em; /* 左に余裕をもたせる */
+  margin-block: 2em;
+  list-style-type: disc;
+  list-style-position: inside; /* 黒丸を内側に配置して縦棒と距離を取る */
+}
+.law-list li {
+  margin-bottom: 0.5em;
+}
+
+/* テーブルの奇数行ストライプを完全に消す*/
+.table-section table.no-stripe tbody tr:nth-child(odd),
+.table-section table.no-stripe tbody tr:nth-child(odd) td {
+ background-color: transparent !important;
+}
+
+.table-section table.no-stripe tbody tr:nth-child(even),
+.table-section table.no-stripe tbody tr:nth-child(even) td {
+  background-color: transparent !important;
+}
+
+/* ２．その上で .gray セルだけグレーに（odd/even 両方指定） */
+.table-section table.no-stripe tbody tr:nth-child(odd) td.gray,
+.table-section table.no-stripe tbody tr:nth-child(even) td.gray {
+  background-color: #f2f2f2 !important;
+}
+
+/* table 全体を固定レイアウトに */
+.table-section table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* １列目（区分）の幅を150pxに調整 */
+.table-section table th:first-child,
+.table-section table td:first-child {
+  width: 150px;  /* お好みで調整してください */
+  word-wrap: break-word; /* 長い文言がはみ出さないようにする */
+}
+
+/* 一覧全体 */
+.law-index {
+  margin: 24px 0;
+}
+
+/* デフォルトの左インデントを消す＆余白を整える */
+.law-index ul {
+  list-style: none;
+  padding-left: 0;   /* ← これが効きます */
+  margin: 0;
+}
+
+/* 行間 */
+.law-index li + li {
+  margin-top: 12px;
+}
+
+/* カード化：行全体をクリック可能に */
+.law-index a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;        /* ← はみ出し防止（padding/borderを幅に含める） */
+  text-decoration: none;
+  padding: 14px 16px;
+  background: #e9f2ff;
+  border: 1px solid #d7e6ff;
+  border-radius: 12px;
+  color: #123;                   /* 読みやすい濃紺 */
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+  transition: background .15s, box-shadow .15s, transform .02s;
+}
+
+.law-index a:hover,
+.law-index a:focus {
+  background: #dceaff;
+  box-shadow: 0 3px 10px rgba(0,0,0,.06);
+  outline: none;
+}
+
+.law-index a:active {
+  transform: translateY(1px);
+}
+
+
+

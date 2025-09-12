@@ -1,0 +1,131 @@
+/* /css/Otsux_Law_Designated_Quantities.css */
+/* /css/Otsux_Law_Designated_Quantities.css */
+
+/* 第1章4節：指定数量 用 */
+#law-table1 table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#law-table1 th,
+#law-table1 td {
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+/* モバイル～タブレットで列比率を固定 */
+@media (max-width: 900px) {
+  #law-table1 table { table-layout: fixed; }
+
+  #law-table1 th,
+  #law-table1 td {
+    padding: 8px 10px;
+    overflow-wrap: break-word; /* anywhere をやめる */
+    word-break: normal;        /* 1文字単位の分割をやめる */
+    line-break: strict;
+  }
+
+  /* 列幅配分（合計100%） */
+  /* 1:品名 */
+  #law-table1 thead th:nth-child(1),
+  #law-table1 tbody td:nth-child(1) { width: 22%; }
+
+  /* 2:区分 */
+  #law-table1 thead th:nth-child(2),
+  #law-table1 tbody td:nth-child(2) { width: 16%; }
+
+  /* 3:指定数量（中央寄せ＋折返しなし） */
+  #law-table1 thead th:nth-child(3),
+  #law-table1 tbody td:nth-child(3) { width: 14%; text-align: center; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* 4:代表的な物品名（行の最終セルを対象にする） */
+  #law-table1 thead th:nth-child(4) { width: 48%; } /* ヘッダはそのまま */
+
+  /* === ここが肝 === 最終列＝代表列は常に左寄せ（rowspan/インライン center 対策） */
+  #law-table1 tbody tr > td:last-child,
+  #law-table1 tbody tr > td:last-child * {
+    text-align: left !important;
+  }
+  #law-table1 tbody tr > td:last-child[align],
+  #law-table1 tbody tr > td:last-child[style*="text-align"],
+  #law-table1 tbody tr > td:last-child center {
+    text-align: left !important;
+  }
+
+  /* 箇条書きの体裁（代表列） */
+  #law-table1 tbody tr > td:last-child ul {
+    margin: 0;
+    padding-left: 1.2em;
+    list-style-position: outside;
+  }
+  #law-table1 tbody tr > td:last-child li {
+    margin: 0 0 .25em;
+    line-height: 1.6;
+  }
+}
+
+/* 小型スマホで微調整 */
+@media (max-width: 420px) {
+  #law-table1 thead th:nth-child(1),
+  #law-table1 tbody td:nth-child(1) { width: 24%; }
+
+  #law-table1 thead th:nth-child(2),
+  #law-table1 tbody td:nth-child(2) { width: 15%; }
+
+  #law-table1 thead th:nth-child(3),
+  #law-table1 tbody td:nth-child(3) { width: 13%; }
+
+  #law-table1 thead th:nth-child(4) { width: 48%; }
+}
+
+/* ページ内の「指定数量の倍数」テーブル */
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+@media (max-width: 900px) {
+  .table-section thead th { padding: 8px 10px; }
+  .table-section tbody td { padding: 8px 10px; }
+  .table-section thead th:nth-child(1),
+  .table-section tbody td:nth-child(1) { width: 50%; }
+  .table-section thead th:nth-child(2),
+  .table-section tbody td:nth-child(2) { width: 50%; }
+}
+
+/* 指定数量の倍数テーブル（式の見た目） */
+.multiplier-table { table-layout: fixed; width: 100%; }
+.multiplier-table th, .multiplier-table td { vertical-align: middle; }
+
+.formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* PC〜タブレットは中央で美しく */
+  gap: .5em;
+  flex-wrap: wrap;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+}
+.formula .label { white-space: nowrap; font-weight: 600; }
+.formula .op { margin: 0 .2em; font-weight: 600; }
+
+.formula .frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.15;
+}
+.formula .frac .top,
+.formula .frac .bottom { display: block; }
+.formula .frac .bar {
+  width: 100%;
+  height: 0;                 /* 高さはゼロ、線だけ見せる */
+  border-top: 1px solid currentColor;
+  margin: .2em 0 .25em;
+}
+
+/* 狭い端末では左寄せ（折返し時の読みやすさ重視） */
+@media (max-width: 600px) {
+  .multiplier-table td { text-align: left; }
+  .formula { justify-content: flex-start; }
+}
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎知識 | 第1章 1節 ：消防法の法体系</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/basics_law.css">
+  <link rel="stylesheet" href="/css/quiz.css">
+  <base href="/basics/law/">
+</head>
+<body class="basics">
+  <header class="site-header basics-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.png" alt="ロゴ" class="logo"></a>
+      <h1 class="site-title">基礎知識 | 第1章 1節 ：消防法の法体系</h1>
+      <button class="hamburger" aria-label="メニュー開閉"><span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/" class="active">基礎知識</a>
+      <a href="/contents/">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>      
+    </nav>
+  </header>
+
+  <!-- パンくず -->
+  <nav class="breadcrumbs">
+    <a href="/index.html">トップ</a> &gt;
+    <a href="/basics/index.html">基礎知識</a> &gt;
+    <span>第1章 1節 ：消防法の法体系</span>
+  </nav>
+
+  <main class="site-main">
+    <!-- 1. 消防法の法体系①のポイント -->
+    <section class="intro">
+      <h2>消防法の法体系</h2>
+      <p>法律は国会で制定されるものです。一方、政令は内閣が制定するもので、その法律を実施するための細かい規制や法律の委任に基づく規定をまとめたものです。省令は法律及び政令のさらに細かい規則や委任事項をまとめたもので各省の大臣が制定します。</p>
+    </section>
+
+    <!-- 2. 図解（ピラミッド） -->
+      <h2>法律・政令・省令のピラミッド</h2>
+      <section class="diagram">
+          <svg
+            class="pyramid-diagram"
+            viewBox="0 0 200 180"
+            width="200"
+            height="180"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- 第１層：法律 -->
+            <rect x="50" y="0" width="100" height="40" fill="#4a90e2" />
+            <text
+              x="100"
+              y="25"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="14"
+              font-weight="bold"
+            >
+              法律（国会）
+            </text>
+
+            <!-- 第２層：政令 -->
+            <rect x="35" y="45" width="130" height="40" fill="#50e3c2" />
+            <text
+              x="100"
+              y="70"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="14"
+              font-weight="bold"
+            >
+              政令（内閣）
+            </text>
+
+            <!-- 第３層：省令 -->
+            <rect x="20" y="90" width="160" height="40" fill="#f5a623" />
+            <text
+              x="100"
+              y="115"
+              text-anchor="middle"
+              fill="#fff"
+              font-size="14"
+              font-weight="bold"
+            >
+              省令（各省大臣）
+            </text>
+
+            <!-- ピラミッド底辺の矢印 -->
+            <polygon
+              points="20,130 100,178 180,130"
+              fill="#ddd"
+            />
+            <text
+              x="100"
+              y="160"
+              text-anchor="middle"
+              fill="#333"
+              font-size="12"
+            >
+              法令の階層構造
+            </text>
+          </svg>
+        </section>
+
+
+    <!-- 3. 用語解説 -->
+    <section class="content">
+      <h2>用語と仕組み</h2>
+      <ul>
+        <li><strong>法律（消防法）</strong><br>国会で制定。大枠を規定。</li>
+        <li><strong>政令（危険物の規制に関する政令）</strong><br>内閣が制定。法律の実施細則。</li>
+        <li><strong>省令（危険物の規制に関する規則）</strong><br>各省大臣が制定。さらに細かい規定。</li>
+      </ul>
+      <p><strong>補足コラム：</strong></p>
+      <p>例えば、「法令」とだけ言った場合は、「消防法」、「危険物の規制に関する政令」、及び「危険物の規制に関する規則」のすべてを表します。また、「法」、「政令」、「規則」といった場合は、「消防法」、「危険物の規制に関する政令」、「危険物の規制に関する規則」を指します。</p>
+    </section>
+
+    <!-- 4. 具体例テーブル -->
+    <section class="table-section">
+      <h2>法・政令・規則の例</h2>
+      <table>
+        <thead>
+          <tr><th>種別</th><th>条文</th><th>対象</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>法</td><td>第13条の2第3項</td><td>免状の交付</td></tr>
+          <tr><td>政令</td><td>第32条</td><td>免状の交付申請</td></tr>
+          <tr><td>規則</td><td>第50条第2項</td><td>申請書の添付書類</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. インタラクティブクイズ -->
+    <section class="quiz-section">
+      <h2>クイズ</h2>
+
+      <div class="quiz"
+           data-feedback-correct="正解です！分類は政令で定められています。"
+           data-feedback-incorrect="不正解です。もう一度このページの内容を確認してみましょう。">
+
+      <p>次のうち、政令によって分類が定められているものはどれですか？</p>
+      <div class="quiz-options">
+          <button data-correct="false">消防法第10条</button>
+          <button data-correct="true">危険物の規制に関する政令</button>
+          <button data-correct="false">指定数量表</button>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+      </div>
+    </section>
+
+    <!-- 6. 消防法の法体系①のまとめ -->
+    <section class="summary">
+      <h2>消防法の法体系のポイント</h2>
+      <ul>
+        <li>法律＝大枠を規定（国会）</li>
+        <li>政令＝法律を実施（内閣）</li>
+        <li>省令＝さらに詳細を規定（各省）</li>
+      </ul>
+      <p>次は、<strong>消防法で規定する危険物</strong>に進みます。</p>
+    </section>
+
+    <!-- 次に進むのボタン -->
+    <section class="next-button">
+      <a href="defined_substances/Otsux_Law_Defined_Substances_001.html" class="button">消防法で規定する危険物</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="#" class="footer-link">プライバシーポリシー</a> ／
+        <a href="#" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/quiz.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>

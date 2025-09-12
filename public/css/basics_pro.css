@@ -1,0 +1,228 @@
+/* basics_pro.css */
+
+/* 政令による試験セクション */
+.pro-test-section {
+  margin-block: 2em;
+  padding: 1em;
+  border-left: 4px solid #666;
+  background-color: #fdfdfd;
+}
+
+/* 法律テーブルの共通ルール */
+.pro-table-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+.pro-table-section th,
+.phy-table-section td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.pro-section {
+  margin-block: 2em;
+}
+
+.pro-list {
+  background-color: #fcfcfc;
+  border-left: 4px solid #888;
+  padding: 1em 1em 1em 1.5em; /* 左に余裕をもたせる */
+  margin-block: 2em;
+  list-style-type: disc;
+  list-style-position: inside; /* 黒丸を内側に配置して縦棒と距離を取る */
+}
+.pro-list li {
+  margin-bottom: 0.5em;
+}
+
+/* テーブルの奇数行ストライプを完全に消す*/
+.table-section table.no-stripe tbody tr:nth-child(odd),
+.table-section table.no-stripe tbody tr:nth-child(odd) td {
+ background-color: transparent !important;
+}
+
+.table-section table.no-stripe tbody tr:nth-child(even),
+.table-section table.no-stripe tbody tr:nth-child(even) td {
+  background-color: transparent !important;
+}
+
+/* ２．その上で .gray セルだけグレーに（odd/even 両方指定） */
+.table-section table.no-stripe tbody tr:nth-child(odd) td.gray,
+.table-section table.no-stripe tbody tr:nth-child(even) td.gray {
+  background-color: #f2f2f2 !important;
+}
+
+/* table 全体を固定レイアウトに */
+.table-section table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* １列目（区分）の幅を150pxに調整 */
+.table-section table th:first-child,
+.table-section table td:first-child {
+  width: 150px;  /* お好みで調整してください */
+  word-wrap: break-word; /* 長い文言がはみ出さないようにする */
+}
+
+.comparison figure {
+  margin: 0;                  /* デフォルトの余白リセット */
+  text-align: center;         /* キャプションを中央寄せ */
+}
+
+.comparison img {
+  max-width: 100%;            /* レスポンシブに */
+  height: auto;
+}
+
+.comparison {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  /* ↓ bottom-align all figures so captions line up */
+  align-items: flex-end;
+}
+
+/* 代わりに、.table-container 内だけグレーの枠線を適用 */
+.table-container table,
+.table-container th,
+.table-container td {
+  border: 1px solid #cbd5e0; /* Tailwind の border-gray-400 と同じ色 */
+}
+
+/* .table-container 内の th だけを対象に背景色を指定 */
+.table-container th {
+  background-color: #f3f4f6; /* Tailwind の bg-gray-100 相当 */
+}
+
+
+  .table-critical {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-critical th,
+  .table-critical td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .table-critical th {
+    background-color: #f3f4f6; /* 薄いグレー */
+  }
+
+
+.svg-table {
+  text-align: center;
+  margin: 1em 0;
+}
+
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #999;
+  padding: 12px;
+  vertical-align: top;
+  background-color: #fff;
+}
+
+.styled-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;         /* 縦書き（右から左） */
+  text-orientation: upright;         /* 文字を立てて表示 */
+  white-space: nowrap;               /* 折り返さず表示 */
+  text-align: center;                /* 中央寄せ */
+  vertical-align: middle;            /* セル内中央揃え */
+  font-weight: bold;                 /* 任意で強調表示 */
+}
+
+.property-list {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style-type: disc;
+}
+
+.property-list li {
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.chap2 {
+  writing-mode: horizontal-tb;   /* ← 横書きに変更 */
+  text-orientation: mixed;       /* ← 通常の横書き設定 */
+  white-space: normal;           /* ← 折り返しOKに変更 */
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+/* 一覧全体 */
+.law-index {
+  margin: 24px 0;
+}
+
+/* デフォルトの左インデントを消す＆余白を整える */
+.law-index ul {
+  list-style: none;
+  padding-left: 0;   /* ← これが効きます */
+  margin: 0;
+}
+
+/* 行間 */
+.law-index li + li {
+  margin-top: 12px;
+}
+
+/* カード化：行全体をクリック可能に */
+.law-index a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;        /* ← はみ出し防止（padding/borderを幅に含める） */
+  text-decoration: none;
+  padding: 14px 16px;
+  background: #e9f2ff;
+  border: 1px solid #d7e6ff;
+  border-radius: 12px;
+  color: #123;                   /* 読みやすい濃紺 */
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+  transition: background .15s, box-shadow .15s, transform .02s;
+}
+
+.law-index a:hover,
+.law-index a:focus {
+  background: #dceaff;
+  box-shadow: 0 3px 10px rgba(0,0,0,.06);
+  outline: none;
+}
+
+.law-index a:active {
+  transform: translateY(1px);
+}
+
+/* 図版の共通センタリング */
+.diagram { margin: 2rem 0; display: flex; justify-content: center; }
+.diagram img { display: block; width: min(100%, 800px); height: auto; }
+
+/* この図版だけ右へ数pxオフセット（アートボード余白の補正） */
+.diagram img[src$="Otsux_Prop_Class4_Storage_Handling_004.svg"] { transform: translateX(8px); }
+@media (max-width: 480px) {
+  .diagram img[src$="Otsux_Prop_Class4_Storage_Handling_004.svg"] { transform: translateX(4px); }
+}
+
+
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>誤答リスト - 乙種4類危険物取扱者試験対策</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/index.html">
+        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
+      </a>
+      <h1 class="site-title">誤答リスト 乙種4類危険物取扱者試験対策</h1>
+      <!-- ここからハンバーガー -->
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- ここまで -->
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/index.html">基礎知識</a>
+      <a href="/contents/index.html">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>
+    </nav>
+  </header>
+  
+  <main class="site-main">
+    <div class="container">
+      <h2>誤答リスト</h2>
+          <p class="page-hint" id="page-hint">直近で間違えた問題を新しい順に表示します。各項目の「再挑戦」から問題ページへ移動できます。</p>
+
+      <section class="toolbar" id="toolbar" aria-label="誤答リストの操作">
+      <div class="toolbar-right">
+        <button type="button" id="refresh" class="btn">再読み込み</button>
+      </div>
+    </section>
+
+    <!-- 状態表示 -->
+    <div id="loading" class="state state-loading" role="status" aria-live="polite">
+      読み込み中…
+    </div>
+
+    <div id="error" class="state state-error" role="alert" hidden>
+      読み込みに失敗しました。再読み込みしてください。
+    </div>
+
+    <div id="empty" class="state state-empty" hidden>
+      最近の誤答はまだありません。まずは問題に挑戦してみましょう。
+    </div>
+
+    <!-- リスト本体 -->
+    <section class="list-section" aria-label="誤答一覧">
+      <ul id="mistakes-list" class="list" role="list"></ul>
+      <button type="button" id="load-more" class="btn btn-block" hidden>もっと見る</button>
+    </section>
+   </div>
+  </main>
+
+    <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/supabaseClient.js" defer></script>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/mistakes.js?v=2025-08-14-3" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>
+

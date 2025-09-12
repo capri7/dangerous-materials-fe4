@@ -1,0 +1,92 @@
+/* signup.css（最小限） */
+
+/* 送信中ボタン */
+#signup-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+
+/* フィードバック (成功/失敗) をカード風に */
+#signup-feedback {
+  min-height: 1.2em;
+  font-size: .95rem;
+  margin-top: 8px;
+  text-align: center;
+}
+
+#signup-feedback.error {
+  color: #991b1b;                   /* ダークレッド */
+  background: #fef2f2;              /* ごく淡い赤 */
+  border: 1px solid #fecaca;        /* 薄い赤枠 */
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+#signup-feedback.ok {
+  color: #065f46;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+
+/* 既存ユーザー案内（neutralに） */
+#already-exists[hidden] { display: none !important; }
+#already-exists {
+  margin-top: 12px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+/* ← このブロックを上書き（color を追加） */
+/* セカンダリ（アウトライン）ボタン */
+#send-reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  width: 100%;
+  height: 44px;                     /* 主ボタンと高さを合わせる */
+  background: #fff;
+  color: #4f46e5;                   /* indigo-600 相当（主色に合わせる） */
+  border: 1.5px solid #c7d2fe;      /* 薄い indigo 枠でやわらかく */
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+#send-reset:hover {
+  background: #eef2ff;              /* うっすら主色の薄塗り */
+  border-color: #a5b4fc;
+}
+
+#send-reset:focus-visible {
+  outline: 3px solid rgba(79,70,229,.35);
+  outline-offset: 2px;
+}
+
+/* カード影と余白を少しだけ強めて “面” をはっきり */
+.signup-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 32px 28px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(2,6,23,.06);
+}
+
+.signup-card h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+/* 「安全に送信されます」行のトーンを login に寄せる */
+.secure-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: .95rem;
+  margin: 6px 0 16px;
+}
+

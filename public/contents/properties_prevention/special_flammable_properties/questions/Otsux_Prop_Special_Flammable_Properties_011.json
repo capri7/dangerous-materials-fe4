@@ -1,0 +1,41 @@
+{
+  "id": "Otsux_Prop_Special_Flammable_Properties_011",
+  "category": "properties_prevention",
+  "subcategory": "special_flammable_properties",
+  "title": "【問11】危険物の性質・火災予防・消火の方法：特殊引火物の性状",
+
+  "question": "危険物の性状について、次のうち誤っているものはどれか。",
+ 
+  "fields": ["description"],
+  "headers": [""],
+  "choices": [
+  { "name": "1", "description": "二硫化炭素の比重は1より小さく、水によく溶ける。"},
+  { "name": "2", "description": "二硫化炭素は燃焼すると、有毒の二酸化硫黄を発生する。"},
+  { "name": "3", "description": "ジエチルエーテルは空気中で徐々に酸化して、爆発性の過酸化物を生成することがある。"},
+  { "name": "4", "description": "アセトアルデヒドは加圧下で空気に接触させると、爆発性の過酸化物を生成することがある。"},
+  { "name": "5", "description": "アセトアルデヒドは、アルコールを酸化させると生成される。"}
+  ],
+
+  "answer": 1,
+  "hint": "ヒント：",
+
+  "explanations": [
+    "選択肢1：誤り。二硫化炭素の比重は1.3で1より大きく、水に溶けにくい。",
+    "選択肢2：正しい。",
+    "選択肢3：正しい。",
+    "選択肢4：正しい。",
+    "選択肢5：正しい。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["危険物の性質・火災予防・消火の方法", "特殊引火物の性状", "二硫化炭素", "二酸化硫黄", "過酸化物", "ジエチルエーテル", "アセトアルデヒド", "爆発性", "加圧下"],
+    "version": "2025.8.17"
+  }
+}
+
+
+

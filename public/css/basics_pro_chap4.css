@@ -1,0 +1,37 @@
+/* ——————————————
+   親要素をフル幅 + 中央寄せ
+—————————————— */
+.pro-chart4 {
+  display: flex              !important;
+  justify-content: center    !important;
+}
+
+/* ——————————————
+   pro-chart4 内の SVG/img を元幅で表示
+—————————————— */
+.pro-chart4 img {
+  width: auto       !important;
+  max-width: 800px  !important;
+  height: auto      !important;
+  display: block    !important;
+  margin: 2rem auto !important; 
+}
+
+body {
+  background: #fff;
+}
+
+.site-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #fff;        /* オプション：本文背景だけ白 */
+  /* 必要なら影や枠 */
+}
+

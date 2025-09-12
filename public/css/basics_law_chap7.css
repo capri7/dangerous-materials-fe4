@@ -1,0 +1,77 @@
+/* --------------------------------------------------
+   Chap-7「変更の届出」テーブル専用スタイル
+-------------------------------------------------- */
+body.basics-chap7 .table-section {
+  overflow-x: auto;  /* 横スクロール許可（モバイル対策） */
+}
+
+body.basics-chap7 .table-section .styled-table-chap7 {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 列幅を固定レイアウトで制御 */
+}
+
+body.basics-chap7 .styled-table-chap7 th,
+body.basics-chap7 .styled-table-chap7 td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* １列目（項目）は残り幅を自動で割り当て */
+body.basics-chap7 .styled-table-chap7 th:nth-child(1),
+body.basics-chap7 .styled-table-chap7 td:nth-child(1) {
+  width: auto;
+  min-width: 12em;           /* 最低幅12emで折返しも可能 */
+}
+
+/* ２列目（内容）を最大限ワイドに */
+body.basics-chap7 .styled-table-chap7 th:nth-child(2),
+body.basics-chap7 .styled-table-chap7 td:nth-child(2) {
+  width: 40%;                /* テーブル全体の40%を確保 */
+  min-width: 25em;           /* 最低限でも25emは保証 */
+}
+
+/* ３列目（申請期限）を控えめに */
+body.basics-chap7 .styled-table-chap7 th:nth-child(3),
+body.basics-chap7 .styled-table-chap7 td:nth-child(3) {
+  width: 15%;                /* テーブル全体の15%程度に */
+  min-width: 8em;            /* 最低幅8em */
+}
+
+/* ４列目（申請先）だけ狭く固定 */
+body.basics-chap7 .styled-table-chap7 th:nth-child(4),
+body.basics-chap7 .styled-table-chap7 td:nth-child(4) {
+  width: 3em;
+}
+
+/* 縦書き中央揃えはそのまま */
+body.basics-chap7 .styled-table-chap7 td.vertical-text-chap7 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+  white-space: nowrap;
+  padding: 0.5em;
+}
+
+body.basics-chap7 .styled-table-chap7 th,
+body.basics-chap7 .styled-table-chap7 td {
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .table-section {
+    overflow-x: auto;
+  }
+}
+
+.styled-table-chap7 td {
+  padding: 0.75em 0.5em;
+}
+
+.styled-table-chap7 th {
+  white-space: normal;
+  word-break: break-word;
+}
+

@@ -1,0 +1,831 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+
+  /* フォント */
+  --font-family:   "Noto Sans JP", sans-serif;
+
+  /* 背景色 */
+  --bg-color:           #f5f6f8;  /* site 全体背景 */
+  --color-card:         #ffffff;  
+  --color-header-footer:#242d60;
+
+  /* テキスト */
+  --text-color:  #333333;  /* 本文 */
+  --text-dark:   #242d60;
+  --text-muted:  #666666;
+
+  /* アクセント */
+  --brand-color:     #556cd6;  /* メイン */
+  --accent-color:    #00aaff;  /* 強調 */
+  
+  /* ボタン用 */
+  --accent-primary:  #556cd6;  /* メインボタン背景 */
+  --text-inverse:    #ffffff;  /* メインボタン文字色 */
+
+  /* フォントサイズ */
+  --fs-base:   16px;
+  --fs-h1:     2.25rem;   
+  --fs-h2:     1.75rem;   
+  --fs-body:   1rem;    
+  --fs-small:  0.875rem;
+
+  /* 行間 */
+  --lh-base: 1.6;
+
+  --accent-highlight: #2563eb;   /* バッジなどの強調色 */
+  --text-body: var(--text-color); /* 既存の本文色を転用 */
+  --color-bg: var(--bg-color);    /* 使っている箇所があるので保持 */
+
+ }
+
+ /* --- ボタン共通 --- */
+ .btn {
+   display: inline-block;
+   padding: 0.75rem 1.5rem;
+   border-radius: 0.375rem;
+   font-weight: 500;
+   text-decoration: none;
+   text-align: center;
+   font-size: var(--fs-body);
+  }
+
+ /* --- メイン（教材を試す用）--- */
+ .btn-primary {
+   background-color: var(--accent-primary);
+   color: var(--text-inverse);
+   border: none;
+ }
+
+
+ /* ホバー時のエフェクト（お好みで） */
+ .btn-primary:hover {
+   opacity: 0.9;
+ }
+ .btn-secondary:hover {
+   opacity: 0.8;
+ }
+
+/* 全体リセット */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;                 /* 端末依存の余白を回避 */
+  font-size: var(--fs-base);
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;             /* フッターを下に押し下げる土台 */
+  line-height: var(--lh-base);
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 0.875rem;  /* 14px 相当 */
+    line-height: 1.6;     /* 読みやすい行間 */
+  }
+  a { text-decoration: none; }
+}
+ /* ── スクリーンリーダー用非表示ラベル ── */
+ .sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   white-space: nowrap;
+   border: 0;
+ }
+
+
+/* ヘッダー全体を固定 */
+.site-header {
+  position: sticky;                   /* コンテンツを押し下げる/ズレない */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--color-header-footer);
+  z-index: 1000;
+}
+
+.site-main {
+  padding: 60px 40px 20px;            /* 余白はそのまま */
+  display: flex;
+  justify-content: center;
+  flex: 1 0 auto;                     /* 本文が伸びてフッターを下へ */
+}
+@media (max-width: 600px) {
+  .site-main { padding: 20px 16px; }  /* 既存のスマホ調整を踏襲 */
+}
+
+/* ── ヘッダー内のロゴ＆タイトル ── */
+.header-container {
+  max-width: 960px;
+  margin: 0 auto;
+  height: 100%;  
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* ロゴ */
+.header-container .logo {
+  height: 50px;
+  margin-right: 12px;
+}
+
+/* タイトル */
+.site-header .site-title {
+  color: #fff;
+  font-size: var(--fs-h2);
+  margin: 0;
+  font-weight: 500;
+  z-index: 1001; /* 念のため */
+}
+
+/* --- タイトルのサイズ調整（スマホ向け） --- */
+@media (max-width: 600px) {
+  .site-header .site-title {
+    /* 
+      例：1.5rem → 1.25rem に落とす 
+      1rem = 16px 相当なので、1.25rem ≒ 20px です 
+    */
+    font-size: 1.25rem;
+    line-height: 1.2;       /* 行間も少し詰めるとバランス良し */
+  }
+}
+
+/* ── “デスクトップ用” 横並びナビ ── */
+@media (min-width: 601px) {
+  .site-header .nav-links {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    padding: 8px 0 !important;
+    background: var(--color-header-footer) !important;
+  }
+}
+
+/* --- タブレット以上は変えずに var(--fs-h2) をそのまま使う --- */
+@media (min-width: 601px) {
+  .site-header .site-title {
+    font-size: var(--fs-h2);
+    line-height: normal;
+  }
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: var(--fs-body);
+  font-weight: 500;
+}
+
+/* ヒーローカード */
+.hero {
+  background: var(--color-card);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto; 
+}
+
+
+/* ── 認証フォーム用カード ── */
+.auth-card {
+  background: var(--color-card);
+  border-radius: 12px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.auth-card h1 {
+  font-size: var(--fs-h1);
+  margin-bottom: 24px;
+}
+
+/* ── 認証フォーム内のセキュリティ表示 ── */
+.secure-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.secure-icon {
+  font-size: 1rem;
+}
+
+.auth-card input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: var(--fs-body);
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.auth-card p {
+  margin-top: 16px;
+  font-size: var(--fs-body);
+}
+.auth-card p a {
+  color: var(--accent-highlight);
+}
+
+/* ── エラーメッセージ ── */
+.error-message {
+  display: none;           /* 最初は非表示 */
+  color: #e63946;          /* 赤系のアクセントカラー */
+  font-size: var(--fs-body);
+  margin-top: 12px;
+  text-align: center;
+}
+.error-message.visible {
+  display: block;
+}
+
+
+
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper input {
+  padding-right: 2.5rem; /* アイコン分の余白 */
+}
+
+.auth-card .toggle-password {
+  /* グローバルな 100% 幅 / blue 背景を打ち消す */
+  width: auto;
+  background: none;
+  /* 枠線だけ残したいなら border: 1px solid var(--text-muted); */
+  border: none;
+  /* もちろん既存の位置指定はそのまま */
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-muted);
+  z-index: 1; /* 念のため前面に */
+}
+.auth-card .toggle-password:hover {
+  color: var(--text-dark);
+}
+
+/* ── スマホ向けヒーロー余白調整 ── */
+@media (max-width: 600px) {
+  .site-main {
+    padding: 20px 16px;  /* スマホでは上下20px */
+  }
+  .hero {
+    padding: 24px 16px;  /* カード内もスマホでは上下24px */
+  }
+  .container {
+    padding: 24px 16px;
+  }
+}
+
+.hero-title {
+  font-size: var(--fs-h1);
+  color: var(--text-dark);
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  margin: 0 0 24px;
+    /* 追加 */
+  word-break: keep-all;      /* 英単語は途中で切らずに、和文は字送りルールを優先 */
+  line-break: strict;        /* JIS X 4051 に近い日本語の改行規則を使う */
+  -webkit-line-break: strict; 
+  /* （実験的）文字幅バランスを整える */
+  text-wrap: balance;  
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* 実績バッジ */
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.hero-badge {
+  background: var(--accent-highlight);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+/* CTAボタン */
+.btn-primary {
+  background: var(--accent-primary);
+  color: #fff;
+  padding: 14px;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;
+  margin: 8px auto;
+}
+.btn-secondary {
+  background: #cccccc;
+  color: var(--text-body);
+  padding: 12px;
+  font-size: var(--fs-body);
+  border-radius: 6px;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 8px auto;
+  border: none;
+}
+
+/* プラン情報 */
+.plan-info {
+  margin-top: 24px;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+/* フッター */
+.site-footer {
+  width: 100%;
+  background: var(--color-header-footer);
+  color: #ccc;
+  text-align: center;
+  padding: 16px 0;
+  font-size: var(--fs-small);
+  margin: 0;
+  min-height: 80px;
+  margin-top: auto;
+}
+
+/* メニュー開閉の保険（CSSの強い指定に勝つ） */
+.nav-links[hidden] { display: none !important; }
+
+
+.footer-inner{ 
+  padding:0 16px calc(16px + env(safe-area-inset-bottom)); 
+}
+
+
+/* ── フッターリンク間のスペースを均一に ── */
+.footer-link {
+  margin: 0 6px;        /* リンク同士の間隔 */
+  color: #ccc;          /* 既存の文字色に合わせる */
+  text-decoration: none;
+}
+
+
+/* ── セクション間の余白調整 ── */
+.section {
+  margin-top: 2rem;  /* 既存のマージン設定 */
+}
+
+/* ── 分野別進捗グラフ ── */
+.category-progress {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.category-progress li {
+  margin-bottom: 12px;
+}
+.category-progress .cat-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.category-progress .cat-bar {
+  background: var(--color-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 18px;
+  margin-bottom: 6px; 
+}
+.category-progress .cat-fill {
+  background: var(--accent-primary);
+  height: 100%;
+  transition: width 0.4s ease;
+}
+/* 小章のタイトルに少し余白を */
+.category-progress li span.cat-label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* style.css の一番下に貼り付け */
+
+.auth-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 0;
+}
+
+.auth-form input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth-form button {
+  padding: 10px;
+  background-color: var(--accent-primary, #556cd6);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+}
+
+/* signupフォーム中央寄せ */
+.product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.description {
+  width: 100%;
+}
+
+
+/* choices の見た目改善 */
+.choices { list-style: none; padding-left: 0; margin: .75rem 0; }
+.choices li + li { margin-top: .5rem; }
+.choices li .choice {
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+  line-height: 1.6;
+}
+.choices li .num {
+  min-width: 1.5em; /* 桁ズレ防止 */
+  font-weight: 600;
+  user-select: none;
+  opacity: .8;
+}
+
+/* 「答えを見る」後の表示を分かりやすく */
+.answer-line { 
+  margin: .75rem 0 .5rem; padding: .5rem .75rem; 
+  border-left: 4px solid #2563eb; 
+  background: #f5f7ff; font-weight: 600; 
+}
+
+.ans-num { 
+  font-weight: 700; 
+  margin-right: .25rem; 
+}
+
+/* ===== Checkout page only ===== */
+.page-checkout .site-main {
+  padding: min(6vh, 48px) 16px 96px;
+}
+
+.page-checkout .auth-card {
+  max-width: 680px;                          /* カードを広めに、でも上限固定 */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(20px, 5vw, 48px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+  text-align: center;
+}
+
+.page-checkout .auth-logo {
+  display: block;
+  margin: 0 auto 12px;
+  width: clamp(40px, 6vw, 56px);
+  height: auto;
+}
+
+/* 見出し・価格の暴れ防止 */
+.page-checkout .hero-title {
+  font-weight: 800;
+  letter-spacing: .02em;
+  margin: 12px 0 6px;
+  font-size: clamp(22px, 3.4vw, 36px);
+  color: var(--text-dark);
+}
+.page-checkout .plan-info {
+  color: #6b7280;
+  margin: 0 0 20px;
+  font-size: clamp(14px, 1.6vw, 18px);
+}
+
+
+/* ボタンはページ固有の寸法に */
+.page-checkout #checkoutBtn.btn.btn-primary {
+  display: block;
+  width: min(100%, 440px);
+  height: 56px;
+  margin: 0 auto;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;          /* 日本語UIでの可読サイズ */
+}
+
+/* モバイル微調整 */
+@media (max-width: 480px) {
+  .page-checkout .auth-card { border-radius: 16px; }
+  .page-checkout #checkoutBtn.btn.btn-primary { height: 52px; }
+}
+
+/* ===== Checkout: clarity & accessibility ===== */
+
+/* 無効ボタンの視覚（押せないことを明示） */
+.page-checkout #checkoutBtn.btn.btn-primary:disabled,
+.page-checkout #checkoutBtn.btn.btn-primary.is-disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  filter: saturate(80%);
+}
+
+/* フォーカス可視化（キーボード/スクリーンリーダー配慮） */
+.page-checkout #checkoutBtn.btn.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(67, 102, 241, .35);
+}
+
+/* ヒント／エラーメッセージ */
+.page-checkout .consent-hint {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  margin: -6px auto 14px;
+}
+.page-checkout .consent-error {
+  text-align: center;
+  font-size: 13px;
+  color: #b91c1c;
+  margin: -6px auto 14px;
+}
+
+/* 同意行：タップしやすく・水平整列を安定 */
+.page-checkout .consent-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  padding: 6px 8px;              /* 44px相当のタップ領域を確保 */
+  max-width: 520px;
+  margin: 0 auto 8px;
+  text-align: left;
+  line-height: 1.7;
+}
+.page-checkout .consent-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;               /* ベースライン補正 */
+  accent-color: var(--primary, #4366f1);
+}
+.page-checkout .consent-row span {
+  font-size: 14px;
+  color: #374151;
+}
+.page-checkout .consent-row a {
+  text-underline-offset: 2px;
+}
+.page-checkout .consent-row a:focus-visible {
+  outline: 2px solid rgba(67,102,241,.45);
+  border-radius: 3px;
+}
+
+/* 念のため：アンカー風ボタンにも効かせる（将来の変更保険） */
+.page-checkout .btn.is-disabled {
+  pointer-events: none;
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* モバイルでも規約リンクの下線を常に見せる（可読性UP） */
+.page-checkout .consent-row a { text-decoration: underline; }
+
+/* ===== Legal (terms/privacy) ===== */
+.page-legal .site-main { padding: min(6vh,48px) 16px 96px; }
+
+.page-legal .legal-hero {
+  max-width: 920px; margin: 0 auto 8px; text-align: center;
+}
+.page-legal .legal-title {
+  font-weight: 800; letter-spacing: .01em;
+  font-size: clamp(22px, 3.2vw, 32px); margin: 6px 0 4px;
+}
+.page-legal .legal-meta {
+  color:#6b7280; font-size: 13px; margin: 0 0 10px;
+}
+
+.page-legal .toc {
+  max-width: 920px; margin: 0 auto 24px; padding: 14px 16px;
+  background: #f8fafc; border:1px solid #e5e7eb; border-radius: 12px;
+}
+
+@media (max-width: 640px){ .page-legal .toc ol { columns: 1; } }
+.page-legal .toc a { color: var(--text-dark, #111827); text-decoration: none; }
+.page-legal .toc a:hover { text-decoration: underline; }
+
+.page-legal .legal-container { max-width: 920px; margin: 0 auto; padding: 0 0 96px; }
+.page-legal .terms {
+  background: #fff; border-radius: 16px; padding: clamp(20px,3.5vw,40px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.page-legal .terms p {
+  margin: 2px 0 14px; line-height: 1.9; color:#374151;
+}
+.page-legal .terms a { 
+  text-decoration: underline;
+  text-underline-offset: 2px; }
+.page-legal .terms h2 + p { margin-top: 4px; }
+
+
+/* ===== Legal (terms/privacy)仕上げの調整 ===== */
+
+.page-legal .terms h2 { scroll-margin-top: 88px; }
+
+@media (max-width: 480px){
+  .page-legal .terms { padding: 20px; }
+  .page-legal .terms p { line-height: 1.95; letter-spacing: .01em; }
+  .page-legal .toc { padding: 12px 14px; }
+}
+
+.page-legal .toc a:hover { text-decoration: underline; }
+.page-legal .toc a:focus-visible {
+  outline: 2px solid rgba(67,102,241,.35);
+  border-radius: 3px;
+}
+
+@media print{
+  .site-header, .site-footer, .breadcrumbs, .hamburger, .nav-links { display:none !important; }
+  .page-legal .terms { box-shadow:none; border-radius:0; }
+  .page-legal .legal-title { font-size: 20pt; }
+  .page-legal .terms h2 { break-after: avoid; }
+}
+
+/* --- legal 章見出しを h2/h3 両対応に --- */
+.page-legal .terms h2,
+.page-legal .terms h3 {
+  font-size: clamp(18px, 2.2vw, 22px);
+  margin: 22px 0 8px;
+  font-weight: 700;
+  scroll-margin-top: 88px; /* 固定ヘッダー対策 */
+}
+
+/* 目次の番号と余白（ol/ul 両対応） */
+.page-legal .toc ol,
+.page-legal .toc ul {
+  list-style: none;
+  padding-left: 0;
+  columns: 2;
+  column-gap: 24px;
+  margin: 0;
+}
+.page-legal .toc li { break-inside: avoid; margin: 4px 0; }
+@media (max-width: 640px) {
+  .page-legal .toc ol, .page-legal .toc ul { columns: 1; }
+}
+
+/* Legal: definition list for 特商法 */
+.page-legal .legal-def{
+  display:grid; grid-template-columns:220px 1fr; gap:10px 16px;
+  background:#fff; border-radius:16px; padding:clamp(20px,3.5vw,32px);
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.page-legal .legal-def dt{ font-weight:700; color:#111827; }
+.page-legal .legal-def dd{ margin:0; color:#374151; line-height:1.9; }
+@media (max-width:640px){ .page-legal .legal-def{ grid-template-columns:1fr; } }
+
+/* 全ページ共通：hidden 属性は必ず不可視・非フォーカス化にする */
+[hidden]{display:none !important;}
+
+/* ===== contents/index.html 専用 CTA ===== */
+
+/* ゴーストボタン（共通） */
+.contents .btn-ghost:visited { color: var(--accent-primary); }
+.contents .btn-primary:visited { color: var(--text-inverse); }
+
+/* 配置：PCは横並び中央／モバイルは縦積み全幅 */
+.contents .cta-free{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin: 16px 0 24px;
+}
+
+/* ボタンのサイズ感（このページだけで上書き） */
+.contents .cta-free .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height: 48px;
+  padding: 0 18px;
+  width: auto;                 /* site.css の “幅100%/max-width:300px” を打ち消す */
+  max-width: none;             /* ← 300px制限を解除 */
+  margin: 0;                   /* 自動マージンも解除 */
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal;         /* 長文でも折り返し可 */
+}
+
+/* モバイルは縦積み＆全幅 */
+@media (max-width: 600px){
+  .contents .cta-free{ flex-direction:column; align-items:stretch; }
+  .contents .cta-free .btn{ width:100%; }
+}
+
+
+/* ボタン（このページ専用にしたい場合） */
+.contents .btn { display:inline-block; padding:.75rem 1.5rem; border-radius:.375rem; text-align:center; font-weight:600; }
+.contents .btn-primary { background: var(--accent-primary); color:#fff; border:none; }
+.contents .btn-ghost   { background:#fff; color:var(--accent-primary); border:1.5px solid currentColor; }
+
+/* アクセシビリティ：フォーカス可視化 */
+.contents .btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(85,108,214,.32);
+}
+
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;   /* 高さを揃える */
+}
+.site-logo img {
+  height: 100%;
+  width: auto;
+  display: block;
+}
+
+
+

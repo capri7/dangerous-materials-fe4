@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎知識 | 第1章 4節：危険物の指定数量</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/basics_law.css">
+  <link rel="stylesheet" href="/css/quiz.css">
+  <link rel="stylesheet" href="/css/Otsux_Law_Designated_Quantities.css">
+
+  <base href="/basics/law/">
+</head>
+<body class="basics">
+  <header class="site-header basics-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.png" alt="ロゴ" class="logo"></a>
+      <h1 class="site-title">基礎知識 | 第1章 4節：危険物の指定数量</h1>
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/" class="active">基礎知識</a>
+      <a href="/contents/">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>      
+    </nav>
+  </header>
+
+  <!-- パンくず -->
+  <nav class="breadcrumbs">
+    <a href="/index.html">トップ</a> &gt;
+    <a href="/basics/index.html">基礎知識</a> &gt;
+    <span>第1章 4節：危険物の指定数量</span>
+  </nav>
+
+  <main class="site-main">
+    <!-- 1. 発火点と引火点 -->
+    <section class="intro">
+      <h2>指定数量とは</h2>
+      <p><strong>指定数量</strong>とは、危険物ごとの危険性を考慮し、政令で定められた基準量であり、法令上の各種規制を適用する際の算定根拠となるものです。なお、指定数量は全国共通です。</p>
+      <p>指定数量は、危険性が高い物質ほど少量で定められています。例えば、特殊引火物に分類されるジエチルエーテルは50Lに設定されている一方、危険性の低い動植物油類は10,000Lに設定されています。</p>
+      <p>指定数量を超える危険物は、<strong>消防法</strong>が規定する危険物施設（製造所・貯蔵所・取扱所）以外での貯蔵・取扱いが許されません。</p>
+      <p>指定数量未満の危険物については、各市町村の<strong>火災予防条例</strong>において、「位置・構造及び設備の技術基準」及び「貯蔵・取扱いの基準」が設けられています。</p>
+    </section>
+
+    <!-- 2. 政令別表第3：第4類　危険物の指定数量） -->
+      <h2>政令別表第3：第4類　危険物の指定数量</h2>
+      <section class="table-section">
+      <div id="law-table1"></div>
+      <script type="module">
+       import { renderTable } from '../../../includes/table-renderer.js';
+       renderTable('#law-table1', '../../../data/tables/Otsux_Law_Designated_Quantities_001.json');
+       </script>
+      <p>※ ドラム缶の容量は200Lです。これを基準にすると、指定数量が1倍、2倍、5倍、10倍、20倍、30倍、50倍になることを覚えておくと便利です。</p>
+    </section>
+
+    <!-- 3. 指定数量の倍数 -->
+<!-- 3. 指定数量の倍数 -->
+<section class="table-section">
+  <h2>指定数量の倍数</h2>
+  <p><strong>指定数量の倍数</strong>とは、貯蔵または取扱う危険物の実際の数量を、その物質の指定数量で割った値をいいます。</p>
+
+  <table class="multiplier-table">
+    <thead>
+      <tr>
+        <th>同一場所で危険物1種類を貯蔵し、または取り扱う場合</th>
+        <th>同一場所で危険物A・Bの2種類を貯蔵し、または取り扱う場合</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="formula" role="group" aria-label="危険物1種類のときの指定数量の倍数">
+            <span class="label">指定数量の倍数 =</span>
+            <span class="frac" aria-label="貯蔵量を指定数量で割る">
+              <span class="top">貯蔵量</span>
+              <span class="bar" aria-hidden="true"></span>
+              <span class="bottom">指定数量</span>
+            </span>
+          </div>
+        </td>
+        <td>
+          <div class="formula" role="group" aria-label="危険物2種類のときの指定数量の倍数">
+            <span class="label">指定数量の倍数 =</span>
+            <span class="frac" aria-label="A貯蔵量をA指定数量で割る">
+              <span class="top">A貯蔵量</span>
+              <span class="bar" aria-hidden="true"></span>
+              <span class="bottom">A指定数量</span>
+            </span>
+            <span class="op">＋</span>
+            <span class="frac" aria-label="B貯蔵量をB指定数量で割る">
+              <span class="top">B貯蔵量</span>
+              <span class="bar" aria-hidden="true"></span>
+              <span class="bottom">B指定数量</span>
+            </span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>複数の危険物を同一場所で貯蔵または取扱う際、それぞれが指定数量未満でも、合計量が指定数量の1倍以上に達すると「指定数量以上の危険物を貯蔵または取扱っている」と見なされ、法令の規制対象となります。</p>
+</section>
+
+
+    <!-- 4. インタラクティブクイズ① -->
+    <section class="quiz-section">
+      <h2>クイズ①</h2>
+
+      <div class="quiz"
+           data-feedback-correct="正解です！二硫化炭素は特殊引火物であり、指定数量は50Lです。"
+           data-feedback-incorrect="不正解です。第4類危険物の指定数量をもう一度確認してみましょう。">
+
+      <p>次のうち、第4類危険物の分類で指定数量が50Lはどれか?</p>
+      <div class="quiz-options">
+          <button data-correct="false">ガソリン</button>
+          <button data-correct="false">アセトン</button>
+          <button data-correct="true">二硫化炭素</button>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+      </div>
+    </section>
+
+    <!-- 5. インタラクティブクイズ② -->
+    <section class="quiz-section">
+      <h2>クイズ②</h2>
+
+      <div class="quiz"
+           data-feedback-correct="正解です！重油の指定数量は2,000Lです。"
+           data-feedback-incorrect="不正解です。第4類危険物の指定数量をもう一度確認してみましょう。">
+
+      <p>重油の指定数量で正しいものはどれか?</p>
+      <div class="quiz-options">
+          <button data-correct="true">2,000L</button>
+          <button data-correct="false">1,000L</button>
+          <button data-correct="false">400L</button>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+      </div>
+    </section>
+
+    <!-- 6. インタラクティブクイズ③ -->
+    <section class="quiz-section">
+      <h2>クイズ③</h2>
+
+      <div class="quiz"
+           data-feedback-correct="正解です！メタノールの指定数量は400Lです。"
+           data-feedback-incorrect="不正解です。第4類危険物の指定数量をもう一度確認してみましょう。">
+
+      <p>メタノールの指定数量で正しいものはどれか？</p>
+      <div class="quiz-options">
+          <button data-correct="false">1,000L</button>
+          <button data-correct="true">400L</button>
+          <button data-correct="false">200L</button>
+      </div>
+      <div class="quiz-feedback" hidden></div>
+      </div>
+    </section>
+
+
+      <p>次は<strong>「製造所・貯蔵所・取扱所の区分」</strong>に進みます。</p>
+    </section>
+    <!-- 次に進むのボタン -->
+    <section class="next-button">
+      <a href="facility_categories/Otsux_Law_Facility_Categories_001.html" class="button">製造所・貯蔵所・取扱所の区分</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="#" class="footer-link">プライバシーポリシー</a> ／
+        <a href="#" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/quiz.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>

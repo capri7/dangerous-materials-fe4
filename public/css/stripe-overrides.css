@@ -1,0 +1,89 @@
+/* stripe-overrides.css */
+
+/* 1) ページ上下の余白バランス調整 */
+.site-main section {
+  /* 例：上下を 3rem に */
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* 2) ヒーロータイトル（プラン名）の行間と余白 */
+.hero-title {
+  /* 行間を 1.6 に詰めて２行でもバランス良く */
+  line-height: 1.6 !important;
+  /* 下マージンを少し追加 */
+  margin-bottom: 0.5rem !important;
+}
+
+/* 3) ヒーロータイトルのフォントサイズ微調整 */
+
+.hero-title {
+  font-size: 2rem;             /* 大きめに */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+
+.plan-info {
+  font-size: 1rem;             /* 少し抑えて */
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+
+.auth-card {
+  max-width: 480px;
+  margin: 2rem auto;           /* 上下の余白をしっかり */
+  padding: 2rem 1.5rem;        /* 内側も広めに */
+  background: var(--color-card);
+  border-radius: 12px;
+}
+
+.auth-logo {
+  width: 64px;       /* お好きな大きさに */
+  height: auto;
+  margin-bottom: 0;  /* gap で余白が付くので不要 */
+}
+
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--brand-color); 
+  color: #fff;
+  width: 100%;
+}
+
+/* ────────────────────────────────────────
+   余白バランス調整（24／32／48px のリズムで）
+──────────────────────────────────────── */
+
+/* 1) ヘッダー直下 → main の上部余白を 48px に */
+.site-main {
+  /* site.css にも同名定義があるなら !important で上書き */
+  padding-top: 32px !important;
+}
+
+/* 2) カードまわり（auth-card / hero-card）の上下余白をリズム化 */
+/*    ・カード上部の余白は main の padding-top が担保するので不要 */
+/*    ・カード下部マージンだけ整えたい場合 */
+.site-main .auth-card,
+.site-main .hero {
+  margin-bottom: 24px; /* カード〜次の要素まで 32px */
+}
+
+/* 3) CTA ボタンとカードの間隔を 24px に */
+.site-main .auth-card + form,
+.site-main .hero + form {
+  margin-top: 24px;
+}
+
+/* 4) フッター上部の余白を 48px に */
+.site-footer {
+  margin-top: 48px !important;
+  padding-top: 24px; /* フッター内部の上下パディングはお好みで 24px */
+}
+
+

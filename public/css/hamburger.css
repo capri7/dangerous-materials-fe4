@@ -1,0 +1,56 @@
+.hamburger {
+  background: none;
+  display: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+/* スマホ向け切り替え */
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  /* 通常ナビは隠す */
+  .site-header .nav-links {
+    display: none !important;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  /* 開いたときのナビ */
+  .site-header.nav-open .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    text-align: center;
+    background: var(--color-header-footer);
+    padding: 8px 0;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  /* 開いたときのリンク余白 */
+  .site-header.nav-open .nav-links a {
+    margin: 0;
+    padding: 12px 0;
+    white-space: normal;   /* 長いリンクテキストを改行できるように */
+    font-size: 1rem;  
+  }
+}
+
+
+

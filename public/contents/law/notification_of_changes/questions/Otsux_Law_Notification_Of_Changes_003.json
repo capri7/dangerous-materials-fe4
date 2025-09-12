@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Law_Notification_Of_Changes_003",
+  "category": "law",
+  "subcategory": "notification_of_changes",
+  "title": "【問3】法令：変更の届出",
+  "question": [
+    "法令上、次の文のA~Cのうち、誤っているもののみを全てあげているものはどれか",
+    "「製造所等の所有者等は、当該製造所等の用途を廃止したときは、（A）10日以内にその旨を（B）所轄消防長又は消防署長に（C）届け出なければならない。」",
+    "（A）10日以内に",
+    "（B）所轄消防長又は消防署長",
+    "（C）届け出"
+  ],
+  "fields":  ["description"],
+  "headers": [""],
+  "choices": [
+    { "name": "1", "description": "（A）" },
+    { "name": "2", "description": "（C）" },
+    { "name": "3", "description": "（A、B）" },
+    { "name": "4", "description": "（B、C）" },
+    { "name": "5", "description": "（A、B、C）" }
+  ],
+
+  "answer": 3,
+  "hint": "ヒント：法令では、「製造所等の用途を廃止した場合」の届出について、<strong>誰に・いつ・どのように</strong>届出をするかが定められています。「10日以内」や「消防署長」など、言葉としてはそれっぽいけれど<strong>微妙に違う</strong>部分に注意してみましょう。",
+
+  "explanations": [
+    "この選択肢は不正解です。<br>（A）は誤りですが、正解とするには<strong>すべての誤り（AとB）</strong>を含んでいなければなりません。この選択肢は（A）のみなので不十分です。",
+    "この選択肢は不正解です。<br>（C）は<strong>正しい表現</strong>です。したがって、誤りのみをすべて挙げるという設問の条件に合致しません。<br>参考までに、法令上の正しい表現は次のとおりです：<br><br>「製造所等の所有者等は、当該製造所等の用途を廃止したときは、<strong>遅滞なく</strong>その旨を<strong>市町村長等</strong>に<strong>届け出</strong>なければならない。」",
+    "この選択肢は正解です。<br>（A）「10日以内に」→<strong>誤り（正しくは『遅滞なく』）</strong><br>（B）「所轄消防長又は消防署長」→<strong>誤り（正しくは『市町村長等』）</strong><br>したがって、<strong>（A、B）はどちらも誤り</strong>であり、この選択肢は設問の条件に正しく合致しています。",
+    "この選択肢は不正解です。<br>（B）は誤りですが、（C）は<strong>正しい表現</strong>です。したがって、この選択肢は<strong>一部しか誤っていない</strong>ため不正解となります。",
+    "この選択肢は不正解です。<br>（A、B）は確かに誤りですが、（C）は<strong>正しい表現</strong>です。<br>本問では<strong>誤りのみ</strong>をすべて挙げている必要があり、<strong>正しいもの（C）を含んでしまっている</strong>この選択肢は不適切です。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "変更の届出", "市町村長等", "遅滞なく", "届け出", "用途の廃止"],
+    "version": "2025.7.27"
+  }
+}

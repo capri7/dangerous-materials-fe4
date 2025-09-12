@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>新規登録 - 乙種4類危険物取扱者試験対策</title>
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="css/signup.css" />
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html">
+        <img src="images/logo.svg" alt="危険物乙4教材ロゴ" class="logo" />
+      </a>
+      <h1 class="site-title">乙種4類危険物取扱者試験対策</h1>
+          <!-- ここからハンバーガー -->
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- ここまで -->
+    </div>
+    
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="index.html">トップ</a>
+      <a href="/basics/index.html">基礎知識</a>
+      <a href="/contents/index.html">練習問題</a>
+      <a href="login.html">ログイン</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <div class="auth-card">
+      <h2>新規登録</h2>
+      <p class="secure-info">
+      <span class="secure-icon">🔒</span>
+      安全に送信されます
+      </p>
+      
+      <form id="signup-form" class="auth-form" novalidate>  
+        <label for="email" class="sr-only">メールアドレス</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          autocomplete="email"
+          aria-describedby="signup-feedback"
+          placeholder="メールアドレス"
+          required
+        />
+
+        <label for="password" class="sr-only">パスワード</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="new-password"
+          aria-describedby="signup-feedback"
+          placeholder="新しいパスワードを作成（6文字以上）"
+          required minlength="6"
+        />
+
+        <button id="signup-submit" type="submit">登録する</button>
+        <!-- メッセージ表示用（ARIAライブ） -->
+        <div id="signup-feedback" role="status" aria-live="polite"></div>
+
+        <!-- 既存ユーザー用の案内（初期は非表示） -->
+        <div id="already-exists" hidden>
+          <button id="send-reset" type="button">パスワード再設定メールを送る</button>
+        </div>
+      </form>
+
+      <p class="small-link">
+        すでにアカウントをお持ちの方は <a href="login.html">ログイン</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/supabaseClient.js" defer></script>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/signup.js"></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script>
+</body>
+</html>
+
+

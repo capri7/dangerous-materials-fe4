@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_Spontaneous_Combustion_003",
+  "category": "physical_chemistry",
+  "subcategory": "spontaneous_combustion",
+  "title": "【問3】基礎的な物理・化学 : 自然発火【⭐️】",
+  "question": "自然発火に関する語句の組み合わせとして、次のうち誤っているものはどれか。",
+  "fields":  ["description1", "description2"],
+  "headers": ["", ""],
+  "choices": [
+    { "name": "1", "description1": "キリ油", "description2": "酸化熱"},
+    { "name": "2", "description1": "ニトロセルロース", "description2": "分解熱"},
+    { "name": "3", "description1": "石炭", "description2": "酸化熱"},
+    { "name": "4", "description1": "アルキルアルミニウム", "description2": "低発火点"},
+    { "name": "5", "description1": "原綿", "description2": "吸着熱"}
+  ],
+
+  "answer": 5,
+  "hint": "ヒント：原綿は主に酸化によって発熱が進みます。吸着熱が働く物質と比較して、発熱の仕組みの違いに着目してみましょう。",
+  "explanations": [
+    "選択肢1：キリ油は乾性油の一種で、空気中で酸化されることで酸化熱を発生します。自然発火の機構として適切な組み合わせです。",
+    "選択肢2：ニトロセルロースは化学分解の際に分解熱を発生するため、分解に伴う発熱として正しい組み合わせです。",
+    "選択肢3：石炭は炭素を主成分とし、空気中で酸化されると酸化熱を生じるため、正しい組み合わせです。",
+    "選択肢4：アルキルアルミニウムは第3類危険物で、トリエチルアルミニウムは-53℃でも空気と酸化反応を起こして自然発火します。",
+    "選択肢5：原綿は綿実から採取した繊維状の物質で、主に酸化による発熱（酸化熱）が機構です。吸着熱とは異なるため、この組み合わせは誤りです。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": [
+      "基礎的な物理・化学",
+      "自然発火",
+      "酸化熱",
+      "分解熱",
+      "低発火点", 
+      "吸着熱",
+      "危険物",
+      "発熱機構"
+    ],
+    "version": "2025.7.31"
+  }
+}
+

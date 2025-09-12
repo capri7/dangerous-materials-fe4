@@ -1,0 +1,32 @@
+/* --- 横スクロール根絶＆箱の計算を安定 --- */
+html, body { width: 100%; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+
+/* コンテンツの左右は安全なパディングに収める */
+.site-main, .breadcrumbs, .site-header .header-container, .footer-inner {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* --- 画像/SVGを画面内に収める（最重要） --- */
+img, svg { max-width: 100%; height: auto; }
+.flow-chart { width: 100%; margin: 12px 0; }
+.flow-chart img, .flow-chart svg { display: block; max-width: 100%; height: auto; }
+
+/* --- 表がはみ出す場合の保険 --- */
+.table-section { overflow-x: auto; }
+.table-section table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.table-section th, .table-section td { word-break: break-word; }
+
+/* --- クイズのボタンをモバイル幅へフィット --- */
+.quiz-options { display: grid; gap: 12px; }
+.quiz-options button {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+}
+
+ /* 「変更の届出」ボタン：他ページと同じ右寄せ（flexは使わない） */
+ .next-button { text-align: right; }
+ .next-button .button { display: inline-block; max-width: 100%; }

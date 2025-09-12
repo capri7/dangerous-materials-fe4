@@ -1,0 +1,34 @@
+{
+  "id": "Otsux_Law_Defined_Substances_002",
+  "category": "law",
+  "subcategory": "defined_substances",
+  "title": "【問2】危険物に関する法令 : 危険物の分類（1～6類）",
+  "question": "以下のうち、法別表第1に掲げる危険物の「類別」「性質」「品名」の組み合わせとして誤っているものはどれか。",
+  "fields":  ["class","property","product_name"],
+  "headers": ["類別","性質","品名"],
+  "choices": [
+    { "name": "1", "class": "第1類", "property": "酸化性個体",       "product_name": "過塩素酸塩類" },
+    { "name": "2", "class": "第3類", "property": "可燃性固体",       "product_name": "マグネシウム" },
+    { "name": "3", "class": "第4類", "property": "引火性液体",       "product_name": "動植物油類" },
+    { "name": "4", "class": "第5類", "property": "自己反応性物質",   "product_name": "硝酸エステル類" },
+    { "name": "5", "class": "第6類", "property": "酸化性液体",       "product_name": "過酸化水素" }
+  ],
+
+  "answer": 2,
+  "hint": "ヒント：第3類危険物の性質は「自然発火性物質及び禁水性物質」です。",
+  "explanations": [
+    " 過塩素酸塩類は酸化性個体であり、法別表第1の第1類に分類されているので正しい組み合わせです。 <br>",
+    " マグネシウムは可燃性個体であり、法別表第1の第2類に分類されているので誤った組み合わせです。 <br>",
+    " 動植物油類は引火性液体であり、法別表第1の第4類に分類されているので正しい組み合わせです。 <br>",
+    " 硝酸エステル類は自己反応性物質であり、法別表第1の第5類に分類されているので正しい組み合わせです。 <br>",
+    " 過酸化水素は酸化性液体であり、法別表第1の第6類に分類されているので正しい組み合わせです。 <br>"
+  ],
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": false,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "危険物の分類", "法別表"],
+    "version": "2025.7.13"
+  }
+}

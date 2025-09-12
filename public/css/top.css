@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/* ===== モバイル崩れ応急パッチ ===== */
+* { box-sizing: border-box; }
+html, body { max-width:100%; overflow-x:hidden; }
+img, svg, video { max-width:100%; height:auto; }
+
+.site-header .header-container{
+  display:flex; align-items:center; gap:12px; padding:10px 16px;
+}
+.logo{ max-width:140px; height:auto; }
+.hamburger{ display:none; margin-left:auto; }
+
+.nav-links{ display:flex; gap:14px; flex-wrap:wrap; padding:8px 16px; }
+
+.site-main{ padding:16px; }
+.section{ margin:24px auto; max-width:960px; }
+
+/* ヒーロー */
+.hero-title{ font-size:clamp(22px,7vw,36px); line-height:1.25; word-break:keep-all; }
+.hero-subtitle{ font-size:clamp(14px,3.8vw,18px); }
+.hero-buttons{ display:flex; gap:10px; flex-wrap:wrap; }
+.hero-badges{ display:flex; flex-wrap:wrap; gap:8px; }
+.btn{ display:inline-block; text-align:center; }
+
+/* グリッド系 */
+.howto, .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.card, .feature{ padding:14px; border:1px solid #eee; border-radius:10px; }
+
+/* ダッシュカードの横幅超過対策 */
+.dash-card{ padding:14px; border:1px solid #eee; border-radius:12px; overflow:hidden; }
+.row{ display:grid; grid-template-columns:120px 1fr; gap:10px; align-items:center; }
+.bar{ background:#eee; border-radius:8px; overflow:hidden; height:10px; }
+.fill{ width:var(--w,0); height:100%; background:#3b82f6; }
+
+/* 768px以下：スマホ最適化 */
+@media (max-width: 768px){
+  .site-title{ font-size:clamp(14px,4.2vw,18px); line-height:1.2; margin:0; flex:1; }
+  .hamburger{ display:inline-flex; }
+  /* ナビは閉じた状態が基本 */
+  .nav-links{ display:none; position:absolute; left:0; right:0; top:60px;
+              background:#fff; padding:10px 16px; box-shadow:0 6px 18px rgba(0,0,0,.08);
+              flex-direction:column; gap:8px; }
+  body.nav-open .nav-links{ display:flex; }
+
+  .hero-buttons{ flex-direction:column; }
+  .howto, .features{ grid-template-columns:1fr; }
+  .row{ grid-template-columns:1fr; }
+}
+
+/* SVGをスマホ最適化＆はみ出し防止 */
+.dash-figure { margin: 0; }
+.dash-svg { display: block; width: 100%; height: auto; max-width: 100%; }
+.dash-caption { font-size: 0.9rem; color: #6b7280; margin-top: 8px; }
+
+/* タブの基本（既存とトーンを合わせる） */
+.tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.tab[aria-selected="true"] { border-bottom: 2px solid var(--color-primary, #2563eb); }
+.panel[aria-hidden="true"] { display: none; }
+
+html, body { overflow-x: hidden; }
+.site-main, .section { max-width: 100%; }
+img, svg { max-width: 100%; height: auto; }
+
+
+
+

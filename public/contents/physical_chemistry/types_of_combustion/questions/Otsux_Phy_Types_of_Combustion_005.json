@@ -1,0 +1,39 @@
+{
+  "id": "Otsux_Phy_Types_of_Combustion_005",
+  "category": "physical_chemistry",
+  "subcategory": "types_of_combustion",
+  "title": "【問5】基礎的な物理・化学：燃焼の区分 【⭐️】",
+  "question": "次の物質の組み合わせのうち、20°C、1気圧において通常どちらも蒸発燃焼するものはどれか。",
+
+  "fields": ["class"],
+  "headers": [""],
+  "choices": [
+  { "name": "1", "class": "ガソリン・硫黄"},
+  { "name": "2", "class": "ニトロセルロース・コークス"},
+  { "name": "3", "class": "エタノール・金属粉"},
+  { "name": "4", "class": "ナフタレン・木材"},
+  { "name": "5", "class": "木炭・石炭"}
+  ],
+  "answer": 1,
+  "hint": "ヒント：蒸発燃焼は、加熱によって可燃性蒸気が発生し、その蒸気が燃える現象です。20°C・1気圧下で十分に気化しやすい（沸点が低い）物質の組み合わせを考えてみましょう。",
+
+  "explanations": [
+    "選択肢1：ガソリンと硫黄は、<strong>蒸発燃焼</strong>です。したがって、正しい組み合わせです。<br>",
+    "選択肢2：ニトロセルロースは、<strong>内部（自己）燃焼</strong>です。コークスは、<strong>表面燃焼</strong>です。したがって、組み合わせとして誤りです。<br>",
+    "選択肢3：エタノールは、<strong>蒸発燃焼</strong>です。金属粉は、<strong>表面燃焼</strong>です。したがって、組み合わせとして誤りです。<br>",
+    "選択肢4：ナフタレンは、<strong>蒸発燃焼</strong>です。木材は<strong>分解燃焼</strong>です。したがって、組み合わせとして誤りです。<br>",
+    "選択肢5：木炭は、<strong>表面燃焼</strong>です。石炭は<strong>分解燃焼</strong>です。したがって、組み合わせとして誤りです。<br>"
+],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼の区分","蒸発燃焼","表面燃焼","分解燃焼","自己燃焼"],
+    "version": "2025.7.23"
+  }
+}
+
+
+
+

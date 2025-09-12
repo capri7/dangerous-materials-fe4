@@ -1,0 +1,219 @@
+<!-- public/success.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>お申し込み完了</title>
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/css/stripe-overrides.css" />
+  <link rel="stylesheet" href="/css/hamburger.css" />
+  <style>
+    /* 追加の最小上書きだけ（既存のデザインに寄せる） */
+    .page-success .hero-title { margin-top: .25rem; }
+    .success-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+    .btn { cursor:pointer; border-radius:10px; padding:.8rem 1.2rem; border:none; }
+    .btn-primary { background:#234; color:#fff; }
+    .btn-secondary { background:#f1f5f9; color:#334155; }
+    .btn[disabled] { opacity:.6; cursor:not-allowed; }
+    .note { color:#64748b; font-size:.9rem; text-align:center; margin-top:.5rem; }
+  </style>
+</head>
+<body class="page-success">
+  <!-- ヘッダー（checkout.html と同じ） -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo" /></a>
+      <h1 class="site-title">乙種4類危険物取扱者試験対策</h1>
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/index.html">基礎知識</a>
+      <a href="/contents/index.html">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a href="/login.html">ログイン</a>
+    </nav>
+  </header>
+
+  <!-- 本文 -->
+  <main class="site-main">
+    <div class="auth-card" style="max-width:680px;margin-inline:auto">
+      <img src="/images/logo.png" alt="危険物乙4対策サイトロゴ" class="auth-logo" />
+      <h2 class="hero-title">サブスクリプション登録が完了しました！</h2>
+      <p class="plan-info">ご利用ありがとうございます。請求情報の確認や支払い方法の変更はカスタマーポータルから行えます。</p>
+
+      <div class="success-actions" style="margin-top:16px">
+        <a id="go-mypage" class="btn btn-secondary" href="/mypage.html" rel="noopener">マイページへ</a>
+        <button id="open-portal" class="btn btn-primary">請求情報を確認する</button>
+      </div>
+      <p id="hint" class="note" aria-live="polite"></p>
+      <p id="error" class="note" style="color:#b91c1c;display:none" aria-live="assertive"></p>
+      
+      <!-- 未ログイン向け：メールでログイン/パスワード設定を案内 -->
+      <div id="claim" style="max-width:680px;margin:16px auto;display:none">
+        <hr style="margin:16px 0">
+        <p class="note" id="claim-hint">
+         この端末ではまだログインしていません。<br>
+          <strong>ご購入時のメールアドレスに</strong>ログイン用リンクを送れます。
+        </p>
+       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center">
+          <input id="email" type="email" placeholder="購入時のメールアドレス" readonly aria-readonly="true"
+                 style="padding:.65rem .8rem;min-width:260px;border:1px solid #cbd5e1;border-radius:8px">
+          <button id="send-magic" class="btn btn-primary">ログインリンクを送る</button>
+        </div>
+        <p id="claim-msg" class="note" aria-live="polite" style="margin-top:.5rem"></p>
+       </div>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a><span>／</span>
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 共通JS -->
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script>
+
+      <script>
+       const anonKey   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5emtra3NrbXd5Y3R6bmJjenpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NzUxNzEsImV4cCI6MjA2NTQ1MTE3MX0.OXCQww5s83c4y1KFN_60Bo7aftKDiXfOT6hQsoGcJ2w'; 
+       const fnUrl     = 'https://vyzkkkskmwyctznbczzr.functions.supabase.co/portal';
+       const sessionId = new URLSearchParams(location.search).get('session_id');
+         window.__ANON_KEY   = anonKey;
+         window.__SESSION_ID = sessionId;
+
+    const btn   = document.getElementById('open-portal');
+    const hint  = document.getElementById('hint');
+    const errEl = document.getElementById('error');
+
+    if (!sessionId) {
+      btn.disabled = true;
+      hint.textContent = 'セッション情報が見つかりませんでした。マイページの「請求情報を確認する」からお試しください。';
+    } else {
+      hint.textContent = 'ポータルでは請求先や支払い方法の変更・解約が行えます。';
+    }
+
+    btn.addEventListener('click', async () => {
+      if (!sessionId) return;
+      btn.disabled = true; errEl.style.display='none';
+      try {
+        const res = await fetch(fnUrl, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `Bearer ${anonKey}`,
+            'apikey': anonKey,
+          },
+          body: JSON.stringify({ session_id: sessionId })
+        });
+        const json = await res.json();
+        if (res.ok && json.url) {
+          location.href = json.url;
+        } else {
+          errEl.textContent = 'ポータル作成に失敗しました：' + JSON.stringify(json);
+          errEl.style.display = 'block';
+          btn.disabled = false;
+        }
+      } catch (e) {
+        errEl.textContent = '通信エラー：' + String(e);
+        errEl.style.display = 'block';
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+  <script type="module">
+  import { supabase } from '/js/supabaseClient.js';
+
+  // --- 要素参照
+  const go = document.getElementById('go-mypage');
+  const claim = document.getElementById('claim');
+  const emailEl = document.getElementById('email');
+  const msgEl = document.getElementById('claim-msg');
+  const sendMagic = document.getElementById('send-magic');
+
+  let _autoTimer = null;
+  function startAutoRedirect() {
+    if (_autoTimer) return; // 二重開始防止
+    _autoTimer = setInterval(async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        clearInterval(_autoTimer);
+        _autoTimer = null;
+        location.href = '/mypage.html';
+      }
+    }, 2000); // 2秒ごとにセッション成立を確認
+  }
+
+  // --- セッション判定
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (!session) {
+    // 未ログイン：マイページ押下時はログインへ（復帰先は必ずマイページ）
+    const params = new URLSearchParams({ return_to: '/mypage.html', from: 'success' }).toString();
+    go.href = `/login.html?${params}`;
+
+    // メール即時復帰UIを表示
+    claim.style.display = 'block';
+
+    // 可能なら Checkout セッションからメールを自動入力（関数未作成でも平気）
+    const sessionId = window.__SESSION_ID;
+    const anonKey   = window.__ANON_KEY;
+    const FN_SESSION_INFO_URL =
+      'https://vyzkkkskmwyctznbczzr.functions.supabase.co/checkout-session-info'; 
+
+    if (sessionId) {
+      try {
+        const res = await fetch(FN_SESSION_INFO_URL, {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'authorization': `Bearer ${anonKey}`,
+            'apikey': anonKey,
+          },
+          body: JSON.stringify({ session_id: sessionId })
+        });
+        const { email } = await res.json();
+        if (email && !emailEl.value) emailEl.value = email;
+        if (emailEl.value) {
+          emailEl.readOnly = true;
+          emailEl.setAttribute('aria-readonly', 'true');
+        } 
+      }catch (_) { 
+      }
+    }
+
+  // --- ログインリンク（Magic Link）送信
+  sendMagic?.addEventListener('click', async () => {
+    msgEl.textContent = '';
+    const email = emailEl.value?.trim();
+    if (!email) { msgEl.textContent = 'メールアドレスを入力してください。'; return; }
+
+    sendMagic.disabled = true;
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: `${location.origin}/mypage.html` }
+    });
+    msgEl.textContent = error
+      ? `送信に失敗しました：${error.message}`
+      : 'メールを送信しました。受信箱のリンクからログインしてください。';
+   if (!error) {
+     startAutoRedirect();         // ✅ 成功時のみ自動遷移ポーリング開始
+   } else {
+     sendMagic.disabled = false;  // ❗ 失敗時は再送できるように戻す
+   }
+  });
+ }
+ </script>
+
+</body>
+</html>
+

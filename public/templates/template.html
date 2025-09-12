@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>練習問題 - 危険物乙4対策サイト</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/contents.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/index.html">
+        <img src="/images/logo.png" alt="ロゴ" class="logo" />
+      </a>
+      <h1 class="site-title">練習問題</h1>
+      <!-- ここからハンバーガー -->
+      <button class="hamburger" aria-label="メニュー開閉">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- ここまで -->
+    </div>
+
+
+    <nav class="nav-links">
+      <a href="/basics/">基礎知識</a>
+      <a href="/contents/">分野一覧</a>
+      <a href="/trends/">出題傾向</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a id="link-cancel"   href="/cancel.html"   class="nav-link hidden">キャンセル</a>
+      <a href="#" class="nav-link logout">ログアウト</a>
+    </nav>
+  </header>  
+  <main class="site-main">
+    <h2 id="title"></h2>
+    <p id="question"></p>
+    <ol id="choices"></ol>
+    <!-- ここが「あなたの解答」を上書き表示する固定プレースホルダー -->
+    <div id="your-answer" class="your-answer"></div>
+    <div id="feedback"></div>
+    <button id="showHintBtn" class="button hidden">ヒントを見る</button>
+    <div id="hint" class="hidden"></div>
+    <button id="showExplanationBtn" class="button hidden">解答と解説を見る</button>
+
+  
+    <!-- ...existing explanation div -->
+    <div id="explanation" class="hidden"></div>
+
+    <!-- ← ここからナビゲーションボタン -->
+    <div class="nav-buttons">
+    <!-- 次の問題へ：常に有効 -->
+    <button id="btn-next" class="button btn-next">次の問題へ</button>
+    <!-- 分野を変える：常に有効 -->
+    <button id="btn-change" class="button">分野を変える</button>
+  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="copyright">© 2025 危険物乙4 対策サイト</p>
+      <div class="legal-links">
+        <a href="#" class="footer-link">プライバシーポリシー</a>
+        <span>／</span>
+        <a href="#" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="../../../js/index.js" defer></script>
+  <script type="module" src="../../../js/question-main.js" defer></script>
+  <script type="module" src="../../../js/nav.js" defer></script> 
+</body>
+</html>
+
+
