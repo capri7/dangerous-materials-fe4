@@ -77,7 +77,7 @@
  <!-- ヒーロー -->
   <main class="site-main">
     <section class="hero" aria-labelledby="hero-title">
-      <h2 id="hero-title" class="hero-title">まずは無料で32問。<br>グラフを見ながら苦手に集中</h2>
+      <h2 id="hero-title" class="hero-title">ジャンル別に出題問題が<br>一目でわかる！</h2>
       <p class="hero-subtitle">ログイン不要ですぐ体験。登録するとマイページで「進捗・誤答・復習」を一元管理。</p>
       <div class="hero-badges" aria-hidden="true">
         <span class="hero-badge">スマホ最適化</span>
@@ -89,7 +89,7 @@
         <a href="/signup.html" class="btn btn-secondary" id="btn-signup">メール登録（進捗を保存）</a>
         <a href="/login.html" class="btn btn-secondary" id="btn-login">ログイン</a>
       </div>
-      <p class="plan-info">月額プラン：<strong>1280円</strong>（いつでも解約可能）</p>
+      <p class="plan-info">月額プラン：<strong>1280円</strong>（税込/いつでも解約可能）</p>
       <p class="note">※ 練習問題は登録なしで使えます。ダッシュボード（進捗の保存・可視化）は
       <a href="/signup.html">メール登録</a>で有効になります。
       </p>
@@ -127,49 +127,40 @@
           <p>間違えた問題だけを集中的に再出題。弱点つぶしに最適。</p>
         </div>
         <div class="feature">
-          <h3>⑥復習指定</h3>
-          <p>復習登録した問題だけを練習。記憶定着のタイミング学習に。</p>
+          <h3>⑥復習リスト</h3>
+          <p>復習リストに登録した問題は、繰り返し復習、何度も確認。</p>
         </div>
       </div>
     </section>
 
     <!-- マイページのイメージ（SVGプレビュー） -->
-     <section class="section" aria-labelledby="dash-title">
-  <h2 id="dash-title" class="sr-only">進捗ダッシュボード（プレビュー）</h2>
-  <p class="note note-lock" role="note">🔒 メール登録で進捗状況・復習リストをご利用頂けます。</p>
-  <div class="dash-card">
-    <!-- グラフ表示（graph.svg） -->
-    <div id="panel-graph" class="panel" role="tabpanel" aria-labelledby="tab-graph" aria-hidden="false">
-      <figure class="dash-figure">
-        <img
-          src="/images/graph.svg"
-          alt="分野別の学習状況（解答数と正答率）の可視化"
-          class="dash-svg"
-          loading="lazy"
-          decoding="async"
-          width="1200" height="800"
-          fetchpriority="low"
-        />
-        <figcaption class="dash-caption">例：法令・物理化学・性質予防の進捗と正答率</figcaption>
-      </figure>
-    </div>
+    <section class="section" aria-labelledby="dash-title">
+    <h2 id="dash-title" class="sr-only">進捗ダッシュボード（プレビュー）</h2>
+    <p class="note note-lock" role="note">🔒 メール登録で大分野、小分野別に進捗状況・誤答リスト・復習リストをご利用いただけます。<br>グラフとリストを切り替えて進捗をご確認ください。</p>
 
-    <!-- リスト表示（list.svg） -->
-    <div id="panel-list" class="panel" role="tabpanel" aria-labelledby="tab-list" aria-hidden="true">
-      <figure class="dash-figure">
-        <img
-          src="/images/list.svg"
-          alt="小分野ごとの到達度と残り問題数の一覧"
-          class="dash-svg"
-          loading="lazy"
-          decoding="async"
-          width="1200" height="1600"
-          fetchpriority="low"
-        />
-        <figcaption class="dash-caption">例：小分野リスト（到達度・残り問題の見える化）</figcaption>
-      </figure>
-    </div>
-  </div>
+    <!-- デバッグ用：タブもdash-cardも無し、素の画像を2枚だけ -->
+    <figure class="dash-figure">
+      <img
+        src="/images/graph.svg"
+        alt="分野別の学習状況（解答数と正答率）の可視化"
+        class="dash-svg"
+        loading="lazy"
+        decoding="async"
+        width="1200" height="800"
+      />
+    </figure>
+
+    <figure class="dash-figure" style="margin-top:16px">
+      <img
+        src="/images/list.svg"
+        alt="小分野ごとの到達度と残り問題数の一覧"
+        class="dash-svg"
+        loading="lazy"
+        decoding="async"
+        width="1200" height="1600"
+      />
+    </figure>
+  </section>
 
   <!-- CTA帯（そのまま流用） -->
   <div class="cta-band" style="margin-top:16px">

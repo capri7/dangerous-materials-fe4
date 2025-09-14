@@ -1,1 +1,24 @@
 
+/* ===== 誤答ページ：スマホの横ズレ対策（副作用最小） ===== */
+
+/* 基本のはみ出し防止 */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
+img, svg, video, canvas { display: block; max-width: 100%; height: auto; }
+
+/* レイアウト */
+.site-main { padding: 16px 0; }
+.container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+/* リストの余白リセット */
+.list { list-style: none; margin: 0; padding: 0; }
+
+/* モバイル時：ナビ周りで横幅が足されないようにする */
+@media (max-width: 768px){
+  .site-header { position: relative; }
+  .nav-links {
+    width: 100%;
+    box-sizing: border-box; /* ←ここが重要 */
+    /* 既存JSの開閉制御(nav-open)はそのまま使う前提。表示方法は既存CSSに従います。 */
+  }
+}

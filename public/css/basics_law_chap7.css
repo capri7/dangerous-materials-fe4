@@ -16,6 +16,7 @@ body.basics-chap7 .styled-table-chap7 td {
   border: 1px solid #ccc;
   padding: 0.5em;
   text-align: left;
+  vertical-align: middle;
   word-break: break-word;
 }
 
@@ -36,7 +37,7 @@ body.basics-chap7 .styled-table-chap7 td:nth-child(2) {
 /* ３列目（申請期限）を控えめに */
 body.basics-chap7 .styled-table-chap7 th:nth-child(3),
 body.basics-chap7 .styled-table-chap7 td:nth-child(3) {
-  width: 15%;                /* テーブル全体の15%程度に */
+  width: 12%;                /* テーブル全体の12%程度に */
   min-width: 8em;            /* 最低幅8em */
 }
 
@@ -46,14 +47,25 @@ body.basics-chap7 .styled-table-chap7 td:nth-child(4) {
   width: 3em;
 }
 
-/* 縦書き中央揃えはそのまま */
-body.basics-chap7 .styled-table-chap7 td.vertical-text-chap7 {
+.vcol .vtext {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* iOS/Safari 安定化のため div に付与（td/th には付けない） */
   writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;      /* iOS Safari */
   text-orientation: upright;
-  text-align: center;
+  -webkit-text-orientation: upright;      /* iOS Safari */
+
   white-space: nowrap;
   padding: 0.5em;
+
+  /* 文字の見栄えを微調整（任意） */
+  line-height: 1.2;
+  letter-spacing: 0.05em;
 }
+
 
 body.basics-chap7 .styled-table-chap7 th,
 body.basics-chap7 .styled-table-chap7 td {

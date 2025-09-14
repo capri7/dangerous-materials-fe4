@@ -1,3 +1,4 @@
+/*css/basics_law_facility_permissions.css*/
 /* --- 横スクロール根絶＆箱の計算を安定 --- */
 html, body { width: 100%; overflow-x: hidden; }
 *, *::before, *::after { box-sizing: border-box; }
@@ -30,3 +31,50 @@ img, svg { max-width: 100%; height: auto; }
  /* 「変更の届出」ボタン：他ページと同じ右寄せ（flexは使わない） */
  .next-button { text-align: right; }
  .next-button .button { display: inline-block; max-width: 100%; }
+
+/* ===== 製造所等の設置と変更の許可：表 幅配分（#law-table1） ===== */
+
+/* ヘッダが重ならないように確実に折り返し可 */
+#law-table1 thead th {
+  white-space: normal !important;
+  overflow-wrap: anywhere;   /* 長見出しでも割る */
+  word-break: normal;
+  line-height: 1.35;
+}
+
+/* モバイル〜タブレットで列比率を明示（最後の列＝条件を最も広く） */
+@media (max-width: 900px) {
+  #law-table1 table { table-layout: fixed; }
+
+    /* 1列目（施設区分など） */
+  #law-table1 thead th:nth-child(1),
+  #law-table1 tbody td:nth-child(1) { width: 22%; }
+
+  /* 2列目（施設の設置・変更条件） */
+  #law-table1 thead th:nth-child(2),
+  #law-table1 tbody td:nth-child(2) {
+     width: 54%;
+     text-align: left;
+     }
+
+  /* 念押し：中に center 指定があっても左寄せ */
+  #law-table1 tbody td:nth-child(2),
+  #law-table1 tbody td:nth-child(2) * { text-align: left !important; }  
+
+    /* 3列目（申請先）*/
+  #law-table1 thead th:nth-child(3),
+  #law-table1 tbody td:nth-child(3) { width: 24%;
+  }
+}
+
+/* さらに狭い端末で微調整 */
+@media (max-width: 480px) {
+  #law-table1 thead th:nth-child(1),
+  #law-table1 tbody td:nth-child(1) { width: 22%; }
+
+  #law-table1 thead th:nth-child(2),
+  #law-table1 tbody td:nth-child(2) { width: 54%; }
+
+  #law-table1 thead th:nth-child(3),
+  #law-table1 tbody td:nth-child(3) { width: 24%; }
+}

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "Node",
+    "types": ["node", "@playwright/test"],
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": [
+  "playwright.config.ts",
+  "e2e/**/*.ts",
+  "e2e/**/*.d.ts",
+  "lib/**/*.ts"
+  ]
+}

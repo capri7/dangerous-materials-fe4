@@ -34,12 +34,19 @@
   #law-table1 thead th:nth-child(2),
   #law-table1 tbody td:nth-child(2) { width: 16%; }
 
-  /* 3:指定数量（中央寄せ＋折返しなし） */
+  /* 3:指定数量 */
   #law-table1 thead th:nth-child(3),
-  #law-table1 tbody td:nth-child(3) { width: 14%; text-align: center; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  #law-table1 tbody td:nth-child(3) { 
+    width: 18%; 
+    white-space: normal;
+    text-align: center;
+  }
 
   /* 4:代表的な物品名（行の最終セルを対象にする） */
-  #law-table1 thead th:nth-child(4) { width: 48%; } /* ヘッダはそのまま */
+  #law-table1 thead th:nth-child(4) { 
+    width: 44%;
+    text-align: left !important;
+  } /* ヘッダはそのまま */
 
   /* === ここが肝 === 最終列＝代表列は常に左寄せ（rowspan/インライン center 対策） */
   #law-table1 tbody tr > td:last-child,
@@ -73,9 +80,10 @@
   #law-table1 tbody td:nth-child(2) { width: 15%; }
 
   #law-table1 thead th:nth-child(3),
-  #law-table1 tbody td:nth-child(3) { width: 13%; }
+  #law-table1 tbody td:nth-child(3) { width: 20%; }
 
-  #law-table1 thead th:nth-child(4) { width: 48%; }
+  #law-table1 thead th:nth-child(4),
+  #law-table1 tbody td:nth-child(4) { width: 42%; }
 }
 
 /* ページ内の「指定数量の倍数」テーブル */

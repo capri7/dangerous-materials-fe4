@@ -1,0 +1,25 @@
+{
+  "name": "dangerous-materials-fe4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No unit tests\"",
+    "test:e2e": "playwright test -c e2e/playwright.config.ts",
+    "test:e2e:ui": "PWTEST_UI=1 playwright test -c e2e/playwright.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "private": true,
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "@types/node": "^24.3.1",
+    "dotenv": "^17.2.2",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.4",
+    "xlsx": "^0.18.5"
+  }
+}

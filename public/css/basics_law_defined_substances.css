@@ -48,3 +48,21 @@
   }
 }
 
+/* モバイル時：短い列をさらにタイトに→「特徴」に幅を回す */
+@media (max-width: 600px){
+  .law-defined .law-defined-table col.col-kind   { width: 5ch; }
+  .law-defined .law-defined-table col.col-nature { width: 8ch; }
+  .law-defined .law-defined-table col.col-name   { width: 10ch; }
+  .law-defined .law-defined-table col.col-feature{ width: auto; }
+
+  .law-defined .law-defined-table th,
+  .law-defined .law-defined-table td{
+    padding: .45rem .5rem;
+  }
+  /* テーブル内だけ少し文字を小さく（任意） */
+  .law-defined .law-defined-table { font-size: 0.95rem; }
+}
+@media (max-width: 400px){
+  .law-defined .law-defined-table { font-size: 0.9rem; }
+}
+

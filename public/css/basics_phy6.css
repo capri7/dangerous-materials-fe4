@@ -164,6 +164,51 @@ body {
   border-top: 1px solid #e0e0e0;
 }
 
+/* スマホ：熱の発生機構テーブルの列幅を最適化（30% : 70%） */
+@media (max-width: 600px) {
+  .styled-table {
+    table-layout: fixed;         /* 列幅指定を確実に反映 */
+  }
+
+  /* 左列＝「発熱の機構」：30%（既存の150px指定を上書き） */
+  .styled-table th:first-child {
+    width: 30% !important;
+    white-space: nowrap;         /* 見出しが改行で縦に伸びすぎないように（任意） */
+  }
+
+  /* 右列＝「発熱する物質」：70% */
+  .styled-table thead th:nth-child(2),
+  .styled-table tbody td:nth-child(2) {
+    width: 70%;
+  }
+
+  /* 余白を少しだけ詰めて情報量を確保（お好みで） */
+  .styled-table th,
+  .styled-table td {
+    padding: 0.65rem 0.75rem;
+    line-height: 1.6;
+  }
+}
+
+/* クイズブロックの前後の余白を確保（このページ限定） */
+.quiz-section { 
+  margin: 2rem 0;                 /* セクション自体に基本の上下余白 */
+}
+
+/* クイズ本体の下に確実な余白を作る（クイズ①の末尾に効く） */
+.quiz-section > .quiz {
+  margin: 1rem 0 2rem !important; /* 下側をしっかり空ける */
+}
+
+/* 連続するクイズセクション同士の間隔を少し広めに */
+.quiz-section + .quiz-section {
+  margin-top: 2.5rem;
+}
+
+/* モバイルはさらにゆとりを持たせる（任意） */
+@media (max-width: 600px) {
+  .quiz-section > .quiz { margin-bottom: 2.75rem !important; }
+}
 
 
 

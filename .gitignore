@@ -1,2 +1,26 @@
-!public/**
-!.gitignore
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Editor
+.vscode/
+
+# Secrets
+.env*
+*.local
+
+# Deps / build / coverage
+node_modules/
+dist/
+build/
+.next/
+coverage/
+
+# Playwright artifacts
+test-results/
+playwright-report/
+blob-report/
+
+# Supabase caches
+supabase/.temp/
+supabase/.branches/

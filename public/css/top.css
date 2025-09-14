@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
-/* ===== モバイル崩れ応急パッチ ===== */
-* { box-sizing: border-box; }
-html, body { max-width:100%; overflow-x:hidden; }
-img, svg, video { max-width:100%; height:auto; }
+/* ===== ベースリセット ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
+img, svg, video { display:block; max-width:100%; height:auto; }
 
+/* ヘッダー */
 .site-header .header-container{
   display:flex; align-items:center; gap:12px; padding:10px 16px;
 }
@@ -13,8 +14,9 @@ img, svg, video { max-width:100%; height:auto; }
 
 .nav-links{ display:flex; gap:14px; flex-wrap:wrap; padding:8px 16px; }
 
-.site-main{ padding:16px; }
-.section{ margin:24px auto; max-width:960px; }
+/* メイン */
+.site-main { display: block !important; width: 100%; }
+.section, .hero { margin-inline: auto; max-width: min(960px, 100%); }
 
 /* ヒーロー */
 .hero-title{ font-size:clamp(22px,7vw,36px); line-height:1.25; word-break:keep-all; }
@@ -38,9 +40,11 @@ img, svg, video { max-width:100%; height:auto; }
   .site-title{ font-size:clamp(14px,4.2vw,18px); line-height:1.2; margin:0; flex:1; }
   .hamburger{ display:inline-flex; }
   /* ナビは閉じた状態が基本 */
-  .nav-links{ display:none; position:absolute; left:0; right:0; top:60px;
-              background:#fff; padding:10px 16px; box-shadow:0 6px 18px rgba(0,0,0,.08);
-              flex-direction:column; gap:8px; }
+  .nav-links{
+    display:none; position:absolute; left:0; right:0; top:60px;
+    background:#fff; padding:10px 16px; box-shadow:0 6px 18px rgba(0,0,0,.08);
+    flex-direction:column; gap:8px;
+  }
   body.nav-open .nav-links{ display:flex; }
 
   .hero-buttons{ flex-direction:column; }
@@ -53,14 +57,35 @@ img, svg, video { max-width:100%; height:auto; }
 .dash-svg { display: block; width: 100%; height: auto; max-width: 100%; }
 .dash-caption { font-size: 0.9rem; color: #6b7280; margin-top: 8px; }
 
-/* タブの基本（既存とトーンを合わせる） */
+/* タブ */
 .tabs { display: flex; gap: 8px; margin-bottom: 12px; }
 .tab[aria-selected="true"] { border-bottom: 2px solid var(--color-primary, #2563eb); }
 .panel[aria-hidden="true"] { display: none; }
 
-html, body { overflow-x: hidden; }
-.site-main, .section { max-width: 100%; }
-img, svg { max-width: 100%; height: auto; }
+/* --- ヒーローのはみ出し対策（スマホ） --- */
+@media (max-width: 768px){
+  /* 日本語は自動改行OKにする */
+  .hero-title{
+    word-break: normal;         /* ← keep-all をやめる */
+    overflow-wrap: anywhere;    /* 長い語でも強制的に折り返し可 */
+    line-break: strict;         /* CJK向けの改行ルール */
+  }
+  .hero-subtitle{
+    overflow-wrap: anywhere;
+    word-break: normal;
+    line-break: strict;
+  }
+
+  /* ボタンが長文で横はみ出すのを防ぐ */
+  .hero-buttons{ width: 100%; }
+  .hero-buttons .btn{
+    white-space: normal;        /* nowrap を無効化（他CSSの上書き） */
+    max-width: 100%;
+  }
+
+  /* 念のためヒーローブロック自体で横スクロールを遮断 */
+  .hero{ max-width: 100%; overflow-x: hidden; }
+}
 
 
 

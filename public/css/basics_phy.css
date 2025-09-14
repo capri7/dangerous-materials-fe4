@@ -182,6 +182,24 @@
   transform: translateY(1px);
 }
 
+/* --- モバイルだけファーストビューの余白をギュッと詰める --- */
+@media (max-width: 600px) {
+  /* 1) コンテンツ上パディングをさらに縮小（以前の 1.75em → 1.1em） */
+  body.basics .site-main {
+    padding-top: 1.1em;
+  }
+
+  /* 2) パンくずの下の余白を小さく */
+  body.basics .breadcrumbs {
+    margin: 0.25em 0 0.5em;  /* 上0.25 / 下0.5 くらいがバランス良 */
+  }
+
+  /* 3) 最初のセクションの見出しの上マージンを打ち消し */
+  .site-main > .intro:first-of-type { margin-top: 0; }
+  .site-main > .intro:first-of-type h2 { margin-top: 0; }
+}
+
+
 
 
 

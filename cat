@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+**/.DS_Store
+.vscode/
+cat >> .gitignore <<'EOF'
+.DS_Store
+.vscode/
+.env*
+*.local
+node_modules/
+dist/
+build/
+.next/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+
+supabase/.temp/
+supabase/.branches/

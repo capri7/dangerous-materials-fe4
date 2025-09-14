@@ -1,0 +1,13 @@
+{
+  "id": "evt_manual_1",
+  "object": "event",
+  "type": "checkout.session.completed",
+  "data": {
+    "object": {
+      "id": "cs_manual_123",
+      "object": "checkout.session",
+      "mode": "subscription",
+      "status": "complete"
+    }
+  }
+}

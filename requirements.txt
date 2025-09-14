@@ -1,0 +1,7 @@
+numpy
+pandas
+matplotlib
+seaborn
+IPython
+japanize-matplotlib
+scipy

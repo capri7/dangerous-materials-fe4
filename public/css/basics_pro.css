@@ -223,6 +223,42 @@
   .diagram img[src$="Otsux_Prop_Class4_Storage_Handling_004.svg"] { transform: translateX(4px); }
 }
 
+/* 見出し：第2章と同じ下線スタイルを第3章にも適用 */
+.pro-section h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: .25em;
+  margin-bottom: .75em;
+}
+
+/* 先頭セクションだけは余白を詰める（スマホでも効く） */
+.site-main > .pro-section:first-of-type { margin-top: 0; }
+.site-main > .pro-section:first-of-type h2 { margin-top: 0; }
+
+
+/* スマホ時：3列テーブル（props-table）の列幅を最適化 */
+@media (max-width: 600px) {
+  /* 幅指定を効かせるため固定レイアウトに */
+  .props-table { table-layout: fixed; }
+
+  /* 1列目：類別（コンパクト） */
+  .props-table th:nth-child(1),
+  .props-table td:nth-child(1) { width: 20%; }
+
+  /* 2列目：性質・燃焼性・状態（広め） */
+  .props-table th:nth-child(2),
+  .props-table td:nth-child(2) { width: 34%; }
+
+  /* 3列目：主な性質と危険性（残り） */
+  .props-table th:nth-child(3),
+  .props-table td:nth-child(3) { width: 46%; }
+
+  /* 行間と余白を少しだけ詰めて読みやすく */
+  .props-table .items p { margin: .3em 0; line-height: 1.6; }
+
+  /* 「類別」縦表示の整え */
+  .props-table .vcol { text-align: center; }
+  .props-table .vcol .vtext { display: inline-block; line-height: 1.2; }
+}
 
 
 

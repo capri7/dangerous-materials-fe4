@@ -9,7 +9,7 @@ body {
 .site-main {
   max-width: 800px;
   margin: 0 auto;
-  padding: 7em 1em 2em;
+  padding: 2.25em 1em 2em;
   background-color: #fff;
   display: block; 
 }
@@ -199,4 +199,36 @@ body {
 
 .styled-table-chap10-2 tbody tr:nth-child(odd) {
   background-color: #fafafa;
+}
+
+/* モバイルはさらに少し詰めると見栄え◎ */
+@media (max-width: 600px) {
+  body.basics .site-main { padding-top: 1.75em; }
+}
+
+/* スマホ時は列幅を明示して「申請事由」を広めに */
+@media (max-width: 600px) {
+  .styled-table-chap10 {
+    table-layout: fixed;   /* 幅指定を確実に効かせる */
+  }
+
+  /* 1列目：手続（短いので狭め） */
+  .styled-table-chap10 th:nth-child(1),
+  .styled-table-chap10 td:nth-child(1) { width: 10%; }
+
+  /* 2列目：申請事由（広め） */
+  .styled-table-chap10 th:nth-child(2),
+  .styled-table-chap10 td:nth-child(2) { width: 26%; }
+
+  /* 3列目：申請先 */
+  .styled-table-chap10 th:nth-child(3),
+  .styled-table-chap10 td:nth-child(3) { width: 34%; }
+
+  /* 4列目：添付するもの */
+  .styled-table-chap10 th:nth-child(4),
+  .styled-table-chap10 td:nth-child(4) { width: 30%; }
+
+  /* 行間・余白を少しだけ詰めて視認性UP（任意） */
+  .styled-table-chap10 th,
+  .styled-table-chap10 td { padding: 0.6rem; line-height: 1.5; }
 }
