@@ -3,7 +3,7 @@ require 'sinatra'
 require 'json'
 
 # This is your test secret API key.
-Stripe.api_key =  ENV['STRIPE_SECRET_KEY'] ||'sk_test_51RaChNCAmzN6gSi3ixtXa1OWqHVVhUNwcPVvYbpje0KSm7JyanvC4N9WzJ7kSOtOLdOZjRoMsx8vMIRJypJdinuX00Ins52ucp'
+Stripe.api_key =  ENV['STRIPE_SECRET_KEY']
 YOUR_DOMAIN    = ENV['BASE_URL'] || 'http://localhost:4242'
 
 ALLOWED_PLANS = {
