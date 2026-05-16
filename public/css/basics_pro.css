@@ -1,5 +1,16 @@
 /* basics_pro.css */
 
+/* === 第3章：性質・火災予防用 えんじトーン ==================== */
+:root {
+  --prop-accent:        #b91c1c;                  /* メインのえんじ */
+  --prop-accent-strong: #7f1d1d;                  /* 見出しなどの濃いえんじ */
+  --prop-accent-soft:   rgba(185, 28, 28, .06);   /* カード背景用の淡いえんじ */
+  --prop-accent-soft-hover: rgba(185, 28, 28, .12); /* hover 用 */
+  --prop-accent-border: rgba(185, 28, 28, .25);   /* 枠線 */
+  --prop-accent-text:   #7f1d1d;                  /* 文字色 */
+}
+
+
 /* 政令による試験セクション */
 .pro-test-section {
   margin-block: 2em;
@@ -16,7 +27,7 @@
 }
 
 .pro-table-section th,
-.phy-table-section td {
+.pro-table-section td {
   border: 1px solid #ccc;
   padding: 0.5em;
   text-align: left;
@@ -178,33 +189,39 @@
 /* デフォルトの左インデントを消す＆余白を整える */
 .law-index ul {
   list-style: none;
-  padding-left: 0;   /* ← これが効きます */
+  padding-left: 0;
   margin: 0;
 }
 
-/* 行間 */
-.law-index li + li {
+/* 行間・外側の帯（第3章用えんじトーン） */
+.law-index li {
   margin-top: 12px;
+  margin-bottom: 0.9rem;
+
+  background: #fff5f5;                        /* ごく薄いえんじ */
+  border-left: 4px solid var(--prop-accent);  /* 縦ラインをえんじに */
+  padding: 0.7rem 0.75rem;
 }
 
-/* カード化：行全体をクリック可能に */
+/* カード化：行全体をクリック可能に（内側カード） */
 .law-index a {
   display: block;
   width: 100%;
-  box-sizing: border-box;        /* ← はみ出し防止（padding/borderを幅に含める） */
+  box-sizing: border-box;
   text-decoration: none;
   padding: 14px 16px;
-  background: #e9f2ff;
-  border: 1px solid #d7e6ff;
+
+  background: var(--prop-accent-soft);        /* 淡いえんじ */
+  border: 1px solid var(--prop-accent-border);
   border-radius: 12px;
-  color: #123;                   /* 読みやすい濃紺 */
+  color: var(--prop-accent-text);             /* 文字もえんじ寄せ */
   box-shadow: 0 1px 0 rgba(0,0,0,.04);
   transition: background .15s, box-shadow .15s, transform .02s;
 }
 
 .law-index a:hover,
 .law-index a:focus {
-  background: #dceaff;
+  background: var(--prop-accent-soft-hover);  /* hover でもえんじ系のまま */
   box-shadow: 0 3px 10px rgba(0,0,0,.06);
   outline: none;
 }
@@ -212,6 +229,14 @@
 .law-index a:active {
   transform: translateY(1px);
 }
+
+/* hover 時も青に戻らないように li 側も上書き */
+.law-index li:hover {
+  background: #fee2e2;                        /* やや濃いえんじ背景 */
+  border-left-color: var(--prop-accent);
+}
+
+
 
 /* 図版の共通センタリング */
 .diagram { margin: 2rem 0; display: flex; justify-content: center; }
@@ -258,6 +283,32 @@
   /* 「類別」縦表示の整え */
   .props-table .vcol { text-align: center; }
   .props-table .vcol .vtext { display: inline-block; line-height: 1.2; }
+}
+
+/* ============================
+   基礎知識トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.basics .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.basics .intro {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.basics .intro h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
+/* hover 時も青に戻らないように上書き */
+.law-index li:hover {
+  background: #f2ded6;              /* ちょい濃いグリーンに変化 */
+  border-left-color: #b91c1c;
 }
 
 

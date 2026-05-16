@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_And_Specific_Heat_003",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_and_specific_heat",
+
+  "title": "【問3】基礎的な物理・化学：熱量と比熱【⭐️】",
+
+  "question": "比熱が c、質量が m の物質の熱容量 C を表す式として、次のうち正しいものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "C = mc²" },
+    { "name": "2", "description": "C = m²c" },
+    { "name": "3", "description": "C = mc" },
+    { "name": "4", "description": "C = m / c" },
+    { "name": "5", "description": "C = c / m" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：比熱 c は「物質1gあたり」の値で、熱容量 C は「その試料ぜんぶ」の値。だから、全体の熱容量は、比熱に質量 m を掛ければよい。式で書くと C = mc になる。",
+
+  "explanations": [
+    "誤り。熱容量 C は、比熱 c に質量 m を掛けて求める。比熱を二乗する関係はない。",
+    "誤り。熱容量 C は C = mc で表される。質量を二乗する関係はない。",
+    "正しい。熱容量 C は、比熱 c と質量 m の積で表される。式は C = mc である。比熱が物質1g当たりの値であるのに対し、熱容量はその試料全体の値である。",
+    "誤り。熱容量 C は、比熱 c で質量 m を割って求めるものではない。質量が大きいほど、熱容量も大きくなる。",
+    "誤り。熱容量 C は、比熱 c を質量 m で割って求めるものではない。比熱は単位質量当たりの値であり、全体の熱容量を求めるには質量を掛ける。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "比熱", "熱容量", "q=mcΔT", "基礎定義", "単位"],
+    "version": "2026-03-14"
+  }
+}
+

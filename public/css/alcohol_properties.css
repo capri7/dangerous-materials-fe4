@@ -1,0 +1,707 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/*第1章41-6節、periodic_inspections.cssとトーンを統一して第3章8節のalcohol_propertiesを作成
+   - lawをすべてpropに変更
+   - 表：横スクロール対応、1列目 sticky、table-fixed
+   - 出る出るポイント（exam-notes)
+   - ひっかけ注意（exam-points）、コールアウト（callout）
+   - 品目の色識別バッジ（赤/黄/緑/青）
+*/
+
+
+/* ---------- カラートークン ---------- */
+:root {
+  /* === 第3章：性質と火災予防用 えんじトーン === */
+  --prop-accent:        #b91c1c;                  /* メインのえんじ */
+  --prop-accent-strong: #7f1d1d;                  /* 見出しなどの濃いえんじ */
+  --prop-accent-soft:   rgba(185, 28, 28, .06);   /* ホバーや背景用の薄いえんじ */
+
+  --prop-muted:         #6b7280;
+
+  --prop-border:        #e5e7eb;
+  --prop-border-light:  #eef2f6;
+
+  --prop-row:           #fafbfc;
+  --prop-head:          #f9fafb;
+
+  --prop-bg-soft:       #fdf2f2;                  /* ほんのり赤みのある背景 */
+
+  --prop-note-bg:       #fff8e8;                  /* 出る出るボックス背景（共通のままでOK） */
+  --prop-note-border:   #f1c073;
+
+  --prop-ok:            #059669;
+  --prop-warn:          #d97706;
+  --prop-ng:            #b91c1c;                  /* NG を章テーマ色に寄せる */
+
+  /* 旧スタイルとの互換用エイリアス（必要なら他ページでも流用可） */
+  --accent: var(--prop-accent);
+  --border: var(--prop-border);
+  --row:    var(--prop-row);
+  --head:   var(--prop-head);
+}
+
+
+/* ---------- レイアウトのガード（basics共通） ---------- */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body.basics {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 基礎知識ページ内は box-sizing を統一 */
+body.basics *,
+body.basics *::before,
+body.basics *::after {
+  box-sizing: border-box;
+}
+
+
+/* ---------- 出る出るポイント（exam-notes） ---------- */
+
+
+.exam-notes {
+  background: var(--prop-note-bg);
+  border: 2px dashed var(--prop-note-border);
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+.exam-notes > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.exam-notes > h4::before {
+  content: "📝";
+  font-size: 1.1em;
+}
+
+/* ★ ここから修正ポイント ★ */
+.exam-notes ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+
+
+.exam-notes ul.compact li::before { content: none; }
+
+.exam-notes:empty { display: none; }
+
+
+/* ================== ひっかけ注意（exam-points） ================== */
+
+.exam-points {
+  background: #edf4ff;
+  border: 2px dashed #5792f1;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+
+.exam-points > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* ひっかけ注意アイコン */
+.exam-points > h4::before {
+  content: "⚡️";
+  font-size: 1.1em;
+}
+
+/* リストはディスク表記で端正に */
+.exam-points ul {
+  list-style: disc;
+  margin: 0;
+  padding: 0 0 0 1.2em;
+}
+
+.exam-points ul.compact li::before { content: none; }
+
+/* 中身が空のときは箱自体を消す */
+.exam-points:empty { display: none; }
+
+/* ---------- コールアウト（注釈・注意・OK・NG） ---------- */
+.callout {
+  background:#f3f6fa;                        /* exam-notes に近いトーン。好みで調整OK */
+  border: 2px dashed var(--prop-accent);
+  border-radius: 12px;
+  padding: 18px 18px 16px;                     /* ★ exam-notes と同じくらいの余白 */
+  margin: 20px 0 18px;                         /* 左右は 0 でOK（中央カラムの中で揃う） */
+}
+
+/* 見出し共通（h3） */
+.callout > h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.callout > h3::before {
+  font-size: 1.1em;
+}
+
+/* ★ ここから修正ポイント ★ */
+.callout ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+
+.callout ul.compact li::before { content: none; }
+
+.callout:empty { display: none; }
+
+
+/* OK / WARN / NG 共通のベース色（文字色だけ変える） */
+.callout.ok   { background: #ecfdf5; border-color: #a7f3d0; color: #064e3b; }
+.callout.warn { background: #fffbeb; border-color: #fde68a; color: #7c2d12; }
+.callout.ng   { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+
+/* アイコンだけ種類別に上書き */
+.callout.ok > h3::before   { content: "✅"; }
+.callout.warn > h3::before { content: "⚠️"; }
+.callout.ng > h3::before   { content: "⛔️"; }
+
+
+
+/* ================== テーブル（共通ベース） ================== */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-container.table-scroll::-webkit-scrollbar-thumb {
+  background: #cfd8e3;
+  border-radius: 4px;
+}
+
+/* ベース表 */
+.styled-table {
+  width: 100%;
+  min-width: 640px;                 /* スマホは横スクロールへ退避 */
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--prop-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  font-size: .95rem;
+}
+
+
+.styled-table.table-fixed {
+  table-layout: fixed;
+}
+
+/* エタノールとメタノールののテーブル*/
+.styled-table--prop .col-nature {
+  width: 30%;          /* 性質 */
+  max-width: 70px;
+}
+
+.styled-table--prop .col-representative-value {
+  width: auto;          /* 代表値 */
+}
+
+
+/* n-プロパノールとイソプロパノールの比較のテーブル*/
+.styled-table--prop .col-note {
+  width: 20%;          /* 性質・注意点 */
+  max-width: 130px;
+}
+
+.styled-table--prop .col-n-propanol {
+  width: 40%;          /* n-プロパノール */
+}
+
+.styled-table--prop .col-isopropanol {
+  width: 40%;          /* イソプロパノール */
+}
+
+
+
+
+/* 1列しかない場合で左寄せにするときに使用する
+.special-flammable-properties-table th[scope="row"] {
+  text-align: left;
+}*/
+
+
+/* リストの見た目を整える */
+.prop-defined-table td {
+  vertical-align: top;
+}
+
+/* 箇条書きのベースをリセット */
+.prop-defined-table td ul {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+}
+
+/* 行ごとの詰まり感・読みやすさを調整 */
+.prop-defined-table td ul li {
+  position: relative;
+  padding-left: 1.1em;
+  line-height: 1.6;
+  margin: 0.1rem 0;
+}
+
+/* 「・」をきれいに揃えて表示 */
+.prop-defined-table td ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* スマホでの詰まり感を軽くする */
+@media (max-width: 640px) {
+  .styled-table--prop th,
+  .styled-table--prop td {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+.styled-table thead th {
+  background: var(--prop-head);
+  color: #111827;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--prop-border);
+  padding: .75rem .9rem;
+  white-space: nowrap;
+}
+
+.styled-table tbody td,
+.styled-table tbody th {
+  border-bottom: 1px solid #eef2f6;
+  border-right: 1px solid #eef2f6;
+  padding: .7rem .9rem;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(odd) { background: var(--prop-row); }
+
+.styled-table thead th:first-child { border-top-left-radius: 8px; }
+.styled-table thead th:last-child  { border-top-right-radius: 8px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.styled-table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.styled-table tbody td:last-child { border-right: 0; }
+
+/* テーブルでは、最右列もちゃんと線を出す */
+.prop-defined-table tbody td:last-child,
+.prop-defined-table tbody th:last-child {
+  border-right: 1px solid #eef2f6;
+}
+
+
+@media (hover:hover) {
+  .styled-table tbody tr:hover {
+    background: var(--prop-accent-soft);  /* えんじ系のごく薄い背景 */
+  }
+}
+
+/* ================== sticky 1列目 ================== */
+
+/* sticky の基準となる親 */
+.table-container.table-scroll {
+  position: relative;
+  scrollbar-color: #cfd8e3 transparent;
+}
+
+/* 1列目 sticky */
+.sticky-first-col .sticky {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 2;
+  border-right: 1px solid #eef2f6;
+  box-shadow: none; 
+}
+
+.sticky-first-col thead th.sticky {
+  z-index: 3;
+  border-right: 1px solid #eef2f6;
+  background: var(--prop-head);
+}
+
+/* ================== 性質と火災予防テーブル専用（styled-table--prop） ================== */
+
+/* 種別：条文 ≒ 26 : 74 
+.styled-table--prop {
+  min-width: 640px;
+}*/
+
+/* 長文条文を気持ちよく折り返す */
+.styled-table--prop.table-fixed td,
+.styled-table--prop.table-fixed th {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: loose;
+  white-space: normal;
+}
+
+/* sticky 1列目の丸ポチを無効にしてインデントだけ残す */
+.styled-table--prop .sticky::before { content: none !important; }
+
+.styled-table--prop th.sticky,
+.styled-table--prop td.sticky {
+  padding-left: .9rem;
+  font-weight: 700;
+}
+
+.styled-table--prop th.sticky {
+  vertical-align: middle;
+}
+
+
+/* スマホでの閾値を少し下げる */
+@media (max-width: 480px) {
+  .styled-table--prop { min-width: 560px; }
+
+  .styled-table thead th,
+  .styled-table tbody td,
+  .styled-table tbody th {
+    padding: .6rem .7rem;
+    font-size: .9rem;
+  }
+
+  .table-container { margin-bottom: 1.4rem; }
+}
+
+/* このページ専用：行の高さを少し抑える */
+.styled-table--prop thead th,
+.styled-table--prop tbody th,
+.styled-table--prop tbody td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;   /* ほんの少しだけ文字を小さく */
+}
+
+/* ================== リスト（詰め表示） ================== */
+ul.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ul.compact li {
+  margin: .2em 0;
+}
+
+
+
+/* ================== バンドカード（左帯） ================== */
+
+.band-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--prop-border);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  margin-bottom: .75rem;
+}
+
+/* h2 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h2 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+/* h3 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h3 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+.band-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--prop-accent);        /* 第3章はえんじ色の帯  */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 隣り合うカードの密着防止 */
+.band-card + .callout { margin-top: 16px; }
+.callout + .callout { margin-top: 20px; }
+
+
+
+/* ================== ページ全体レイアウト微調整 ================== */
+
+/* bascis 共通の余白を少し詰める（このページだけ） */
+.basics .site-main {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* prop-section 同士の間隔 */
+.prop-section + .prop-section { margin-top: 1.6rem; }
+.quiz-section { margin-top: 2.0rem; }
+
+@media (min-width: 768px) {
+  .prop-section + .prop-section { margin-top: 2.2rem; }
+}
+
+/* 第3章2節：テーブル幅を少しだけ絞る（PC） */
+@media (min-width: 1024px) {
+  .prop-section .table-container {
+    max-width: 840px;        /* 960 より少し細いくらい */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== 小UIユーティリティ ================== */
+
+.muted { color: #6b7280; }
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* ================== アクセシビリティ ================== */
+
+
+/* フォーカス可視（キーボード） */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--prop-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 低視力配慮：リンクのホバー/フォーカス */
+a:hover { text-decoration: underline; }
+
+/* 動きに配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* メインコンテンツの箱も安全側に寄せておく */
+.site-main,
+.breadcrumbs,
+.intro,
+.content,
+.prop-section,
+.quiz-section,
+.next-button,
+.table-container {
+  max-width: 100%;
+}
+
+
+/* basics ページ用：念のため width を明示 */
+body.basics {
+  width: 100%;
+}
+
+/* === ヘッダー／ナビが 100vw で飛び出すのを強制的に止める === */
+
+body.basics .site-header,
+body.basics .header-container,
+body.basics .nav-links {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* === PC のときは中央カラム幅に絞る === */
+@media (min-width: 1024px) {
+  /* パンくずと本文を同じ幅で中央寄せ */
+  body.basics .breadcrumbs,
+  body.basics .site-main {
+    width: min(960px, calc(100% - 64px)); /* 960px か 画面幅-64px の小さい方 */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== このページ専用：見出しの統一 ================== */
+
+/* h2 を共通トーンに揃える */
+body.basics .site-main h2 {
+  font-size: clamp(22px, 2.6vw, 26px);  /* どの h2 も同じ大きさ */
+  line-height: 1.35;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* 最初の白カードだけ、上の余白を少し増やす */
+body.basics .site-main .prop-section:first-of-type {
+  padding-top: 0.4rem;   /* 好みで 2.0〜2.6rem くらいに微調整OK */
+}
+
+
+/* ================== 類バッジ（色＝類） ================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* 第1〜第6類の色分け（色＝類） */
+.tag.category-1 {
+  background: #dbeafe;   /* 青系：第1類 */
+  color: #1d4ed8;
+}
+
+.tag.category-2 {
+  background: #fee2e2;   /* 赤系：第2類 */
+  color: #b91c1c;
+}
+
+.tag.category-3 {
+  background: #fef3c7;   /* 黄〜オレンジ系：第3類 */
+  color: #b45309;
+}
+
+.tag.category-4 {
+  background: #dcfce7;   /* 緑系：第4類 */
+  color: #15803d;
+}
+
+.tag.category-5 {
+  background: #f3e8ff;   /* 紫系：第5類 */
+  color: #7e22ce;
+}
+
+.tag.category-6 {
+  background: #e5e7eb;   /* グレー系：第6類 */
+  color: #111827;
+}
+
+
+
+/* ヘッダーを画面上部に固定（basics ページ専用） */
+
+/* ================== ヘッダー固定＆パンくず押し下げ ================== */
+
+/* basics ページのヘッダーを画面上部に固定 */
+body.basics .site-header.basics-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: var(--color-header-footer, #242d60);
+}
+
+/* デフォルト（スマホ〜タブレット）用の押し下げ量 */
+body.basics {
+  padding-top: 80px;   /* 今の 72px より少し多めにしておく */
+}
+
+/* PCのときはヘッダーが高いので、さらに下げる */
+@media (min-width: 1024px) {
+  body.basics {
+    padding-top: 140px;  /* 実際の見た目を見て 120〜160px の間で微調整してOK */
+  }
+}
+
+/* main の余白は上に足さない（ヘッダーぶんだけで十分） */
+body.basics .site-main {
+  margin-top: 0;
+}
+
+/* パンくずとヘッダーの間に少し余白 */
+body.basics .breadcrumbs {
+  margin-top: 1rem;
+}
+
+/* === スマホでのテーブル幅を少しだけ詰める調整 === */
+
+/* 〜480px：最小幅を 520px まで下げて、横スクロールを軽くする */
+@media (max-width: 480px) {
+  body.basics .styled-table,
+  body.basics .styled-table--prop {
+    min-width: 520px;
+  }
+}
+
+/* 〜360px：極小画面では無理に横スクロールさせず、100% におさめる */
+@media (max-width: 360px) {
+  body.basics .styled-table,
+  body.basics .styled-table--prop {
+    min-width: 100%;
+  }
+}
+
+.formula-card {
+  max-width: 780px;          /* 画像の想定最大幅 */
+  margin: 16px auto;
+}
+
+.formula-card img.circuit-svg {
+  display: block;
+  width: 100%;               /* 親の幅にフィットさせる */
+  height: auto;              /* 縦横比を維持 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

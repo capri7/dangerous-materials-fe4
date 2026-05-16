@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Flammability_Range_010",
+  "category": "physical_chemistry",
+  "subcategory": "flammability_range",
+
+  "title": "【問10】基礎的な物理・化学：燃焼範囲",
+  "question": "可燃性蒸気の可燃下限界（LFL）が最も高いものは次のうちどれか。",
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "ジエチルエーテル" },
+    { "name": "2", "description": "ガソリン" },
+    { "name": "3", "description": "ベンゼン" },
+    { "name": "4", "description": "酢酸エチル" },
+    { "name": "5", "description": "エタノール" }
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：LFLは『空気中にどれくらい蒸気が混ざったら燃え始めるか』を表す“薄い側の境目”。数字が高いほど「ある程度濃くならないと燃えにくい」。アルコール類は意外とこの下限が高め——背骨：アルコールは“爆発しやすい最薄ライン”がちょい濃いめ。",
+
+  "explanations": [
+    "ジエチルエーテルのLFLは約1.9 vol％でかなり低い。ごく薄い蒸気でも燃えやすい側。",
+    "ガソリンは代表値で約1.4 vol％と低く、可燃範囲に入りやすい。",
+    "ベンゼンは約1.2 vol％でさらに低い。少しでも濃くなると危険側に入りやすい。",
+    "酢酸エチルは約2.0 vol％。エタノールほどは高くない。",
+    "正解。エタノールのLFLは約3 vol％台で、この中では下限界が最も高い（＝ある程度濃くならないと可燃範囲に入らない）。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼範囲", "可燃下限界", "LFL", "代表値", "アルコール類"],
+    "version": "2026-02-12"
+  }
+}
+
+
+

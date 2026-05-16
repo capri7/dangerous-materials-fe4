@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>マイページ - 乙種4類危険物取扱者試験対策</title>
+  <title>マイページ｜乙種4類危険物取扱者試験対策</title>
+  <meta name="description" content="本試験までのカウントダウン、進捗カレンダーを設置。総合・分野別・節別の練習問題をバーグラフで確認でき、誤答リストと復習リストで苦手を集中的に潰せるマイページです。">
+  <meta name="robots" content="noindex,nofollow">
+
+  <meta property="og:title" content="マイページ｜乙種4類危険物取扱者試験対策">
+  <meta property="og:description" content="本試験までのカウントダウン、進捗カレンダーを設置。総合・分野別・節別の練習問題をバーグラフで確認でき、誤答リストと復習リストで苦手を集中的に潰せるマイページです。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kikenbutsu-z4.com/images/logo.png">
+  <meta property="og:image:alt" content="危険物乙4試験対策サイトのロゴ">
+  <meta property="og:url" content="https://kikenbutsu-z4.com/mypage.html">
+  <meta property="og:site_name" content="危険物乙4 危険物取扱者試験対策">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="マイページ｜乙種4類危険物取扱者試験対策">
+  <meta name="twitter:description" content="本試験までのカウントダウン、進捗カレンダーを設置。総合・分野別・節別の練習問題をバーグラフで確認でき、誤答リストと復習リストで苦手を集中的に潰せるマイページです。">
+  <meta name="twitter:image" content="https://kikenbutsu-z4.com/images/logo.png">
+
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
   <link rel="stylesheet" href="/css/site.css">
   <link rel="stylesheet" href="/css/hamburger.css">
   <link rel="stylesheet" href="/css/basics.css">
   <link rel="stylesheet" href="/css/mypage.css">
 </head>
+
+
 <body class="mypage">
   <header class="site-header">
     <div class="header-container">
-      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo" /></a>
-      <h1 class="site-title">マイページ | 乙種4類危険物取扱者試験対策</h1>
+      <a href="/"><img src="/images/logo.svg" alt="危険物乙4試験対策サイト" class="logo" /></a>
+      <h1 class="site-title">マイページ｜乙種4類危険物取扱者試験対策</h1>
       <!-- ここからハンバーガー -->
       <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
         <span></span>
@@ -21,107 +54,162 @@
         <span></span>
       </button>
     </div>
-      <!-- ここまで -->
+    <!-- ここまで -->
     <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
-        <a href="/index.html">トップ</a>
-        <a href="/basics/index.html">基礎知識</a>
-        <a href="/contents/index.html">練習問題</a>
+        <a href="/">トップ</a>
+        <a href="/basics/">基礎知識</a>
+        <a href="/contents/">練習問題</a>
+        <a id="link-mypage" href="/mypage.html" aria-current="page">マイページ</a>
         <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
         <a id="link-cancel" href="#" class="nav-link hidden">請求情報</a>
         <a id="logout-link" href="#" class="nav-link logout">ログアウト</a>
     </nav>
   </header>
 
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+  <a href="/">トップ</a> &gt;
+  <span>マイページ</span>
+  </nav>
+
+<div class="main-container">
   <main class="site-main">
-    <div class="container">
-      <h2 class="page-title"> 😀 <span id="user-email">…</span> さん</h2>
+    <h2 class="page-title page-title--mypage">
+      <span class="user-emoji" aria-hidden="true">😀</span>
+      <span class="user-label">
+        <span id="user-email">…</span> さんの<br>合格ルート
+      </span>
+    </h2>
+
+
       <div class="dashboard">
-                    <section id="exam-countdown" class="card">
-                    <h3>📅 受験日</h3>
-                    <div id="countdown-display" aria-live="polite">受験日を設定してください</div>
+        <section id="exam-countdown">
+          <h3>📅 カウントダウン</h3>
+              <p>※ 全国で日程が異なるため、ご自身の受験日を設定してください。</p>
 
-                    <form id="exam-date-form" class="row gap">
-                    <input type="date" id="exam-date-input" required>
-                    <button id="exam-date-save" type="submit">保存</button>
-                    <button id="exam-date-clear" type="button">クリア</button>
-                    </form>
-                    <small class="muted">※ 全国で日程が異なるため、ご自身の受験日を設定してください。</small>
-                    </section>
-                    <section class="subcat-card">
-                    <h3>❌ 誤答リスト</h3>
-                    <p>誤答が残っている間は、通常の出題の正解は進捗に反映されません。まずは誤答を解消しましょう。</p>
-                    <div class="actions">
-                      <span class="muted">直近の解答が誤答の問題：</span>
-                      <strong><span id="wrong-count" aria-live="polite">0</span> 問</strong>
-                      <button id="btn-open-wrong" class="btn btn--secondary" type="button">確認する</button>
-                    </div>
-                  </section>
+            <div id="countdown-display" aria-live="polite">受験日を設定してください</div>
+              <form id="exam-date-form" class="row gap">
+                <input type="date" id="exam-date-input" required>
+                <button id="exam-date-save" type="submit">保存</button>
+                <button id="exam-date-clear" type="button">クリア</button>
+              </form>
+        </section>
 
-                 <p>◉ 学習状況：<span id="progress-text" aria-live="polite">0%</span>
-                 <span id="progress-count" aria-live="polite"></span></p>
+        <section class="study-streak" aria-label="学習カレンダー">
+          <div class="study-calendar-wrapper">
+            <div class="study-calendar-header">
+                <button id="study-cal-prev" type="button" aria-label="前の月">◀</button>
+                <h3 class="study-calendar-title">学習カレンダー</h3>
+                <button id="study-cal-next" type="button" aria-label="次の月">▶</button>
+            </div>
 
-                 <div id="progressbar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="学習進捗">
-                 <div id="progress-fill" class="fill" style="width:0%"></div>
-                 </div>
+            <div id="study-calendar" class="study-calendar"></div>
+          </div>
 
-                 <p class="streak-info">🔥 継続学習日数：<span id="streak-count">0</span>日</p>
+          <p class="streak-info">
+              🔥 継続学習日数：<span id="streak-count">0</span>日
+          </p>
+        </section>
 
-                 <div class="subcat-card" data-subcategory-id="1be30e7d-96c6-49cd-a879-061bde4c55d6">
-                   <h3>📚 練習問題</h3>
-                   <div class="actions">
-                   <button id="btn-practice" class="btn btn--primary" type="button">練習問題を始める</button>
-                   <p class="note">
-                    有料登録：すべての問題からランダム出題。<br>
-                    無料登録：全ての章から厳選した32問をランダム出題。<br>
-                    ※分野別進捗の「グラフ」を選択すると大分野別に問題が出題。「リスト」を選択すると小分野別に問題が出題。
-                   </p>
-                     <small id="resume-hint" class="muted"></small>
-                   </div>
-                  </div>
+        <section class="subcat-card" data-subcategory-id="1be30e7d-96c6-49cd-a879-061bde4c55d6">
+            <h3>📚 練習問題</h3>
+              <p>全分野から練習問題がランダムで出題されます。</p>
+              <div class="actions">
+                <button id="btn-practice" class="btn btn--primary" type="button">スタート</button>
+                <p class="note">
+                  お試しコース：32問<br>
+                  サブスク登録：1553問
+                </p>
+                <p><small id="resume-hint" class="muted"></small></p>
+              </div>
 
-                    <!-- アップセル：無料ユーザーだけ表示 -->
-                    <section id="paid-upsell" class="subcat-card">
-                    <h3>🔒 有料コース</h3>
-                    <p class="muted">購入するとロックが解除されます。</p>
-                    <a id="purchase-btn" class="btn btn--secondary" href="/checkout.html">🔓 購入はこちら（¥1280/月）</a>
-                    </section>
+            
+            <h4>全体の学習状況：<span id="progress-text" aria-live="polite">0%</span>
+            <span id="progress-count" aria-live="polite"></span></h4>
 
-                    <!-- 請求情報：有料ユーザーだけ表示（初期は非表示） -->
-                    <section id="billing-card" class="subcat-card hidden" aria-live="polite">
-                    <h3>💳 請求情報</h3>
-                    <p class="muted">支払い方法の変更・領収書の確認・解約はカスタマーポータルから行えます。</p>
-                    <div class="actions">
-                        <button id="btn-open-portal" class="btn btn--primary" type="button">請求情報（ポータル）を開く</button>
-                    </div>
-                    <small id="billing-hint" class="muted"></small>
-                    </section>
+          <div id="progressbar" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="学習進捗">
+            <div id="progress-fill" class="fill" style="width:0%"></div>
+          </div>
+        </section>
 
-                     <h3>📈 分野別進捗</h3>
-                    <div class="chart-switch" role="tablist">
-                    <button id="tab-graph-btn" class="tab active" role="tab" aria-selected="true" aria-controls="tab-graph" tabindex="0" data-view="graph">📈 グラフ</button>
-                    <button id="tab-list-btn" class="tab" role="tab" aria-selected="false" aria-controls="tab-list"  tabindex="-1" data-view="list">📊 リスト</button>
-                    </div>
+        <!-- アップセル：無料ユーザーだけ表示 -->
+        <section id="paid-upsell" class="subcat-card">
+          <h3>🔒 有料コース</h3>
+              <p class="muted">購入するとロックが解除されます。</p>
+              <a id="purchase-btn" class="btn btn--secondary" href="/checkout.html">🔓 購入はこちら（¥1280/月）</a>
+        </section>
 
-                    <div id="tab-graph" class="tab-content active" role="tabpanel" aria-labelledby="tab-graph-btn">
+        <!-- 分野別進捗カード -->
+        <section id="category-progress" class="subcat-card">
+          <h3>📈 分野別進捗</h3>
+              <p>苦手分野をすぐに見つけて、そのまま潰せる進捗マップです。</p>
+              <ul>
+                  <li>グラフ：棒グラフをクリックすると、その大分野のランダム演習を開始します。</li>
+                  <li>リスト：行をクリックすると、その小分野だけに集中して演習できます。</li>
+              </ul>
+              <div class="chart-switch" role="tablist">
+                <button id="tab-graph-btn" class="tab active" role="tab" aria-selected="true" aria-controls="tab-graph" tabindex="0" data-view="graph">📈 グラフ</button>
+                <button id="tab-list-btn" class="tab" role="tab" aria-selected="false" aria-controls="tab-list"  tabindex="-1" data-view="list">📊 リスト</button>
+              </div>
 
-                      <div id="progressChartWrap" class="chart-wrapper">
-                        <canvas id="progressChart"></canvas>
-                      </div>
-                    </div>
+              <div id="tab-graph" class="tab-content active" role="tabpanel" aria-labelledby="tab-graph-btn">
 
-                    <div id="tab-list" class="tab-content" role="tabpanel" aria-labelledby="tab-list-btn">
-                      <ul id="category-list"></ul>
-                   </div>
+                <div id="progressChartWrap" class="chart-wrapper">
+                  <canvas id="progressChart"></canvas>
+                </div>
+              </div>
 
-                    <h3>🔁 復習リスト</h3>
-                    <button id="review-btn" class="btn btn--secondary" type="button">▶ 確認する</button>
+              <div id="tab-list" class="tab-content" role="tabpanel" aria-labelledby="tab-list-btn">
+                  <ul id="category-list"></ul>
+              </div>
+        </section>
+
+        <section class="subcat-card">
+              <h3>復習リスト</h3>
+                <p>
+                  あとで見直したい問題をまとめたリストです。<br>
+                  スキマ時間に、ここから重点的に復習できます。
+                </p>
+
+                <!-- ▼ 追加：復習中の件数バッジ ▼ -->
+                <div class="actions">
+                  <span class="muted">復習中の問題数：</span>
+                  <strong><span id="review-count" aria-live="polite">0</span> 問</strong>
+                </div>
+
+                <button id="review-btn" class="btn btn--secondary" type="button">復習リストを開く</button>
+          </section>
+
+          <section class="subcat-card">
+            <h3>誤答リスト</h3>
+              <p>
+                最近間違えた問題だけを集めたリストです。<br>
+                このリストに残っている問題は、1発で正解するまで削除されません。
+              </p>
+              <div class="actions">
+                  <span class="muted">不正解の問題数：</span>
+                  <strong><span id="wrong-count" aria-live="polite">0</span> 問</strong>
+                  <button id="btn-open-wrong" class="btn btn--secondary" type="button">誤答リストを開く</button>
+              </div>
+          </section>
+
+          <!-- 請求情報：有料ユーザーだけ表示（初期は非表示） -->
+          <section id="billing-card" class="subcat-card hidden" aria-live="polite">
+            <h3>💳 請求情報</h3>
+                <p>
+                  支払い方法の変更・領収書の確認・解約はカスタマーポータルで手続きをお願いします。
+                </p>
+                <div class="actions">
+                    <button id="btn-open-portal" class="btn btn--primary" type="button">請求情報を開く</button>
+                </div>
+                <small id="billing-hint" class="muted"></small>
+          </section>
        </div>
-
-    </div>
   </main>
+</div>
+
     <footer class="site-footer">
     <div class="footer-inner">
-      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <p class="copyright">© 2025〜2026 乙種4類危険物取扱者試験対策</p>
       <div class="legal-links">
         <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
         <span>／</span>
@@ -133,7 +221,7 @@
   <script type="module" src="/js/supabaseClient.js" defer></script>
   <script type="module" src="/js/billing-portal.js" defer></script>
   <script type="module" src="/js/index.js" defer></script>
-  <script type="module" src="/js/mypage.js?v=20250904a"></script>
+  <script type="module" src="/js/mypage.js?v=20251110a"></script>
   <script type="module" src="/js/nav.js" defer></script>
   <script type="module" src="/js/nav-toggle.js" defer></script> 
 </body>

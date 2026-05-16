@@ -1,0 +1,47 @@
+{
+  "id": "Otsux_Phy_Flammability_Range_025",
+  "category": "physical_chemistry",
+
+  "subcategory": "flammability_range",
+  "title": "【問25】基礎的な物理・化学：燃焼範囲",
+
+  "question": [
+    "可燃下限界 LFL＝1.3 vol％、可燃上限界 UFL＝7.1 vol％ の可燃性蒸気がある。",
+    "空気100 Lにこの蒸気を加えて均一混合し、電気火花を与えるとき、燃焼しないものはどれか。"
+  ],
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "蒸気 2 L" },
+    { "name": "2", "description": "蒸気 4 L" },
+    { "name": "3", "description": "蒸気 6 L" },
+    { "name": "4", "description": "蒸気 7 L" },
+    { "name": "5", "description": "蒸気 8 L" }
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：式は一本！  vol％＝蒸気量 ÷（100＋蒸気量）×100。可燃は 1.3％＜濃度＜7.1％。端（≒1.31 L／≒7.64 L）を越えるとアウトだよ。",
+
+  "explanations": [
+  "誤り：2/(100+2)×100＝約1.96％ → 1.3〜7.1％の可燃範囲内なので燃焼する。",
+  "誤り：4/(100+4)×100＝約3.85％ → 可燃範囲内で燃焼する。",
+  "誤り：6/(100+6)×100＝約5.66％ → 可燃範囲内で燃焼する。",
+  "誤り：7/(100+7)×100＝約6.54％ → 可燃範囲内で燃焼する。",
+  "正しい：8/(100+8)×100＝約7.41％ → UFL 7.1％を超えており、濃すぎ（リッチ側）で燃焼しない。"
+],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼範囲", "LFL", "UFL", "vol％", "混合比", "瞬間計算"],
+    "version": "2026-02-12"
+  }
+}
+
+
+

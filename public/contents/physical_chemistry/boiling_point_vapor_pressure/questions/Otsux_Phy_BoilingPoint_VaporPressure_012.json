@@ -1,0 +1,44 @@
+{
+  "id": "Otsux_Phy_BoilingPoint_VaporPressure_012",
+
+  "category": "physical_chemistry",
+  "subcategory": "boiling_point_vapor_pressure",
+
+  "title": "【問12】基礎的な物理・化学：沸点と飽和蒸気圧",
+
+  "question": [
+    "図の蒸気圧曲線（A・B・水）を用いる。外圧が1/2気圧（約5.07×10⁴Pa）のとき、沸点が低い順の並びとして正しいものはどれか。"
+  ],
+
+  "fields":  ["description"],
+  "headers": [" "],
+
+  "choices": [
+    { "name": "1", "description": "水 → B → A" },
+    { "name": "2", "description": "B → A → 水" },
+    { "name": "3", "description": "A → B → 水" },
+    { "name": "4", "description": "B → 水 → A" },
+    { "name": "5", "description": "水 → A → B" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：縦軸で1/2気圧の高さに水平線を引き、各蒸気圧曲線との交点を見よう。交点が左（低温）にあるものほど、その外圧での沸点が低い。",
+
+  "explanations": [
+    "誤り。：水は同じ外圧でも最も高温で飽和蒸気圧が外圧に達するため、沸点は最も高い。",
+    "誤り。：AとBの順が逆。図ではAの交点がBより左にあり、Aの方が低温で沸騰する。",
+    "正しい。：A → B → 水。沸点とは「液体の飽和蒸気圧が外圧と等しくなる温度」である。外圧1/2気圧の水平線を引くと、Aの交点が最も左（低温）、次いでB、水が最も右（高温）となる。",
+    "誤り。：水の交点はAやBより右（高温側）にあり、水が中央になることはない。",
+    "誤り。：AとBはいずれも水より低温側で外圧に達するため、水より先に沸騰する。"
+  ],
+
+  "image": "boiling_point_vapor_pressure/Otsux_Phy_BoilingPoint_VaporPressure_004.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "沸点", "飽和蒸気圧", "外圧変化", "蒸気圧曲線"],
+    "version": "2026-03-06"
+  }
+}
+

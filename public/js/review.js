@@ -33,8 +33,8 @@ const SUBCAT_JA = {
   safety_supervisors: '危険物保安監督者',
   chief_safety_officers: '危険物保安統括管理者',
   facility_safety_staff: '危険物施設保安員',
-  preventive_regulations: '予防規定',
-  preventive_regulation_items: '予防規定に定めるべき事項',
+  preventive_regulations: '予防規程',
+  preventive_regulation_items: '予防規程に定めるべき事項',
   facility_maintenance_management: '危険物施設の維持・管理',
   regular_inspections: '定期点検',
   safety_inspections: '保安検査',
@@ -68,7 +68,7 @@ const SUBCAT_JA = {
   flammability_range: '燃焼範囲',
   spontaneous_combustion: '自然発火',
   dust_explosions: '粉じん爆発',
-  extinguishing_agents: '消化と消化剤',
+  extinguishing_agents: '消火と消火剤',
   electricity_and_batteries: '電気の計算 / 電池',
   static_electricity: '静電気',
   electrolysis: '電気分解',
@@ -92,11 +92,10 @@ const SUBCAT_JA = {
   organic_compounds: '有機化合物',
   polymer_materials: '高分子材料',
   properties_of_major_gases: '主な気体の特性',
-  chapter2_summary: '第2章のまとめ',
   // 性質と火災予防
   classification_of_dangerous_goods: '危険物の分類',
   class4_properties: '第4類危険物の性状',
-  class4_extinguishing_methods: '第4類危険物の消化',
+  class4_extinguishing_methods: '第4類危険物の消火',
   class4_storage_handling: '第4類危険物の貯蔵・取扱い',
   accident_cases_and_measures: '事故事例と対策',
   special_flammable_properties: '特殊引火物の性状',
@@ -105,9 +104,7 @@ const SUBCAT_JA = {
   class2_petroleum_properties: '第2石油類の性状',
   class3_petroleum_properties: '第3石油類の性状',
   class4_petroleum_properties: '第4石油類の性状',
-  animal_vegetable_oil_properties: '動植物油類の性状',
-  main_class4_dangerous_substances: '乙種第4類の主な危険物',
-  chapter3_summary: '第3章のまとめ'
+  animal_vegetable_oil_properties: '動植物油類の性状'
 };
 
 function qNoFromId(id = '') {

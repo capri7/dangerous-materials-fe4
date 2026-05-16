@@ -111,5 +111,25 @@
   transform: translateY(1px);
 }
 
+/* ============================
+   基礎知識トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.basics .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.basics .intro {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.basics .intro h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
 
 

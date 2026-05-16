@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>練習問題 - 第1章：危険物に関する法令</title>
@@ -12,7 +20,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="/index.html">
-        <img src="/images/logo.png" alt="ロゴ" class="logo" />
+        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
       </a>
       <h1 class="site-title">練習問題 | 第1章：危険物に関する法令 | 消防法で規定する危険物</h1>
       <!-- ここからハンバーガー -->
@@ -32,16 +40,20 @@
       <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
       <a href="#" class="nav-link logout">ログアウト</a>
     </nav>
-  </header> 
-  <nav class="breadcrumbs">
+  </header>
+
+
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
   <a href="/index.html">トップ</a> &gt;
   <a href="/contents/index.html">練習問題</a> &gt;
   <span>第1章：危険物に関する法令 | 消防法で規定する危険物</span>
-  </nav>  
+  </nav>
+
+<div class="main-container">
   <main class="site-main">
     <h2 id="title"></h2>
     <p id="question"></p>
-    <div id="choices"></div>
+    <div id="choices" class="table-scroll"></div>
     <div class="answer-wrapper">
       <div id="your-answer" class="your-answer"></div>
       <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
@@ -66,14 +78,15 @@
     <button id="btn-next" class="button btn-next" type="button">次の問題へ</button>
     </div>
   </main>
+</div>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <p class="copyright">© 2026 乙種4類危険物取扱者試験対策</p>
       <div class="legal-links">
-        <a href="#" class="footer-link">プライバシーポリシー</a>
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
           ／
-        <a href="#" class="footer-link">利用規約</a>
+        <a href="/terms.html" class="footer-link">利用規約</a>
       </div>
     </div>
   </footer>

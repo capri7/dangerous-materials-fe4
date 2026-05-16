@@ -1,0 +1,49 @@
+{
+  "id": "Otsux_Phy_Dust_Explosions_012",
+
+  "category": "physical_chemistry",
+  "subcategory": "dust_explosions",
+
+  "title": "【問12】基礎的な物理・化学 : 粉じん爆発（二次爆発：堆積量×再浮遊率×MEC）【⭐️⭐️】",
+
+  "question": [
+    "ある室内（容積 V=200 m³）で初爆により堆積粉じんが再浮遊した。粉じんのかさ密度を ρb=300 kg/m³、最小爆発濃度を MEC=60 g/m³ とする。厚さ t（mm）、堆積面積 A（m²）、再浮遊率 r（％）のとき、浮遊濃度 C＝(ρb×A×t×r)/V で近似できる（tはm換算、rは小数）。",
+    "次の3条件のうち、MEC以上（＝爆発可能性あり）となるものの組合せはどれか。",
+    "A：A=200, t=0.5 mm, r=10%",
+    "B：A=60,  t=2.0 mm, r=30%",
+    "C：A=100, t=2.0 mm, r=40%"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "A のみ" },
+    { "name": "2", "description": "B のみ" },
+    { "name": "3", "description": "C のみ" },
+    { "name": "4", "description": "A と B" },
+    { "name": "5", "description": "B と C" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：手順はいつも同じ：①mm→mに直す（0.5 mm＝0.0005 m）。②再浮遊率を小数にする（30%＝0.30）。③m_air＝ρb×A×t×r、④C＝m_air/V（kg/m³） → g/m³ に直す（×1000）。最後に MEC＝60 g/m³ と比べればOK。",
+
+  "explanations": [
+    "誤り。A：A×t＝200×0.0005＝0.10 m³ → m_total＝0.10×300＝30 kg → 再浮遊 10%＝3.0 kg → C＝3.0/200＝0.015 kg/m³＝15 g/m³ ＜ MEC。",
+    "誤り。B：A×t＝60×0.002＝0.12 m³ → m_total＝0.12×300＝36 kg → 再浮遊 30%＝10.8 kg → C＝10.8/200＝0.054 kg/m³＝54 g/m³ ＜ MEC。",
+    "正しい。C：A×t＝100×0.002＝0.20 m³ → m_total＝0.20×300＝60 kg → 再浮遊 40%＝24 kg → C＝24/200＝0.12 kg/m³＝120 g/m³ ＞ MEC。",
+    "誤り。",
+    "誤り。"
+  ],
+
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "粉じん爆発", "二次爆発", "再浮遊率", "MEC", "かさ密度", "体積計算", "堆積粉じん"],
+    "version": "2026-02-16"
+  }
+}
+

@@ -1,0 +1,40 @@
+{
+  "id": "Otsux_Law_Buffer_Space_Requirements_002",
+  "category": "law",
+  "subcategory": "buffer_space_requirements",
+
+  "title": "【問2】危険物に関する法令：保有空地",
+  "question": "法令上、製造所において、次の指定数量の倍数に応じて必要な空地の幅を満たしているものはどれか。ただし、高引火点危険物のみを取り扱うもの及び規則で定める防火上有効な隔壁を設けたものを除く。",
+
+  "fields":  ["description1", "description2"],
+  "headers": ["指定数量の倍数", "空地の幅"],
+  
+  "choices": [
+    { "name": "1", "description1": "3", "description2": "1m"},
+    { "name": "2", "description1": "5", "description2": "2m"},
+    { "name": "3", "description1": "9", "description2": "2m"},
+    { "name": "4", "description1": "11", "description2": "3m"},
+    { "name": "5", "description1": "15", "description2": "5m"}
+  ],
+
+  "answer": 5,
+  "hint": "ヒント：製造所（一般取扱所も同じ）：指定数量の倍数が「10以下 → 3m以上」「10を超える → 5m以上」。「以下」なのか「超える」なのかに注目。",
+
+
+  "explanations": [
+    "誤り。倍数3は10以下のため、必要な空地は3m以上。提示の1mは不足。",
+    "誤り。倍数5は10以下のため、必要な空地は3m以上。提示の2mは不足。",
+    "誤り。倍数9は10以下のため、必要な空地は3m以上。提示の2mは不足。",
+    "誤り。倍数11は10を超えるため、必要な空地は5m以上。提示の3mは不足。",
+    "正しい。倍数15は10を超えるため、必要な空地は5m以上。提示の5mで条件を満たす。"
+  ],
+
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "保有空地", "製造所", "一般取扱所", "指定数量", "境界値10"],
+    "version": "2026-04-05"
+  }
+}

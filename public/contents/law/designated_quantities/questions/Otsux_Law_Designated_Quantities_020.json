@@ -1,0 +1,57 @@
+{
+  "id": "Otsux_Law_Designated_Quantities_020",
+  "category": "law",
+
+  "subcategory": "designated_quantities",
+
+  "title": "【問20】危険物に関する法令：危険物の指定数量",
+
+  "question": "次のうち、第4類危険物の品名と指定数量の組合せとして正しいものはどれか。",
+
+
+  "fields": ["description1", "description2"],
+  "headers": ["品名", "指定数量"],
+
+  "choices": [
+    { "name": "1", "description1": "動植物油類",               "description2": "10,000 L" },
+    { "name": "2", "description1": "第4石油類",               "description2": "10,000 L" },
+    { "name": "3", "description1": "第3石油類（水溶性）",     "description2": "6,000 L" },
+    { "name": "4", "description1": "特殊引火物",               "description2": "100 L" },
+    { "name": "5", "description1": "アルコール類",             "description2": "1,000 L" }
+  ],
+
+  "answer": 1,
+
+
+  "hint": "ヒント：第4類危険物の指定数量：特殊引火物50L、第1石油類（非水溶性）200L・（水溶性）400L、アルコール類400L、第2石油類（非水溶性）1,000L・（水溶性）2,000L、第3石油類（非水溶性）2,000L・（水溶性）4,000L、第4石油類6,000L、動植物油類10,000L。",
+
+
+  "explanations": [
+    "正しい。動植物油類の指定数量は10,000Lであり、第4類の中で最大の値である。",
+    "誤り。第4石油類の指定数量は6,000Lであり、10,000Lは動植物油類の値である。",
+    "誤り。第3石油類（水溶性）の指定数量は4,000Lであり、6,000Lは第4石油類の値である。",
+    "誤り。特殊引火物の指定数量は50Lであり、100Lではない。",
+    "誤り。アルコール類の指定数量は400Lであり、1,000Lではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+
+  "meta": {
+    "difficulty": "basic",
+    "tags": [
+      "法令",
+      "指定数量",
+      "第4類危険物",
+      "動植物油類",
+      "水溶性と非水溶性"
+    ],
+    "version": "2026-05-13"
+  }
+}
+
+
+
+
+
+

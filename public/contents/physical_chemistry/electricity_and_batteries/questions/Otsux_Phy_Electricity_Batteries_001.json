@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Electricity_Batteries_001",
+  "category": "physical_chemistry",
+  "subcategory": "electricity_and_batteries",
+  "title": "【問1】基礎的な物理・化学 : 電気の計算 / 電池",
+
+  "question": [
+  "電源と抵抗を図のように接続した場合、電流計Aに流れる電流として、次のうち最も近いものはどれか。",
+  "ただし、電源E1＝2V、E2＝4V、抵抗R1＝R2＝3Ωとし、電源の内部抵抗と導体の抵抗は無視できるものとする。"
+],
+
+  "fields":  ["description"],
+  "headers": [""],
+  "choices": [
+    { "name": "1", "description": "0.3A"},
+    { "name": "2", "description": "0.7A"},
+    { "name": "3", "description": "1A"},
+    { "name": "4", "description": "2A"},
+    { "name": "5", "description": "4A"}
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：① 図から2つの電源は＋極が同じ向きなので、起電力は 2V＋4V＝6V になる。② R1・R2 は3Ωどうしの並列なので、等価抵抗は (3×3)/(3+3)＝1.5Ω。③ あとはオームの法則 I＝E/R で I＝6/1.5 を計算しよう。",
+
+  "explanations": [
+  "（0.3A）：誤り。電源を逆向きと勘違いして 4−2＝2V とし、R1・R2 を直列と見て R＝3＋3＝6Ω とすると I＝2/6≒0.3A になるパターン。",
+  "（0.7A）：誤り。電源を 4−2＝2V と誤って差し引き、抵抗を 3Ω と見て I＝2/3≒0.7A と計算した場合など。",
+  "（1A）：誤り。R1・R2 を直列の 6Ω と見てしまい、起電力 6V は正しくても I＝6/6＝1A としてしまうケース。",
+  "（2A）：誤り。片方の電源だけを見て E＝4V、等価抵抗 2Ω（3Ω||3Ω を誤って2Ωとするなど）とすると I＝4/2＝2A になる取り違え。",
+  "（4A）：正しい。電源は同方向直列なので有効起電力 E＝2＋4＝6V。R1＝R2＝3Ω の並列なので等価抵抗 R_eq＝(3×3)/(3＋3)＝1.5Ω。オームの法則 I＝E/R_eq から I＝6/1.5＝4A となる。"
+],
+
+  "image": "electricity_and_batteries/Otsux_Phy_Electricity_Batteries_001.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "電気の計算", "直列・並列", "起電力", "等価抵抗", "オームの法則"],
+    "version": "2026-02-22"
+  }
+}
+

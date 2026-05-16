@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Prop_Special_Flammable_Properties_027",
+  "category": "properties_prevention",
+  "subcategory": "special_flammable_properties",
+  "title": "【問27】危険物の性質・火災予防・消火の方法：特殊引火物の性状",
+
+  "question": "次の危険物のうち、発火点が最も高いものはどれか。",
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "アセトン" },
+    { "name": "2", "description": "エタノール" },
+    { "name": "3", "description": "ガソリン" },
+    { "name": "4", "description": "ジエチルエーテル" },
+    { "name": "5", "description": "二硫化炭素" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：発火点の高低を大まかに比べよう。二硫化炭素はかなり低く、ジエチルエーテルも低い。300℃前後のものより、さらに高いものを選べばよい。",
+
+  "explanations": [
+    "正しい。アセトンの発火点は約465℃で、選択肢の中では最も高い。",
+    "誤り。エタノールの発火点は約365℃で、アセトンより低い。",
+    "誤り。ガソリンの発火点は成分によって幅があるが、一般にアセトンより低い。",
+    "誤り。ジエチルエーテルの発火点は約160℃で、アセトンよりかなり低い。",
+    "誤り。二硫化炭素の発火点は約90℃で、選択肢の中でも特に低い。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["危険物の性質・火災予防・消火の方法", "特殊引火物の性状", "発火点", "アセトン", "エタノール", "ガソリン", "ジエチルエーテル", "二硫化炭素"],
+    "version": "2026-04-01"
+  }
+}
+
+
+

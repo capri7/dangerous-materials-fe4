@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Elements_Compounds_Mixtures_014",
+
+  "category": "physical_chemistry",
+  "subcategory": "elements_compounds_mixtures",
+
+  "title": "【問14】基礎的な物理・化学：単体・化合物・混合物",
+
+  "question": "次に示す物質の組み合わせのうち、互いに異性体であるものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "一酸化炭素（CO）と二酸化炭素（CO₂）" },
+    { "name": "2", "description": "酸素（O₂）とオゾン（O₃）" },
+    { "name": "3", "description": "食塩（NaCl）と塩化カリウム（KCl）" },
+    { "name": "4", "description": "エタノール（C₂H₆O）とプロパノール（C₃H₈O）" },
+    { "name": "5", "description": "1-プロパノール（C₃H₈O）と2-プロパノール（C₃H₈O）" }
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：異性体は分子式がまったく同じ化合物どうし。分子式が1文字でも違えば異性体ではない。同じ元素だけからできた単体どうしなら同素体。",
+
+  "explanations": [
+    "誤り。一酸化炭素COと二酸化炭素CO₂は分子式が異なる別の化合物であり、異性体ではない。",
+    "誤り。酸素O₂とオゾンO₃はいずれも酸素元素のみからなる単体であり、同素体の関係にある。分子式も異なるため異性体ではない。",
+    "誤り。食塩NaClと塩化カリウムKClは構成元素も分子式も異なる別の化合物であり、異性体ではない。",
+    "誤り。エタノールC₂H₆OとプロパノールC₃H₈Oは分子式が異なる別の化合物であり、異性体ではない。名前が似ていても炭素数が違えば別の物質である。",
+    "正しい。1-プロパノール（CH₃CH₂CH₂OH）と2-プロパノール（CH₃CH(OH)CH₃）はどちらも分子式C₃H₈Oであるが、ヒドロキシ基（-OH）の結合位置が異なる構造異性体である。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "異性体", "構造異性体", "同素体", "単体", "化合物"],
+    "version": "2026-04-18"
+  }
+}
+

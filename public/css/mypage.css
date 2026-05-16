@@ -40,7 +40,7 @@ html { box-sizing: border-box; }
 .progress-bar {
   flex: 1;
   background: #e0e0e0;
-  height: 8px;
+  height: 0.75rem;
   border-radius: 4px;
   overflow: hidden;
   width: 100%;
@@ -69,12 +69,7 @@ html { box-sizing: border-box; }
   body {
     font-size: 0.9rem;
   }
-  .dashboard h3 {
-    font-size: 1.1rem;
-  }
-  .dashboard p {
-    font-size: 0.9rem;
-  }
+
   /* タブのボタンを縦並びに */
   .chart-switch {
     flex-direction: column;
@@ -98,9 +93,7 @@ html { box-sizing: border-box; }
   body {
     font-size: 0.8rem;
   }
-  .dashboard h3 {
-    font-size: 1rem;
-  }
+
   .chart-switch button {
     font-size: 0.8rem;
   }
@@ -284,8 +277,27 @@ html { box-sizing: border-box; }
 .category-panel li {
   display: flex;
   align-items: center;
-  margin: 0.3rem 0;
+  margin: 0.25rem 0;
+  padding: 0.45rem 0.6rem;   /* ★ 追加：タップ領域を厚く */
+  border-radius: 0.75rem;    /* 行に“かたまり感”を出す */
 }
+/* モバイルはさらに押しやすく */
+@media (max-width: 480px) {
+  .category-panel li {
+    padding: 0.55rem 0.7rem; /* 実質高さ ≒ 44px を狙う */
+  }
+}
+
+/* 触れると「押せそう」に見せる */
+@media (hover:hover) {
+  .category-panel li:hover {
+    background: #f3f4f6;
+  }
+}
+.category-panel li:active {
+  background: #e5e7eb;
+}
+
 .category-panel .cat-label.small {
   font-size: 0.9rem;
   margin-right: 0.5rem;
@@ -329,6 +341,730 @@ html { box-sizing: border-box; }
 .tab.active { background:#eef2ff; border-color:#c7d2fe; }
 .tab-content { display:none; }
 .tab-content.active { display:block; }
+
+
+/* ─────────────────────────────────────
+   受験日カウントダウン UI（HTML変更不要）
+   ───────────────────────────────────── */
+
+/* 1) このフォームを含む“カード”の枠や影を消す（:has は Chrome/Safari でOK） */
+/*
+.site-main section:has(#exam-date-form),
+.site-main div:has(#exam-date-form) {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important; 
+  padding: 0 !important;
+}
+*/
+
+
+/* 2) 見出し・本文の整え（古臭さの原因の行間/色味を調整） */
+#countdown-display {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111;
+  margin: .25rem 0 .75rem;
+}
+
+/* 3) フォームのレイアウト＆サイズアップ */
+#exam-date-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* 入力→保存→クリア */
+  gap: .6rem;
+  align-items: center;
+  max-width: 420px; /* 横にだらっと広がらないよう制限 */
+  padding: .25rem 0;
+}
+
+/* 日付入力 */
+#exam-date-input {
+  font-size: 1rem;
+  line-height: 1;
+  padding: .75rem .9rem;          /* 高さ ≒ 44px */
+  height: 44px;
+  border: 1px solid #d1d5db;
+  border-radius: .6rem;
+  background: #fff;
+}
+
+/* 保存・クリアボタン（クラスなしでも今っぽく） */
+#exam-date-save,
+#exam-date-clear {
+  font-size: .95rem;
+  line-height: 1;
+  padding: .75rem 1rem;           /* 高さ ≒ 44px */
+  height: 44px;
+  border-radius: .6rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, transform .02s ease;
+}
+#exam-date-save:hover,
+#exam-date-clear:hover { background: #f9fafb; border-color: #cbd5e1; }
+#exam-date-save:active,
+#exam-date-clear:active { transform: translateY(1px); }
+
+/* 保存だけはアクセント色で主ボタン化 */
+#exam-date-save {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #fff;
+}
+#exam-date-save:hover { background:#1d4ed8; border-color:#1d4ed8; }
+
+/* アクセシブルなフォーカスリング */
+#exam-date-input:focus,
+#exam-date-save:focus,
+#exam-date-clear:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+  border-color: #93c5fd;
+}
+
+
+/* スマホでは「日付入力」1段目フル幅 → 2段目にボタン2つ */
+@media (max-width: 480px) {
+  /* さっきの grid 設定＋行構成はこのまま */
+  #exam-date-form {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: .6rem;
+  }
+  #exam-date-input {
+    grid-column: 1 / -1;      /* 1段目フル幅のまま */
+    height: 40px;             /* 少しだけ低く */
+    padding: .45rem .75rem;   /* 上下の余白を細く */
+    font-size: 0.95rem;
+  }
+  #exam-date-save {
+    grid-column: 1;
+  }
+  #exam-date-clear {
+    grid-column: 2;
+  }
+
+  /* ボタンはタップしやすさ優先で、やや大きめのまま */
+  #exam-date-save,
+  #exam-date-clear {
+    height: 44px;
+    padding: .6rem .9rem;
+    font-size: 0.95rem;
+  }
+}
+
+.study-calendar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.study-calendar-header h3 {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.study-calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.study-calendar-table th,
+.study-calendar-table td {
+  width: 14.285%;
+  text-align: center;
+  padding: 0.25rem 0;
+}
+
+.study-calendar-table th {
+  font-weight: 500;
+  color: #555;
+}
+
+
+/* 学習した日：数字の後ろに薄いグリーンの丸 */
+.study-calendar-table td.learned-day {
+  position: relative;
+  font-weight: 600;
+  color: #111;
+
+  /* 中央に丸い背景を描く */
+  background:
+    radial-gradient(circle, #d8f7df 0 70%, transparent 71%) center/1.8rem 1.8rem
+    no-repeat;
+}
+
+
+/* 空マス（前後の埋め草） */
+.study-calendar-table td.empty {
+  background: transparent;
+}
+
+/* ボタン見た目を少しだけ */
+#study-cal-prev,
+#study-cal-next {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* ─────────────────────────────
+   マイページ専用：ヘッダー直下の余白を少し詰める
+   （上の .site-main を上書き）
+   ───────────────────────────── */
+body.mypage .site-main {
+  margin-top: 0;  /* スマホ〜タブレット */
+}
+
+@media (min-width: 1024px) {
+  body.mypage .site-main {
+    margin-top: 0;  /* PCで少しだけ広めに */
+  }
+}
+
+/* ─────────────────────────────
+   復習リスト／誤答リストカード
+   （HTML側は section + h3 + p + ボタンのままでOK）
+   ───────────────────────────── */
+
+/* カードの枠・余白・影など */
+.site-main section:has(#review-btn),
+.site-main section:has(#btn-open-wrong) {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* 見出し行：アイコン＋タイトルを横並びに */
+.site-main section:has(#review-btn) h3,
+.site-main section:has(#btn-open-wrong) h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+/* 見出し前のアイコン */
+.site-main section:has(#review-btn) h3::before {
+  content: "📘";
+  font-size: 1.1rem;
+}
+
+.site-main section:has(#btn-open-wrong) h3::before {
+  content: "❌";
+  font-size: 1.1rem;
+}
+
+/* 説明文 */
+.site-main section:has(#review-btn) p,
+.site-main section:has(#btn-open-wrong) p {
+  margin: 0.25rem 0 0.75rem;
+  color: #4b5563;
+}
+
+/* 「未正解の問題数：◯◯問」の行だけは少し強調 */
+.site-main section:has(#btn-open-wrong) p:has(#wrong-count) {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* ボタンの共通スタイル（タップしやすいサイズ） */
+#review-btn,
+#btn-open-wrong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              color 0.15s ease, transform 0.02s ease;
+}
+
+#review-btn:active,
+#btn-open-wrong:active {
+  transform: translateY(1px);
+}
+
+/* 復習リスト → セカンダリ */
+#review-btn {
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
+}
+#review-btn:hover {
+  background: #f9fafb;
+  border-color: #cbd5e1;
+}
+
+/* 誤答リスト → アクセント強め */
+#btn-open-wrong {
+  background: #ef4444;          /* 赤系（Tailwind の red-500 相当） */
+  border-color: #ef4444;
+  color: #ffffff;
+}
+#btn-open-wrong:hover {
+  background: #dc2626;          /* red-600 相当 */
+  border-color: #dc2626;
+}
+
+/* スマホで幅いっぱいにして押しやすく */
+@media (max-width: 480px) {
+  #review-btn,
+  #btn-open-wrong {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ========== マイページ：請求情報カードを控えめに ========== */
+
+/* 全体の余白を少しだけ増やす（フッターとくっつかないように） */
+body.mypage .site-main {
+  padding-bottom: 10px;  /* 元より +20〜30px くらいのイメージ */
+}
+
+
+
+
+/* ========== マイページ：メール表示タイトル ========== */
+
+body.mypage .page-title--mypage {
+  margin: 0 0 1rem;              /* 上の余白をギュッと詰める */
+  font-size: 1.05rem;            /* h2 より一段小さく */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #111827;
+}
+
+body.mypage .page-title--mypage .user-emoji {
+  font-size: 1.4rem;             /* 絵文字だけ少し大きめでアクセント */
+}
+
+body.mypage .page-title--mypage .user-label {
+  font-size: 0.95rem;            /* テキストは控えめ */
+  color: #374151;
+}
+
+/* スマホではさらに少しだけ小さく */
+@media (max-width: 480px) {
+  body.mypage .page-title--mypage {
+    font-size: 1rem;
+  }
+  body.mypage .page-title--mypage .user-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* ─────────────────────────────
+   マイページ上部 2枚のカード
+   （カウントダウン／学習カレンダー）
+   ───────────────────────────── */
+body.mypage #exam-countdown,
+body.mypage .study-streak {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: #f2f6fc;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* カレンダーの中身のちょい整え（任意） */
+body.mypage .study-calendar-wrapper {
+  margin-top: 0;
+}
+
+
+/* ───────── マイページ：上部2枚カードの見出し余白調整 ───────── */
+
+body.mypage #exam-countdown h3,
+body.mypage .study-calendar-header .study-calendar-title {
+  margin-top: 0;          /* 上の余白をゼロに */
+  margin-bottom: 0.5rem;  /* 下だけ少しあける */
+  line-height: 1.3;
+  font-size: 1rem;        /* 他ページとバランスが取れるくらい */
+}
+
+/* ─────────────────────────────
+   マイページ：全体進捗＋練習問題カード
+   ───────────────────────────── */
+body.mypage .dashboard > .subcat-card {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem 1.25rem;
+  background: #f2f6fc;                          /* 上の2枚と同じトーン */
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* 見出しとバーまわりの余白を少しだけタイトに */
+body.mypage .dashboard > .subcat-card > h3 {
+  margin: 0 0 0.5rem;
+}
+
+/* 練習問題ブロックをカード内の「下半分」みたいに見せる */
+body.mypage .dashboard > .subcat-card .practice-section {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #d1d5db;
+}
+
+/* 練習問題タイトルの余白を調整 */
+body.mypage .dashboard > .subcat-card .practice-section h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+}
+
+/* ─────────────────────────────
+   マイページ：有料コース アップセルカード
+   ───────────────────────────── */
+body.mypage #paid-upsell {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem 1.25rem;
+  background: #fef2f2;                /* ほんのり赤み（ロック解除イメージ） */
+  border-radius: 0.75rem;
+  border: 1px solid #fecaca;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+body.mypage #paid-upsell h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+body.mypage #paid-upsell p {
+  margin: 0 0 0.75rem;
+}
+
+/* ボタンは少し強めに */
+body.mypage #paid-upsell #purchase-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11rem;
+  font-size: 0.9rem;
+}
+
+/* ─────────────────────────────
+   マイページ：分野別進捗カード
+   ───────────────────────────── */
+body.mypage #category-progress {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem 1.5rem;
+  background: #f2f6fc;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+body.mypage #category-progress > h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+body.mypage #category-progress > p {
+  margin: 0 0 0.5rem;
+}
+
+body.mypage #category-progress > ul {
+  margin: 0 0 0.75rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* タブ切り替えとチャートとの間隔を少しだけ詰める */
+body.mypage #category-progress .chart-switch {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ─────────────────────────────
+   復習リスト／誤答リストカード
+   （HTMLは section.subcat-card のままでOK）
+   ───────────────────────────── */
+body.mypage section.subcat-card:has(#review-btn),
+body.mypage section.subcat-card:has(#btn-open-wrong) {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem 1.2rem;
+  background: #f2f6fc;                 /* 上のカードと同じ色 */
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* 見出し行：アイコン＋タイトルを横並びに */
+body.mypage section.subcat-card:has(#review-btn) h3,
+body.mypage section.subcat-card:has(#btn-open-wrong) h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+/* 見出し前のアイコン */
+body.mypage section.subcat-card:has(#review-btn) h3::before {
+  content: "📘";
+  font-size: 1.1rem;
+}
+body.mypage section.subcat-card:has(#btn-open-wrong) h3::before {
+  content: "❌";
+  font-size: 1.1rem;
+}
+
+/* 説明文 */
+body.mypage section.subcat-card:has(#review-btn) p,
+body.mypage section.subcat-card:has(#btn-open-wrong) p {
+  margin: 0.25rem 0 0.75rem;
+  color: #4b5563;
+}
+
+/* 「不正解の問題数：◯問」の行だけ少し強調 */
+body.mypage section.subcat-card:has(#btn-open-wrong) .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+/* ボタンをカード用サイズに */
+body.mypage #review-btn,
+body.mypage #btn-open-wrong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  background-color: #2563eb;   /* 既存の青に合わせる */
+  border-color: #2563eb;
+  color: #fff;
+}
+
+body.mypage #review-btn:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+
+body.mypage #review-btn:active,
+body.mypage #btn-open-wrong:active {
+  transform: translateY(1px);
+}
+
+/* スマホでは幅いっぱいにして押しやすく */
+@media (max-width: 480px) {
+  body.mypage #review-btn,
+  body.mypage #btn-open-wrong {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ─────────────────────────────
+   請求情報カードだけ整える
+   ───────────────────────────── */
+
+/* カード本体（他のカードと同じ顔に） */
+body.mypage #billing-card {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem 1.2rem;
+  background: #f2f6fc;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* 見出し行 */
+body.mypage #billing-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+}
+
+/* 説明文 */
+body.mypage #billing-card p {
+  margin: 0.25rem 0 0.75rem;
+  color: #4b5563;
+}
+
+/* ボタン：サイズは他と同じ、色だけ「白ボタン＋黒文字」 */
+body.mypage #billing-card #btn-open-portal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.65rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  color: #111827;
+  cursor: pointer;
+}
+
+/* ホバー／アクティブの軽いリアクション */
+body.mypage #billing-card #btn-open-portal:hover {
+  background-color: #f9fafb;
+  border-color: #cbd5e1;
+}
+
+body.mypage #billing-card #btn-open-portal:active {
+  transform: translateY(1px);
+}
+
+/* スマホでは幅いっぱいにして押しやすく */
+@media (max-width: 480px) {
+  body.mypage #billing-card #btn-open-portal {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ステータス行（テキストだけ。ボタン扱いしない） */
+body.mypage #billing-hint {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+
+.study-calendar-header h3 {  /* ← font-size: 1rem; を削る */
+  flex: 1;
+  text-align: center;
+  /* font-size: 1rem;  ←削除 */
+}
+
+/* 復習／誤答カード */
+.site-main section:has(#review-btn) h3,
+.site-main section:has(#btn-open-wrong) h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  /* font-size: 1.1rem; ←削除 */
+  margin: 0 0 0.4rem;
+}
+
+/* 有料コース */
+body.mypage #paid-upsell h3 {
+  margin: 0 0 0.4rem;
+  /* font-size: 1.1rem; ←削除 */
+}
+
+/* 分野別進捗 */
+body.mypage #category-progress > h3 {
+  margin: 0 0 0.5rem;
+  /* font-size: 1.1rem; ←削除 */
+}
+
+/* 請求情報 */
+body.mypage #billing-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  /* font-size: 1.1rem; ←削除 */
+  margin: 0 0 0.4rem;
+}
+
+/* カウントダウン側も font-size を消す */
+body.mypage #exam-countdown h3,
+body.mypage .study-calendar-header .study-calendar-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  /* font-size: 1rem; ←削除 */
+}
+
+/* ダッシュボード内カードの幅を統一（スマホでも100%に） */
+body.mypage .dashboard .subcat-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* マイページのカード見出しサイズを共通化 */
+body.mypage .subcat-card > h3,
+body.mypage #exam-countdown h3,
+body.mypage .study-calendar-header .study-calendar-title {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+/* 学習カレンダーの見出しだけ一回り小さく */
+body.mypage .study-calendar-header h3.study-calendar-title {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  body.mypage .study-calendar-header h3.study-calendar-title {
+    font-size: 0.9rem;
+  }
+}
+
+/* ─────────────────────────────
+   マイページ：カード本文テキストのサイズを統一
+   （復習リスト／誤答リスト／請求情報 ほか）
+   ───────────────────────────── */
+body.mypage section.subcat-card p,
+body.mypage #billing-card p {
+  font-size: inherit;     /* body と同じサイズを使う */
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────
+   復習リスト／誤答リスト：ホバー時に真っ白にならないように固定
+   ───────────────────────────── */
+body.mypage section.subcat-card:has(#review-btn),
+body.mypage section.subcat-card:has(#btn-open-wrong) {
+  background: #f2f6fc;   /* 通常時のカード色を再確認で指定 */
+}
+
+/* ホバーしても背景色を飛ばさない（ほんの少しだけ変化でもOK） */
+body.mypage section.subcat-card:has(#review-btn):hover,
+body.mypage section.subcat-card:has(#btn-open-wrong):hover {
+  background: #e8f0fd;   /* もしくは #f2f6fc のままでもよい */
+  border-color: #d1d5db;
+}
+
+
+
+
+
 
 
 

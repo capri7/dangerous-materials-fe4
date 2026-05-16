@@ -1,0 +1,57 @@
+{
+  "id": "Otsux_Phy_Acids_And_Bases_014",
+
+  "category": "physical_chemistry",
+  "subcategory": "acids_and_bases",
+
+  "title": "【問14】基礎的な物理・化学：酸と塩基（アルカリ）【⭐️⭐️】",
+
+
+  "question": [
+    "次の各水溶液A〜Dについて、酸・塩基（アルカリ）・塩の分類として正しい組合せはどれか。",
+    "A：塩酸 HCl(aq)",
+    "B：水酸化ナトリウム NaOH(aq)",
+    "C：塩化ナトリウム NaCl(aq)（食塩水）",
+    "D：アンモニア水 NH₃(aq)"
+  ],
+
+
+  "fields": ["description1", "description2", "description3"],
+  "headers": ["酸", "塩基（アルカリ）", "塩"],
+
+
+  "choices": [
+    { "name": "1", "description1": "A", "description2": "B, D", "description3": "C"},
+    { "name": "2", "description1": "A, D", "description2": "B", "description3": "C"},
+    { "name": "3", "description1": "A", "description2": "B", "description3": "C, D"},
+    { "name": "4", "description1": "A, C", "description2": "B", "description3": "D"},
+    { "name": "5", "description1": "A", "description2": "C, D", "description3": "B"}
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：HClは水中でH⁺を生じる酸、NaOHはOH⁻を生じる強塩基、NH₃は水からH⁺を受け取ってNH₄⁺とOH⁻を生じる弱塩基、NaClは塩酸と水酸化ナトリウムの中和で生じる塩（えん）である。",
+
+  "explanations": [
+    "正しい。HCl(aq)は水溶液中でH⁺を生じる酸であり、Aは酸に分類される。NaOH(aq)は水溶液中でOH⁻を生じる強塩基であり、NH₃(aq)も水からH⁺を受け取ってNH₄⁺とOH⁻を生じる塩基としてはたらくので、BとDは塩基に分類される。NaCl(aq)は塩酸と水酸化ナトリウムの中和反応で生じる塩であり、Cは塩に分類される。",
+    "誤り。D（アンモニア水 NH₃(aq)）は水からH⁺を受け取る塩基としてはたらくため、酸ではなく塩基に分類される。AとDをともに酸とするこの組合せは誤りである。",
+    "誤り。D（アンモニア水）は塩ではなく塩基であり、CとDをともに塩とまとめている点が誤りである。NaCl(aq)は塩でよいが、NH₃(aq)は塩には分類されない。",
+    "誤り。C（NaCl(aq)）は塩であり酸ではない。塩酸HCl(aq)のみが酸に分類されるため、「酸：A, C」としている点が誤りである。",
+    "誤り。NaOH(aq)は塩基であり塩ではなく、NaCl(aq)は塩基ではなく塩に分類される。BとCを入れ替えているため誤りである。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "酸", "塩基（アルカリ）", "塩", "アンモニア", "塩酸", "水酸化ナトリウム", "食塩水"],
+    "version": "2026-05-10"
+  }
+}
+
+
+
+
+
+
+

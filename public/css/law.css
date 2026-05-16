@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/* =========================================================
+   第1章 法令：基礎知識ページ共通スキン（law.css）
+   - テーマカラー：青
+   - テーブル：横スクロール＋1列目 sticky
+   - 出る出るポイント（exam-notes）
+   - ひっかけ注意（exam-points）
+   - コールアウト（注意・OK・NG）
+   ========================================================= */
+
+
+/* ---------- カラートークン ---------- */
+:root {
+  --law-accent:        #0b5cab;                  /* 第1章共通の青 */
+  --law-accent-strong: #243c5a;                  /* タイトル用の紺 */
+  --law-accent-soft:   rgba(11, 92, 171, .06);
+  --law-muted:         #6b7280;
+
+  --law-border:        #e5e7eb;
+  --law-border-light:  #eef2f6;
+
+  --law-row:           #fafbfc;
+  --law-head:          #f3f6fa;
+
+  --law-bg-soft:       #f8fafc;
+
+  --law-note-bg:       #fff8e8;                  /* 出る出るボックス背景 */
+  --law-note-border:   #f1c073;
+
+  --law-ok:            #059669;
+  --law-warn:          #d97706;
+  --law-ng:            #dc2626;
+
+
+/* 旧スタイルとの互換用エイリアス（必要なら他ページでも流用可） */
+  --accent: var(--law-accent);
+  --border: var(--law-border);
+  --row:    var(--law-row);
+  --head:   var(--law-head);
+}
+
+
+/* ---------- レイアウトのガード（basics共通） ---------- */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body.basics {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 第1章 基礎知識ページ内は box-sizing を統一 */
+body.basics *,
+body.basics *::before,
+body.basics *::after {
+  box-sizing: border-box;
+}
+
+
+/* 中央カラム幅（PC） */
+@media (min-width: 1024px) {
+  body.basics .breadcrumbs,
+  body.basics .site-main {
+    width: min(960px, calc(100% - 64px));
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ---------- law-section カード ---------- */
+.basics .law-section + .law-section {
+  scroll-margin-top: 90px;
+}
+
+.basics .law-section h2 {
+  font-size: clamp(20px, 2.6vw, 24px);
+  line-height: 1.35;
+  margin: 0 0 10px;
+  color: var(--law-accent-strong);
+  letter-spacing: .02em;
+}
+
+.basics .law-section h3 {
+  font-size: clamp(15px, 2.2vw, 18px);
+  margin: 8px 0 6px;
+  color: var(--law-accent-strong);
+}
+
+/* 段落・リストの読みやすさ */
+.basics .law-section p {
+  margin: 8px 0;
+  line-height: 1.75;
+}
+.basics .law-section ul,
+.basics .law-section ol {
+  margin: 8px 0 8px 1.15em;
+  line-height: 1.7;
+}
+.basics .law-section li + li { margin-top: 4px; }
+
+
+
+/* ---------- 出る出るポイント（exam-notes） ---------- */
+
+
+.exam-notes {
+  background: var(--law-note-bg);
+  border: 2px dashed var(--law-note-border);
+  border-radius: 12px;
+  padding: 16px 18px 14px;
+  margin: 16px 0 12px;
+}
+
+.exam-notes > h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 8px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.exam-notes > h3::before {
+  content: "📝";
+  font-size: 1.05em;
+}
+
+.exam-notes ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.exam-notes li {
+  position: relative;
+  padding-left: 1.2em;
+  line-height: 1.7;
+}
+.exam-notes li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  color: var(--law-accent);
+}
+
+.exam-notes:empty { display: none; }
+
+
+/* ================== ひっかけ注意（exam-points） ================== */
+
+.exam-points {
+  background: #FFF8E8;
+  border: 2px dashed #F1C073;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+.exam-points > h3 {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 1.9vw, 20px);
+  font-weight: 700;
+  color: #2B2B2B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ひっかけ注意アイコン */
+.exam-points > h3::before {
+  content: "⚡️";
+  font-size: 1.1em;
+}
+
+/* リストはディスク表記で端正に */
+.exam-points ul.compact {
+  list-style: disc;
+  margin: 0;
+  padding: 0 0 0 1.2em;
+}
+.exam-points ul.compact li {
+  margin: 8px 0;
+  line-height: 1.7;
+}
+.exam-points ul.compact li::before { content: none; }
+
+/* 中身が空のときは箱自体を消す */
+.exam-points:empty { display: none; }
+
+/* ---------- コールアウト（注意・OK・NG） ---------- */
+
+.callout {
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  background: #fff;
+  border: 1px dashed var(--law-border);
+}
+.callout.ok   { border-color: #a7f3d0; background: #ecfdf5; color: #064e3b; }
+.callout.warn { border-color: #fde68a; background: #fffbeb; color: #7c2d12; }
+.callout.ng   { border-color: #fecaca; background: #fef2f2; color: #7f1d1d; }
+
+
+
+
+/* ================== テーブル（共通ベース） ================== */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-container.table-scroll::-webkit-scrollbar-thumb {
+  background: #cfd8e3;
+  border-radius: 4px;
+}
+
+/* ベース表 */
+.styled-table {
+  width: 100%;
+  min-width: 640px;                 /* スマホは横スクロールへ退避 */
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--law-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  font-size: .95rem;
+}
+
+.styled-table.table-fixed { table-layout: fixed; }
+
+.styled-table thead th {
+  background: var(--law-head);
+  color: #111827;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--law-border);
+  padding: .75rem .9rem;
+  white-space: nowrap;
+}
+
+.styled-table tbody td,
+.styled-table tbody th {
+  border-bottom: 1px solid #eef2f6;
+  border-right: 1px solid #eef2f6;
+  padding: .7rem .9rem;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(odd) { background: var(--law-row); }
+
+.styled-table thead th:first-child { border-top-left-radius: 8px; }
+.styled-table thead th:last-child  { border-top-right-radius: 8px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.styled-table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.styled-table tbody td:last-child { border-right: 0; }
+
+/* 変更の届出テーブルでは、最右列もちゃんと線を出す */
+.law-defined-table tbody td:last-child,
+.law-defined-table tbody th:last-child {
+  border-right: 1px solid #eef2f6;
+}
+
+
+/* ホバーで読む行をうっすら強調（PCだけ） */
+@media (hover:hover) {
+  .styled-table tbody tr:hover { background: #edf3fb; } /* 薄い青系 */
+}
+
+/* ================== sticky 1列目 ================== */
+
+/* sticky の基準となる親 */
+.table-container.table-scroll {
+  position: relative;
+  scrollbar-color: #cfd8e3 transparent;
+}
+
+/* 1列目 sticky */
+.sticky-first-col .sticky {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 2;
+  border-right: 1px solid #eef2f6;
+  box-shadow: none; 
+}
+
+.sticky-first-col thead th.sticky {
+  z-index: 3;
+  border-right: 1px solid #eef2f6;
+  background: var(--law-head);
+}
+
+/* ================== 法令テーブル専用（styled-table--law） ================== */
+
+/* 種別：条文 ≒ 26 : 74 */
+.styled-table--law {
+  min-width: 640px;
+}
+
+/* 長文条文を気持ちよく折り返す */
+.styled-table--law.table-fixed td,
+.styled-table--law.table-fixed th {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: loose;
+  white-space: normal;
+}
+
+/* sticky 1列目の丸ポチを無効にしてインデントだけ残す */
+.styled-table--law .sticky::before { content: none !important; }
+
+.styled-table--law th.sticky,
+.styled-table--law td.sticky {
+  padding-left: .9rem;
+  font-weight: 700;
+}
+
+/* 数値右寄せが欲しい表は今後 .styled-table--numeric を個別で付ける想定
+   （このページには数値テーブルがないので、ここでは定義しない） */
+
+/* スマホでの閾値を少し下げる */
+@media (max-width: 480px) {
+  .styled-table--law { min-width: 560px; }
+
+  .styled-table thead th,
+  .styled-table tbody td,
+  .styled-table tbody th {
+    padding: .6rem .7rem;
+    font-size: .9rem;
+  }
+
+  .table-container { margin-bottom: 1.4rem; }
+}
+
+/* ================== リスト（詰め表示） ================== */
+ul.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ul.compact li {
+  margin: .2em 0;
+}
+
+
+
+/* ================== バンドカード（左帯） ================== */
+
+.band-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--law-border);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  margin-bottom: .75rem;
+}
+
+
+.band-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--law-accent);        /* 第1章は青帯 */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 隣り合うカードの密着防止 */
+.band-card + .callout { margin-top: 16px; }
+.callout + .callout { margin-top: 20px; }
+
+
+
+/* ================== ページ全体レイアウト微調整 ================== */
+
+/* bascis 共通の余白を少し詰める（このページだけ） */
+.basics .site-main {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* law-section 同士の間隔 */
+.law-section + .law-section { margin-top: 2.4rem; }
+.quiz-section { margin-top: 2.8rem; }
+
+@media (min-width: 768px) {
+  .law-section + .law-section { margin-top: 3.2rem; }
+}
+
+/* ================== 小UIユーティリティ ================== */
+
+.muted { color: #6b7280; }
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* ================== アクセシビリティ ================== */
+
+/* iOS/Safariのフォントブースト抑制 */
+html, body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* フォーカス可視（キーボード） */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--law-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 低視力配慮：リンクのホバー/フォーカス */
+a:hover { text-decoration: underline; }
+
+/* 動きに配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === レイアウトの右はみ出し防止（第1章1節ページ専用） === */
+
+
+/* メインコンテンツの箱も安全側に寄せておく */
+.site-main,
+.breadcrumbs,
+.intro,
+.content,
+.law-section,
+.quiz-section,
+.next-button,
+.table-container {
+  max-width: 100%;
+}
+
+/* === レイアウトの右はみ出しを html ごと封じる最終ガード === */
+
+/* ビューポート全体で横スクロールを禁止 */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* basics ページ用：念のため width を明示 */
+body.basics {
+  width: 100%;
+}
+
+/* === ヘッダー／ナビが 100vw で飛び出すのを強制的に止める === */
+
+body.basics .site-header,
+body.basics .header-container,
+body.basics .nav-links {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* === PC のときは中央カラム幅に絞る（第1章1節用） === */
+@media (min-width: 1024px) {
+  /* パンくずと本文を同じ幅で中央寄せ */
+  body.basics .breadcrumbs,
+  body.basics .site-main {
+    width: min(960px, calc(100% - 64px)); /* 960px か 画面幅-64px の小さい方 */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+
+
+/* ================== このページ専用：見出しの統一 ================== */
+
+/* 第1章2節の h2 を共通トーンに揃える */
+body.basics .site-main h2 {
+  font-size: clamp(22px, 2.6vw, 26px);  /* どの h2 も同じ大きさ */
+  line-height: 1.35;
+  margin: 2.2rem 0 1.1rem;              /* 上に少し余白を足す */
+  font-weight: 700;
+}
+
+/* 第1章2節：最初の白カードだけ、上の余白を少し増やす */
+body.basics .site-main .law-section:first-of-type {
+  padding-top: 0.4rem;   /* 好みで 2.0〜2.6rem くらいに微調整OK */
+}
+

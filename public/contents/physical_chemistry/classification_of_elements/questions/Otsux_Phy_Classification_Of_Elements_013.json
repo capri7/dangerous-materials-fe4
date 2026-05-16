@@ -1,0 +1,47 @@
+{
+  "id": "Otsux_Phy_Classification_Of_Elements_013",
+
+  "category": "physical_chemistry",
+  "subcategory": "classification_of_elements",
+
+
+  "title": "【問13】基礎的な物理・化学：元素の分類（常温での状態トラップ）",
+
+
+  "question": "常温（約20℃）、1気圧における単体の状態（気体・液体・固体）の組合せとして、正しいものはどれか。",
+
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "酸素O₂：気体、臭素Br₂：液体、硫黄S：固体"},
+    { "name": "2", "description": "窒素N₂：液体、臭素Br₂：固体、鉄Fe：気体"},
+    { "name": "3", "description": "ヘリウムHe：固体、塩素Cl₂：液体、ヨウ素I₂：気体"},
+    { "name": "4", "description": "水銀Hg：固体、鉄Fe：液体、銅Cu：液体"},
+    { "name": "5", "description": "アルゴンAr：液体、酸素O₂：固体、ヨウ素I₂：液体"}
+  ],
+
+  "answer": 1,
+
+
+  "hint": "ヒント：酸素 O₂ は空気中にある気体。臭素 Br₂ や体温計に入っている水銀 Hg は常温で液体。では、硫黄 S は常温でどんな状態だろう？",
+
+  "explanations": [
+    "正しい。酸素 O₂ は常温・1気圧で気体、臭素 Br₂ は液体、硫黄 S は固体として存在する。",
+    "誤り。窒素 N₂ は常温・1気圧では気体、臭素 Br₂ は液体、鉄 Fe は固体である。",
+    "誤り。ヘリウム He と塩素 Cl₂ は常温・1気圧で気体、ヨウ素 I₂ は固体である。",
+    "誤り。水銀 Hg は常温で液体、鉄 Fe と銅 Cu は固体である。",
+    "誤り。アルゴン Ar と酸素 O₂ は常温・1気圧で気体、ヨウ素 I₂ は固体である。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "元素の分類", "状態変化", "気体", "液体", "固体"],
+    "version": "2026-03-30"
+  }
+}
+
+

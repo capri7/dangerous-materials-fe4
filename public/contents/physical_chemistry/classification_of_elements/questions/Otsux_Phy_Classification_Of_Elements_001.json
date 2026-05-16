@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_Classification_Of_Elements_001",
+
+  "category": "physical_chemistry",
+  "subcategory": "classification_of_elements",
+
+  "title": "【問1】基礎的な物理・化学：元素の分類",
+
+
+   "question": "金属について、次のうち誤っているものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "金属の中には水よりも軽いものがある。" },
+    { "name": "2", "description": "イオンになりやすいかどうかは、金属の種類によって異なる。" },
+    { "name": "3", "description": "希硫酸と反応しない金属もある。" },
+    { "name": "4", "description": "金属は燃焼しない。" },
+    { "name": "5", "description": "比重が約4以下の金属を一般に軽金属という。" }
+  ],
+  "answer": 4,
+
+  "hint": "ヒント：金属の中には、粉末状になると燃えやすいものもある。したがって、「金属は燃焼しない」とは言い切れない。",
+
+  "explanations": [
+    "正しい。比重が1より小さい金属として、リチウム、ナトリウム、カリウムなどがあり、水よりも軽い金属も存在する。",
+    "正しい。金属が陽イオンになりやすいかどうかは、金属の種類によって異なる。",
+    "正しい。希硫酸と反応しない金属もある。たとえば、銅、銀、白金、金などは水素よりイオン化傾向が小さい。",
+    "誤り。金属でも燃焼するものはある。たとえば、鉄粉やアルミニウム粉などは燃焼しやすい。",
+    "正しい。比重が約4以下の金属を一般に軽金属という。"
+  ],
+
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "元素の分類", "金属"],
+    "version": "2026-03-29"
+  }
+}
+
+

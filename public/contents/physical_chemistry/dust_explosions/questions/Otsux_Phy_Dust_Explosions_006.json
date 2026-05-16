@@ -1,0 +1,43 @@
+{
+  "id": "Otsux_Phy_Dust_Explosions_006",
+
+  "category": "physical_chemistry",
+  "subcategory": "dust_explosions",
+
+  "title": "【問6】基礎的な物理・化学 : 粉じん爆発（Kst・Pmax・MIE）【⭐️⭐️】",
+
+  "question": "粉じん爆発特性に関する次の記述のうち、誤っているものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "Kstは、最大圧力上昇速度(dP/dt)maxを容器体積の1/3乗で補正した指数で、単位はbar・m/sで示される。"},
+    { "name": "2", "description": "Kstのクラス区分は一般に、St0(Kst=0), St1(0<Kst≤200), St2(200<Kst≤300), St3(Kst>300)である。"},
+    { "name": "3", "description": "Pmaxは粉じんの種類によらずほぼ一定(約8 bar)に収束するため、危険度評価にはほとんど用いられない。"},
+    { "name": "4", "description": "最小着火エネルギー(MIE)が小さい粉じんほど静電気火花などの微小な着火源で点火しやすい。"},
+    { "name": "5", "description": "Kst=230の粉じんはSt2に分類される。"}
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：Kst＝圧力の立ち上がりの速さ。St0〜St3で危険度を見る。Pmaxは粉じんの種類で変わるので“ほぼ一定”は誤り。MIEが小さい粉じんは、静電気火花のようなごく小さなエネルギーでも着火しやすい。",
+
+  "explanations": [
+    "正しい。Kstは(dP/dt)maxを容器体積の1/3乗で補正した指数で、爆発の勢いを表す。単位は bar・m/s。",
+    "正しい。一般区分は St0＝非爆発性、St1＝0〜200、St2＝200〜300、St3＝300超。",
+    "誤り。Pmax（最大爆発圧力）は粉じんの種類で変化する重要パラメータであり、“一定で使えない”という説明は誤り。",
+    "正しい。MIEが小さい粉じんは、ごく小さなエネルギーで点火できるため、静電気火花などの微小な着火源にも極めて敏感である。",
+    "正しい。Kst=230は St2（200〜300）に該当する。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "粉じん爆発", "Kst", "Pmax", "MIE", "Stクラス", "最小着火エネルギー", "危険度評価"],
+    "version": "2026-02-16"
+  }
+}
+

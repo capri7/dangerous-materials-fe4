@@ -1,0 +1,55 @@
+{
+  "id": "Otsux_Phy_Acids_And_Bases_015",
+
+  "category": "physical_chemistry",
+  "subcategory": "acids_and_bases",
+
+  "title": "【問15】基礎的な物理・化学：酸と塩基（アルカリ）【⭐️⭐️】",
+
+
+  "question": [
+    "次の文の（）内のA〜Dに当てはまる語句の組み合わせとして、正しいものはどれか。",
+    "「（A）とは、水溶液中で水素イオン（H⁺）を与える物質であり、（B）とは水素イオン（H⁺）を受け取る物質である。",
+    "このとき、水溶液中におけるアンモニアと水の反応では、水は（C）としてはたらき、塩化水素と水の反応では、水は（D）としてはたらく。」"
+  ],
+
+  "fields":  ["description1", "description2", "description3", "description4"],
+  "headers": ["A", "B", "C", "D"],
+
+  "choices": [
+    { "name": "1", "description1": "酸",   "description2": "塩基", "description3": "酸",   "description4": "酸" },
+    { "name": "2", "description1": "酸",   "description2": "塩基", "description3": "酸",   "description4": "塩基" },
+    { "name": "3", "description1": "酸",   "description2": "塩基", "description3": "塩基", "description4": "酸" },
+    { "name": "4", "description1": "塩基", "description2": "酸",   "description3": "酸",   "description4": "塩基" },
+    { "name": "5", "description1": "塩基", "description2": "酸",   "description3": "塩基", "description4": "酸" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：アンモニアと水の反応式はNH₃＋H₂O→NH₄⁺＋OH⁻、塩化水素と水の反応式はHCl＋H₂O→H₃O⁺＋Cl⁻である。反応の前後でH₂OがOH⁻になっていればH⁺を与えた（酸）、H₂OがH₃O⁺になっていればH⁺を受け取った（塩基）と判定できる。",
+
+  "explanations": [
+    "誤り。Aが酸、Bが塩基という定義は正しいが、Dが誤りである。塩化水素と水の反応（HCl＋H₂O→H₃O⁺＋Cl⁻）では、水がHClからH⁺を受け取るため、水は塩基としてはたらく。",
+    "正しい。H⁺を与える物質を酸、H⁺を受け取る物質を塩基という。アンモニアと水の反応（NH₃＋H₂O→NH₄⁺＋OH⁻）では、水がNH₃にH⁺を与えるため、水は酸としてはたらく。塩化水素と水の反応（HCl＋H₂O→H₃O⁺＋Cl⁻）では、水がHClからH⁺を受け取るため、水は塩基としてはたらく。",
+    "誤り。Aが酸、Bが塩基という定義は正しいが、CとDが逆である。アンモニアとの反応では水がH⁺を与えるため酸、塩化水素との反応では水がH⁺を受け取るため塩基としてはたらく。",
+    "誤り。AとBが逆である。H⁺を与える物質が酸、H⁺を受け取る物質が塩基である。また、塩化水素との反応で水はH⁺を受け取るため塩基としてはたらき、Dの「塩基」は正しいが、Aが塩基・Bが酸という定義が誤りである。",
+    "誤り。AとBが逆であり、CとDも逆である。H⁺を与える物質が酸、H⁺を受け取る物質が塩基である。アンモニアとの反応では水がH⁺を与えるため酸（C）、塩化水素との反応では水がH⁺を受け取るため塩基（D）としてはたらく。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "酸", "塩基（アルカリ）", "水素イオン", "アンモニア", "塩化水素"],
+    "version": "2026-05-10"
+  }
+}
+
+
+
+
+
+
+
+
+

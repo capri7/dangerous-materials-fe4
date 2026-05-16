@@ -68,7 +68,7 @@ export function attachEventHandlers(table, data, {
       <p>${
         questionIsCorrect
           ? 'すばらしい！ よく出来ました。👏'
-          : 'うーん… もう一度考えてみましょう。😅'
+          : '残念...不正解だ。😅'
       }</p>
     `;
     }
@@ -138,6 +138,16 @@ export function attachEventHandlers(table, data, {
         ${expl[idx] ?? ''}<br><br>
       `;
     });
+
+    // 各選択肢の解説の後に、組合せ問題のA〜D個別解説を表示
+    const stmtExpl = data.statement_explanations;
+    if (stmtExpl && typeof stmtExpl === 'object') {
+      explEl.innerHTML += `<hr style="margin:1em 0">`;
+      explEl.innerHTML += `<strong>各文の解説</strong><br><br>`;
+      for (const [key, text] of Object.entries(stmtExpl)) {
+        explEl.innerHTML += `【${key}】${text}<br><br>`;
+      }
+    }
 
     explEl.classList.remove('hidden');
     hasOpenedExplanation = true;

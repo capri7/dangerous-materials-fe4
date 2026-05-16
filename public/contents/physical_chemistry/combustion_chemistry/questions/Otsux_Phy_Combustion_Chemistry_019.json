@@ -1,0 +1,43 @@
+{
+  "id": "Otsux_Phy_Combustion_Chemistry_019",
+  "category": "physical_chemistry",
+
+  "subcategory": "combustion_chemistry",
+  "title": "【問19】基礎的な物理・化学：燃焼の化学【⭐️⭐️】",
+
+  "question": "次の消火方法と、燃焼の三要素から取り除く対象の組合せとして、正しいものはどれか。",
+
+  "fields": ["description1", "description2", "description3"],
+  "headers": ["冷却", "窒息（酸素遮断）", "除去（燃料遮断）"],
+
+  "choices": [
+    { "name": "1", "description1": "熱", "description2": "酸素供給源", "description3": "可燃物" },
+    { "name": "2", "description1": "酸素供給源", "description2": "熱", "description3": "可燃物" },
+    { "name": "3", "description1": "熱", "description2": "可燃物", "description3": "酸素供給源" },
+    { "name": "4", "description1": "可燃物", "description2": "酸素供給源", "description3": "熱" },
+    { "name": "5", "description1": "酸素供給源", "description2": "可燃物", "description3": "熱" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：冷却＝熱を奪う。窒息＝酸素供給源を断つ。除去＝可燃物（燃料）を断つ。この3つをそのまま表に当てはめる。",
+
+  "explanations": [
+    "正しい。冷却は熱を奪う。窒息は酸素供給源を遮断する。除去は可燃物（燃料）を断つ。",
+    "誤り。冷却で奪うのは酸素ではなく熱。窒息で断つのは熱ではなく酸素供給源。",
+    "誤り。窒息で断つのは酸素供給源であり、可燃物ではない。除去で断つのは可燃物であり、酸素供給源ではない。",
+    "誤り。冷却で奪うのは可燃物ではなく熱。除去で断つのは熱ではなく可燃物。",
+    "誤り。冷却で奪うのは酸素ではなく熱。窒息で断つのは可燃物ではなく酸素供給源。除去で断つのは熱ではなく可燃物。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "消火の三方法", "対応関係", "定義問題", "ひっかけ対策"],
+    "version": "2026-03-03"
+  }
+}
+
+
+

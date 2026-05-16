@@ -1,0 +1,49 @@
+{
+  "id": "Otsux_Phy_Flammability_Range_020",
+  "category": "physical_chemistry",
+  "subcategory": "flammability_range",
+
+  "title": "【問20】基礎的な物理・化学：燃焼範囲【⭐️】",
+
+  "question": [
+    "可燃性蒸気－空気系に二酸化炭素（CO₂）を混入したときの影響に関する次の記述 A〜D のうち、正しいものの組合せはどれか。",
+    "A. CO₂混入は酸素分圧を下げるため、一般に可燃下限界（LFL）を上げる方向に働く。",
+    "B. CO₂混入は熱容量増大・熱吸収により反応を抑え、一般に可燃上限界（UFL）を下げる方向に働く。",
+    "C. 同じ希釈率なら、CO₂より窒素（N₂）の方が範囲縮小効果が大きい。",
+    "D. CO₂を加えると、一般に可燃範囲（UFL−LFL）は狭くなる。"
+  ],
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "A と B" },
+    { "name": "2", "description": "A と D" },
+    { "name": "3", "description": "B と C" },
+    { "name": "4", "description": "A・B・D" },
+    { "name": "5", "description": "A・C・D" }
+  ],
+
+  "answer": 4,
+
+  "hint": "ヒント：背骨は『CO₂を入れると、薄い側も濃い側も“燃えにくくなる”ので、可燃範囲がぎゅっと狭くなる』ということ。CO₂は酸素を薄める＋熱を奪う→薄い側はLFL↑、濃い側はUFL↓。同じだけ混ぜるなら、N₂よりCO₂の方が火を抑える力は強めだ。",
+
+  "explanations": [
+    "（AとB）誤り：AとBは正しいが、D（範囲が狭くなる）も正しいため不十分。",
+    "（AとD）誤り：Bも正しい。CO₂は熱容量・吸熱効果でUFLを下げやすい。",
+    "（BとC）誤り：Cが誤り。範囲縮小効果は一般に CO₂ ＞ N₂（CO₂の方が抑制強い）。",
+    "（A・B・D）正しい：CO₂混入で LFL↑、UFL↓、結果として（UFL−LFL）は縮小。",
+    "（A・C・D）誤り：Cだけが間違い。可燃範囲を小さくする力は、同じだけ混ぜるならN₂よりCO₂の方が大きい。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "燃焼範囲", "CO₂", "不活性ガス", "LFL", "UFL", "範囲縮小", "N₂比較"],
+    "version": "2026-02-12"
+  }
+}
+
+
+

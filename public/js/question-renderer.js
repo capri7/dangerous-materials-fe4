@@ -68,8 +68,8 @@
       const isNegation = data.feedback_mode === "negation";
 
       const feedbackText = {
-        correct_but_negation: "✅ この記述は誤っています。よって正解です。",
-        incorrect_but_negation: "ℹ️ この記述は正しいです。本問は「誤った記述」を選ぶ問題のため、正しい文を含む選択肢は不正解になります。",
+        correct_but_negation: "✅ この選択肢は「問題文の条件には当てはまらない」ので、正しい選択です！",
+        incorrect_but_negation: "❌ この選択肢は「問題文の条件に当てはまる」ので、この問題では誤りの選択です。",
         correct: "✅ 正解です！",
         incorrect: formatFeedback(choice, data.wrong_feedback || "❌ 不正解です。"),
       };

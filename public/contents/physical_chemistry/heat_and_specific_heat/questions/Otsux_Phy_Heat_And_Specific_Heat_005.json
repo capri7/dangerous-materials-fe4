@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_And_Specific_Heat_005",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_and_specific_heat",
+
+  "title": "【問5】基礎的な物理・化学：熱量と比熱",
+
+  "question": "比熱が 2.5 J/(g·K) の液体 100 g の温度を 10 ℃から 30 ℃まで上昇させるのに要する熱量は、次のうちどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "2.5 kJ" },
+    { "name": "2", "description": "5.0 kJ" },
+    { "name": "3", "description": "7.5 kJ" },
+    { "name": "4", "description": "10.0 kJ" },
+    { "name": "5", "description": "12.5 kJ" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：まず温度差を見る。30−10 で 20 K。あとは q = m c ΔT に、そのまま入れればよい。100×2.5=250、250×20=5000 J。最後に 5000 J を kJ に直して 5.0 kJ になる。",
+
+  "explanations": [
+    "誤り。温度差は 30−10 なので 20 K である。したがって、q = 100×2.5×20 = 5000 J となり、2.5 kJ にはならない。",
+    "正しい。温度差は 30−10 = 20 K である。したがって、q = m c ΔT = 100×2.5×20 = 5000 J となる。5000 J = 5.0 kJ である。",
+    "誤り。正しくは q = 100×2.5×20 = 5000 J であり、7.5 kJ にはならない。",
+    "誤り。正しくは q = 100×2.5×20 = 5000 J であり、10.0 kJ にはならない。",
+    "誤り。正しくは q = 100×2.5×20 = 5000 J であり、12.5 kJ にはならない."
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "比熱", "熱量", "q=mcΔT", "単位"],
+    "version": "2026-03-14"
+  }
+}
+

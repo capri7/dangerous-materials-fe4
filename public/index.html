@@ -1,16 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
     <meta charset="UTF-8" />
-    <title>乙種4類危険物取扱者試験対策｜無料でお試し体験</title>
+    <title>危険物乙4 試験対策｜無料32問＋1500問以上の練習問題</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- SEO -->
-    <meta name="description" content="乙4の過去傾向に基づく一問一答。まずはログイン不要で32問を無料体験。登録するとマイページで進捗・誤答・復習を自動記録し、効率的に合格を目指せます。">
+    <meta name="description" content="危険物乙4の本番形式の問題を1500問以上収録。マイページで「進捗・誤答・復習」を自動記録し、苦手だけを集中的に演習できます。まずはログイン不要の無料32問から。">
+
+    <link rel="canonical" href="https://kikenbutsu-z4.com/">
     <!-- OGP（本番では絶対URLに） -->
-    <meta property="og:title" content="乙種4類危険物取扱者試験対策｜無料で32問体験">
-    <meta property="og:description" content="ログイン不要でまずは無料体験。登録後は進捗・誤答・復習が自動で貯まる学習設計。">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="危険物乙4 試験対策｜無料32問＋1500問以上の練習問題">
+    <meta property="og:description" content="スマホ1つで「進捗・誤答・復習」を自動管理。ガソリンスタンドの仕事の合間でも、一発合格を狙える乙4対策サイトです。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="/images/ogp.png">
+    <meta property="og:image" content="https://kikenbutsu-z4.com/images/logo.png">
+    <meta property="og:image:alt" content="危険物乙4試験対策サイトのロゴ">
+    <meta property="og:url" content="https://kikenbutsu-z4.com/">
+    <meta property="og:site_name" content="危険物乙4 危険物取扱者試験対策">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="危険物乙4 試験対策｜無料32問＋1500問以上の練習問題">
+    <meta name="twitter:description" content="スマホ1つで進捗・誤答・復習を自動管理。まずはログイン不要の無料32問から。">
+    <meta name="twitter:image" content="https://kikenbutsu-z4.com/images/logo.png">
+
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
 
     <link rel="stylesheet" href="/css/site.css" />
     <link rel="stylesheet" href="/css/hamburger.css">
@@ -23,21 +49,26 @@
   <!-- ヘッダー -->
   <header class="site-header">
     <div class="header-container">
-      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo" /></a>
+      <a href="/" aria-label="トップページ"><img src="/images/logo.svg" alt="危険物乙4試験対策サイト" class="logo" /></a>
       <h1 class="site-title">乙種4類危険物取扱者試験対策</h1>
       <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
         <span></span><span></span><span></span>
       </button>
     </div>
     <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
-      <a href="/index.html" aria-current="page">トップ</a>
-      <a href="/basics/index.html">基礎知識</a>
-      <a href="/contents/index.html">練習問題</a>
+      <a href="/" aria-current="page">トップ</a>
+      <a href="/basics/">基礎知識</a>
+      <a href="/contents/">練習問題</a>
       <a id="link-mypage" href="/mypage.html">マイページ</a>
       <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
-      <a id="logout-link"   href="#"               class="nav-link hidden">ログアウト</a>
+      <a id="logout-link" href="#" class="nav-link hidden">ログアウト</a>
     </nav>
   </header>
+
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+  <a href="/">トップ</a> &gt;
+  <span>乙種4類危険物取扱者試験対策</span>
+  </nav>
 
   <script type="module">
    import { supabase } from '/js/supabaseClient.js';
@@ -51,7 +82,7 @@
 
     // CTA文言も合わせて更新（任意）
     const resume = document.querySelector('#btn-resume');
-    if (resume){ resume.textContent = 'マイページで続きから再開'; resume.href = '/mypage.html#review'; }
+    if (resume){ resume.textContent = 'マイページに移動'; resume.href = '/mypage.html#review'; }
     } else {
     $('link-checkout')?.classList.remove('hidden');
     $('logout-link')?.classList.add('hidden');
@@ -75,109 +106,231 @@
 
 
  <!-- ヒーロー -->
+<div class="main-container">
   <main class="site-main">
-    <section class="hero" aria-labelledby="hero-title">
-      <h2 id="hero-title" class="hero-title">ジャンル別に出題問題が<br>一目でわかる！</h2>
-      <p class="hero-subtitle">ログイン不要ですぐ体験。登録するとマイページで「進捗・誤答・復習」を一元管理。</p>
-      <div class="hero-badges" aria-hidden="true">
+    <section class="hero">
+      <div class="hero-inner">
+        <h2 class="hero-title">スマホ1つで、乙4の弱点が全部見える。</h2>
+
+        <p class="hero-subtitle">
+          本番形式の5択一問一答を1500問以上収録。<br>
+          メール登録をすると、マイページで「進捗・誤答・復習」が自動でたまります。<br>
+          仕事の合間でも、苦手だけを集中的に潰して一発合格を狙える学習サイトです。
+        </p>
+
+      <div class="hero-badges">
         <span class="hero-badge">スマホ最適化</span>
-        <span class="hero-badge">本番形式</span>
-        <span class="hero-badge">過去傾向対応</span>
+        <span class="hero-badge">本番そっくり5択形式</span>
+        <span class="hero-badge">マイページで弱点管理</span>
       </div>
-      <div class="hero-buttons">
-        <a href="/contents/free.html?reset=1" class="btn btn-primary" id="btn-free">ログインなしで練習問題に挑戦</a>
-        <a href="/signup.html" class="btn btn-secondary" id="btn-signup">メール登録（進捗を保存）</a>
-        <a href="/login.html" class="btn btn-secondary" id="btn-login">ログイン</a>
+
+      <div class="hero-ctas">
+        <a href="/contents/free.html?reset=1" class="btn btn-secondary hero-cta-main">
+          登録なしで32問にチャレンジ
+        </a>
+        <a href="/signup.html" class="btn btn-primary hero-cta-sub">
+          登録してマイページを使う
+        </a>
       </div>
-      <p class="plan-info">月額プラン：<strong>1280円</strong>（税込/いつでも解約可能）</p>
-      <p class="note">※ 練習問題は登録なしで使えます。ダッシュボード（進捗の保存・可視化）は
-      <a href="/signup.html">メール登録</a>で有効になります。
-      </p>
+
+      <div class="hero-meta">
+        <p>まずはマイページ付き32問を、完全無料でお試しできます。
+           合わないと思ったら、そのままやめてOKです。</p>
+        <p class="hero-login-note">
+          すでに登録済みの方は
+          <a href="/login.html">こちら</a>からログインできます。
+        </p>
+
+        <p class="plan-info">
+          <span class="plan-label">月額プラン：</span>
+          <strong class="plan-price">1,280円</strong>
+          <span class="plan-note">（税込／合わなければいつでも解約可能）</span>
+        </p>
+
+        <ul class="hero-notes">
+          <li>練習問題はメール登録なしでも利用可能です。</li>
+          <li>
+            マイページの「進捗グラフ・誤答リスト・復習リスト」は
+            <a href="/signup.html">メール登録</a>で有効になります。
+          </li>
+        </ul>
+      </div>
     </section>
 
     <!-- 使い方（3ステップ） -->
     <section class="section">
-      <h2 class="sr-only">使い方</h2>
+      <h2 class="section-title">この教材を使う3つの理由</h2>
+
       <div class="howto">
         <div class="card">
-          <h3>① ログイン不要で体験</h3>
-          <p>まずは「無料32問」で手触りを確認。出題形式やUIをチェック。</p>
+          <h3>① マイページで弱点が丸見え</h3>
+          <p>
+            分野別の解答数・正答率、誤答リスト、復習リストを自動で記録。<br>
+            「どこが苦手か」「次に何をやればいいか」が一目でわかります。
+          </p>
         </div>
+
         <div class="card">
-          <h3>② 登録で自動記録</h3>
-          <p>メール登録すると、解答・誤答・復習登録がマイページに自動保存。</p>
+          <h3>② 本番そっくりの一問一答を1500問以上</h3>
+          <p>
+            過去の出題傾向をもとにAIが生成した5択の一問一答を1500問以上収録。<br>
+            解説とヒント付きで、「なんとなく正解」ではなく理由まで理解できます。
+          </p>
         </div>
+
         <div class="card">
-          <h3>③ 苦手に集中して合格へ</h3>
-          <p>「誤答のみ再挑戦」「復習のみ出題」など効率機能で最短ルート。</p>
+          <h3>③ 仕事の合間でも続けやすい設計</h3>
+          <p>
+            スマホで1問ずつ解けるので、作業の合間や休憩中の5分だけでもOK。<br>
+            解いた結果はすべてマイページにたまります。なので、紙のメモや自分で記録する手間はいりません。
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- 機能一覧 -->
+    <!-- 勉強の流れ -->
     <section class="section">
-      <h2 class="sr-only">主な機能</h2>
-      <div class="features">
+      <h2 class="section-title">勉強の流れ</h2>
+
         <div class="feature">
-          <h3>④進捗ダッシュボード</h3>
-          <p>分野別に解答数・正答率が可視化。学習の偏りを一目で把握。</p>
+          <div class="card">
+            <h3>STEP1｜基礎知識の確認</h3>
+            <p>
+              基礎知識のページで、試験範囲と全体像をざっくり確認します。<br>
+              まずは「出る出るポイント」と「ひっかけ注意」を押さえて、
+              どこから勉強すればいいかをはっきりさせましょう。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>STEP2｜メール登録してマイページ解放</h3>
+            <p>
+              メール登録をすると、解答・誤答・復習登録がマイページに自動保存されます。<br>
+              今日どこまで進んだか、どの分野が苦手かがひと目で分かります。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>STEP3｜誤答リストと復習リストで追い込み</h3>
+            <p>
+              試験日まで、「誤答のみ再挑戦」「復習のみ出題」で弱点だけを集中的に演習します。<br>
+              正解できている問題の数もグラフで見えるので、モチベーションを保ちやすくなります。
+            </p>
+          </div>
         </div>
-        <div class="feature">
-          <h3>⑤誤答リスト</h3>
-          <p>間違えた問題だけを集中的に再出題。弱点つぶしに最適。</p>
+    </section>
+
+    <!-- マイページのイメージ（スマホモック） -->
+    <section class="section section-dashboard" aria-labelledby="dash-title">
+      <div class="dash-hero">
+
+        <!-- 1段目：左テキスト -->
+        <div class="dash-copy">
+          <p class="dash-kicker">マイページのイメージ</p>
+          <h2 id="dash-title" class="dash-title">
+            スマホ1つで、進捗と弱点が一目で分かるマイページ。
+          </h2>
+
+          <ul class="dash-points">
+            <li>大分野・小分野ごとのバーで「どこまで終わったか」がひと目で分かる。</li>
+            <li>誤答リスト・復習リストから、次にやる問題だけをすぐ呼び出せる。</li>
+            <li>試験日までの伸びをグラフで追えるので、モチベーションが落ちにくい。</li>
+          </ul>
+
+          <p class="dash-note">
+            🔒 メール登録をすると、このマイページが使えるようになります。
+          </p>
         </div>
-        <div class="feature">
-          <h3>⑥復習リスト</h3>
-          <p>復習リストに登録した問題は、繰り返し復習、何度も確認。</p>
+
+        <!-- 1段目：右スマホ（メインの画面） -->
+        <div class="dash-device dash-device-main">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img
+                src="/images/mypage1.svg"
+                alt="全体の学習状況のイメージ"
+                class="phone-screen"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+          </div>
+          <p class="phone-caption">全体の学習状況のイメージ</p>
         </div>
+
+        <!-- 2段目：左スマホ（小分野別など） -->
+        <div class="dash-device dash-device-sub dash-device-left">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img
+                src="/images/mypage2.svg"
+                alt="小分野別の進捗イメージ"
+                class="phone-screen"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+          </div>
+          <p class="phone-caption">小分野別の進捗イメージ</p>
+        </div>
+
+        <!-- 2段目：右スマホ（復習リスト＋誤答リスト） -->
+        <div class="dash-device dash-device-sub dash-device-right">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen-wrap">
+              <img
+                src="/images/mypage3.svg"
+                alt="復習リストと誤答リストのイメージ"
+                class="phone-screen"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+          </div>
+          <p class="phone-caption">復習リストと誤答リストのイメージ</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- マイページのイメージ（SVGプレビュー） -->
-    <section class="section" aria-labelledby="dash-title">
-    <h2 id="dash-title" class="sr-only">進捗ダッシュボード（プレビュー）</h2>
-    <p class="note note-lock" role="note">🔒 メール登録で大分野、小分野別に進捗状況・誤答リスト・復習リストをご利用いただけます。<br>グラフとリストを切り替えて進捗をご確認ください。</p>
+    <!-- CTA帯（そのまま流用） -->
+    <section class="section section-cta">
+      <div class="cta-band">
+        <div class="card">
+          <h3>練習問題にチャレンジ</h3>
 
-    <!-- デバッグ用：タブもdash-cardも無し、素の画像を2枚だけ -->
-    <figure class="dash-figure">
-      <img
-        src="/images/graph.svg"
-        alt="分野別の学習状況（解答数と正答率）の可視化"
-        class="dash-svg"
-        loading="lazy"
-        decoding="async"
-        width="1200" height="800"
-      />
-    </figure>
+          <p>
+            スマホだけで解ける本番形式の問題を、32問まで無料で体験できます。<br>
+            メール登録してマイページを使うと、分野別の進捗や誤答リストが自動で記録され、
+           「次に何をやるか」がひと目で分かるようになります。<br>
+            まずはマイページを使って、32問にチャレンジしてみてください。
+            登録なしの32問は簡易版の構成です。
+          </p>
+        </div>
+      </div>
 
-    <figure class="dash-figure" style="margin-top:16px">
-      <img
-        src="/images/list.svg"
-        alt="小分野ごとの到達度と残り問題数の一覧"
-        class="dash-svg"
-        loading="lazy"
-        decoding="async"
-        width="1200" height="1600"
-      />
-    </figure>
-  </section>
+        <div class="hero-buttons">
 
-  <!-- CTA帯（そのまま流用） -->
-  <div class="cta-band" style="margin-top:16px">
-    <h3 style="margin:0 0 6px;">まずは無料で32問</h3>
-    <p>手応えを確認 → 登録して進捗を自動保存。合格まで伴走します。</p>
-    <div class="hero-buttons">
-      <a href="/contents/free.html?reset=1" class="btn btn-primary">無料で試す</a>
-      <a href="/mypage.html" class="btn btn-secondary" id="btn-resume" aria-label="マイページで続きから">マイページを見る</a>
-    </div>
-  </div>
-</section>
+          <a href="/mypage.html" class="btn btn-primary" id="btn-resume">
+            マイページで32問を解く
+          </a>
+
+          <a href="/contents/free.html?reset=1" class="btn btn-secondary">
+            登録なしで32問を解く
+          </a>
+        </div>
+    </section>
+
   </main>
-    
+</div>
+
     <!-- フッター -->
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+        <p class="copyright">© 2025〜2026 乙種4類危険物取扱者試験対策</p>
         <div class="legal-links">
           <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
           <span>／</span>

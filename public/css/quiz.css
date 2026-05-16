@@ -72,4 +72,56 @@
 }
 
 
+/* レイアウト基準 */
+.quiz { --gap-1: 8px; --gap-2: 12px; --gap-3: 16px; --gap-4: 24px; --gap-5: 32px; }
+.quiz-options { display: grid; gap: var(--gap-2); margin-block: var(--gap-2) var(--gap-3); }
+
+/* 選択肢カード */
+.quiz-option {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid #d5d8de;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  line-height: 1.4;
+}
+.quiz-option input { display: none; }
+.quiz-option:has(input:focus-visible) { outline: 3px solid #bcd3ff; }
+
+/* 判定後の色表現（以前の“色で一目”を再現） */
+.quiz-option.is-correct { border-color: #16a34a; background: #e8f7ec; }
+.quiz-option.is-wrong   { border-color: #dc2626; background: #fdecec; }
+.quiz-option.is-locked  { opacity: .85; cursor: default; }
+
+/* ボタン間隔と見た目 */
+.quiz-actions { margin-top: var(--gap-4); }
+.quiz-submit {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #1f4aa8; color: #fff; font-weight: 600;
+}
+.quiz-submit:disabled { opacity: .6; cursor: not-allowed; }
+
+/* フィードバックとリトライ */
+.quiz-feedback, .quiz-reason {
+  margin-top: var(--gap-3);
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f5f7fb;
+}
+.quiz-retry-wrap { margin-top: var(--gap-2); }
+.quiz-retry {
+  background: none; border: none; color: #1f4aa8; text-decoration: underline;
+  padding: 8px 4px; cursor: pointer; font-weight: 600;
+}
+
+/* モバイル最適化 */
+@media (max-width: 480px) {
+  .quiz-actions { margin-top: var(--gap-5); }
+  .quiz-submit { width: 100%; padding-block: 14px; border-radius: 12px; }
+}
+
+
 

@@ -1,0 +1,46 @@
+{
+  "id": "Otsux_Phy_Reaction_Rate_And_Equilibrium_010",
+
+  "category": "physical_chemistry",
+  "subcategory": "reaction_rate_and_equilibrium",
+
+  "title": "【問10】基礎的な物理・化学：化学平衡",
+
+
+  "question": "図の可逆反応 A ＋ B ⇌ C ＋ 2D ＋ 300 kJ が平衡状態にあるとき、平衡が右に移動するのは次のうちどれか。ただし、A、B、C、Dはすべて気体とする。",
+
+
+  "fields":  ["description"],
+  "headers": [""],
+
+
+    "choices": [
+    { "name": "1", "description": "Aを反応系外へ取り除く。" },
+    { "name": "2", "description": "圧力を上げる。" },
+    { "name": "3", "description": "触媒を加える。" },
+    { "name": "4", "description": "温度を下げる。" },
+    { "name": "5", "description": "Bを反応系外へ取り除く。" }
+  ],
+
+
+  "answer": 4,
+
+  "hint": "ヒント：反応式の右辺に「＋300kJ」があるので、右向き（正反応）が発熱反応。左辺の気体分子数はA＋B＝2mol、右辺はC＋2D＝3mol。温度を下げると発熱方向（右）に平衡が移動する。圧力を上げると気体分子数が少ない側（左：2mol）に平衡が移動する。触媒は平衡の位置を変えない。",
+
+  "explanations": [
+    "誤り。Aは反応物（左辺）であるため、Aを取り除くとAを補う方向（左）に平衡が移動する。",
+    "誤り。左辺の気体分子数は2mol（AとB）、右辺は3mol（Cが1mol、Dが2mol）。圧力を上げると気体分子数が少ない側（左：2mol）に平衡が移動する。",
+    "誤り。触媒は正反応・逆反応の活性化エネルギーをともに小さくして平衡に達するまでの時間を短縮するが、平衡の位置は変えない。",
+    "正しい。右辺に「＋300kJ」があるので、右向き（正反応）が発熱反応。温度を下げると、ルシャトリエの原理により温度を上げる方向（発熱方向）に平衡が移動するため、右に移動する。",
+    "誤り。Bも反応物（左辺）であるため、Bを取り除くとBを補う方向（左）に平衡が移動する。"
+  ],
+
+  "image": "reaction_rate_and_equilibrium/Otsux_Phy_Reaction_Rate_And_Equilibrium_010.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学",  "化学平衡", "ル・シャトリエの原理", "発熱反応"],
+    "version": "2026-05-09"
+  }
+}
+

@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_Electricity_Batteries_017",
+  "category": "physical_chemistry",
+  "subcategory": "electricity_and_batteries",
+
+  "title": "【問17】基礎的な物理・化学 : 電気の計算 / 電池",
+
+
+  "question": [
+    "起電力 E = 1.5 V、内部抵抗 r = 0.50 Ω の電池に抵抗 R を接続する。",
+    "負荷で消費される電力 P (= I^2 R) が最大となる R の値と、そのときの電流 I、負荷両端の電圧 V、最大電力 P_max、電力効率 η（= 負荷電力 / 供給電力 ×100）の組合せとして、正しいものはどれか。"
+  ],
+
+  "fields": ["description1", "description2", "description3", "description4", "description5"],
+  "headers": ["R_opt [Ω]", "I [A]", "V [V]", "P_max [W]", "η [%]"],
+
+  "choices": [
+    { "name": "1", "description1": "0.50", "description2": "3.00", "description3": "1.50", "description4": "4.50", "description5": "100" },
+    { "name": "2", "description1": "1.00", "description2": "1.00", "description3": "1.00", "description4": "1.00", "description5": "66.7" },
+    { "name": "3", "description1": "0.25", "description2": "2.00", "description3": "0.50", "description4": "1.00", "description5": "33.3" },
+    { "name": "4", "description1": "0.50", "description2": "1.50", "description3": "0.75", "description4": "1.13", "description5": "50.0" },
+    { "name": "5", "description1": "0.50", "description2": "1.00", "description3": "0.50", "description4": "0.50", "description5": "33.3" }
+  ],
+
+  "answer": 4,
+
+  "hint": "ヒント：内部抵抗をもつ電源では、負荷電力 P が最大になる条件は R_opt = r（最大電力の条件）になる。ここから順番に計算する。① R_opt = r = 0.50 Ω。② I = E / (R + r) = 1.5 / (0.50 + 0.50)。③ V = I × R。④ P_max = I^2 R。⑤ 電力効率 η は η = 負荷電力 / 供給電力 ×100 = (P_max / (E × I)) ×100 = (V / E) ×100 で求める。",
+
+  "explanations": [
+    "誤り。R_opt は 0.50 Ω となっているが、内部抵抗 r を無視して I = E/R = 1.5/0.50 = 3.00 A としているパターン。r ≠ 0 のときに I = E/R と置くのは誤りで、I は I = E/(R + r) で求める必要がある。P や η も理想電源（効率 100 %）の値になってしまっており、条件と合わない。",
+    "誤り。R を r より大きい 1.00 Ω にしているため、R_opt = r の条件から外れている。R = 1.00 Ω とすると I = 1.5/(1.00 + 0.50) = 1.0 A、P = I^2R = 1.0 W となり、R = 0.50 Ω のときの最大電力 1.125 W より小さい。",
+    "誤り。R を 0.25 Ω と小さく取り過ぎているケース。I は大きくなっても、V = I×R が小さくなるため P = I^2R は 1.0 W 程度にとどまり、R = 0.50 Ω のときの 1.125 W より小さくなる。R を小さくすればよいわけではなく、『R = r で最大』になることを押さえておく。",
+    "正しい。最大電力条件は R_opt = r = 0.50 Ω。したがって R = 0.50 Ω のとき、I = E/(R + r) = 1.5/(0.50 + 0.50) = 1.5/1.0 = 1.50 A。負荷両端の電圧は V = I×R = 1.50×0.50 = 0.75 V。負荷電力は P_max = I^2R = (1.50)^2×0.50 = 2.25×0.50 = 1.125 ≒ 1.13 W。電池が供給する電力は E×I = 1.5×1.50 = 2.25 W なので，効率は η = P_max/(E×I)×100 = 1.125/2.25×100 = 50.0 % となる。背骨はこれ！『内部抵抗つき電源では R = r で負荷電力最大、そのとき電圧は E の半分、効率は 50 %。』",
+    "誤り。R_opt は 0.50 Ω で正しいが、そこから先の I・V・P・η が一貫していない。R = 0.50 Ω なら I = 1.50 A，V = 0.75 V，P_max ≒ 1.13 W，η = 50 % にならなければならない。計算途中で別の R を用いてしまっている可能性が高い。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "advanced",
+    "tags": ["基礎的な物理・化学", "最大電力", "内部抵抗", "テブナン", "端子電圧", "効率"],
+    "version": "2026-02-23"
+  }
+}
+

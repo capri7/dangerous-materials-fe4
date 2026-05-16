@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>復習リスト - 乙種4類危険物取扱者試験対策</title>
+
+  <meta name="robots" content="noindex,nofollow">
+
+  <meta property="og:title" content="復習リスト | 危険物乙4 試験対策">
+  <meta property="og:description" content="復習したい問題だけを集めたリスト">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kikenbutsu-z4.com/images/logo.png">
+  <meta property="og:image:alt" content="危険物乙4試験対策サイトのロゴ">
+  <meta property="og:url" content="https://kikenbutsu-z4.com/review.html">
+  <meta property="og:site_name" content="危険物乙4 危険物取扱者試験対策">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="復習リスト | 危険物乙4 試験対策">
+  <meta name="twitter:description" content="復習したい問題だけを集めたリスト">
+  <meta name="twitter:image" content="https://kikenbutsu-z4.com/images/logo.png">
+
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
   <link rel="stylesheet" href="/css/site.css">
   <link rel="stylesheet" href="/css/hamburger.css">
   <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/review.css">
 </head>
-<body>
+
+<body class="page-review">
   <header class="site-header">
     <div class="header-container">
-      <a href="/index.html">
-        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
+      <a href="/">
+        <img src="/images/logo.svg" alt="危険物乙4試験対策サイト" class="logo" />
       </a>
       <h1 class="site-title">復習リスト 乙種4類危険物取扱者試験対策</h1>
       <!-- ここからハンバーガー -->
@@ -24,27 +57,47 @@
       <!-- ここまで -->
     </div>
     <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
-      <a href="/index.html">トップ</a>
-      <a href="/basics/index.html">基礎知識</a>
-      <a href="/contents/index.html">練習問題</a>
+      <a href="/">トップ</a>
+      <a href="/basics/">基礎知識</a>
+      <a href="/contents/">練習問題</a>
       <a href="/mypage.html">マイページ</a>
       <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
       <a href="#" class="nav-link logout">ログアウト</a>
     </nav>
   </header>
-  
+
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+  <a href="/">トップ</a> &gt;
+  <a href="/mypage.html">マイページ</a> &gt;
+  <span>復習リスト</span>
+  </nav>
+
+<div class="main-container">
   <main class="site-main">
-    <div class="container">
-      <h2>復習リスト</h2>
-      <p>復習リストに追加した問題を並べています。完全に解けるようになったら復習済みにしてください。</p>
+    <section class="review-intro">
+
+      <div class="review-intro__header">
+        <h2>復習リスト</h2>
+        <span id="review-count" class="review-count-badge">0件</span>
+      </div>
+
+      <p>
+        復習リストに追加した問題を並べています。<br>
+        完全に解けるようになったら復習済みにしてください。
+      </p>
+    </section>
+
+    <section class="review-body">
       <div id="review-list" class="card-list"></div>
       <p id="empty-msg" class="muted" style="display:none;">まだ何も追加されていません。</p>
-    </div>
-  </main>
+    </section>
 
-    <footer class="site-footer">
+  </main>
+</div>
+
+  <footer class="site-footer">
     <div class="footer-inner">
-      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <p class="copyright">© 2025〜2026 乙種4類危険物取扱者試験対策</p>
       <div class="legal-links">
         <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
         <span>／</span>

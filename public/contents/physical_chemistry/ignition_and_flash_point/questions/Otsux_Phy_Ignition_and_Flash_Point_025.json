@@ -1,0 +1,41 @@
+{
+  "id": "Otsux_Phy_Ignition_and_Flash_Point_025",
+  "category": "physical_chemistry",
+
+  "subcategory": "ignition_and_flash_point",
+  "title": "【問25】基礎的な物理・化学 : 引火と発火【⭐️】",
+
+  "question": "次の防爆表示「Ex d IIB T4 Gb」の読み取りとして、正しいものはどれか。",
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "Ex d は“本質安全防爆”を意味し、IIC はエチレン系を対象とする区分である。T4 は最高表面温度 200°C、Gb は Zone 0 用である。" },
+    { "name": "2", "description": "Ex d は“耐圧（フレームプルーフ）防爆”、IIB はガスグループ（IIA＜IIB＜IIC で中位：エチレン系）、T4 は最高表面温度 135°C、Gb は設備保護レベルで Zone 1 に適合（Zone 2 も可、Zone 0 は不可）。" },
+    { "name": "3", "description": "Ex d は粉じん用の保護方式で、IIB は粉じんの粒径区分を表す。T4 は 40°C を意味し、Gb はバッテリー駆動専用を示す。" },
+    { "name": "4", "description": "IIB は IIC より厳しい区分で、水素・アセチレンなど最も危険なガスに適合する。T4 は 100°C、Gb は Zone 2 のみ適合を示す。" },
+    { "name": "5", "description": "Ex d は耐圧防爆だが、T4 は“周囲温度等級”であり表面温度とは無関係。Gb は粉じん危険場所（Zone 21/22）での使用可を示す。"}
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：“4つに分けて読む”のがコツだよ。① Ex d＝耐圧防爆（フレームプルーフ） ② IIB＝ガスグループ（IIA＜IIB＜IIC の中位：エチレン系） ③ T4＝最高表面温度 135°C ④ Gb＝EPL：Zone 1 に適合（Zone 2 も OK、Zone 0 は Ga クラス）。——この4つがそろっている説明を選ぼう。",
+
+  "explanations": [
+    "誤り：Ex d は“耐圧防爆”であって本質安全ではない（本質安全は Ex i）。また IIC は最も厳しいガスグループ（水素・アセチレン系）。T4 は 135°C、Gb は Zone 1 適合。",
+    "正しい：Ex d＝耐圧（フレームプルーフ）防爆。IIB はガスグループの中位（エチレン系）。T4＝最高表面温度 135°C。Gb は設備保護レベルで Zone 1 に適合し、Zone 2 でも使用可（Zone 0 は不可）。",
+    "誤り：粉じん用は Ex t などの別方式。IIB はガスグループであって粉じん粒径の区分ではない。T4 は表面温度等級で、40°C ではない。Gb もバッテリー専用という意味ではない。",
+    "誤り：厳しさは IIA＜IIB＜IIC の順で、最も厳しいのは IIC。T4 の上限温度は 135°C。Gb は Zone 1 まで含む EPL で、“Zone 2 のみ”ではない。",
+    "誤り：T4 は周囲温度ではなく“最高表面温度”の等級（135°C）。粉じん危険場所の区分は通常 Da/Db/Dc（Ex t 等）で表し、Gb はガス用の EPL 表示。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "引火と発火", "防爆表示", "Ex d", "IIB/IIC", "温度等級T4", "EPL Ga/Gb/Gc", "ゾーニング"],
+    "version": "2026-02-10"
+  }
+}
+

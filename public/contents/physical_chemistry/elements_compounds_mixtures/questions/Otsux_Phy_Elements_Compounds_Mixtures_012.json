@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Elements_Compounds_Mixtures_012",
+
+  "category": "physical_chemistry",
+  "subcategory": "elements_compounds_mixtures",
+
+  "title": "【問12】基礎的な物理・化学：単体・化合物・混合物【⭐️】",
+
+  "question": "次の物質のうち、化合物に分類されるものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "酸素（O₂）" },
+    { "name": "2", "description": "鉄（Fe）" },
+    { "name": "3", "description": "二酸化炭素（CO₂）" },
+    { "name": "4", "description": "窒素（N₂）" },
+    { "name": "5", "description": "アルゴン（Ar）" }
+  ],
+
+  "answer": 3,
+
+   "hint": "ヒント：化学式に含まれる元素の種類を数える。1種類だけなら単体、2種類以上の元素が決まった割合で結びついた純物質なら化合物。",
+
+  "explanations": [
+    "誤り。酸素O₂は酸素元素1種類だけからできた単体であり、化合物ではない。",
+    "誤り。鉄Feも鉄元素1種類だけからなる単体である。",
+    "正しい。二酸化炭素CO₂は炭素Cと酸素Oという2種類の元素が一定の割合で結びついた化合物である。",
+    "誤り。窒素N₂は窒素元素1種類だけからできた単体であり、化合物ではない。",
+    "誤り。アルゴンArはアルゴン元素1種類だけからなる単体であり、化合物ではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学",  "単体", "化合物", "混合物", "元素"],
+    "version": "2026-04-18"
+  }
+}
+

@@ -24,3 +24,4 @@ blob-report/
 # Supabase caches
 supabase/.temp/
 supabase/.branches/
+.vercel

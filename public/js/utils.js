@@ -27,8 +27,8 @@ export function getFeedbackMessage(i, data) {
   const feedbackText = {
     correct:                '✅ 正解です！',
     incorrect:              '❌ 不正解です。',
-    correct_but_negation:   '✅ この記述は誤っています。よって正しい選択です！',
-    incorrect_but_negation: 'ℹ️ 本問は「誤った記述」を選ぶ問題です。正しい内容を含む選択肢は不正解になります。',
+    correct_but_negation:   '✅ 正解！この問題の答えとして正しい選択です。',
+    incorrect_but_negation: 'ℹ️ 不正解！この問題の答えとして誤った選択です。',
   };
 
   let msg, shouldShowHint;

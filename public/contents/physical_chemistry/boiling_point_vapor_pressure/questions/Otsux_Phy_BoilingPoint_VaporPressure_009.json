@@ -1,0 +1,47 @@
+{
+  "id": "Otsux_Phy_BoilingPoint_VaporPressure_009",
+
+  "category": "physical_chemistry",
+  "subcategory": "boiling_point_vapor_pressure",
+
+  "title": "【問9】基礎的な物理・化学：沸点と飽和蒸気圧（外圧と圧力鍋）",
+
+  "question": [
+    "次の文の（）内のA〜Cに当てはまる語句の組み合わせとして、正しいものはどれか。",
+    "「外圧を（A）すると、液体の沸点は（B）する。圧力鍋は鍋内の（C）を高めることで沸騰温度を上げる調理器具である。」"
+  ],
+
+  "fields": ["description1", "description2", "description3"],
+
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "上昇", "description2": "上昇", "description3": "圧力" },
+    { "name": "2", "description1": "上昇", "description2": "低下", "description3": "圧力" },
+    { "name": "3", "description1": "低下", "description2": "上昇", "description3": "圧力" },
+    { "name": "4", "description1": "低下", "description2": "低下", "description3": "圧力" },
+    { "name": "5", "description1": "上昇", "description2": "上昇", "description3": "温度" }
+  ],
+
+  "answer": 1,
+
+
+  "hint": "ヒント：沸騰は「液体の飽和蒸気圧＝外圧」になったときに起こる。外圧が高くなるほど、その圧力に達するためにより高い温度が必要になるため、沸点は上昇する。",
+
+  "explanations": [
+    "正しい。外圧が高くなるほど、液体の飽和蒸気圧が外圧に達するためにはより高い温度が必要となるため、沸点は上昇する。圧力鍋は鍋内の圧力を高めることで沸騰温度を上げる調理器具である。",
+    "誤り。外圧が上昇すると、沸点は低下ではなく上昇する。",
+    "誤り。外圧が低下すると、液体の飽和蒸気圧が外圧に達する温度が低くなるため、沸点は低下する。",
+    "誤り。外圧が低下すると沸点も低下するため、AとBがともに低下という組み合わせは本文の内容と一致しない。",
+    "誤り。圧力鍋が直接高めているのは温度ではなく圧力であり、その結果として沸騰温度が上昇する。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "沸点", "外圧", "圧力鍋", "飽和蒸気圧"],
+    "version": "2026-03-06"
+  }
+}
+

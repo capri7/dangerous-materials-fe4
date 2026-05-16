@@ -1,0 +1,123 @@
+/* ============================
+   練習問題練習問題トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.contents .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.contents .intro {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.contents .intro h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
+
+/* バンド（dashboard-note）全体の外側・内側の余白をコンパクトに */
+.dashboard-note {
+  padding: 1.1em 1.3em;
+  margin: 1.2em 0 1.4em;
+}
+
+/* バンド内テキストの行間と先頭のマージン調整 */
+.dashboard-note p {
+  margin: 0.5em 0;
+}
+
+.dashboard-note p:first-child {
+  margin-top: 0;
+}
+
+/* =========================================
+   （練習問題の頻出度／出題分野／受験の流れ／マイページ）
+   ========================================= */
+
+.contents .legend h3,
+.contents .cta-free h3,
+.contents .exam-guide h3 {
+  font-size: 1.25rem;         /* h2 より少しだけ控えめ */
+  font-weight: 700;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+  border-bottom: 2px solid #ccc;
+}
+
+/* 最初の h3（練習問題の頻出度）は、やや上を詰める */
+.contents .legend:first-of-type h3 {
+  margin-top: 1.4em;
+}
+
+/* 章カードブロックの上下余白をややコンパクトに */
+.contents .cta-free {
+  margin-block: 1.4em 1.8em;
+}
+
+/* 最後のバンドの下余白を少しだけ詰める（フッター前の白場を短く） */
+.contents .exam-guide:last-of-type .dashboard-note {
+  margin-bottom: 1.0em;
+}
+
+/* 学習フロー用リスト */
+.usage-flow {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.8em 0 0;
+}
+
+.usage-flow li + li {
+  margin-top: 0.9em;
+  padding-top: 0.8em;
+  border-top: 1px dashed #cbd5e0;
+}
+
+.usage-step-title {
+  font-weight: 700;
+  margin: 0 0 0.2em;
+}
+
+.usage-step-body {
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* 補足文 */
+.usage-note {
+  margin-top: 0.9em;
+}
+
+.contents .exam-guide .cta-buttons {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.contents .exam-guide .cta-buttons .btn-primary,
+.contents .exam-guide .cta-buttons .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  max-width: 100%;
+  min-height: 56px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .contents .exam-guide .cta-buttons .btn-primary,
+  .contents .exam-guide .cta-buttons .btn-ghost {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    white-space: normal;
+  }
+}
+
+
+

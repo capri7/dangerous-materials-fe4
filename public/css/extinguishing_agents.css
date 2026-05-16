@@ -1,0 +1,1292 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/*第3章13節、main_class4_dangerous_substances.cssとトーンを統一して第2章8節のextinguishing_agents.cssを作成
+   - propをすべてphyに変更
+   - 表：横スクロール対応、1列目 sticky、table-fixed
+   - 出る出るポイント（exam-notes)
+   - ひっかけ注意（exam-points）、コールアウト（callout）
+   - 品目の色識別バッジ（赤/黄/緑/青）
+*/
+
+
+/* ---------- カラートークン ---------- */
+:root {
+  /* === 第2章：物理と化学 緑トーン === */
+  --phy-accent: #12751d;           /* グリーン基調（既存と合わせる） */
+  --phy-accent-strong: #014009;                  /* 見出しなどの濃い緑 */
+  --phy-accent-soft: rgba(43,108,176,.06);
+
+  --phy-muted:         #6b7280;
+
+  --phy-border:        #e5e7eb;
+  --phy-border-light:  #eef2f6;
+
+  --phy-row:           #fafbfc;
+  --phy-head:          #f9fafb;
+
+  --phy-bg-soft:       #fdf2f2;                  /* ほんのり赤みのある背景 */
+
+  --phy-note-bg:       #fff8e8;                  /* 出る出るボックス背景（共通のままでOK） */
+  --phy-note-border:   #f1c073;
+
+  --phy-ok:            #059669;
+  --phy-warn:          #d97706;
+  --phy-ng:            #b91c1c;                  /* NG を章テーマ色に寄せる */
+
+  /* 旧スタイルとの互換用エイリアス（必要なら他ページでも流用可） */
+  --accent: var(--phy-accent);
+  --border: var(--phy-border);
+  --row:    var(--phy-row);
+  --head:   var(--phy-head);
+}
+
+
+/* ---------- レイアウトのガード（basics共通） ---------- */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body.basics {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 基礎知識ページ内は box-sizing を統一 */
+body.basics *,
+body.basics *::before,
+body.basics *::after {
+  box-sizing: border-box;
+}
+
+
+/* ---------- 出る出るポイント（exam-notes） ---------- */
+
+
+.exam-notes {
+  background: var(--phy-note-bg);
+  border: 2px dashed var(--phy-note-border);
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+.exam-notes > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.exam-notes > h4::before {
+  content: "📝";
+  font-size: 1.1em;
+}
+
+/* ★ ここから修正ポイント ★ */
+.exam-notes ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+
+
+.exam-notes ul.compact li::before { content: none; }
+
+.exam-notes:empty { display: none; }
+
+
+/* ================== ひっかけ注意（exam-points） ================== */
+
+.exam-points {
+  background: #edf4ff;
+  border: 2px dashed #5792f1;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+
+.exam-points > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* ひっかけ注意アイコン */
+.exam-points > h4::before {
+  content: "⚡️";
+  font-size: 1.1em;
+}
+
+/* リストはディスク表記で端正に */
+.exam-points ul {
+  list-style: disc;
+  margin: 0;
+  padding: 0 0 0 1.2em;
+}
+
+.exam-points ul.compact li::before { content: none; }
+
+/* 中身が空のときは箱自体を消す */
+.exam-points:empty { display: none; }
+
+/* ---------- コールアウト（注釈・注意・OK・NG） ---------- */
+.callout {
+  background:hsl(23, 74%, 92%);                        /* exam-notes に近いトーン。好みで調整OK */
+  border: 2px dashed var(--phy-ng);
+  border-radius: 12px;
+  padding: 18px 18px 16px;                     /* ★ exam-notes と同じくらいの余白 */
+  margin: 20px 0 18px;                         /* 左右は 0 でOK（中央カラムの中で揃う） */
+}
+
+
+/* 見出し共通（h3） */
+.callout > h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* 注釈アイコン */
+.callout > h3::before {
+  content: "📌";
+  font-size: 1.1em;
+}
+
+/* ★ ここから修正ポイント ★ */
+.callout ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+
+.callout ul.compact li::before { content: none; }
+
+.callout ol.compact li::before { content: none; }
+
+.callout:empty { display: none; }
+
+
+/* OK / WARN / NG 共通のベース色（文字色だけ変える） */
+.callout.ok   { background: #ecfdf5; border-color: #a7f3d0; color: #064e3b; }
+.callout.warn { background: #fffbeb; border-color: #fde68a; color: #7c2d12; }
+.callout.ng   { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+
+/* アイコンだけ種類別に上書き */
+.callout.ok > h3::before   { content: "✅"; }
+.callout.warn > h3::before { content: "⚠️"; }
+.callout.ng > h3::before   { content: "⛔️"; }
+
+
+
+/* ================== テーブル（共通ベース） ================== */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-container.table-scroll::-webkit-scrollbar-thumb {
+  background: #cfd8e3;
+  border-radius: 4px;
+}
+
+/* ベース表 */
+.styled-table {
+  width: 100%;
+  min-width: 640px;                 /* スマホは横スクロールへ退避 */
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--phy-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  font-size: .95rem;
+}
+
+
+.styled-table.table-fixed {
+  table-layout: fixed;
+}
+
+
+/* 発熱する物質テーブル：列幅調整 */
+.spontaneous-combustion-table1 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 18rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.spontaneous-combustion-table1 col.col-heat-generation {
+  width: 4rem;   /* 発熱の機構 */
+}
+
+
+/* リストの見た目を整える */
+.phy-defined-table td {
+  vertical-align: top;
+}
+
+/* 箇条書きのベースをリセット */
+.phy-defined-table td ul {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+}
+
+/* 行ごとの詰まり感・読みやすさを調整 */
+.phy-defined-table td ul li {
+  position: relative;
+  padding-left: 1.1em;
+  line-height: 1.6;
+  margin: 0.1rem 0;
+}
+
+/* 「・」をきれいに揃えて表示 */
+.phy-defined-table td ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* スマホでの詰まり感を軽くする */
+@media (max-width: 640px) {
+  .styled-table--phy th,
+  .styled-table--phy td {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+.styled-table thead th {
+  background: var(--phy-head);
+  color: #111827;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--phy-border);
+  padding: .75rem .9rem;
+  white-space: nowrap;
+}
+
+.styled-table tbody td,
+.styled-table tbody th {
+  border-bottom: 1px solid #eef2f6;
+  border-right: 1px solid #eef2f6;
+  padding: .7rem .9rem;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(odd) { background: var(--phy-row); }
+
+.styled-table thead th:first-child { border-top-left-radius: 8px; }
+.styled-table thead th:last-child  { border-top-right-radius: 8px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.styled-table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.styled-table tbody td:last-child { border-right: 0; }
+
+/* テーブルでは、最右列もちゃんと線を出す */
+.phy-defined-table tbody td:last-child,
+.phy-defined-table tbody th:last-child {
+  border-right: 1px solid #eef2f6;
+}
+
+
+@media (hover:hover) {
+  .styled-table tbody tr:hover {
+    background: var(--phy-accent-soft);  /* えんじ系のごく薄い背景 */
+  }
+}
+
+/* ================== sticky 1列目 ================== */
+
+/* sticky の基準となる親 */
+.table-container.table-scroll {
+  position: relative;
+  scrollbar-color: #cfd8e3 transparent;
+}
+
+/* 1列目 sticky */
+.sticky-first-col .sticky {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 2;
+  border-right: 1px solid #eef2f6;
+  box-shadow: none; 
+}
+
+.sticky-first-col thead th.sticky {
+  z-index: 3;
+  border-right: 1px solid #eef2f6;
+  background: var(--phy-head);
+}
+
+/* ================== 物理と化学テーブル専用（styled-table--phy） ================== */
+
+/* 種別：条文 ≒ 26 : 74 
+.styled-table--phy {
+  min-width: 640px;
+}*/
+
+/* 長文条文を気持ちよく折り返す */
+.styled-table--phy.table-fixed td,
+.styled-table--phy.table-fixed th {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: loose;
+  white-space: normal;
+}
+
+/* sticky 1列目の丸ポチを無効にしてインデントだけ残す */
+.styled-table--phy .sticky::before { content: none !important; }
+
+.styled-table--phy th.sticky,
+.styled-table--phy td.sticky {
+  padding-left: .9rem;
+  font-weight: 700;
+}
+
+.styled-table--phy th.sticky {
+  vertical-align: middle;
+}
+
+
+/* スマホでの閾値を少し下げる */
+@media (max-width: 480px) {
+  .styled-table--phy { min-width: 560px; }
+
+  .styled-table thead th,
+  .styled-table tbody td,
+  .styled-table tbody th {
+    padding: .6rem .7rem;
+    font-size: .9rem;
+  }
+
+  .table-container { margin-bottom: 1.4rem; }
+}
+
+/* このページ専用：行の高さを少し抑える */
+.styled-table--phy thead th,
+.styled-table--phy tbody th,
+.styled-table--phy tbody td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;   /* ほんの少しだけ文字を小さく */
+}
+
+/* ================== リスト（詰め表示） ================== */
+ul.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ul.compact li {
+  margin: .2em 0;
+}
+
+ol.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ol.compact li {
+  margin: .2em 0;
+}
+
+
+/* ================== バンドカード（左帯） ================== */
+
+.band-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--phy-border);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  margin-bottom: .75rem;
+}
+
+/* h2 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h2 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+/* h3 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h3 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+.band-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--phy-accent);        /* 第3章はえんじ色の帯  */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 隣り合うカードの密着防止 */
+.band-card + .callout { margin-top: 16px; }
+.callout + .callout { margin-top: 20px; }
+
+/* band-card 内の dl は詰まりやすいので、ここだけ余白を増やす */
+.band-card .phy-summary{
+  margin-top: .7rem;
+  gap: .7rem 1.2rem;      /* ←縦の間隔を増やす（効く） */
+}
+
+.band-card .phy-summary dt{
+  line-height: 1.4;
+}
+
+.band-card .phy-summary dd{
+  line-height: 1.75;      /* ←詰まり感の主因に直撃 */
+}
+
+
+
+
+/* ================== ページ全体レイアウト微調整 ================== */
+
+/* bascis 共通の余白を少し詰める（このページだけ） */
+.basics .site-main {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* phy-section 同士の間隔 */
+.phy-section + .phy-section { margin-top: 1.6rem; }
+.quiz-section { margin-top: 2.0rem; }
+
+@media (min-width: 768px) {
+  .phy-section + .phy-section { margin-top: 2.2rem; }
+}
+
+/* テーブル幅を少しだけ広める（PC） */
+@media (min-width: 1024px) {
+  .phy-section .table-container {
+    max-width: 960px;        /* 960 より少し細いくらい */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== 小UIユーティリティ ================== */
+
+.muted { color: #6b7280; }
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* ================== アクセシビリティ ================== */
+
+
+/* フォーカス可視（キーボード） */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--phy-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 低視力配慮：リンクのホバー/フォーカス */
+a:hover { text-decoration: underline; }
+
+/* 動きに配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* メインコンテンツの箱も安全側に寄せておく */
+.site-main,
+.breadcrumbs,
+.intro,
+.content,
+.phy-section,
+.quiz-section,
+.next-button,
+.table-container {
+  max-width: 100%;
+}
+
+
+/* basics ページ用：念のため width を明示 */
+body.basics {
+  width: 100%;
+}
+
+/* === ヘッダー／ナビが 100vw で飛び出すのを強制的に止める === */
+
+body.basics .site-header,
+body.basics .header-container,
+body.basics .nav-links {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* === PC のときは中央カラム幅に絞る === */
+@media (min-width: 1024px) {
+  /* パンくずと本文を同じ幅で中央寄せ */
+  body.basics .breadcrumbs,
+  body.basics .site-main {
+    width: min(960px, calc(100% - 64px)); /* 960px か 画面幅-64px の小さい方 */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== このページ専用：見出しの統一 ================== */
+
+/* h2 を共通トーンに揃える */
+body.basics .site-main h2 {
+  font-size: clamp(22px, 2.6vw, 26px);  /* どの h2 も同じ大きさ */
+  line-height: 1.35;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* 最初の白カードだけ、上の余白を少し増やす */
+body.basics .site-main .phy-section:first-of-type {
+  padding-top: 0.4rem;   /* 好みで 2.0〜2.6rem くらいに微調整OK */
+}
+
+
+/* ================== 類バッジ（色＝類） ================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* 第1〜第6類の色分け（色＝類） */
+.tag.category-1 {
+  background: #dbeafe;   /* 青系：第1類 */
+  color: #1d4ed8;
+}
+
+.tag.category-2 {
+  background: #fee2e2;   /* 赤系：第2類 */
+  color: #b91c1c;
+}
+
+.tag.category-3 {
+  background: #fef3c7;   /* 黄〜オレンジ系：第3類 */
+  color: #b45309;
+}
+
+.tag.category-4 {
+  background: #dcfce7;   /* 緑系：第4類 */
+  color: #15803d;
+}
+
+.tag.category-5 {
+  background: #f3e8ff;   /* 紫系：第5類 */
+  color: #7e22ce;
+}
+
+.tag.category-6 {
+  background: #e5e7eb;   /* グレー系：第6類 */
+  color: #111827;
+}
+
+/* 第4類の中の品名専用(特殊引火物・第1〜第4石油類・アルコール類 ・動植物油類 ）の カラー（全部グリーン系でトーンだけ変える）*/
+
+.tag.subcat {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.55rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(15, 118, 110, 0.2); /* 薄い枠だけ共通 */
+}
+
+.tag.subcat-special {           /* 特殊引火物 */
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.tag.subcat-petroleum {         /* 第1〜第4石油類 */
+  background: #dce8fc;
+  color: #165d65;
+}
+
+.tag.subcat-alcohol {           /* アルコール類 */
+  background: #eee0fe;
+  color: #1b03a1;
+}
+
+.tag.subcat-animal-veg-oil {    /* 動植物油類 */
+  background: #fefce8;
+  color: #854d0e;
+}
+
+
+
+/* ================== ヘッダー固定＆パンくず押し下げ ================== */
+
+/* basics ページのヘッダーを画面上部に固定 */
+body.basics .site-header.basics-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: var(--color-header-footer, #242d60);
+}
+
+/* デフォルト（スマホ〜タブレット）用の押し下げ量 */
+body.basics {
+  padding-top: 80px;   /* 今の 72px より少し多めにしておく */
+}
+
+/* PCのときはヘッダーが高いので、さらに下げる */
+@media (min-width: 1024px) {
+  body.basics {
+    padding-top: 140px;  /* 実際の見た目を見て 120〜160px の間で微調整してOK */
+  }
+}
+
+/* main の余白は上に足さない（ヘッダーぶんだけで十分） */
+body.basics .site-main {
+  margin-top: 0;
+}
+
+/* パンくずとヘッダーの間に少し余白 */
+body.basics .breadcrumbs {
+  margin-top: 1rem;
+}
+
+/* === スマホでのテーブル幅を少しだけ詰める調整 === */
+
+/* 〜480px：最小幅を 520px まで下げて、横スクロールを軽くする */
+@media (max-width: 480px) {
+  body.basics .styled-table,
+  body.basics .styled-table--phy {
+    min-width: 520px;
+  }
+}
+
+/* 〜360px：極小画面では無理に横スクロールさせず、100% におさめる */
+@media (max-width: 360px) {
+  body.basics .styled-table,
+  body.basics .styled-table--phy {
+    min-width: 100%;
+  }
+}
+
+.formula-card {
+  max-width: 780px;          /* 画像の想定最大幅 */
+  margin: 16px auto;
+}
+
+.formula-card img.circuit-svg {
+  display: block;
+  width: 100%;               /* 親の幅にフィットさせる */
+  height: auto;              /* 縦横比を維持 */
+}
+
+
+/* ==== 上部カード ==== */
+
+.class4-summary {
+  padding: 0.9rem 1.2rem 1.1rem;
+}
+
+.class4-summary-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.class4-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.class4-lead {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* 概要リスト（dt:項目名 / dd:内容） */
+.phy-summary {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem 1.2rem;
+}
+
+.phy-summary-row {
+  display: contents; /* dt と dd を同じグリッドに乗せる */
+}
+
+.phy-summary dt {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.phy-summary dd {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.phy-summary dd > p{
+  margin: 0.15rem 0;
+}
+.phy-summary dd > p + p{
+  margin-top: 0.45rem; /* 段落の区切り */
+}
+
+
+/* PCでは「項目」「内容」の2列レイアウト */
+@media (min-width: 640px) {
+  .phy-summary {
+    grid-template-columns: minmax(110px, 0.9fr) minmax(0, 2.1fr);
+    align-items: baseline;
+  }
+}
+
+/* スマホでは1列（項目の下に内容）に自動で落ちるのでOK */
+
+
+/* 図版は共通の入れ物で制御 */
+.figure-wrap{ margin:1rem 0; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.figure-wrap img,.figure-wrap svg{
+  display:block; max-width:100%; height:auto; background:#fff; border-radius:12px;
+}
+
+/* 2) すべての図の箱を共通化（左右中央・角の見た目を統一） */
+.phy-section figure{
+  margin: 1rem auto;                         /* 中央寄せ */
+  max-width: var(--fig-max);                 /* デスクトップでの上限を統一 */
+  overflow: hidden;                          /* 角丸に沿って画像をクリップ */
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+
+  /* 丸角は clip-path でマスク（Safariでも崩れにくい） */
+  --r: 12px;
+  border-radius: var(--r);            /* 影用 */
+  clip-path: inset(0 round var(--r));
+  overflow: clip;                     /* 新仕様。古いブラウザは無視してOK */
+}
+
+
+/* 2) 画像(SVG/PNG)は“箱に任せる”：角丸は付けない・はみ出さない */
+.phy-section figure svg,
+.phy-section figure img,
+.phy-section figure .circuit-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0 !important;        /* 画像側の角丸を禁止（ずれ防止） */
+  background: transparent;            /* SVG側の背景は持たせない想定 */
+}
+
+/* 3) モバイルは全幅に（上限は figure 側が面倒を見る） */
+@media (max-width: 480px){
+  :root { --fig-max: 100%; }
+}
+
+/* 3) 画像(SVG/PNG)は常に箱にフィット（実寸に引っ張られない） */
+.phy-section figure .circuit-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0;                           /* 画像側の角丸は無効化 */
+}
+
+
+/* 4) モバイルは全幅でOK（上限はfigure側が面倒見てるので触らない） */
+@media (max-width: 480px){
+  :root { --fig-max: 100%; }                  /* 端末幅いっぱいにフィット */
+}
+
+/* 図カード：背景と角丸は“外側だけ”で描く */
+.formula-card{
+  --r: 12px;
+  margin: 1rem auto;
+  max-width: var(--fig-max);
+  padding: 16px 20px;                /* 内側に余白をつける */
+  background: #f0f9ee;               /* いまの緑に近いトーンに合わせてOK */
+  border-radius: var(--r);
+  overflow: hidden;                   /* 影響範囲はここだけで十分 */
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+/* 画像は角丸を持たせない（外側に任せる） */
+.formula-card .circuit-svg{
+  display:block; 
+  width:min(520px, 100%);
+  height:auto; 
+  margin-inline: auto;
+  border-radius:0 !important; background:transparent;
+
+}
+
+.figure-lead + .formula-card { margin-top:16px; }
+.formula-card + .figure-caption { margin-top:12px; }
+.figure-caption{ font-size:.95rem; color:#374151; }
+
+
+@media (min-width: 960px) {
+  .callout--dangerfactor-wrapper {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .callout--dangerfactor {
+    flex: 1;
+  }
+}
+
+
+/* 第3章4節リレーGIF専用：PCでもスマホでも最大幅を抑える */
+.formula-card img.circuit-svg {
+  display: block;
+  width: 100%;          /* コンテナ幅にフィットさせつつ… */
+  max-width: 340px;     /* ここで上限を340pxに固定 */
+  height: auto;
+  margin: 0 auto;       /* 中央寄せ */
+}
+
+
+
+/* === 火災の区分 === */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table1 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table1 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table1 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table1.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 火災の区分テーブル：列幅調整 */
+.extinguishing-agents-table1 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 16rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table1 col.col-classification {
+  width: 4rem;   /* 火災の区分 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table1 col.col-overview {
+  width: 12rem;   /* 概要 */
+}
+
+
+/* === 粉じん爆発が起こりやすい条件専用 === */
+/* 粉じん爆発が起こりやすい条件：行見出しを普通の太さに */
+.dust-explosions-table2 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+
+/* === 泡消化器のタイプ テーブル2=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table2 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table2 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table2 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table2.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 火災の区分テーブル：列幅調整 */
+.extinguishing-agents-table2 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 17rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table2 col.col-types {
+  width: 5rem;   /* 火災の区分 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table2 col.col-differences-foam {
+  width: 12rem;   /* 概要 */
+}
+
+
+/* === 泡消火剤の種類と特性 テーブル3=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table3 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+.extinguishing-agents-table3 td { text-align: center; }
+
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table3 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table3 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table3.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 泡消火剤の種類と特性のテーブル：列幅調整 */
+.extinguishing-agents-table3 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 42rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-kind {
+  width: 6rem;   /* 種類 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-foaming {
+  width: 6rem;   /* 起泡性・発泡性 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-stability {
+  width: 6rem;   /* 安定性・保水性 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-expandability {
+  width: 6rem;   /* 展開性・流動性 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-heat-resistance {
+  width: 6rem;   /* 耐熱性・耐火性 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-oil-resistance {
+  width: 6rem;   /* 耐油性 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table3 col.col-sealability {
+  width: 6rem;   /* 油面密封性 */
+}
+
+
+/* === 泡の膨張倍率と用途 テーブル4=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table3 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table4 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table4 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table4.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 泡消火剤の種類と特性のテーブル：列幅調整 */
+.extinguishing-agents-table4 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 16rem; /* お好みで調整 */
+}
+
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table4 col.col-kind {
+  width: 4rem;   /* 種類 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table4 col.col-way {
+  width: 12rem;   /* 用途 */
+}
+
+
+/* === 粉末消火剤の種類 テーブル5=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table5 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table5 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table5 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table5.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 泡消火剤の種類と特性のテーブル：列幅調整 */
+.extinguishing-agents-table5 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 12rem; /* お好みで調整 */
+}
+
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table5 col.col-main-component {
+  width: 8rem;   /* 主成分 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table5 col.col-coloring {
+  width: auto;   /* 着色 */
+}
+
+/* === 水系消火器の比較表 テーブル6=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table6 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table6 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table6 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table6.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 泡消火剤の種類と特性のテーブル：列幅調整 */
+.extinguishing-agents-table6 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 42rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table6 col.col-fire-extinguisher {
+  width: 6rem;   /* 消火器 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table6 col.col-extinguishing-agent {
+  width: 10rem;   /* 消火剤 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table6 col.col-shape {
+  width: 4rem;   /* 形状 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table6 col.col-adaptive-fire {
+  width: 12rem;   /* 適応火災 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table6 col.col-extinguishing-effect {
+  width: 10rem;   /* 主な消火効果 */
+}
+
+/* === 水系消火器以外の比較表 テーブル7=== */
+/* 行見出しを普通の太さに */
+.extinguishing-agents-table7 tbody th[scope="row"] {
+  font-weight: 400;   /* normal でもOK */
+  text-align: left;
+}
+
+
+/* 見出しセルの背景を薄い緑に＆フォント少し大きめ */
+.table-container.extinguishing-agents-table7 thead th {
+  background-color: #e4f5ea;  /* 薄い緑 */
+  font-size: 1.05rem;
+}
+
+/* 各行の本文セルも、少しだけ大きく＆読みやすく */
+.table-container.extinguishing-agents-table7 tbody th[scope="row"] {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* sticky ヘッダーも同じ色で上書き */
+.table-container.extinguishing-agents-table7.sticky-first-col thead th.sticky {
+  background-color: #e4f5ea;
+}
+
+/* 泡消火剤の種類と特性のテーブル：列幅調整 */
+.extinguishing-agents-table7 table {
+  /* 横スクロール前提で、必要ならテーブルが広くなってOK */
+  min-width: 41rem; /* お好みで調整 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table7 col.col-fire-extinguisher {
+  width: 7rem;   /* 消火器 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table7 col.col-extinguishing-agent {
+  width: 10rem;   /* 消火剤 */
+}
+
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table7 col.col-adaptive-fire {
+  width: 12rem;   /* 適応火災 */
+}
+
+/* 列ごとの幅を rem で指定 */
+.extinguishing-agents-table7 col.col-extinguishing-effect {
+  width: 10rem;   /* 主な消火効果 */
+}
+
+
+/* 1列目 sticky の見た目を安定させる */
+.table-scroll.sticky-first-col .sticky{
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--table-bg, #fff);
+
+  /* ここが原因になりがち：強い境界を一旦オフ */
+  border-right: 0;
+  box-shadow: none;
+}
+
+/* 境界は疑似要素で “1本だけ” 描く（色は他の罫線に合わせる） */
+.table-scroll.sticky-first-col .sticky::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 1px;
+  height: 100%;
+  background: var(--table-border, rgba(0,0,0,.08));
+  pointer-events: none;
+}
+
+/* 2列目の左罫線が残ってると二重線になるので消す */
+.table-scroll.sticky-first-col table tr > *:nth-child(2){
+  border-left: 0;
+}
+
+/* ヘッダーの sticky は前面に */
+.table-scroll.sticky-first-col thead .sticky{
+  z-index: 3;
+}
+
+
+
+
+

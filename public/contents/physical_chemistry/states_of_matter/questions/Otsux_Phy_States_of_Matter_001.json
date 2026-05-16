@@ -1,0 +1,46 @@
+{
+  "id": "Otsux_Phy_States_of_Matter_001",
+
+  "category": "physical_chemistry",
+  "subcategory": "states_of_matter",
+
+  "title": "【問1】基礎的な物理・化学：物質の三態【⭐️】",
+
+  "question": [
+    "次の文の（）内のA〜Cに当てはまる語句の組み合わせとして、正しいものはどれか。",
+    "「溶液の沸点が純粋な（A）よりも高くなる現象を沸点上昇といい、溶液と純粋な（A）のそれぞれの沸点の差を沸点上昇度という。希薄溶液の沸点上昇度は溶質の種類に（B）、溶液中の溶質の質量モル濃度（m, mol/kg）に（C）する。」"
+  ],
+
+
+  "fields":  ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "溶質", "description2": "関係し", "description3": "反比例" },
+    { "name": "2", "description1": "溶媒", "description2": "無関係で", "description3": "比例" },
+    { "name": "3", "description1": "溶媒", "description2": "関係し", "description3": "比例" },
+    { "name": "4", "description1": "溶質", "description2": "無関係で", "description3": "比例" },
+    { "name": "5", "description1": "溶媒", "description2": "関係し", "description3": "反比例" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：キーワードは「コリゲート性」。沸点上昇度 ΔTb は ΔTb = Kb・m（希薄溶液）で表され、溶質の“種類”ではなく溶質粒子の数（質量モル濃度 m）に比例して大きくなる。基準になるのは純粋な溶媒の沸点なので、Aは溶媒、Bは『無関係で』、Cは『比例』となる。",
+
+  "explanations": [
+    "誤り。A は溶媒、B は『無関係で』、C は『比例』が正しい。この選択肢は A＝溶質、B＝関係し、C＝反比例と三つともずれている。",
+    "正しい。沸点上昇はコリゲート性で、ΔTb = Kb・m（希薄溶液）と表される。溶質の“種類”ではなく、質量モル濃度 m に比例して大きくなり、基準は純粋な溶媒の沸点なので、A＝溶媒、B＝無関係で、C＝比例となる。",
+    "誤り。B が『関係し』になっており、コリゲート性（粒子数にのみ依存）の考え方と合わない。",
+    "誤り。沸点上昇は純粋な溶媒の沸点との比較なので、A を溶質とするのは定義に反する。",
+    "誤り。B の『関係し』、C の『反比例』はいずれも誤り。沸点上昇度は溶質の種類には依存せず、溶質の質量モル濃度が大きいほど（比例して）大きくなる。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "物質の三態", "沸点上昇"],
+    "version": "2026-02-27"
+  }
+}
+

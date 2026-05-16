@@ -4,6 +4,7 @@ import { openBillingPortal } from './billing-portal.js';
 
 import { onProgressRecorded } from './progress-reader.js?v=prog-3';
 
+
 // === progress-reader と同じ規則で mode/scope を解決 ===
 function resolvePracticeParams() {
   const p = new URLSearchParams(location.search);
@@ -133,7 +134,7 @@ async function buildSubcategoryMap() {
   const { data, error } = await supabase
     .from('subcategories')
     .select(`
-      id, name, category_id,
+      id, slug, name, category_id,
       categories(name)
     `)
     .order('order', { ascending: true });
@@ -142,6 +143,7 @@ async function buildSubcategoryMap() {
   const map = {};
   for (const r of data) {
    map[r.id] = {
+     slug: r.slug,
      categoryId: r.category_id,                       // ← 追加：大分野ID
      categoryName: r.categories?.name ?? '(不明な分野)',
      name: r.name
@@ -150,16 +152,50 @@ async function buildSubcategoryMap() {
   return map;
 }
 
+// questions を全部取る（Supabase の 1000 行制限を回避するためのページング）
+async function fetchAllQuestionRows(paid) {
+  const PAGE_SIZE = 1000;
+  let from = 0;
+  let all = [];
+
+  while (true) {
+    let q = supabase
+      .from('questions')
+      .select('id, subcategory_id')
+      .range(from, from + PAGE_SIZE - 1);   // 0-999, 1000-1999, ...
+
+    if (!paid) q = q.eq('is_paid', false);
+
+    const { data, error } = await q;
+    if (error) {
+      console.error('[fetchAllQuestionRows] error:', error);
+      break;
+    }
+    const rows = data || [];
+    all = all.concat(rows);
+
+    // 1000 件未満になったら終わり（これ以上のページはない）
+    if (rows.length < PAGE_SIZE) break;
+
+    from += PAGE_SIZE;
+  }
+
+  return all;
+}
+
+
 // ---------- helpers: 進捗集計 ----------
 async function fetchUserProgress(userId) {
   // 会員かどうかで集計対象を切り替える
   const paid = await isSubscribed(userId);
 
-  // 小分類ごとの問題総数
-  let q1 = supabase.from('questions').select('id, subcategory_id');
-  if (!paid) q1 = q1.eq('is_paid', false); // 非会員は無料のみ
-  const { data: qrows, error: qerr } = await q1;
-  if (qerr) return {};
+  // 小分類ごとの問題総数（全件ページング取得）
+  const qrows = await fetchAllQuestionRows(paid);
+  if (!qrows || !qrows.length) {
+    console.warn('[fetchUserProgress] no question rows fetched');
+    return {};
+  }
+
 
   const totalsBySub = {};
   for (const q of qrows) {
@@ -215,15 +251,121 @@ async function fetchUserProgress(userId) {
         name: chap.name,
         correct: 0,
         total: 0
-      };
+       };
+      }
+        cat.correct += 1;
+        cat.chapters[subId].correct += 1;
+     }
     }
-    cat.correct += 1;
-    cat.chapters[subId].correct += 1;
-  }
- }
-
   return categoryData;
 }
+
+// === 学習カレンダー用ヘルパー =============================
+
+// UTCタイムスタンプを「JSTのYYYY-MM-DD」に丸める
+function toJstYmd(ts) {
+  if (!ts) return null;
+  const d = new Date(ts);
+  if (Number.isNaN(d.getTime())) return null;
+
+  const parts = new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(d).reduce((o, p) => {
+    o[p.type] = p.value;
+    return o;
+  }, {});
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+// ユーザーが「1日でも学習した日」の集合を取得（JST日付のSet）
+async function fetchStudyDaysSet(userId) {
+  try {
+    const { data, error } = await supabase
+      .from('user_progress')
+      .select('answered_at, updated_at')
+      .eq('user_id', userId);
+
+    if (error) {
+      console.error('[study-calendar] fetchStudyDaysSet error:', error);
+      return new Set();
+    }
+
+    const days = new Set();
+    for (const row of data ?? []) {
+      const ymd = toJstYmd(row.answered_at || row.updated_at);
+      if (ymd) days.add(ymd);
+    }
+    return days;
+  } catch (e) {
+    console.error('[study-calendar] fetchStudyDaysSet exception:', e);
+    return new Set();
+  }
+}
+
+// カレンダーHTMLを描画する
+function renderStudyCalendarTable(rootEl, year, monthIndex, learnedDaysSet) {
+  // monthIndex: 0-11
+  if (!rootEl) return;
+
+  const first = new Date(year, monthIndex, 1);
+  const firstDow = first.getDay(); // 0:日
+  const lastDate = new Date(year, monthIndex + 1, 0).getDate();
+
+  const yStr = String(year);
+  const mStr = String(monthIndex + 1).padStart(2, '0');
+
+  const table = document.createElement('table');
+  table.className = 'study-calendar-table';
+
+  const thead = document.createElement('thead');
+  thead.innerHTML = `
+    <tr>
+      <th>日</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th>
+    </tr>
+  `;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+  let row = document.createElement('tr');
+
+  // 1日までの空マス
+  for (let i = 0; i < firstDow; i++) {
+    const td = document.createElement('td');
+    td.className = 'empty';
+    row.appendChild(td);
+  }
+
+  for (let day = 1; day <= lastDate; day++) {
+    const dow = (firstDow + day - 1) % 7;
+    const td = document.createElement('td');
+    const dStr = String(day).padStart(2, '0');
+    const ymd = `${yStr}-${mStr}-${dStr}`;
+
+    td.textContent = String(day);
+
+    if (learnedDaysSet?.has(ymd)) {
+      td.classList.add('learned-day');
+    }
+
+    row.appendChild(td);
+
+    if (dow === 6 || day === lastDate) {
+      // 土曜日 or 月末で行を閉じる
+      tbody.appendChild(row);
+      row = document.createElement('tr');
+    }
+  }
+
+  table.appendChild(tbody);
+
+  // 差し替え
+  rootEl.innerHTML = '';
+  rootEl.appendChild(table);
+}
+
 
 // --- helpers: プロフィール（streak） ---
 async function fetchProfileStreak(userId) {
@@ -356,57 +498,103 @@ async function countAnsweredAndCorrectLatest(userId, paid) {
 }
 
 // 進捗サマリ（上部）— mode/scope 準拠
+// 進捗サマリ（上部）— 有料/無料で分母を切り替え
 async function fetchProgressSummaryGlobal(userId) {
   const paid = await isSubscribed(userId);
-  const mode  = paid ? 'all' : 'free';
-  const scope = '';              // ★ 固定：全体
+
+  // 分母：問題総数（有料=全問 / 無料=無料32問）
+  async function countTotalQuestions() {
+    let q = supabase
+      .from('questions')
+      .select('id', { head: true, count: 'exact' });
+
+    if (!paid) {
+      // 無料ユーザーは is_paid = false だけ
+      q = q.eq('is_paid', false);
+    }
+
+    const { count, error } = await q;
+    if (error) {
+      console.error('[fetchProgressSummaryGlobal] total error', error);
+      return 0;
+    }
+    return Number(count || 0);
+  }
+
+  // 直近誤答数（全体）
+  async function countWrongGlobal() {
+    const view = paid ? 'user_wrong_latest_all' : 'user_wrong_latest_free_v2';
+    const { count, error } = await supabase
+      .from(view)
+      .select('question_id', { head: true, count: 'exact' })
+      .eq('user_id', userId);
+
+    if (error) {
+      console.error('[fetchProgressSummaryGlobal] wrong error', error);
+      return 0;
+    }
+    return Number(count || 0);
+  }
 
   const [{ answered, correct }, total, wrong] = await Promise.all([
+    // 分子：自分が解いた問題（最新1回分）
     countAnsweredAndCorrectLatest(userId, paid),
-    countPoolTotal({ mode, scope, sid: null, cid: null }),
-    countLatestWrong({ mode, scope, sid: null, cid: null }),
+    countTotalQuestions(),
+    countWrongGlobal()
   ]);
 
+  // percent は renderOverallProgressSummary が計算するのでそのまま返す
   return { total, answered, correct, wrong };
 }
 
-// --- helpers: サブスク取得/判定（user_profiles 準拠） ---
-const ACTIVE_STATUSES = ['active', 'trialing', 'past_due'];
-let _subCache = null;
+// --- 復習リスト件数（全体） ---
+async function fetchReviewCountGlobal(userId) {
+  try {
+    const { count, error } = await supabase
+      // ★ review.js と同じテーブル or ビュー名に揃える
+      .from('user_review_items')
+      .select('id', { head: true, count: 'exact' })
+      .eq('user_id', userId)
+      .eq('status', 'active'); // review.html が使っているステータスに合わせる
 
-async function fetchProfileSub(userId) {
+    if (error) {
+      console.error('[mypage] review count error', error);
+      return 0;
+    }
+    return Number(count || 0);
+  } catch (e) {
+    console.error('[mypage] review count exception', e);
+    return 0;
+  }
+}
+
+
+// --- helpers: サブスク取得/判定（user_profiles だけ見る・キャッシュなし簡易版） ---
+const ACTIVE_STATUSES = ['active', 'trialing', 'past_due'];
+
+async function isSubscribed(userId) {
   const { data, error } = await supabase
     .from('user_profiles')
     .select('subscription_status, current_period_end')
     .eq('user_id', userId)
     .maybeSingle();
-  return error ? null : data;
-}
 
-
-function isSubscriptionActive(row) {
-  if (!row) return false;
-
-  // 1) 期間優先: current_period_end が未来なら（解約予約でも）有料扱い
-  const expTs = row.current_period_end ? Date.parse(row.current_period_end) : NaN;
-  if (Number.isFinite(expTs) && (expTs + 60_000) > Date.now()) {
-    return true; // 60秒グレース
+  if (error || !data) {
+    console.error('[isSubscribed] error or no data', error, data);
+    return false;
   }
 
-  // 2) 期間が切れている/入っていない場合のみステータスを見る
-  const status = String(row.subscription_status || '').toLowerCase();
-  return ACTIVE_STATUSES.includes(status); // ['active','trialing','past_due']
-}
+  const status = String(data.subscription_status || '').toLowerCase();
+  const exp = data.current_period_end ? new Date(data.current_period_end) : null;
 
-async function isSubscribed(userId) {
-  if (_subCache?.userId === userId && _subCache?.checkedAt > Date.now() - 30_000) {
-    return _subCache.active;
-  }
-  const row = await fetchProfileSub(userId);
-  const active = isSubscriptionActive(row);
-  _subCache = { userId, active, checkedAt: Date.now() };
+  const active =
+    (exp && exp.getTime() > Date.now() - 60_000) ||  // 有効期限が未来なら OK（60秒グレース）
+    ACTIVE_STATUSES.includes(status);                // 念のためステータスでも判定
+
+  console.log('[isSubscribed] row =', data, '=> active =', active);
   return active;
 }
+
 
 // --- UI 切替（有料/無料） ---
 function applySubscriptionUI(isPaid) {
@@ -483,11 +671,6 @@ async function handleCategoryBarClick(idx, categoryNameToId, getUser) {
 
   const targetIds = await fetchQuestionIdsByCategory(categoryId, nowPaid);
   if (!targetIds.length) { alert('この分野の問題が見つかりませんでした。'); return; }
-
-  if (await hasWrongInPool(user.id, targetIds, nowPaid)) {
-    location.href = `/mistakes.html?view=wrong&cid=${categoryId}`;
-    return;
-  }
 
   if (await areAllCorrect(user.id, targetIds)) {
     const go = confirm(`${label} はすべて完了しています。ランダムで再挑戦しますか？`);
@@ -608,6 +791,7 @@ function renderCategoryList(categoryData) {
         ${chapName} （${chapData.correct}/${chapData.total}問）
         <div class="cat-bar"
              data-sub-id="${subId ?? ''}"
+             data-slug="${chapterMap[subId]?.slug || ''}"
              data-cat-name="${catName}"
              data-chap-name="${chapName}"
              style="cursor:pointer">
@@ -649,6 +833,14 @@ function renderOverallProgressSummary({ total, correct, wrong }) {
   if (wrongEl) wrongEl.textContent = String(wrong ?? 0);
 }
 
+// --- 復習リスト件数バッジの描画 ---
+function renderReviewCountGlobal(count) {
+  const el = document.getElementById('review-count');
+  if (!el) return;
+  const n = Number.isFinite(count) ? count : 0;
+  el.textContent = String(n);
+}
+
 // ---------- main ----------
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('[MP] DOM ready on', location.pathname);
@@ -683,6 +875,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
     // === 上部サマリ（常に全体で集計） ===
+  // === 上部サマリ（常に全体で集計） ===
   async function refreshOverallSummary() {
     try {
       const summary = await fetchProgressSummaryGlobal(user.id);
@@ -692,10 +885,31 @@ document.addEventListener('DOMContentLoaded', async () => {
       renderOverallProgressSummary({ total: 0, correct: 0, wrong: 0 });
     }
   }
-  await refreshOverallSummary();
+
+  // ★ 復習リスト件数のサマリ
+  async function refreshReviewSummary() {
+    try {
+      const count = await fetchReviewCountGlobal(user.id);
+      renderReviewCountGlobal(count);
+    } catch (e) {
+      console.error('[mypage] review summary error', e);
+      renderReviewCountGlobal(0);
+    }
+  }
+
+  // 初期表示時に両方まとめて更新
+  await Promise.all([
+    refreshOverallSummary(),
+    refreshReviewSummary(),
+  ]);
 
   // 解答記録が入ったら即反映（progress-reader 経由）
-  onProgressRecorded(refreshOverallSummary);
+  onProgressRecorded(() => {
+    // Promise は待たなくてOK、fire-and-forget で更新
+    refreshOverallSummary();
+    refreshReviewSummary();
+  });
+
 
 
   // 「練習問題を始める」
@@ -704,19 +918,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       if (practiceBtn.disabled) return;
       practiceBtn.disabled = true;
-      // 1) 誤答があれば誤答解消へ
-      const nowPaid = await isSubscribed(user.id);
-      const view = nowPaid ? 'user_wrong_latest_all' : 'user_wrong_latest_free_v2';
 
-      const { data: wrongRows, error: werr } = await supabase
-        .from(view)
-        .select('question_id')
-        .eq('user_id', user.id);
-      if (werr) { console.error(werr); alert('読み込みに失敗しました。'); return; }
-      if ((wrongRows?.length ?? 0) > 0) {
-        location.href = '/mistakes.html?view=wrong';
-        return;
-      }
+      // 誤答があってもここでは誤答ページへ飛ばさない。
+      const nowPaid = await isSubscribed(user.id);
 
       if (nowPaid) {
         // 2) 有料：全問題からランダム
@@ -762,6 +966,55 @@ document.addEventListener('DOMContentLoaded', async () => {
     const s = await fetchProfileStreak(user.id);
     streakEl.textContent = String(s);
   }
+
+    // === 学習カレンダー（スクロール式） ======================
+  const calRoot   = document.getElementById('study-calendar');
+  const calPrev   = document.getElementById('study-cal-prev');
+  const calNext   = document.getElementById('study-cal-next');
+  const calTitle  = document.querySelector('.study-calendar-title');
+
+  if (calRoot && calPrev && calNext && calTitle) {
+    // 今日（ブラウザ側）の年月を初期表示にする
+    const today = new Date();
+    let calYear  = today.getFullYear();
+    let calMonth = today.getMonth(); // 0-11
+
+    // このユーザーが「1日でも学習した日」の集合を取得
+    const learnedDaysSet = await fetchStudyDaysSet(user.id);
+
+    function updateCalendar() {
+      renderStudyCalendarTable(calRoot, calYear, calMonth, learnedDaysSet);
+
+      const mDisp = String(calMonth + 1).padStart(2, '0');
+      calTitle.textContent = `${calYear}年${mDisp}月の学習カレンダー`;
+    }
+
+    calPrev.addEventListener('click', () => {
+      // 前の月へ
+      if (calMonth === 0) {
+        calMonth = 11;
+        calYear -= 1;
+      } else {
+        calMonth -= 1;
+      }
+      updateCalendar();
+    });
+
+    calNext.addEventListener('click', () => {
+      // 次の月へ
+      if (calMonth === 11) {
+        calMonth = 0;
+        calYear += 1;
+      } else {
+        calMonth += 1;
+      }
+      updateCalendar();
+    });
+
+    // 最初の1回描画
+    updateCalendar();
+  }
+
 
   // 分野別進捗（チャート/リスト）
   chapterMap = await buildSubcategoryMap();
@@ -823,12 +1076,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const targetIds = (qRows ?? []).map(r => String(r.id));
       if (!targetIds.length) { alert('この小分野の問題が見つかりませんでした。'); return; }
-
-      // ② 誤答が残っていれば誤答ページへ
-      if (await hasWrongInPool(user.id, targetIds, nowPaid)) {
-        location.href = `/mistakes.html?view=wrong&sid=${subId}`;
-        return;
-      }
 
       // ③ 最新すべて正解なら確認
       const allDone = await areAllCorrect(user.id, targetIds);
@@ -938,7 +1185,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function updateDisplay(ymd){
     if (!ymd) { elDisplay.textContent = '受験日を設定してください'; return; }
     const left = daysLeftJST(ymd);
-    if (left > 0)        elDisplay.textContent = `本番まで ${left}日`;
+    if (left > 0)        elDisplay.textContent = `本番まで残り ${left}日`;
     else if (left === 0) elDisplay.textContent = '今日が試験日！';
     else                 elDisplay.textContent = `試験日から ${Math.abs(left)}日経過`;
   }
@@ -1027,7 +1274,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 })();
 
-  btn?.addEventListener('click', openBillingPortal);
+
 });
 
 

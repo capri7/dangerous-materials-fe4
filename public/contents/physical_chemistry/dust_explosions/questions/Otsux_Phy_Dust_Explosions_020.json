@@ -1,0 +1,43 @@
+{
+  "id": "Otsux_Phy_Dust_Explosions_020",
+
+  "category": "physical_chemistry",
+  "subcategory": "dust_explosions",
+
+  "title": "【問20】基礎的な物理・化学 : 粉じん爆発（希釈でMEC未満を保つ）【⭐️⭐️】",
+
+  "question": "粉じん発生が定常的に続く作業室を、均一混合・定常状態とみなす。発生量を E [g/s]、換気量を Q [m³/s] とすると、定常濃度は C = E / Q [g/m³] で近似できる。最小爆発濃度（MEC）= 60 g/m³ のとき、MEC未満（＝爆発成立しにくい）となるのはどれか。",
+  
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "E=1.8 g/s,  Q=0.02 m³/s" },
+    { "name": "2", "description": "E=2.4 g/s,  Q=0.06 m³/s" },
+    { "name": "3", "description": "E=0.9 g/s,  Q=0.01 m³/s" },
+    { "name": "4", "description": "E=3.0 g/s,  Q=0.04 m³/s" },
+    { "name": "5", "description": "E=1.2 g/s,  Q=0.015 m³/s" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：この手の計算は流れで判断するのがいちばん早い。まず C＝E/Q を出す（発生量÷換気量）。出てきた濃度が六十 g/m³ を切れば MEC 未満。出したCをMEC=60と比較すると答えが見えるよ！",
+
+  "explanations": [
+    "誤り。C=1.8/0.02=90 g/m³ ≥ 60（MEC以上）。",
+    "正しい。C=2.4/0.06=40 g/m³ ＜ 60（MEC未満）。",
+    "誤り。C=0.9/0.01=90 g/m³ ≥ 60（MEC以上）。",
+    "誤り。C=3.0/0.04=75 g/m³ ≥ 60（MEC以上）。",
+    "誤り。C=1.2/0.015=80 g/m³ ≥ 60（MEC以上）。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "粉じん爆発",  "MEC", "換気量", "定常濃度", "希釈換気", "基礎計算"],
+    "version": "2026-02-16"
+  }
+}
+

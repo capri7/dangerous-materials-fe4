@@ -1,0 +1,43 @@
+{
+  "id": "Otsux_Law_Transportation_Standards_019",
+  "category": "law",
+  "subcategory": "transportation_standards",
+
+  "title": "【問19】法令：運搬の基準",
+
+  "question": "法令上、危険物を収納する運搬容器の外部に表示しなければならない事項のうち、危険物の品名とその危険等級の組み合わせとして、誤っているものは次のうちどれか。",
+
+  "fields":  ["description1", "description2"],
+  "headers": ["危険物の品名", "危険等級"],
+
+  "choices": [
+    { "name": "1", "description1": "ベンゼン",   "description2": "II" },
+    { "name": "2", "description1": "アセトン",   "description2": "II" },
+    { "name": "3", "description1": "エタノール", "description2": "II" },
+    { "name": "4", "description1": "氷酢酸（酢酸）", "description2": "II" },
+    { "name": "5", "description1": "ギア油（潤滑油）", "description2": "III" }
+  ],
+
+
+  "answer": 4,
+
+  "hint": "ヒント：ひっかけ注意：腐食性の有無ではなく“引火点”で危険等級が決まります。対応は、特殊引火物＝I、〔第1石油類・アルコール類〕＝II、〔第2〜第4石油類・動植物油類〕＝III。例：ベンゼン・アセトン＝第1石油類、エタノール＝アルコール類、氷酢酸＝第2石油類（水溶性）、ギア油＝第4石油類。",
+
+  "explanations": [
+    "1 正しい。ベンゼンは第1石油類であり、危険等級II。",
+    "2 正しい。アセトンは第1石油類であり、危険等級II。",
+    "3 正しい。エタノールはアルコール類であり、危険等級II。",
+    "4 誤り。氷酢酸（酢酸）は第2石油類（水溶性）であり、本来は危険等級III。腐食性のイメージに引っ張られないこと。",
+    "5 正しい。ギア油（潤滑油）は第4石油類であり、危険等級III。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "運搬の基準", "外部表示", "危険等級", "第4類", "第1石油類", "第2石油類", "第4石油類", "アルコール類", "ひっかけ"],
+    "version": "2025.10.11"
+  }
+}
+

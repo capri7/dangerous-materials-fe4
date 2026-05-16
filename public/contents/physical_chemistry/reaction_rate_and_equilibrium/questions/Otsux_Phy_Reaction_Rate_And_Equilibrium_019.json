@@ -1,0 +1,59 @@
+{
+  "id": "Otsux_Phy_Reaction_Rate_And_Equilibrium_019",
+
+  "category": "physical_chemistry",
+  "subcategory": "reaction_rate_and_equilibrium",
+
+  "title": "【問19】基礎的な物理・化学：化学平衡（アンモニア合成）【⭐️】",
+
+
+    "question": [
+    "次の気体の可逆反応は発熱反応である。",
+    "N₂ ＋ 3H₂ ⇌ 2NH₃",
+    "この反応について、A〜Dの記述のうち正しいものの組合せはどれか。",
+    "A. 圧力を高くすると、平衡は右に移動する。",
+    "B. 温度を高くすると、平衡は左に移動する。",
+    "C. NH₃を加えると、平衡は右に移動する。",
+    "D. 触媒を加えると、発熱の方向に平衡が移動する。"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "AとB" },
+    { "name": "2", "description": "AとC" },
+    { "name": "3", "description": "BとC" },
+    { "name": "4", "description": "CとD" },
+    { "name": "5", "description": "BとD" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：この反応の左辺は気体分子が N₂（1mol）＋H₂（3mol）＝4mol、右辺は NH₃（2mol）。圧力を高くすると気体分子数が少ない側（右：2mol）に平衡が移動する。発熱反応を加熱すると吸熱方向（左）に平衡が移動する。NH₃を加えると NH₃ を減らす方向（左）に平衡が移動する。触媒は平衡の位置を変えない。",
+
+  "explanations": [
+    "正しい。AとBはともに正しい。",
+    "誤り。Aは正しいが、Cは誤りである。",
+    "誤り。Bは正しいが、Cは誤りである。",
+    "誤り。CもDも誤りである。",
+    "誤り。Bは正しいが、Dは誤りである。"
+],
+
+  "statement_explanations": {
+    "A": "正しい。圧力を高くすると気体分子数が少ない側に平衡が移動する。この反応では左側が4mol、右側が2molであるため、圧力を高くすると右側（生成物側）に平衡が移動する。",
+    "B": "正しい。発熱反応が平衡状態にあるとき、温度を高くすると吸熱方向（左側）に平衡が移動する。",
+    "C": "誤り。NH₃（生成物）を加えると、NH₃の増加を打ち消す方向（左側）に平衡が移動する。右に移動するという記述は逆である。",
+    "D": "誤り。触媒は正反応・逆反応の活性化エネルギーをともに小さくして平衡に達するまでの時間を短縮するが、平衡の位置は変えない。"
+  },
+
+
+  "image": "reaction_rate_and_equilibrium/Otsux_Phy_Reaction_Rate_And_Equilibrium_009.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "化学平衡", "ル・シャトリエの原理", "アンモニア合成"],
+    "version": "2026-05-09"
+  }
+}
+

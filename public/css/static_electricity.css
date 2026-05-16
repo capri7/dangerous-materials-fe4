@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/* electricity_and_batteries.cssをコピーしてstatic_electricity.cssにしています。
+   電気の計算/電池（基礎知識ページ専用スキン）
+   - refueling_station_standards.css とトーン統一
+   - 表：横スクロール対応、1列目 sticky、table-fixed
+   - ひっかけ注意（exam-notes）、コールアウト（callout）
+   - 時々出てくるピンポイント系の部分（callout example）
+   - 注意・黄色(.callout.warn)
+
+*/
+
+/* ================== 基本トーン/変数 ================== */
+:root {
+  --accent: #12751d;           /* グリーン基調（既存と合わせる） */
+  --accent-weak: rgba(43,108,176,.06);
+  --border: #dfe3e6;
+  --row: #fafbfc;
+  --head: #f3f6fa;
+  --fig-max: 720px;
+
+}
+
+/* ================== 表（横スクロール/固定レイアウト） ================== */
+.table-container { margin-bottom: 1.2rem; }
+.table-container.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-container.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-container.table-scroll::-webkit-scrollbar-thumb {
+  background: #cfd8e3; border-radius: 4px;
+}
+
+/* ベース表 */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  font-size: .95rem;
+  min-width: 640px;           /* スマホは横スクロールへ退避 */
+}
+.styled-table thead th {
+  background: var(--head);
+  color: #111827;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  padding: .75rem .9rem;
+  white-space: nowrap;
+}
+.styled-table tbody td, .styled-table tbody th {
+  border-bottom: 1px solid #eef2f6;
+  border-right: 1px solid #eef2f6;
+  padding: .7rem .9rem;
+  vertical-align: top;
+}
+.styled-table tbody tr:nth-child(odd) { background: var(--row); }
+.styled-table thead th:first-child { border-top-left-radius: 8px; }
+.styled-table thead th:last-child  { border-top-right-radius: 8px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.styled-table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.styled-table tbody td:last-child { border-right: 0; }
+
+/* 角丸の見栄えを強調（必要に応じて） */
+/* .styled-table { overflow: hidden; } */
+
+/* 固定レイアウト＋折返し */
+.styled-table.table-fixed { table-layout: fixed; }
+.styled-table.table-fixed td,
+.styled-table.table-fixed th {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* 1列目 sticky（要：.sticky-first-col .sticky をマーク） */
+.sticky-first-col .sticky {
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 1;                 /* ヘッダと干渉時は 2 に上げる */
+  box-shadow: 1px 0 0 var(--border);
+}
+
+/* ===== 電池表 専用幅・sticky 安定化 ===== */
+
+/* 2) 横スクロールの基点＆stickyの基準を明示 */
+.table-container.table-scroll { position: relative; }
+
+/* 3) 1列目 sticky を前面＆背景固定 */
+.sticky-first-col th.sticky,
+.sticky-first-col td.sticky {
+  position: sticky; left: 0;
+  z-index: 2; background: #fff; box-shadow: 1px 0 0 var(--border);
+}
+.sticky-first-col thead th.sticky { z-index: 3; background: var(--head); }
+
+/* 4) 列幅（スマホも見やすい現実解） */
+.styled-table--battery { min-width: 760px; }
+.styled-table--battery col:nth-child(1) { width: 180px; } /* 電池の種類（固定列） */
+.styled-table--battery col:nth-child(2) { width: 100px; } /* 起電力 */
+.styled-table--battery col:nth-child(3) { width: 180px; } /* 正極 */
+.styled-table--battery col:nth-child(4) { width: 140px; } /* 負極 */
+.styled-table--battery col:nth-child(5) { width: 240px; } /* 電解液/電解質（長文） */
+
+@media (max-width: 480px){
+  .styled-table--battery { min-width: 680px; }
+  .styled-table--battery col:nth-child(1){ width: 160px; }
+  .styled-table--battery col:nth-child(5){ width: 220px; }
+}
+
+/* 5) “文字バラけ”抑制：強すぎる改行を弱める（電池表に限定） */
+.styled-table--battery.table-fixed td,
+.styled-table--battery.table-fixed th {
+  word-break: normal;           /* 文字単位の分割を避ける */
+  overflow-wrap: break-word;    /* 英数字の長語だけ適度に折り返す */
+  line-break: loose;            /* CJKの分割を少し穏やかに */
+  white-space: normal;
+}
+
+/* 電池表の丸ぽちを無効化 */
+.styled-table--battery .sticky::before { content: none !important; }
+
+/* ぽち分の余白を整える（左のインデント復元） */
+.styled-table--battery th.sticky,
+.styled-table--battery td.sticky {
+  padding-left: .9rem;  /* 既存のテーブルと同じ感覚に */
+}
+
+/* 1) 電圧を右寄せ＆改行させない（視線が揃って読みやすい） */
+.styled-table td:nth-child(2) { 
+  text-align: right; 
+  white-space: nowrap; 
+  font-variant-numeric: tabular-nums; 
+}
+
+/* 2) sticky列の境界をほんの少し強調（視線の迷子防止） */
+.sticky-first-col .sticky {
+  box-shadow: 2px 0 0 var(--border);
+}
+
+/* 3) 行ホバーで読む行をうっすら強調（PCだけ） */
+@media (hover:hover) {
+  .styled-table tbody tr:hover { background: #f6fbf7; }
+}
+
+/* 4) ヘッダの緑トーンをほんの少しだけ濃くして見出し感UP */
+.styled-table thead th { background: #eaf6ee; }
+
+/* 5) 長い化学名の見切れ防止（スラッシュで気持ちよく折り返す） */
+.break-slash {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* ================== リスト（詰め表示） ================== */
+ul.compact { margin: 0; padding-left: 1.1em; }
+ul.compact li { margin: .2em 0; }
+
+
+/* ================== 制御卓/監視設備ブロック ================== */
+.control-block {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  margin: 1rem 0;
+}
+.control-block h4 { margin: 0 0 .4rem; font-weight: 700; }
+.control-block .meta { font-size: .9rem; color: #4b5563; }
+
+/* ================== 可読性/アクセシビリティ ================== */
+/* iOS/Safariのフォントブースト抑制 */
+html, body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* 表のフォント/行間を安定させる */
+.table-container .styled-table,
+.table-container .styled-table thead th,
+.table-container .styled-table tbody td,
+.table-container .styled-table tbody th {
+  font-size: .95rem; line-height: 1.6;
+}
+
+/* フォーカス可視（キーボード） */
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 低視力配慮：リンクのホバー/フォーカス */
+a:hover { text-decoration: underline; }
+
+/* 動きに配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ================== モバイル最適化 ================== */
+@media (max-width: 480px) {
+  .table-container { margin-bottom: 1.4rem; }
+  .exam-notes { margin-top: 1.4rem; }
+
+  .table-container .styled-table,
+  .table-container .styled-table thead th,
+  .table-container .styled-table tbody td,
+  .table-container .styled-table tbody th { font-size: .9rem; }
+
+  .styled-table thead th,
+  .styled-table tbody td,
+  .styled-table tbody th { padding: .6rem .7rem; }
+}
+
+/* ================== 小UIユーティリティ ================== */
+.muted { color: #6b7280; }
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+
+/* ===== ページ先頭の余白を圧縮（basics > 1つ目のセクションだけ） ===== */
+.basics .site-main {
+  padding-top: 0;    /* 既存で付いていれば打ち消し */
+  margin-top: 0;
+}
+
+/* 1つ目の law-section 自体の間隔を圧縮 */
+.basics .site-main > .law-section:first-of-type {
+  margin-top: .25rem;     /* 必要なら 0 にしてもOK */
+}
+
+/* 1つ目の h2 の上マージンだけ小さく（既存の 1.6rem を上書き） */
+.basics .site-main > .phy-section:first-of-type h2 {
+  margin-top: .25rem;
+}
+
+/* スマホはさらに詰める */
+@media (max-width: 480px) {
+  .basics .site-main > .phy-section:first-of-type { margin-top: .15rem; }
+  .basics .site-main > .phy-section:first-of-type h2 { margin-top: .15rem; }
+}
+
+/* --- 要件テーブルを“少し細く・詰めて”表示する専用バリアント --- */
+.styled-table.is-compact {
+  font-size: 0.9rem;           /* 0.95→0.9 */
+  min-width: 560px;            /* 640→560で横スクロール閾値を下げる */
+}
+.styled-table.is-compact thead th,
+.styled-table.is-compact tbody td,
+.styled-table.is-compact tbody th {
+  padding: .55rem .7rem;       /* 余白を 2割ほど圧縮 */
+  line-height: 1.55;
+}
+
+/* 列幅：1列目をさらに細く（22%/78%） */
+.styled-table--cols-22-78 col:first-child { width: 22%; }
+.styled-table--cols-22-78 col:last-child  { width: 78%; }
+
+/* モバイルは読みやすさ優先でわずかに戻す */
+@media (max-width: 480px) {
+  .styled-table.is-compact { font-size: 0.88rem; }
+  .styled-table.is-compact thead th,
+  .styled-table.is-compact tbody td,
+  .styled-table.is-compact tbody th { padding: .5rem .65rem; }
+}
+
+/* --- 品目×色：小さめ3列テーブル用の微調整 --- */
+.legend-table.is-compact {
+  min-width: 520px;                /* さらに小さくしても読みやすい */
+}
+.legend-table td:last-child,
+.legend-table th:last-child {
+  text-align: center;
+}
+
+/* 色チップ（テーブル内表示用） */
+.chip {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .9rem; line-height: 1;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+.chip .dot {
+  width: .65rem; height: .65rem; border-radius: 50%;
+  display: inline-block; flex: 0 0 .65rem;
+}
+
+
+/* バッジ帯は見出し直下なら少し詰める */
+.legend-badges { margin-top: .6rem; }
+
+/* モバイルはテーブルのパディングをやや詰める */
+@media (max-width: 480px) {
+  .legend-table.is-compact { font-size: .88rem; }
+  .legend-table.is-compact thead th,
+  .legend-table.is-compact tbody td { padding: .5rem .6rem; }
+}
+
+/* 制御卓テーブル：左列の項目を小さなピルで強調 */
+.styled-table .sticky {
+  font-weight: 700;
+}
+.styled-table .sticky::before {
+  content: "";
+  display: inline-block;
+  width: .5rem; height: .5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: .45rem;
+  vertical-align: middle;
+}
+
+/* セクション間の上余白をゆったり：スマホ優先 */
+.phy-section + .phy-section { margin-top: 2.4rem; }
+.quiz-section { margin-top: 2.8rem; }
+
+/* デスクトップでさらに少し広げる */
+@media (min-width: 768px) {
+  .phy-section + .phy-section { margin-top: 3.2rem; }
+}
+
+.circuit-svg{
+  display: block;
+  max-width: 100%;
+  width: min(100%, 780px);          /* 800px相当の上限だけ残す */
+  height: auto;
+}
+@media (max-width: 480px){
+  .circuit-svg{ width: 100%; }      /* スマホは全幅フィットを優先 */
+}
+
+
+/* ========== 12) 頻出ポイント・ひっかけ注意（統一・誤参照修正） ========== */
+/* 以前の .page-phy / .page-law-proc の分岐をやめ、章テーマに依存せず統一 */
+.exam-notes{
+  background:#FFF8E8;
+  border:2px dashed #F1C073;
+  border-radius:12px;
+  padding:18px 18px 16px;
+  margin:20px 0 18px;
+}
+.exam-notes > h3{
+  margin:0 0 12px;
+  font-size: clamp(18px,1.9vw,20px);
+  font-weight:700;
+  color:#2B2B2B;
+}
+/* リストをディスク表記で端正に */
+.exam-notes ul.compact{
+  list-style:disc;
+  margin:0; padding:0 0 0 1.2em;
+}
+.exam-notes ul.compact li{
+  margin:8px 0; line-height:1.7;
+}
+.exam-notes ul.compact li::before{ content:none; }
+
+/* 既存のベースはそのまま */
+.series-figure svg{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* ===== 第2章トーン（緑）を確実に効かせる最小パッチ ===== */
+
+
+/* 2) コールアウトを章色に合わせて上書き */
+.callout {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-weak);
+  padding: .8rem 1rem;
+  border-radius: 6px;
+  margin-block: 16px; 
+}
+
+/* 3) 「左帯カード」専用クラス（必要な所だけに付ける） */
+.band-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .9rem 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.band-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: var(--accent);              /* 章色の左帯 */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 4) 表ヘッダも淡い緑で統一（視覚統一を強める。不要なら削除OK） */
+.styled-table thead th { background: var(--head); }
+
+
+.table-container.table-scroll { scrollbar-color: #cfd8e3 transparent; }
+
+/* ===== 修正パッチ：電気の計算/電池 ===== */
+
+
+/* 2) h2/h3 は1カ所だけで定義（余白の崩れを止める） */
+.phy-section > h2,
+.phy-section > h3 {
+  margin-top: 1.2rem;
+  margin-bottom: .6rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+/* 1) h2 が点線ボックスになるのを強制リセット（誤継承ガード） */
+.science-scope .phy-section h2 {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-top: .25rem;
+}
+
+/* exam-notes が空だった場合に残像ボックスを出さない */
+.exam-notes:empty { display: none; }
+
+/* 念のため、exam-notes のスコープをこの章に限定 */
+.science-scope .exam-notes{
+  background:#FFF8E8;
+  border:2px dashed #F1C073;
+  border-radius:12px;
+  padding:18px 18px 16px;
+  margin:20px 0 18px;
+}
+
+/* 2) 図のはみ出し対策（横スクロール or 縮小） */
+.electrical-charges {
+  margin: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+.electrical-charges .circuit-svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;                    /* 縦横比維持で縮小 */
+  /* 必要なら最小幅を設定してスクロールに逃がす */
+
+}
+
+/* 3) 左帯カードの見た目を固定（オレンジ枠に引っ張られないように） */
+.science-scope .band-card{
+  border-left: 6px solid var(--accent);  /* 緑帯 */
+  background: rgba(18,117,29,.06);
+  padding: .85rem 1rem;
+  border-radius: 8px;
+}
+
+/* 4) 左帯カードと図が触れないように余白を確保 */
+.band-card { margin-bottom: 1rem; }
+
+
+/* 5) コールアウト＆テーブルは章トーンに沿って統一 */
+.science-scope .callout {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-weak);
+}
+.science-scope .styled-table thead th { background: var(--head); }
+
+
+/* 6) h2が点線化する誤継承の最終ガード（残してOK） */
+.science-scope .phy-section h2 {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* === 第2章：物理・化学（緑トーン） 基本トークン === */
+.science-scope{
+  --accent:#12751d;
+  --accent-weak:rgba(18,117,29,.06);
+  --border:#dfe3e6;
+  --row:#fafbfc;
+  --head:#eef9f1;
+}
+
+
+/* 見出し系の誤継承を全リセット */
+.science-scope h1,.science-scope h2,.science-scope h3{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+  padding:0;margin-top:.25rem;
+}
+
+/* 左帯カード */
+.science-scope .band-card{
+  position:relative; z-index:0;
+  background:#fff; border:1px solid var(--border); border-radius:8px;
+  padding:.9rem 1rem; box-shadow:0 1px 2px rgba(0,0,0,.03);
+  margin-bottom:.75rem;
+}
+.science-scope .band-card::before{
+  content:""; position:absolute; inset:0 auto 0 0; width:6px;
+  background:var(--accent); border-top-left-radius:8px;border-bottom-left-radius:8px;
+}
+
+/* コールアウト・表ヘッダの章色適用 */
+.science-scope .callout{ border-left:4px solid var(--accent); background:var(--accent-weak); }
+.science-scope .styled-table thead th{ background:var(--head); }
+
+/* 図版は共通の入れ物で制御 */
+.figure-wrap{ margin:1rem 0; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.figure-wrap img,.figure-wrap svg{
+  display:block; max-width:100%; height:auto; background:#fff; border-radius:12px;
+}
+
+/* テーブル（横スクロール＋sticky） */
+.table-container{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.styled-table{
+  width:100%; min-width:640px; border-collapse:separate; border-spacing:0; background:#fff;
+  border:1px solid var(--border); border-radius:8px; box-shadow:0 1px 2px rgba(0,0,0,.03);
+  font-size:.95rem;
+}
+.styled-table.table-fixed{ table-layout:fixed; }
+.styled-table td,.styled-table th{ word-break:break-word; overflow-wrap:anywhere; }
+.styled-table tbody tr:nth-child(odd){ background:var(--row); }
+.sticky-first-col .sticky{ position:sticky; left:0; background:#fff; z-index:2; box-shadow:1px 0 0 var(--border); }
+
+/* モバイル微調整 */
+@media (max-width:480px){
+  .styled-table{ min-width:560px; }
+  .styled-table td,.styled-table th{ padding:.6rem .7rem; font-size:.9rem; }
+}
+
+/* 2) すべての図の箱を共通化（左右中央・角の見た目を統一） */
+.phy-section figure{
+  margin: 1rem auto;                         /* 中央寄せ */
+  max-width: var(--fig-max);                 /* デスクトップでの上限を統一 */
+  overflow: hidden;                          /* 角丸に沿って画像をクリップ */
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+
+  /* 丸角は clip-path でマスク（Safariでも崩れにくい） */
+  --r: 12px;
+  border-radius: var(--r);            /* 影用 */
+  clip-path: inset(0 round var(--r));
+  overflow: clip;                     /* 新仕様。古いブラウザは無視してOK */
+}
+
+
+/* 2) 画像(SVG/PNG)は“箱に任せる”：角丸は付けない・はみ出さない */
+.phy-section figure svg,
+.phy-section figure img,
+.phy-section figure .circuit-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0 !important;        /* 画像側の角丸を禁止（ずれ防止） */
+  background: transparent;            /* SVG側の背景は持たせない想定 */
+}
+
+/* 3) モバイルは全幅に（上限は figure 側が面倒を見る） */
+@media (max-width: 480px){
+  :root { --fig-max: 100%; }
+}
+
+/* 3) 画像(SVG/PNG)は常に箱にフィット（実寸に引っ張られない） */
+.phy-section figure .circuit-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0;                           /* 画像側の角丸は無効化 */
+}
+
+
+/* 4) モバイルは全幅でOK（上限はfigure側が面倒見てるので触らない） */
+@media (max-width: 480px){
+  :root { --fig-max: 100%; }                  /* 端末幅いっぱいにフィット */
+}
+
+/* 図カード：背景と角丸は“外側だけ”で描く */
+.formula-card{
+  --r: 12px;
+  margin: 1rem auto;
+  max-width: var(--fig-max);
+  padding: 16px 20px;                /* 内側に余白をつける */
+  background: #f0f9ee;               /* いまの緑に近いトーンに合わせてOK */
+  border-radius: var(--r);
+  overflow: hidden;                   /* 影響範囲はここだけで十分 */
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+/* 画像は角丸を持たせない（外側に任せる） */
+.formula-card .circuit-svg{
+  display:block; width:100%; height:auto; border-radius:0 !important; background:transparent;
+}
+
+.figure-lead + .formula-card { margin-top:16px; }
+.formula-card + .figure-caption { margin-top:12px; }
+.figure-caption{ font-size:.95rem; color:#374151; }
+
+/* バリアント：代表例（グリーン） */
+.callout.example{
+  --accent: #15803d;
+  background: #FFF8E8;
+}
+
+
+/* 隣り合うカードの密着防止（さらに余白が欲しい時） */
+.callout + .callout{ margin-top: 20px; }
+.band-card + .callout{ margin-top: 16px; }
+
+
+
+/* 注意喚起（オレンジ系） */
+.callout.warn{
+  --accent: #d97706;                 /* amber-600相当 */
+  border-left: 4px solid var(--accent);
+  background: #fff7ed;               /* amber-50 */
+  padding: .8rem 1rem;
+  border-radius: 6px;
+  margin-block: 16px;
+}
+
+
+
+
+
+
+

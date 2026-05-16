@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_And_Specific_Heat_010",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_and_specific_heat",
+
+  "title": "【問10】基礎的な物理・化学：熱量と比熱（密度を用いた熱容量）【⭐️】",
+
+  "question": "比熱 c、密度 ρ、体積 V の物質の熱容量 C を表す式として、正しいものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "C = c / (ρV)" },
+    { "name": "2", "description": "C = ρ / (cV)" },
+    { "name": "3", "description": "C = V / (ρc)" },
+    { "name": "4", "description": "C = (ρ c) / V" },
+    { "name": "5", "description": "C = ρ V c" }
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：式は C = mc。ここで、質量 m は m = ρV と表せる。だから、C = mc の m を ρV に置き換えればよい。",
+
+  "explanations": [
+    "誤り。熱容量 C は C = mc で表される。さらに、質量 m は m = ρV であるから、C = ρVc となる。したがって、ρV で割る形にはならない。",
+    "誤り。熱容量 C は比熱 c に比例するので、c で割る形にはならない。C = mc に m = ρV を代入すると、C = ρVc となる。",
+    "誤り。質量 m は m = ρV で表されるので、ρ を分母に置く形にはならない。熱容量は C = mc = ρVc で表される。",
+    "誤り。熱容量 C は体積 V が大きくなるほど大きくなる。V で割る形では、体積が増えるほど熱容量が小さくなってしまい、式として適切でない。",
+    "正しい。熱容量は C = mc で表される。また、質量は m = ρV である。したがって、C = mc に m = ρV を代入すると、C = ρVc となる。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "比熱", "熱容量", "密度", "q=mcΔT", "単位"],
+    "version": "2026-03-14"
+  }
+}
+

@@ -1,0 +1,89 @@
+/* ============================
+   基礎知識トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.basics .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.basics .intro {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.basics .intro h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
+
+/* バンド（dashboard-note）全体の外側・内側の余白をコンパクトに */
+.dashboard-note {
+  padding: 1.1em 1.3em;
+  margin: 1.2em 0 1.4em;
+}
+
+/* バンド内テキストの行間と先頭のマージン調整 */
+.dashboard-note p {
+  margin: 0.5em 0;
+}
+
+.dashboard-note p:first-child {
+  margin-top: 0;
+}
+
+/* =========================================
+   基礎知識トップ：セクション見出しの統一
+   （練習問題の頻出度／出題分野／受験の流れ／マイページ）
+   ========================================= */
+
+.basics .legend h3,
+.basics .chapter-links h3,
+.basics .exam-guide h3 {
+  font-size: 1.25rem;         /* h2 より少しだけ控えめ */
+  font-weight: 700;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+  border-bottom: 2px solid #ccc;
+}
+
+/* 最初の h3（練習問題の頻出度）は、やや上を詰める */
+.basics .legend:first-of-type h3 {
+  margin-top: 1.4em;
+}
+
+/* 章カードブロックの上下余白をややコンパクトに */
+.basics .chapter-links {
+  margin-block: 1.4em 1.8em;
+}
+
+/* 最後のバンドの下余白を少しだけ詰める（フッター前の白場を短く） */
+.basics .exam-guide:last-of-type .dashboard-note {
+  margin-bottom: 1.0em;
+}
+
+/* 基礎知識トップ：章カード下の説明ボックスだけ詰める */
+.chapter-links .chapter-grid {
+  margin-bottom: 0.8em;
+}
+
+.chapter-links .dashboard-note {
+  margin-top: 0.9em;
+  padding: 0.9em 1.3em;
+}
+
+.chapter-links .dashboard-note ul {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.chapter-links .dashboard-note li + li {
+  margin-top: 0.5em;
+}
+
+.chapter-links .dashboard-note p {
+  margin: 0.8em 0 0;
+}
+

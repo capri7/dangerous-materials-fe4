@@ -1,0 +1,26 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill:#f3f4f6; } /* 背景グレー：好みで #e5e7eb〜#d1d5db などに変更 */
+      .jp { font-family: "Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif; font-size:34px; fill:#0f172a; }
+      .fm { font-family: "Noto Sans","Helvetica Neue","Arial",sans-serif; font-size:28px; fill:#0f172a; }
+      .center { text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect class="bg" x="0" y="0" width="1200" height="700"></rect>
+
+  <!-- メタノール + Na 反応 -->
+  <g transform="translate(600,190)">
+    <text class="jp center">メタノール + ナトリウム → ナトリウムメトキシド + 水素</text>
+    <text class="fm center" y="56">2 CH₃OH + 2 Na → 2 CH₃ONa + H₂</text>
+  </g>
+
+  <!-- エタノール + Na 反応 -->
+  <g transform="translate(600,430)">
+    <text class="jp center">エタノール + ナトリウム → ナトリウムエトキシド + 水素</text>
+    <text class="fm center" y="56">2 C₂H₅OH + 2 Na → 2 C₂H₅ONa + H₂</text>
+  </g>
+</svg>

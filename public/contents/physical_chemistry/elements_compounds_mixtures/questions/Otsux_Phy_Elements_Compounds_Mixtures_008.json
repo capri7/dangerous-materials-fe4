@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Elements_Compounds_Mixtures_008",
+
+  "category": "physical_chemistry",
+  "subcategory": "elements_compounds_mixtures",
+
+  "title": "【問8】基礎的な物理・化学：単体・化合物・混合物",
+
+  "question": "次の物質のうち、単体に分類されるものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "酸素（O₂）" },
+    { "name": "2", "description": "水（H₂O）" },
+    { "name": "3", "description": "二酸化炭素（CO₂）" },
+    { "name": "4", "description": "食塩（NaCl）" },
+    { "name": "5", "description": "空気" }
+  ],
+
+  "answer": 1,
+
+   "hint": "ヒント：中に含まれる元素の種類は何種類あるだろう？ 1種類の元素だけでできていれば単体、2種類以上の元素が一定の割合で結びついていれば化合物、いろいろな物質が混ざっていれば混合物。",
+
+  "explanations": [
+    "正しい。酸素O₂は酸素元素1種類だけからできており、これを単体という。O₂でもO₃（オゾン）でも、酸素という元素だけから成る物質は単体に分類される。",
+    "誤り。水H₂Oは水素と酸素という2種類の元素からできた化合物であり、単体ではない。",
+    "誤り。二酸化炭素CO₂は炭素と酸素という2種類の元素からできた化合物である。",
+    "誤り。食塩NaClはナトリウムと塩素という2種類の元素からできた化合物であり、単体ではない。",
+    "誤り。空気は窒素・酸素・アルゴンなどさまざまな成分が混ざった混合物であり、単体でも化合物でもない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "単体",  "化合物", "混合物", "元素"],
+    "version": "2026-04-18"
+  }
+}
+

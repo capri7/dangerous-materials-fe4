@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Law_Firefighting_Equipment_Standards_019",
+  "category": "law",
+  "subcategory": "firefighting_equipment_standards",
+
+  "title": "【問19】法令：消火設備と設置基準",
+  "question": "法令上、製造所等に設置する消火設備の区分について、次のうち第3種の消火設備に該当しないものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+
+  "choices": [
+    { "name": "1", "description": "泡消火設備" },
+    { "name": "2", "description": "水噴霧消火設備" },
+    { "name": "3", "description": "二酸化炭素消火設備" },
+    { "name": "4", "description": "粉末消火設備" },
+    { "name": "5", "description": "スプリンクラー設備" }
+  ],
+
+  "answer": 5,
+  "hint": "ヒント：第3種＝“放射する設備”群（泡・水噴霧・CO₂・粉末・不活性ガス）。スプリンクラーは別区分に注意。",
+
+
+  "explanations": [
+    "1. 該当する：泡消火設備は第3種。",
+    "2. 該当する：水噴霧消火設備は第3種。",
+    "3. 該当する：二酸化炭素消火設備は第3種。",
+    "4. 該当する：粉末消火設備は第3種。",
+    "5. 該当しない（正解）：スプリンクラー設備は第2種。"
+  ],
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "消火設備と設置基準", "第2種", "第3種", "泡消火設備", "水噴霧消火設備", "二酸化炭素消火設備", "粉末消火設備", "スプリンクラー設備"],
+    "version": "2025-10-14"
+  }
+}
+

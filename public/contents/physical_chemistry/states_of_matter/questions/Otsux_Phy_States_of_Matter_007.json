@@ -1,0 +1,46 @@
+{
+  "id": "Otsux_Phy_States_of_Matter_007",
+
+  "category": "physical_chemistry",
+  "subcategory": "states_of_matter",
+
+  "title": "【問7】基礎的な物理・化学：物質の三態（凝固点降下）【⭐️】",
+
+  "question": [
+    "次の文の（）内のA〜Cに当てはまる語句の組み合わせとして、正しいものはどれか。",
+    "「溶液の凝固点が純粋な（A）よりも低くなる現象を凝固点降下といい、溶液と純粋な（A）のそれぞれの凝固点の差を凝固点降下度という。希薄溶液の凝固点降下度は溶質の種類に（B）、溶液中の溶質の質量モル濃度（m, mol/kg）に（C）する。」"
+  ],
+
+
+  "fields":  ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "溶質", "description2": "無関係で", "description3": "比例" },
+    { "name": "2", "description1": "溶媒", "description2": "関係し", "description3": "反比例" },
+    { "name": "3", "description1": "溶媒", "description2": "無関係で", "description3": "比例" },
+    { "name": "4", "description1": "溶質", "description2": "関係し", "description3": "比例" },
+    { "name": "5", "description1": "溶媒", "description2": "無関係で", "description3": "反比例" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：背骨はこれ。「凝固点降下は“溶媒”の性質で、粒子数で決まる」。だからA＝溶媒、B＝（溶質の種類に）無関係。濃いほど下がるのでC＝比例。式で覚えるなら ΔTf＝Kf・m（電解質は i・Kf・m）。",
+
+  "explanations": [
+    "誤り。Aが違う。凝固点降下は『溶液の凝固点が純粋な溶媒より低くなる』現象なので、Aは溶媒。",
+    "誤り。BとCが違う。希薄溶液では溶質の種類そのものには依存せず（粒子数で決まる）、mが増えるほど凝固点降下度は大きくなる（比例）。",
+    "正しい。A＝溶媒、B＝無関係で、C＝比例。希薄溶液の凝固点降下度は ΔTf＝Kf・m（電解質なら i・Kf・m）で表される。",
+    "誤り。Aが違う（Aは溶媒）。さらに希薄溶液では溶質の種類そのものには依存しないので、Bの『関係し』も不適。",
+    "誤り。Cが違う。凝固点降下度は m が大きいほど大きくなるので、反比例ではなく比例。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "物質の三態", "凝固点降下"],
+    "version": "2026-03-01"
+  }
+}
+

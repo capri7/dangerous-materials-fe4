@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Law_Firefighting_Equipment_Standards_022",
+  "category": "law",
+  "subcategory": "firefighting_equipment_standards",
+
+  "title": "【問22】法令：消火設備と設置基準【⭐️⭐️】",
+  "question": "法令上、電気設備のある場所に設置する第5種の消火設備として不適切なものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+
+  "choices": [
+    { "name": "1", "description": "二酸化炭素を放射する小型の消火器" },
+    { "name": "2", "description": "粉末を放射する小型の消火器" },
+    { "name": "3", "description": "水バケツ" },
+    { "name": "4", "description": "乾燥砂" },
+    { "name": "5", "description": "ハロゲン化物を放射する小型の消火器" }
+  ],
+
+  "answer": 3,
+  "hint": "ヒント：電気設備=『導電性のある水系は×』が軸。CO₂/ハロゲン化物/粉末は○、乾燥砂も○。",
+
+  "explanations": [
+    "1. 適切：CO₂の小型消火器は電気火災に適応（導電せず機器への二次被害が少ない）。",
+    "2. 適切：粉末の小型消火器は電気火災に適応（導電しない）。",
+    "3. 不適切（正解）：水バケツは導電性があり感電等の危険があるため、電気設備には不向き。",
+    "4. 適切：乾燥砂は導電せず、初期消火資材として使用可能。",
+    "5. 適切：ハロゲン化物の小型消火器は電気火災に適応（非導電）。"
+  ],
+
+ "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "消火設備と設置基準", "第5種", "電気設備", "二酸化炭素消火器", "粉末消火器", "ハロゲン化物消火器", "乾燥砂", "水バケツ"],
+    "version": "2025-10-14"
+  }
+}
+
+

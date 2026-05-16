@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_And_Specific_Heat_004",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_and_specific_heat",
+
+  "title": "【問4】基礎的な物理・化学：熱量と比熱【⭐️】",
+
+  "question": "ある液体 200 g を 10 ℃から 35 ℃まで高めるのに必要な熱量として、次のうち正しいものはどれか。ただし、この液体の比熱は 1.26 J/(g·K) とする。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "4.2 kJ" },
+    { "name": "2", "description": "6.3 kJ" },
+    { "name": "3", "description": "8.8 kJ" },
+    { "name": "4", "description": "21.0 kJ" },
+    { "name": "5", "description": "29.4 kJ" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：温度差を先に出す。35−10 で 25 K。あとは q = m c ΔT に、そのまま入れればよい。m=200 g、c=1.26 J/(g·K)、ΔT=25 K なので、200×25 を先にまとめると 5000、つづいて 5000×1.26=6300 J。6300 J は 6.3 kJ。",
+
+  "explanations": [
+    "誤り。正しい式は q = m c ΔT である。これに m=200 g、c=1.26 J/(g·K)、ΔT=25 K を代入すると、q=200×1.26×25=6300 J となる。したがって、4.2 kJ にはならない。",
+    "正しい。温度差は 35−10=25 K である。したがって、q = m c ΔT = 200×1.26×25 = 6300 J となる。6300 J = 6.3 kJ である。",
+    "誤り。正しい計算は q=200×1.26×25=6300 J であり、6.3 kJ になる。8.8 kJ にはならない。",
+    "誤り。21.0 kJ はこの条件からは求まられない。正しくは、q=200×1.26×25=6300 J = 6.3 kJ である。",
+    "誤り。29.4 kJ はこの条件からは求まられない。正しくは、q=200×1.26×25=6300 J = 6.3 kJ である。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "比熱",  "比熱", "熱量", "q=mcΔT", "単位"],
+    "version": "2026-03-14"
+  }
+}
+

@@ -1,0 +1,46 @@
+{
+  "id": "Otsux_Phy_BoilingPoint_VaporPressure_002",
+
+  "category": "physical_chemistry",
+  "subcategory": "boiling_point_vapor_pressure",
+
+  "title": "【問2】基礎的な物理・化学：沸点と飽和蒸気圧【⭐️】",
+
+  "question": [
+    "次の文の（）内のA〜Cに当てはまる語句の組み合わせとして、正しいものはどれか。",
+    "「液体の飽和蒸気圧は、温度の上昇とともに（A）する。その圧力が大気の圧力に等しくなるときの（B）が沸点である。したがって、大気の（C）が低いと沸点も低くなる。」"
+  ],
+
+  "fields":  ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "減少", "description2": "温度", "description3": "圧力" },
+    { "name": "2", "description1": "増大", "description2": "湿度", "description3": "温度" },
+    { "name": "3", "description1": "減少", "description2": "圧力", "description3": "温度" },
+    { "name": "4", "description1": "増大", "description2": "温度", "description3": "圧力" },
+    { "name": "5", "description1": "減少", "description2": "圧力", "description3": "湿度" }
+  ],
+
+  "answer": 4,
+
+  "hint": "ヒント：温度が上がると液体は蒸発しやすくなり、飽和蒸気圧は増加する。沸騰とは、液体の蒸気圧が外圧（大気圧）と等しくなったときに起こる現象。また、外圧が低いほど液体は沸騰しやすくなる（沸点は低くなる）。",
+
+  "explanations": [
+    "誤り。温度が上がると蒸発する分子が増えるため、飽和蒸気圧は減少ではなく増大する。",
+    "誤り。沸点は湿度では決まらない。液体の蒸気圧が大気圧と等しくなるときの温度が沸点である。",
+    "誤り。Aは減少ではなく増大が正しい。またBは圧力ではなく温度である。",
+    "正しい。温度が上昇すると蒸気圧は増大する。液体の蒸気圧が外圧（大気圧）と等しくなったときの温度が沸点であり、外圧が低いほど沸点も低くなる。",
+    "誤り。沸点は湿度ではなく大気圧（外圧）の影響を受ける。"
+  ],
+
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "飽和蒸気圧", "沸点", "外圧", "温度"],
+    "version": "2026-03-06"
+  }
+}
+

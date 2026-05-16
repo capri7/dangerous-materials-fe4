@@ -1,0 +1,49 @@
+{
+  "id": "Otsux_Phy_Static_Electricity_013",
+
+  "category": "physical_chemistry",
+  "subcategory": "static_electricity",
+
+  "title": "【問13】基礎的な物理・化学：静電気【⭐️】",
+
+  "question": [
+    "帯電していない箔検電器の上部金属板に、次のA〜Cの操作を行ったときの2枚の金属箔の状態として、正しいものの組み合わせはどれか。",
+    "なお、電子は人の指を通って自由に箔検電器を出入りできるものとする。",
+    "A. 正に帯電したアクリル棒を近づける。",
+    "B. 近づけたアクリル棒はそのままに、金属板に指で触れる。",
+    "C. 指で触れたまま、アクリル棒を遠ざける。"
+  ],
+
+  "fields": ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "開いている", "description2": "開いている", "description3": "閉じている" },
+    { "name": "2", "description1": "開いている", "description2": "閉じている", "description3": "開いている" },
+    { "name": "3", "description1": "開いている", "description2": "閉じている", "description3": "閉じている" },
+    { "name": "4", "description1": "閉じている", "description2": "開いている", "description3": "開いている" },
+    { "name": "5", "description1": "閉じている", "description2": "開いている", "description3": "閉じている" }
+  ],
+
+  "answer": 3,
+
+
+  "hint": "ヒント：A（近づける）では誘導で箔が同符号に偏り“開く”。B（触れる）は大地から電子が流入して中和し“閉じる”。C（触れたまま離す）では誘導が消え、余分な電荷は指を通って逃げるため“閉じたまま”。",
+
+  "explanations": [
+    "誤り。（A=開、B=開、C=閉）｜Bの時点で中和が起こるため“開”にはならない。",
+    "誤り。（A=開、B=閉、C=開）｜Cで再び“開く”ことはない。誘導が消えれば電荷は指を通って逃げて中性に戻る。",
+    "正しい。（A=開、B=閉、C=閉）｜A：正に帯電した棒を近づけると、電子が上部へ引かれ、葉は電子不足で正に偏り“開く”。B：棒を近づけたまま金属板に触れると、大地から電子が流入して葉の正電荷が中和され“閉じる”。C：指で触れたまま棒を離すと誘導が消え、残った電荷も逃げて中性になり“閉じたまま”。",
+    "誤り。（A=閉、B=開、C=開）｜Aが閉はあり得ない。",
+    "誤り。（A=閉、B=開、C=閉）｜Aの段階で葉は必ず“開く”。"
+  ],
+
+  "image": "static_electricity/Otsux_Phy_Static_Electricity_013.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "静電気", "電子", "電荷", "箔検電器", "帯電", "金属板", "アクリル棒"],
+    "version": "2026-02-24"
+  }
+}
+

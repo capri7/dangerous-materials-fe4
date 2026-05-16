@@ -1,15 +1,11 @@
 // /js/mistakes.js
 import { supabase } from '/js/supabaseClient.js';
 
-const subcatMap = new Map();   // subcategory_id -> { name, category_id }
-const catMap = new Map();      // category_id    -> { name }  ※あれば使う
-
-// ページ先頭の import 群の直後あたりに
+// ===== モード判定（?view=wrong なら「直近誤答モード」） =====
 const params = new URLSearchParams(location.search);
 const MODE = params.get('view') === 'wrong' ? 'wrong' : 'mistakes';
 
-
-// --- subscriptions helpers (profiles-based) ---
+// ===== サブスク判定（profiles ベース） =====
 const ACTIVE_STATUSES = ['active', 'trialing', 'past_due'];
 let _subCache = null;
 
@@ -19,17 +15,23 @@ async function fetchProfileSub(userId) {
     .select('subscription_status, current_period_end')
     .eq('user_id', userId)
     .maybeSingle();
-  return error ? null : data;
+
+  if (error) {
+    console.warn('[mistakes] fetchProfileSub error', error);
+    return null;
+  }
+  return data;
 }
 
 function isSubscriptionActive(row) {
   if (!row) return false;
   const status = String(row.subscription_status || '').toLowerCase();
   if (!ACTIVE_STATUSES.includes(status)) return false;
+
   const exp = row.current_period_end;
   if (!exp) return true;
-  const t = new Date(exp).getTime();
 
+  const t = new Date(exp).getTime();
   return Number.isFinite(t) && (t + 60_000) > Date.now(); // 60秒グレース
 }
 
@@ -44,82 +46,101 @@ async function isSubscribed(userId) {
 }
 
 async function pickWrongView(userId) {
-  return (await isSubscribed(userId)) ? 'user_wrong_latest_all' : 'user_wrong_latest_free_v2';
+  const active = await isSubscribed(userId);
+  // 有料ユーザーと無料ユーザーでビューを切り替える想定
+  return active ? 'user_wrong_latest_all' : 'user_wrong_latest_free_v2';
 }
 
-// ====== 設定 ======
-const PAGE_SIZE = 30;                         // 1ページの件数
+// ===== 設定 =====
+const PAGE_SIZE = 30;
+
+// question_id から問題ページ URL を組み立てる
+const qMeta = new Map();      // question_id -> { title, headers, fields, subcategory_id, ... }
+const subcatMap = new Map();  // subcategory_id -> { name, slug, category_id }
+const catMap = new Map();     // category_id    -> { name, slug }
+
 function buildQuestionUrl(id) {
   const meta = qMeta.get(String(id)) || {};
-  // 1) questions.headers.url or fields.url にURLがあれば最優先で使う
+
+  // 1) questions.headers.url or fields.url があればそれを優先
   const urlFromHeaders = meta.headers?.url || meta.fields?.url;
   if (typeof urlFromHeaders === 'string' && urlFromHeaders.length) {
     const sep = urlFromHeaders.includes('?') ? '&' : '?';
     return `${urlFromHeaders}${sep}mode=review`;
   }
-  // 2) category/subcategory の slug が取れていれば推測で組み立て
+
+  // 2) category/subcategory の slug があれば、それで推測
   if (meta.category_slug && meta.subcategory_slug) {
     const cat = String(meta.category_slug).replace(/-/g, '_');
     const sub = String(meta.subcategory_slug).replace(/-/g, '_');
     return `/contents/${cat}/${sub}/${encodeURIComponent(id)}.html?mode=review`;
   }
 
-  // 2.5) フォールバック：IDからカテゴリとサブトピックを導出
-  // 例) Otsux_Prop_Accident_Cases_And_Measures_001
-  //     -> /contents/properties_prevention/accident_cases_and_measures/<id>.html
+  // 2.5) IDパターンからフォールバック生成
+  //    例: Otsux_Prop_Accident_Cases_And_Measures_001
   const s = String(id);
   const m = /^Otsux_([A-Za-z]+)_(.+)_(\d+)$/.exec(s);
   if (m) {
-    const key = m[1].toLowerCase();               // law / prop など
-    const cat = key === 'law' ? 'law'
-              : key === 'prop' ? 'properties_prevention'
-              : null;
-    const sub = m[2].toLowerCase().replace(/__+/g,'_'); // サブトピック（大文字→小文字）
+    const key = m[1].toLowerCase(); // law / prop など
+    const cat = key === 'law'
+      ? 'law'
+      : key === 'prop'
+        ? 'properties_prevention'
+        : null;
+    const sub = m[2].toLowerCase().replace(/__+/g, '_');
     if (cat && sub) {
       return `/contents/${cat}/${sub}/${encodeURIComponent(id)}.html?mode=review`;
     }
   }
-  // 3) フォールバック（最終手段）
+
+  // 3) 最終手段
   return `/contents/${encodeURIComponent(id)}.html?mode=review`;
 }
 
-// ====== 要素参照 ======
+// ===== 要素参照 =====
 const el = {
-  loading:   document.getElementById('loading'),
-  error:     document.getElementById('error'),
-  empty:     document.getElementById('empty'),
-  list:      document.getElementById('mistakes-list'),
-  loadMore:  document.getElementById('load-more'),
-  refresh:   document.getElementById('refresh'),
+  loading:  document.getElementById('loading'),
+  error:    document.getElementById('error'),
+  empty:    document.getElementById('empty'),
+  list:     document.getElementById('mistakes-list'),
+  loadMore: document.getElementById('load-more'),
+  refresh:  document.getElementById('refresh'),
 };
 
-// ====== 状態 ======
+// ===== 状態 =====
 let user = null;
-let rows = [];                // 取得したmistakesの累積
-let hasMore = true;           // 追加ページの有無
+let rows = [];
+let hasMore = true;
 let loading = false;
 let offset = 0;
-const qMeta = new Map();      // question_id -> { title, headers, fields, subcategory_id, category_slug, subcategory_slug }
 
-// ====== ユーティリティ ======
+// データソース: 'wrong-view' or 'mistakes-table'
+let dataSource = null;
+
+// ===== ユーティリティ =====
 const fmtDateTime = (iso) => {
-  try { return new Date(iso).toLocaleString('ja-JP'); }
-  catch { return iso || ''; }
+  try {
+    return iso ? new Date(iso).toLocaleString('ja-JP') : '';
+  } catch {
+    return iso || '';
+  }
 };
 
 const setState = ({ isLoading, isError } = {}) => {
   if (typeof isLoading === 'boolean') {
     loading = isLoading;
-    el.loading.hidden = !isLoading;
+    if (el.loading) el.loading.hidden = !isLoading;
   }
   if (typeof isError === 'boolean') {
-    el.error.hidden = !isError;
+    if (el.error) el.error.hidden = !isError;
   }
 };
 
-const clearList = () => { el.list.innerHTML = ''; };
+const clearList = () => {
+  if (el.list) el.list.innerHTML = '';
+};
 
-// ====== 認証チェック ======
+// ===== 認証 =====
 async function requireAuth() {
   const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
@@ -129,8 +150,8 @@ async function requireAuth() {
   return data.user;
 }
 
-// ====== 取得（ページ分） ======
-async function fetchMistakesPage({ from = offset, limit = PAGE_SIZE } = {}) {
+// ===== Supabase 取得ローレベル関数 =====
+async function fetchMistakesTable({ from, limit }) {
   const { data, error } = await supabase
     .from('mistakes')
     .select('question_id, incorrect_count, last_seen_at')
@@ -142,8 +163,7 @@ async function fetchMistakesPage({ from = offset, limit = PAGE_SIZE } = {}) {
   return data || [];
 }
 
-// fetchWrongPage をビュー切替
-async function fetchWrongPage({ from = offset, limit = PAGE_SIZE } = {}) {
+async function fetchWrongViewPage({ from, limit }) {
   const view = await pickWrongView(user.id);
   const { data, error } = await supabase
     .from(view)
@@ -151,81 +171,125 @@ async function fetchWrongPage({ from = offset, limit = PAGE_SIZE } = {}) {
     .eq('user_id', user.id)
     .order('answered_at', { ascending: false })
     .range(from, from + limit - 1);
+
   if (error) throw error;
   return data || [];
 }
 
-// ====== 補足メタ（questionsテーブル） ======
+// ===== 高レベル: モードに応じてページ取得（フォールバック付き） =====
+async function fetchPage({ from = offset, limit = PAGE_SIZE } = {}) {
+  // wrong モードのときは、まずビューを試し、ダメなら mistakes テーブルにフォールバック
+  if (MODE === 'wrong' && dataSource !== 'mistakes-table') {
+    try {
+      const page = await fetchWrongViewPage({ from, limit });
+      dataSource = 'wrong-view';
+      return { rows: page };
+    } catch (e) {
+      console.warn('[mistakes] wrong-view fetch failed, fallback to mistakes table', e);
+      dataSource = 'mistakes-table';
+    }
+  }
+
+  // 通常モード、またはフォールバック
+  const page = await fetchMistakesTable({ from, limit });
+  if (!dataSource) dataSource = 'mistakes-table';
+  return { rows: page };
+}
+
+// ===== 質問メタ情報の補完 =====
 async function hydrateQuestionMeta(newRows) {
-   const ids = Array.from(new Set(
-     newRows.map(r => r.question_id).filter(id => id && !qMeta.has(String(id)))
-   ));
-   if (ids.length === 0) return;
+  const ids = Array.from(
+    new Set(
+      newRows
+        .map((r) => r.question_id)
+        .filter((id) => id && !qMeta.has(String(id)))
+    )
+  );
+  if (!ids.length) return;
 
   try {
-    // questions: id(text), title(text), subcategory_id(uuid), headers(jsonb), fields(jsonb)
     const { data, error } = await supabase
       .from('questions')
       .select('id, title, subcategory_id, headers, fields')
       .in('id', ids);
+
     if (error) throw error;
 
-      const subIds = new Set();
-      (data || []).forEach(row => {
-        qMeta.set(String(row.id), {
+    const subIds = new Set();
+
+    (data || []).forEach((row) => {
+      qMeta.set(String(row.id), {
         title: row.title ?? '',
         subcategory_id: row.subcategory_id ?? null,
         headers: row.headers ?? null,
         fields: row.fields ?? null,
       });
       if (row.subcategory_id) subIds.add(row.subcategory_id);
-     });
-    
-    // 任意：サブカテゴリ名を取得（テーブルがある場合）
-    if (subIds.size) {
-      const { data: subs, error: subErr } = await supabase
-        .from('subcategories')                // ある想定。無ければこのブロックは削除
-        .select('id, name, slug, category_id')
-        .in('id', Array.from(subIds));
-       if (!subErr && subs) {
-          subs.forEach(s => subcatMap.set(s.id, { name: s.name, slug: s.slug, category_id: s.category_id }));
+    });
+
+    if (!subIds.size) return;
+
+    // subcategories
+    const { data: subs, error: subErr } = await supabase
+      .from('subcategories')
+      .select('id, name, slug, category_id')
+      .in('id', Array.from(subIds));
+
+    if (subErr) throw subErr;
+
+    (subs || []).forEach((s) => {
+      subcatMap.set(s.id, {
+        name: s.name,
+        slug: s.slug,
+        category_id: s.category_id,
+      });
+    });
+
+    // categories
+    const catIds = Array.from(
+      new Set((subs || []).map((s) => s.category_id).filter(Boolean))
+    );
+
+    let cats = [];
+    if (catIds.length) {
+      const { data: catsData, error: catsErr } = await supabase
+        .from('categories')
+        .select('id, name, slug')
+        .in('id', catIds);
+      if (catsErr) throw catsErr;
+      cats = catsData || [];
     }
 
-      const catIds = Array.from(new Set((subs || []).map(s => s.category_id).filter(Boolean)));
-      if (catIds.length) {
-        const { data: cats } = await supabase
-          .from('categories')
-          .select('id, name, slug')
-          .in('id', catIds);
-        (cats || []).forEach(c => catMap.set(c.id, { name: c.name, slug: c.slug }));
-      }
-
-      // qMetaへ slug を反映
-      (data || []).forEach(row => {
-        if (!row.subcategory_id) return;
-        const sub = subcatMap.get(row.subcategory_id);
-        const cat = sub?.category_id ? catMap.get(sub.category_id) : null;
-        const meta = qMeta.get(String(row.id));
-        if (meta) {
-          meta.subcategory_slug = sub?.slug || null;
-          meta.category_slug    = cat?.slug || null;
-          qMeta.set(String(row.id), meta);
-        }
+    cats.forEach((c) => {
+      catMap.set(c.id, {
+        name: c.name,
+        slug: c.slug,
       });
-     }
-   } catch (e) {
-     console.warn('hydrateQuestionMeta skipped:', e);
-   }
- }
+    });
 
+    // slug を qMeta に反映
+    (data || []).forEach((row) => {
+      if (!row.subcategory_id) return;
+      const sub = subcatMap.get(row.subcategory_id);
+      const cat = sub?.category_id ? catMap.get(sub.category_id) : null;
+      const meta = qMeta.get(String(row.id));
+      if (meta) {
+        meta.subcategory_slug = sub?.slug || null;
+        meta.category_slug = cat?.slug || null;
+      }
+    });
+  } catch (e) {
+    console.warn('[mistakes] hydrateQuestionMeta skipped', e);
+  }
+}
 
-// ====== 描画 ======
+// ===== 描画 =====
 function renderList() {
-  const listData = rows; // フィルタなしでそのまま表示
-  el.empty.hidden = listData.length !== 0 || loading;
+  const listData = rows;
+  if (el.empty) el.empty.hidden = listData.length !== 0 || loading;
   clearList();
 
-  const isWrongMode = MODE === 'wrong';
+  const isWrongView = MODE === 'wrong' && dataSource === 'wrong-view';
   const frag = document.createDocumentFragment();
 
   for (const r of listData) {
@@ -242,98 +306,104 @@ function renderList() {
       catLabel = sub?.name ? sub.name : '';
     }
 
-    // バッジ（誤答モードは最新解答時刻のみ）
-    const badges = isWrongMode
-      ? `
-          ${catLabel ? `<span class="badge badge-cat">${escapeHtml(catLabel)}</span>` : ''}
-          <span class="badge">最新解答: ${fmtDateTime(r.answered_at)}</span>
-        `
-      : `
-          ${catLabel ? `<span class="badge badge-cat">${escapeHtml(catLabel)}</span>` : ''}
-          <span class="badge">誤答回数: ${r.incorrect_count}</span>
-          <span class="badge">最終更新: ${fmtDateTime(r.last_seen_at)}</span>
-        `;
-
-    const removeBtn = isWrongMode
-      ? '' // 誤答モードは mistakes テーブルを使わないため削除ボタン非表示
-      : `<button type="button" class="btn btn-outline js-remove" data-qid="${escapeAttr(r.question_id)}">削除</button>`;
+    let badges = '';
+    if (isWrongView) {
+      badges = `
+        ${catLabel ? `<span class="badge badge-cat">${escapeHtml(catLabel)}</span>` : ''}
+        <span class="badge">最新解答: ${fmtDateTime(r.answered_at)}</span>
+      `;
+    } else {
+      badges = `
+        ${catLabel ? `<span class="badge badge-cat">${escapeHtml(catLabel)}</span>` : ''}
+        <span class="badge">誤答回数: ${r.incorrect_count ?? '-'}</span>
+        <span class="badge">最終更新: ${fmtDateTime(r.last_seen_at)}</span>
+      `;
+    }
 
     li.innerHTML = `
-      <div class="item-main">
-        <h3 class="item-title">${escapeHtml(title)}</h3>
-        <div class="item-meta">${badges}</div>
-      </div>
-      <div class="item-cta">
-        <a class="btn btn-primary" href="${buildQuestionUrl(r.question_id)}" aria-label="問題 ${escapeAttr(title)} を再挑戦">再挑戦</a>
-        ${removeBtn}
-      </div>
-    `;
+  <div class="item-main">
+    <h3 class="item-title">${escapeHtml(title)}</h3>
+    <div class="item-meta">${badges}</div>
+  </div>
+  <div class="item-cta">
+    <a class="btn btn-primary"
+       href="${buildQuestionUrl(r.question_id)}"
+       aria-label="問題 ${escapeAttr(title)} を再挑戦">
+      再挑戦
+    </a>
+  </div>
+`;
+
     frag.appendChild(li);
   }
 
-  el.list.appendChild(frag);
-  el.loadMore.hidden = !hasMore;
+  if (el.list) el.list.appendChild(frag);
+  if (el.loadMore) el.loadMore.hidden = !hasMore;
 }
 
-
-// エスケープ（最低限）
+// エスケープ
 function escapeHtml(s) {
   return String(s)
-    .replaceAll('&','&amp;')
-    .replaceAll('<','&lt;')
-    .replaceAll('>','&gt;')
-    .replaceAll('"','&quot;')
-    .replaceAll("'",'&#39;');
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
 }
-function escapeAttr(s) { return escapeHtml(s).replaceAll('\n', ' '); }
+function escapeAttr(s) {
+  return escapeHtml(s).replaceAll('\n', ' ');
+}
 
-// ====== 初期化 ======
+// ===== 初期化 =====
 async function init() {
   setState({ isLoading: true, isError: false });
+
   try {
     user = await requireAuth();
     if (!user) return;
 
-    // 1ページ目
-    const page = await (MODE === 'wrong'
-     ? fetchWrongPage({ from: 0, limit: PAGE_SIZE })
-     : fetchMistakesPage({ from: 0, limit: PAGE_SIZE }));
+    rows = [];
+    offset = 0;
+    hasMore = true;
+    dataSource = null;
+    qMeta.clear();
 
+    const { rows: firstPage } = await fetchPage({ from: 0, limit: PAGE_SIZE });
+    rows = firstPage;
+    hasMore = firstPage.length === PAGE_SIZE;
+    offset = firstPage.length;
 
-    rows = page;
-    hasMore = page.length === PAGE_SIZE;
-    offset = page.length;
-
-    // 質問メタの取得（任意）
-    await hydrateQuestionMeta(page);
+    await hydrateQuestionMeta(firstPage);
     renderList();
   } catch (e) {
-    console.error(e);
+    console.error('[mistakes] init error', e);
     setState({ isError: true });
   } finally {
     setState({ isLoading: false });
   }
 }
 
-
+// ===== イベント =====
 el.refresh?.addEventListener('click', async () => {
   if (loading) return;
   setState({ isLoading: true, isError: false });
+
   try {
-    offset = 0; rows = []; hasMore = true; qMeta.clear();
-    const page = await (MODE === 'wrong'
-     ? fetchWrongPage({ from: offset, limit: PAGE_SIZE })
-     : fetchMistakesPage({ from: offset, limit: PAGE_SIZE }));
+    rows = [];
+    offset = 0;
+    hasMore = true;
+    dataSource = null;
+    qMeta.clear();
 
-
-
+    const { rows: page } = await fetchPage({ from: 0, limit: PAGE_SIZE });
     rows = page;
     hasMore = page.length === PAGE_SIZE;
     offset = page.length;
+
     await hydrateQuestionMeta(page);
     renderList();
   } catch (e) {
-    console.error(e);
+    console.error('[mistakes] refresh error', e);
     setState({ isError: true });
   } finally {
     setState({ isLoading: false });
@@ -343,60 +413,24 @@ el.refresh?.addEventListener('click', async () => {
 el.loadMore?.addEventListener('click', async () => {
   if (!hasMore || loading) return;
   setState({ isLoading: true, isError: false });
-  try {
-    const page = await (MODE === 'wrong'
-     ? fetchWrongPage({ from: offset, limit: PAGE_SIZE })
-     : fetchMistakesPage({ from: offset, limit: PAGE_SIZE }));
 
+  try {
+    const { rows: page } = await fetchPage({ from: offset, limit: PAGE_SIZE });
     rows = rows.concat(page);
     hasMore = page.length === PAGE_SIZE;
     offset += page.length;
+
     await hydrateQuestionMeta(page);
     renderList();
   } catch (e) {
-    console.error(e);
+    console.error('[mistakes] loadMore error', e);
     setState({ isError: true });
   } finally {
     setState({ isLoading: false });
   }
 });
 
-// 追加：削除ボタン（イベント委譲）
-if (MODE !== 'wrong') {
-  el.list?.addEventListener('click', async (e) => {
-    const btn = e.target.closest('.js-remove');
-    if (!btn) return;
-
-    const qid = btn.dataset.qid;
-    if (!qid || !user) return;
-
-    btn.disabled = true; // 二重押し防止
-
-    try {
-      const { error } = await supabase
-        .from('mistakes')
-        .delete()
-        .eq('user_id', user.id)
-        .eq('question_id', qid);
-
-      if (error) throw error;
-
-      // DOMとメモリから即時削除
-      const li = btn.closest('li');
-      if (li) li.remove();
-      rows = rows.filter(r => String(r.question_id) !== String(qid));
-      offset = Math.max(0, offset - 1);
-
-      // 空表示の切り替え
-      el.empty.hidden = rows.length !== 0 || loading;
-    } catch (err) {
-      console.error('[mistakes] delete failed', err);
-      btn.disabled = false;
-      alert('削除に失敗しました。時間をおいて再度お試しください。');
-    }
-  });
-}
 
 
-// ====== 実行 ======
+// ===== 実行 =====
 document.addEventListener('DOMContentLoaded', init);

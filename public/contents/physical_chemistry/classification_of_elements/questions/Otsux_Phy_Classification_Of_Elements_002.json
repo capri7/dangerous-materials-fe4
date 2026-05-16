@@ -1,0 +1,46 @@
+{
+  "id": "Otsux_Phy_Classification_Of_Elements_002",
+
+  "category": "physical_chemistry",
+  "subcategory": "classification_of_elements",
+
+
+  "title": "【問2】基礎的な物理・化学：元素の分類",
+
+
+  "question": "金属の性状として、次のうち誤っているものはどれか。",
+
+
+  "fields":  ["description"],
+  "headers": [""],
+
+    "choices": [
+    { "name": "1", "description": "すべて不燃性である。"},
+    { "name": "2", "description": "一般に展性、延性に富み、金属光沢をもつ。"},
+    { "name": "3", "description": "銀の熱伝導率は鉄よりも大きい。"},
+    { "name": "4", "description": "20℃において液体のものもある。"},
+    { "name": "5", "description": "軽金属は、一般に比重が4以下のもので、カリウム、アルミニウム、カルシウムなどが該当する。"}
+  ],
+
+  "answer": 1,
+
+   "hint": "ヒント：鉄粉やアルミニウム粉って、完全に不燃物って言い切れたかな？",
+
+  "explanations": [
+    "誤り。金属の中には燃焼するものもある。たとえば、鉄粉やアルミニウム粉などは燃焼しやすい。",
+    "正しい。金属は一般に展性（うすく広がる性質）、延性（細く長くのびる性質）に富み、金属光沢をもつ。",
+    "正しい。銀の熱伝導率は鉄よりも大きい。",
+    "正しい。水銀は20℃で液体である。",
+    "正しい。軽金属は一般に比重が4以下の金属をいい、カリウム、アルミニウム、カルシウムなどが含まれる。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "元素の分類", "金属の性状"],
+    "version": "2026-03-29"
+  }
+}
+
+

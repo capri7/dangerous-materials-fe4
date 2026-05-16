@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_Oxidation_And_Reduction_001",
+
+  "category": "physical_chemistry",
+  "subcategory": "oxidation_and_reduction",
+
+  "title": "【問1】基礎的な物理・化学：酸化と還元【⭐️】",
+
+
+   "question": "物質Aが物質Bに変化する場合、酸化に該当するものは次のうちどれか。",
+
+
+  "fields":  ["description1", "description2"],
+  "headers": ["A", "B"],
+
+
+  "choices": [
+    { "name": "1", "description1": "炭素", "description2": "一酸化炭素" },
+    { "name": "2", "description1": "黄リン", "description2": "赤リン" },
+    { "name": "3", "description1": "硫黄", "description2": "硫化水素" },
+    { "name": "4", "description1": "水", "description2": "水蒸気" },
+    { "name": "5", "description1": "濃硫酸", "description2": "希硫酸" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：酸化とは「酸素と化合する」変化や、「水素を失う」変化のこと。酸素と結びついているかどうかに注目しよう。",
+
+  "explanations": [
+    "正しい。炭素 C が酸素 O₂ と反応して一酸化炭素 CO になる変化は、2C＋O₂→2CO と表される。炭素が酸素と化合しているので、この変化は酸化にあたる。",
+    "誤り。黄リンと赤リンはいずれもリンの同素体であり、酸素と化合して別の物質になったわけではない。したがって、酸化ではない。",
+    "誤り。硫黄 S と水素 H₂ が反応して硫化水素 H₂S になる変化は、S＋H₂→H₂S と表される。これは酸素と化合する変化ではないので、酸化にはあたらない。",
+    "誤り。水 H₂O が水蒸気になるのは状態変化であり、物質そのものは変わっていない。したがって、酸化ではない。",
+    "誤り。濃硫酸が希硫酸になるのは、水で薄められただけの変化である。硫酸そのものが別の物質に変わったわけではないので、酸化ではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "酸化", "還元", "酸素との化合", "物理変化"],
+    "version": "2026-03-25"
+  }
+}
+

@@ -2,11 +2,13 @@
   "id": "Otsux_Prop_Class4_Extinguishing_Methods_007",
   "category": "properties_prevention",
   "subcategory": "class4_extinguishing_methods",
+
   "title": "【問7】危険物の性質・火災予防・消火の方法：第4類危険物の消火",
   "question": "エタノールやアセトンが大量に燃えている時の消火方法として、次のうち最も適切なものはどれか。",
 
   "fields": ["property"],
   "headers": [""],
+
   "choices": [
   { "name": "1", "property": "乾燥砂を散布する。"},
   { "name": "2", "property": "水溶性液体用の泡消火剤を放射する。"},
@@ -16,6 +18,7 @@
   ],
 
   "answer": 2,
+
   "hint": "ヒント： エタノールやアセトンは水に溶ける性質をもつ水溶性液体です。水をそのまま放射すると火災が拡大するおそれがあります。泡の種類と火災の性質との相性に注意しましょう。",
 
   "explanations": [
@@ -28,10 +31,11 @@
 
   "image": null,
   "is_paid": true,
+
   "meta": {
     "difficulty": "basic",
     "tags": ["危険物の性質・火災予防・消火の方法", "水溶性の危険物", "水溶性液体用泡消火剤","注水の危険性", "エタノール", "アセトン"],
-    "version": "2025.7.26"
+    "version": "2025-12-13"
   }
 }
 

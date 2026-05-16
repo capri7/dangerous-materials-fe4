@@ -1,0 +1,48 @@
+{
+  "id": "Otsux_Phy_Oxidation_And_Reduction_011",
+
+  "category": "physical_chemistry",
+  "subcategory": "oxidation_and_reduction",
+
+  "title": "【問11】基礎的な物理・化学：酸化と還元（酸化反応・反応式）【⭐️⭐️】",
+
+
+  "question": "次に示す反応式のうち、酸化反応に該当するものはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "2Mg ＋ O₂ → 2MgO"},
+    { "name": "2", "description": "CaCO₃ → CaO ＋ CO₂"},
+    { "name": "3", "description": "2KClO₃ → 2KCl ＋ 3O₂"},
+    { "name": "4", "description": "H₂O（液） → H₂O（気）"},
+    { "name": "5", "description": "2HCl ＋ Ca(OH)₂ → CaCl₂ ＋ 2H₂O"}
+  ],
+  
+  "answer": 1,
+
+  "hint": "ヒント：酸化反応は、物質が酸素と結びつく反応。どの反応式で物質が O₂ と反応して酸化物になっているかを見てみよう。分解反応、状態変化、中和反応は酸化反応ではない。",
+
+  "explanations": [
+    "正しい。マグネシウムが酸素と結びついて酸化マグネシウムになる反応であり、酸化反応に当たる。",
+    "誤り。炭酸カルシウムが酸化カルシウムと二酸化炭素に分かれる分解反応であり、酸化反応ではない。",
+    "誤り。塩素酸カリウムが分解して酸素を生じる反応である。酸素が出てくる反応であって、物質が酸素と結びつく反応ではないため、酸化反応ではない。",
+    "誤り。液体の水が気体の水になる状態変化であり、酸化反応ではない。",
+    "誤り。塩酸と水酸化カルシウムが反応する中和反応であり、酸化反応ではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "酸化", "還元", "酸化反応", "二酸化炭素", "酸素", "燃焼", "反応式", "分解反応", "中和反応", "状態変化"],
+    "version": "2026-03-29"
+  }
+}
+
+
+
+
+
+

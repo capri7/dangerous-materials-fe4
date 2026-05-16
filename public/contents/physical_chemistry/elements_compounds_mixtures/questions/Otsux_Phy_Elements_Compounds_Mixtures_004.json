@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Elements_Compounds_Mixtures_004",
+
+  "category": "physical_chemistry",
+  "subcategory": "elements_compounds_mixtures",
+
+  "title": "【問4】基礎的な物理・化学：単体・化合物・混合物【⭐️】",
+
+  "question": "次の物質のうち、混合物に該当するのはどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "硫黄"},
+    { "name": "2", "description": "水"},
+    { "name": "3", "description": "水素"},
+    { "name": "4", "description": "硫酸"},
+    { "name": "5", "description": "灯油"}
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：硫黄や水素のように1種類の元素だけなら単体、水や硫酸のように一定の割合で決まっている純物質は化合物、成分の種類や割合が変動するのが混合物。",
+
+  "explanations": [
+    "誤り。硫黄はSという1種類の元素だけからできた単体であり、混合物ではない。",
+    "誤り。水H₂Oは水素と酸素という2種類の元素が一定の割合で結びついた化合物であり、混合物ではない。",
+    "誤り。水素H₂は水素元素1種類だけからなる単体である。",
+    "誤り。硫酸H₂SO₄は水素・硫黄・酸素の3種類の元素からできた化合物であり、組成が決まった純物質である。",
+    "正しい。灯油はさまざまな炭化水素が混ざった混合物であり、成分の種類や割合も一定ではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学",  "単体", "化合物", "混合物", "元素"],
+    "version": "2026-04-18"
+  }
+}
+

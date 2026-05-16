@@ -1,5 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
+:root{
+  /* ちょっと落ち着いた紺寄りの青 */
+  --brand-blue: #1f4fbf;        /* メインボタンの青 */
+  --brand-blue-soft: #e5edff;   /* バッジの背景用 */
+  --brand-blue-text: #163777;   /* バッジの文字色 */
+}
+
+/* 共通ボタン */
+.btn{
+  display: inline-block;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 700;
+}
+
+/* ▶ メインボタンは全部この色に統一 */
+.btn-primary{
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+/* ▶ サブボタンも全部このグレーに統一 */
+.btn-secondary{
+  background: #e5e7eb;
+  color: #111827;
+}
+
+
 /* ===== ベースリセット ===== */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
@@ -19,20 +48,119 @@ img, svg, video { display:block; max-width:100%; height:auto; }
 .section, .hero { margin-inline: auto; max-width: min(960px, 100%); }
 
 /* ヒーロー */
-.hero-title{ font-size:clamp(22px,7vw,36px); line-height:1.25; word-break:keep-all; }
-.hero-subtitle{ font-size:clamp(14px,3.8vw,18px); }
 .hero-buttons{ display:flex; gap:10px; flex-wrap:wrap; }
 .hero-badges{ display:flex; flex-wrap:wrap; gap:8px; }
 .btn{ display:inline-block; text-align:center; }
 
+/* メリット用のタグ（ここは軽く・情報用） */
+.hero-badges{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hero-badge{
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: var(--brand-blue-soft);
+  color: var(--brand-blue-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(31,79,191,0.25);
+}
+
+/* メイン CTA：ブランド青を使用 */
+.btn-primary.hero-cta-main{
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+
+/* 共通ボタン */
+.btn{
+  display: inline-block;
+  text-align: center;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 700;
+  text-decoration: none;                 /* ← 追加 */
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;                 /* ← アニメ用 */
+}
+
+/* aタグの擬似クラスでも上書きしておくと安心 */
+.btn:link,
+.btn:visited,
+.btn:hover,
+.btn:active{
+  text-decoration: none;
+}
+
+/* ホバー時の共通アニメーション */
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15,23,42,0.16);
+}
+
+/* クリック中は少しだけ下げる */
+.btn:active{
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(15,23,42,0.14);
+}
+
+/* メインボタン：少し明るく */
+.btn-primary:hover{
+  background: #2657cb;   /* var(--brand-blue) をちょい明るく */
+}
+
+/* サブボタン：少し濃く＆縁を強める */
+.btn-secondary{
+  background: #e5e7eb;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover{
+  background: #d9dde5;
+  border-color: #c5cad3;
+}
+
+.btn:focus-visible{
+  outline: 2px solid #93c5fd;        /* 薄い水色のフォーカスリング */
+  outline-offset: 2px;
+}
+
+/* サブ CTA：グレーのボタン */
+.btn-secondary.hero-cta-sub{
+  background: #e5e7eb;
+  color: #111827;
+}
+
+
+
 /* グリッド系 */
 .howto, .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.card, .feature{ padding:14px; border:1px solid #eee; border-radius:10px; }
+.card{ padding:14px; border:1px solid #eee; border-radius:10px; }
+
+/* 勉強の流れのラッパー用 */
+.feature {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
 
 /* ダッシュカードの横幅超過対策 */
 .dash-card{ padding:14px; border:1px solid #eee; border-radius:12px; overflow:hidden; }
 .row{ display:grid; grid-template-columns:120px 1fr; gap:10px; align-items:center; }
-.bar{ background:#eee; border-radius:8px; overflow:hidden; height:10px; }
+.bar{ background:#e7eefe; border-radius:8px; overflow:hidden; height:10px; }
 .fill{ width:var(--w,0); height:100%; background:#3b82f6; }
 
 /* 768px以下：スマホ最適化 */
@@ -54,7 +182,7 @@ img, svg, video { display:block; max-width:100%; height:auto; }
 
 /* SVGをスマホ最適化＆はみ出し防止 */
 .dash-figure { margin: 0; }
-.dash-svg { display: block; width: 100%; height: auto; max-width: 100%; }
+.dash-svg { display: block; width: 90%; height: auto; max-width: 100%; }
 .dash-caption { font-size: 0.9rem; color: #6b7280; margin-top: 8px; }
 
 /* タブ */
@@ -87,6 +215,474 @@ img, svg, video { display:block; max-width:100%; height:auto; }
   .hero{ max-width: 100%; overflow-x: hidden; }
 }
 
+
+
+.formula-card {
+  max-width: 780px;          /* 画像の想定最大幅 */
+  margin: 16px auto;
+}
+
+.formula-card img.circuit-svg {
+  display: block;
+  width: 100%;               /* 親の幅にフィットさせる */
+  height: auto;              /* 縦横比を維持 */
+}
+
+/* 図カード：背景と角丸は“外側だけ”で描く */
+.formula-card{
+  --r: 12px;
+  margin: 1rem auto;
+  max-width: var(--fig-max);
+  padding: 16px 20px;                /* 内側に余白をつける */
+  background: #eef1f9;               /* いまの青に近いトーンに合わせてOK */
+  border-radius: var(--r);
+  overflow: hidden;                   /* 影響範囲はここだけで十分 */
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+
+/* 画像は角丸を持たせない（外側に任せる） */
+.formula-card .circuit-svg{
+  display:block; 
+  width:min(520px, 100%);
+  height:auto; 
+  margin-inline: auto;
+  border-radius:0 !important; background:transparent;
+
+}
+
+.figure-lead + .formula-card { margin-top:16px; }
+.formula-card + .figure-caption { margin-top:12px; }
+.figure-caption{ font-size:.95rem; color:#374151; }
+
+
+/* ヒーロー全体（上の余白を限界まで詰める） */
+.hero{
+  padding: 0 16px 18px;   /* 上のパディングは 0 に */
+  margin-top: -8px;       /* セクション全体を少しだけ上に引き上げる */
+}
+
+/* スマホはさらにキュッと寄せる */
+@media (max-width: 768px){
+  .hero{
+    padding: 0 12px 16px;
+    margin-top: -10px;    /* パンくずとの隙間をもう一段詰める */
+  }
+}
+
+/* 中身の幅を少し細くして“固まり”で見せる */
+.hero-inner{
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* h2 周りの余白を整理 */
+.hero-title{
+  font-size: clamp(26px, 7vw, 34px);
+  line-height: 1.3;
+  margin: 0 0 16px;
+}
+
+.hero-subtitle{
+  font-size: clamp(14px, 3.8vw, 17px);
+  line-height: 1.9;
+  margin: 0 0 20px;
+}
+
+
+/* ============================
+   トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.home .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.home .hero {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.home .hero h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
+/* ============================
+   トップ：ヒーロー下の説明ブロック
+   ============================ */
+
+.hero-meta{
+  max-width: 640px;
+  margin: 20px auto 0;
+  text-align: left;           /* ヒーロー内だけどここだけ左揃え */
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.hero-login-note{
+  margin: 0 0 8px;
+  font-weight: 500;
+}
+
+.plan-info{
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.plan-price{
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.hero-notes{
+  margin: 4px 0 0;
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.hero-notes li{
+  margin: 2px 0;
+}
+
+/* スマホでも読みやすく */
+@media (max-width: 768px){
+  .hero-meta{
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+}
+
+
+/* ============================
+   トップ：この教材を使う3つの理由 の余白調整
+   ============================ */
+
+/* ヒーローのすぐ下にある .section（＝3つの理由）だけを詰める */
+.home .hero + .section {
+  margin-top: 1rem;   /* まだ広ければ 0.6rem〜0.8rem まで攻めてOK */
+}
+
+/* 見出しまわりも少しだけタイトに */
+.home .hero + .section .section-title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+/* スマホはさらにギュッと */
+@media (max-width: 768px){
+  .home .hero + .section {
+    margin-top: 0.7rem;
+  }
+}
+
+/* ============================
+   トップ：カードの色・立体感
+   ============================ */
+
+/* 「この教材を使う3つの理由」の3枚 */
+.home .howto .card {
+  background: #eef2fc;                 /* うっすら青グレー */
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  padding: 18px 20px 20px;             /* ちょいゆったり */
+}
+
+/* 見出しと本文のバランス */
+.home .howto .card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.02rem;
+}
+
+.home .howto .card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+
+/* 勉強の流れ */
+
+/* ============================
+   勉強の流れ：STEP カード
+   ============================ */
+
+.home .feature .card {
+  background: #eef2fc;                 /* うっすら青グレー */
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  padding: 18px 20px 20px;
+  margin-bottom: 16px;                 /* ★ カード同士の間隔 */
+}
+
+.home .feature .card:last-child {
+  margin-bottom: 0;                    /* 最後だけ下マージンなし */
+}
+
+.home .feature .card h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.home .feature .card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* SP では少しだけ内側に詰める */
+@media (max-width: 768px) {
+  .home .howto .card,
+  .home .feature .card {
+    padding: 16px 16px 18px;
+  }
+}
+
+
+/* ============================
+   マイページ画像：スマホモック
+   ============================ */
+
+/* セクション全体（薄い水色の大きなカード） */
+.section-dashboard {
+  margin-top: 32px;
+  padding: 24px 20px 32px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    #eef2ff 0%,
+    #e0f2fe 40%,
+    #ffffff 100%
+  );
+}
+
+/* PCレイアウト：2×2グリッド */
+.dash-hero {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: 28px 40px;
+  align-items: flex-start;
+}
+
+/* テキスト側 */
+.dash-copy {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.dash-kicker {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.dash-title {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+
+.dash-points {
+  margin: 0 0 10px 1.1em;
+  padding: 0;
+}
+
+.dash-note {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* スマホ1台分のまとまり */
+.dash-device {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 各スマホの配置（HTMLで付けたクラス用） */
+.dash-device-main {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dash-device-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dash-device-right {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.phone-frame {
+  position: relative;
+  /* ★ スマホ全体の細さはここで決まる */
+  width: clamp(210px, 20vw, 240px);
+  margin-inline: auto;
+  padding: 12px 8px 16px;
+  border-radius: 30px;
+  background: #020617;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.30);
+  overflow: hidden;
+}
+
+/* ノッチ */
+.phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 12px;
+  border-radius: 999px;
+  background: #020617;
+}
+
+.phone-screen-wrap {
+  width: 100%;
+  aspect-ratio: 9 / 16;          /* ← スマホ比率はキープ */
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0b1120;
+
+  /* ★ 中身の画像を「ど真ん中」に置く */
+  display: flex;
+  align-items: center;           /* 縦方向センター */
+  justify-content: center;       /* 横方向センター */
+}
+
+/* ★ 画像は歪ませず、枠内に収める */
+.phone-screen {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  /* object-fit は不要（contain 的な動きは max-* で実現） */
+}
+
+
+/* キャプション */
+.phone-caption {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* スマホ幅のときは縦一列に並べる */
+@media (max-width: 768px) {
+  .section-dashboard {
+    margin-top: 24px;
+    padding: 20px 12px 24px;
+    border-radius: 20px;
+  }
+
+  .dash-hero {
+    display: block;      /* グリッド解除 → 縦並び */
+  }
+
+  .dash-device-main,
+  .dash-device-left,
+  .dash-device-right {
+    margin-top: 20px;
+  }
+
+  .phone-frame {
+    width: min(210px, 80vw);  /* ★ ちょい細く */
+  }
+
+
+
+  .dash-title {
+    font-size: 1.1rem;
+  }
+
+  .dash-points {
+    font-size: 0.9rem;
+  }
+
+}
+
+
+/* ============================
+   練習問題にチャレンジの カード
+   ============================ */
+
+.home .cta-band .card {
+  background: #eef2fc;                 /* うっすら青グレー */
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  padding: 18px 20px 20px;
+  margin-bottom: 16px;                 /* ★ カード同士の間隔 */
+}
+
+.home .cta-band .card:last-child {
+  margin-bottom: 0;                    /* 最後だけ下マージンなし */
+}
+
+.home .cta-band .card h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.home .cta-band .card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* SP では少しだけ内側に詰める */
+@media (max-width: 768px) {
+  .home .cta-band .card {
+    padding: 12px 16px 18px;
+  }
+}
+
+/* 練習問題にチャレンジ セクションの外側の上余白を調整 */
+.home .section-cta {
+  margin-top: 18px;    /* 好きな値に。24px とかでもOK */
+}
+
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.hero-buttons .btn {
+  min-width: 220px;
+}
+
+@media (max-width: 640px) {
+  .hero-buttons {
+    flex-direction: column;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+  }
+}
 
 
 

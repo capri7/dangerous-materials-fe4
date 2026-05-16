@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Law_Transportation_Standards_009",
+  "category": "law",
+  "subcategory": "transportation_standards",
+
+  "title": "【問9】法令：運搬の基準【⭐️】",
+
+  "question": "法令上の運搬に関する技術上の基準で、危険物を収納した運搬容器を積み重ねて積載する場合、その高さの上限として定められているのは次のうちどれか。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "1m以下" },
+    { "name": "2", "description": "2m以下" },
+    { "name": "3", "description": "3m以下" },
+    { "name": "4", "description": "4m以下" },
+    { "name": "5", "description": "5m以下" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：ひっかけ注意：積み重ね高さの“キリの良い数字”で迷わせる定番。運搬容器の積重ねは「3m以下」が基準。",
+
+
+  "explanations": [
+    "1 誤り。実際の上限は3mであり、1mではない。",
+    "2 誤り。実際の上限は3mであり、2mではない。",
+    "3 正しい。危険物を収納した運搬容器を積み重ねる場合、その高さは3m以下と定められている。",
+    "4 誤り。3mを超える4mは基準に反する。",
+    "5 誤り。5mは明らかに超過。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "運搬の基準", "積重ね高さ", "技術上の基準", "ひっかけ対策"],
+    "version": "2025.10.11"
+  }
+}
+

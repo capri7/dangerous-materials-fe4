@@ -6,13 +6,15 @@ body {
   background-color: #f9f9f9;
 }
 
+
 .site-main {
   max-width: 800px;
   margin: 0 auto;
   padding: 2em 1em 2em;
   background-color: #fff;
-  display: block; 
+  display: block;
 }
+
 
 .intro h2, .legend h3 {
   font-size: 1.4rem;
@@ -164,3 +166,79 @@ body {
 .q-progress { height:6px; background:#f1f5f9; border-radius:999px; overflow:hidden; margin-top:.5rem; }
 .q-progress .bar { height:100%; background:#2563eb; transition: width .25s ease; }
 .q-counter .solved { margin-left:.5rem; color:#64748b; font-weight:600; }
+
+
+/* === Chapter Cards === */
+.chapter-links { margin-block: 24px 40px; }
+.chapter-links h2 { font-size: 1.3rem; margin-bottom: 12px; }
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .chapter-grid { grid-template-columns: 1fr; gap: 12px; }
+}
+
+.chapter-card {
+  --bg: #f4f7fb;
+  --bd: rgba(0,0,0,.06);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px;                 /* 指で押しやすい大きさ */
+  min-height: 72px;                   /* タップ領域確保（48px以上） */
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  text-decoration: none;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+  transition: transform .08s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.chapter-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  background: #eef3fb;
+  border-color: rgba(0,0,0,.1);
+}
+
+.chapter-card:active { transform: translateY(0); }
+
+.chapter-card:focus-visible {
+  outline: 3px solid #2d6cdf;        /* 濃いめのフォーカスリング */
+  outline-offset: 2px;
+}
+
+.chapter-icon {
+  font-size: 28px;
+  line-height: 1;
+  width: 32px;
+  text-align: center;
+}
+
+.chapter-body { display: grid; gap: 2px; }
+.chapter-kicker { font-size: .9rem; color: #3b5a8a; letter-spacing: .02em; }
+.chapter-title  { font-size: 1.05rem; font-weight: 700; color: #112033; }
+.chapter-meta   { font-size: .85rem; color: #5b6b7c; }
+
+.chapter-cta {
+  font-size: 22px;
+  opacity: .55;
+  translate: 0 0;
+  transition: translate .12s ease, opacity .2s ease;
+}
+
+.chapter-card:hover .chapter-cta { translate: 2px 0; opacity: .9; }
+
+/* ダーク背景のヘッダ下でも見やすく */
+@media (prefers-color-scheme: dark) {
+  .chapter-card { --bg:#0f1b2b; --bd:rgba(255,255,255,.12); }
+  .chapter-card:hover { background:#122640; }
+  .chapter-kicker{ color:#8fb3ff; }
+  .chapter-title { color:#e9f0fb; }
+  .chapter-meta  { color:#a7b5c6; }
+}

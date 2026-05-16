@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Law_Firefighting_Equipment_Standards_010",
+  "category": "law",
+  "subcategory": "firefighting_equipment_standards",
+
+  "title": "【問10】法令：消火設備と設置基準【⭐️】",
+
+  "question":[
+    "法令上、次の文の（）に当てはまる数値はどれか。",
+    "製造所等に設ける消火設備の所要単位の計算方法は、危険物に対して指定数量の（）倍を1所要単位とする。"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "1.5" },
+    { "name": "2", "description": "10" },
+    { "name": "3", "description": "50" },
+    { "name": "4", "description": "100" },
+    { "name": "5", "description": "150" }
+  ],
+
+  "answer": 2,
+  "hint": "ヒント：『所要単位＝“危険物は” 指定数量の10倍で1単位』。10を入れる！",
+
+
+  "explanations": [
+    "1. 誤り：1.5倍は危険物の所要単位とは無関係な数値。",
+    "2. 正しい：危険物の所要単位は指定数量の10倍＝1所要単位。",
+    "3. 誤り：50倍は他文脈の数字と混同しやすいダミー。",
+    "4. 誤り：100倍は所要単位の基準ではない。",
+    "5. 誤り：150倍も同様に所要単位の基準ではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "消火設備と設置基準", "所要単位", "指定数量", "消火設備", "計算方法", "10倍", "製造所等"],
+    "version": "2025-10-14"
+  }
+}
+
+

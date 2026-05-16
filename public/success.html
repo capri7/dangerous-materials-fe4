@@ -2,76 +2,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>お申し込み完了</title>
+
+  <meta name="description" content="お申し込み完了の通知をします。">
+  <meta name="robots" content="noindex,nofollow">
+
+
+  <meta property="og:title" content="お申し込み完了 | 危険物乙4 対策">
+  <meta property="og:description" content="お申し込み完了の通知をします。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://kikenbutsu-z4.com/images/logo.png">
+  <meta property="og:image:alt" content="危険物乙4試験対策サイトのロゴ">
+  <meta property="og:url" content="https://kikenbutsu-z4.com/success.html">
+  <meta property="og:site_name" content="危険物乙4 危険物取扱者試験対策">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="お申し込み完了 | 危険物乙4 対策">
+  <meta name="twitter:description" content="お申し込み完了の通知をします。">
+  <meta name="twitter:image" content="https://kikenbutsu-z4.com/images/logo.png">
+
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/favicon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/icon-512.png">
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+
   <link rel="stylesheet" href="/css/site.css" />
-  <link rel="stylesheet" href="/css/stripe-overrides.css" />
   <link rel="stylesheet" href="/css/hamburger.css" />
-  <style>
-    /* 追加の最小上書きだけ（既存のデザインに寄せる） */
-    .page-success .hero-title { margin-top: .25rem; }
-    .success-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
-    .btn { cursor:pointer; border-radius:10px; padding:.8rem 1.2rem; border:none; }
-    .btn-primary { background:#234; color:#fff; }
-    .btn-secondary { background:#f1f5f9; color:#334155; }
-    .btn[disabled] { opacity:.6; cursor:not-allowed; }
-    .note { color:#64748b; font-size:.9rem; text-align:center; margin-top:.5rem; }
-  </style>
+  <link rel="stylesheet" href="/css/success.css" />
 </head>
+
 <body class="page-success">
   <!-- ヘッダー（checkout.html と同じ） -->
   <header class="site-header">
     <div class="header-container">
-      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo" /></a>
+      <a href="/"><img src="/images/logo.svg" alt="危険物乙4試験対策サイト" class="logo" /></a>
       <h1 class="site-title">乙種4類危険物取扱者試験対策</h1>
       <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
         <span></span><span></span><span></span></button>
     </div>
     <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
-      <a href="/index.html">トップ</a>
-      <a href="/basics/index.html">基礎知識</a>
-      <a href="/contents/index.html">練習問題</a>
+      <a href="/">トップ</a>
+      <a href="/basics/">基礎知識</a>
+      <a href="/contents/">練習問題</a>
       <a href="/mypage.html">マイページ</a>
       <a href="/login.html">ログイン</a>
     </nav>
   </header>
 
   <!-- 本文 -->
-  <main class="site-main">
+  <main class="site-main page-success">
     <div class="auth-card" style="max-width:680px;margin-inline:auto">
-      <img src="/images/logo.png" alt="危険物乙4対策サイトロゴ" class="auth-logo" />
+      <img src="/images/logo.svg" alt="危険物乙4試験対策サイト" class="auth-logo" />
       <h2 class="hero-title">サブスクリプション登録が完了しました！</h2>
-      <p class="plan-info">ご利用ありがとうございます。請求情報の確認や支払い方法の変更はカスタマーポータルから行えます。</p>
 
-      <div class="success-actions" style="margin-top:16px">
-        <a id="go-mypage" class="btn btn-secondary" href="/mypage.html" rel="noopener">マイページへ</a>
-        <button id="open-portal" class="btn btn-primary">請求情報を確認する</button>
+      <!-- ログイン済みの人向けメッセージ（JSで出し分け） -->
+      <p id="plan-info" class="plan-info">
+        このまま学習を再開できます。請求情報の確認や支払い方法の変更は
+        <strong>「請求情報を確認する」</strong>から行えます。
+      </p>
+
+      <!-- メインアクション -->
+      <div class="success-actions">
+        <a id="go-mypage" class="btn btn-primary" href="/mypage.html" rel="noopener">マイページへ</a>
+        <button id="open-portal" class="btn btn-secondary" type="button">請求情報を確認する</button>
       </div>
+
       <p id="hint" class="note" aria-live="polite"></p>
       <p id="error" class="note" style="color:#b91c1c;display:none" aria-live="assertive"></p>
-      
-      <!-- 未ログイン向け：メールでログイン/パスワード設定を案内 -->
-      <div id="claim" style="max-width:680px;margin:16px auto;display:none">
-        <hr style="margin:16px 0">
+
+      <!-- 未ログイン：ログイン or パスワード設定 案内（JSで表示切替） -->
+      <div id="claim" style="display:none">
+        <hr class="divider">
         <p class="note" id="claim-hint">
-         この端末ではまだログインしていません。<br>
-          <strong>ご購入時のメールアドレスに</strong>ログイン用リンクを送れます。
+          この端末ではまだログインしていません。<br>
+          <strong>無料登録からアップグレードされた方</strong>は、
+          <strong>ログイン画面</strong>よりマイページにお進みください。<br>
+          <strong>初めてご利用の方</strong>は、先に<strong>パスワードの設定</strong>が必要です。
         </p>
-       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center">
-          <input id="email" type="email" placeholder="購入時のメールアドレス" readonly aria-readonly="true"
-                 style="padding:.65rem .8rem;min-width:260px;border:1px solid #cbd5e1;border-radius:8px">
-          <button id="send-magic" class="btn btn-primary">ログインリンクを送る</button>
+
+        <div class="success-actions" style="margin-top:10px">
+          <a href="/login.html" class="btn btn-secondary">ログイン画面へ</a>
+          <a href="/signup.html" class="btn btn-primary">パスワードを設定する</a>
         </div>
-        <p id="claim-msg" class="note" aria-live="polite" style="margin-top:.5rem"></p>
-       </div>
+      </div>
     </div>
   </main>
 
   <!-- フッター -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <p class="copyright">© 2025〜2026 乙種4類危険物取扱者試験対策</p>
       <div class="legal-links">
         <a href="/privacy.html" class="footer-link">プライバシーポリシー</a><span>／</span>
         <a href="/terms.html" class="footer-link">利用規約</a>
@@ -82,6 +114,7 @@
   <!-- 共通JS -->
   <script type="module" src="/js/nav.js" defer></script>
   <script type="module" src="/js/nav-toggle.js" defer></script>
+
 
       <script>
        const anonKey   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ5emtra3NrbXd5Y3R6bmJjenpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4NzUxNzEsImV4cCI6MjA2NTQ1MTE3MX0.OXCQww5s83c4y1KFN_60Bo7aftKDiXfOT6hQsoGcJ2w'; 

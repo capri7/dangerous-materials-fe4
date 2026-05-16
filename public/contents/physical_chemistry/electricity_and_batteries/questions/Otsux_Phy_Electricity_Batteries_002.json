@@ -1,0 +1,58 @@
+{
+  "id": "Otsux_Phy_Electricity_Batteries_002",
+  "category": "physical_chemistry",
+  "subcategory": "electricity_and_batteries",
+
+  "title": "【問2】基礎的な物理・化学 : 電気の計算 / 電池",
+
+  "question": [
+    "次のA〜Dに示す電池について、起電力の大きい順に並べたものはどれか。",
+    "A.リチウムイオン電池",
+    "B.鉛蓄電池",
+    "C.マンガン乾電池",
+    "D.ニッケル・カドミウム電池"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "A＞B＞C＞D" },
+    { "name": "2", "description": "A＞D＞B＞C" },
+    { "name": "3", "description": "B＞A＞C＞D" },
+    { "name": "4", "description": "B＞C＞D＞A" },
+    { "name": "5", "description": "D＞A＞B＞C" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：1セルあたりの“だいたいの電圧”をセットで覚えよう。A：リチウムイオン≒3.6〜3.7V、B：鉛蓄≒2.0V、C：マンガン乾電池＝1.5V、D：ニッケル・カドミウム＝1.2V。この4つを大きい順に並べればOKだ。",
+
+  "explanations": [
+    "正しい。1セルの公称電圧はおよそ Liイオン≒3.6〜3.7V、鉛蓄≒2.0V、マンガン乾電池＝1.5V、Ni-Cd＝1.2V なので、起電力の大きい順は A＞B＞C＞D となる。",
+    "誤り。D（Ni-Cd）は約1.2Vで、B（鉛蓄≒2.0V）よりも小さい。A＞D＞B＞C の順にはならない。",
+    "誤り。A（Liイオン≒3.6〜3.7V）よりB（鉛蓄≒2.0V）を上位にしており、実際の電圧順と逆転している。",
+    "誤り。A（Liイオン）を最下位にしているが、実際には4種の中で最も電圧が高い。",
+    "誤り。D（Ni-Cd 1.2V）を最上位にしており、4種の中で最も電圧が低い電池をトップに置いてしまっている。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": [
+      "基礎的な物理・化学",
+      "電池",
+      "起電力",
+      "公称電圧",
+      "リチウムイオン電池",
+      "鉛蓄電池",
+      "マンガン乾電池",
+      "ニッケル・カドミウム電池"
+    ],
+    "version": "2026-02-22"
+  }
+}
+
+
+

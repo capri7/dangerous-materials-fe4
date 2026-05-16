@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_States_of_Matter_006",
+
+  "category": "physical_chemistry",
+  "subcategory": "states_of_matter",
+
+  "title": "【問6】基礎的な物理・化学：物質の三態【⭐️】",
+
+    "question": [
+    "図は水の状態図（概略）を示す。図中の A・B・C の状態として正しい組合せはどれか。",
+    "なお、1 気圧は 1.013×10⁵ Pa とする。"
+  ],
+
+  "fields": ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "固体", "description2": "液体", "description3": "気体" },
+    { "name": "2", "description1": "固体", "description2": "気体", "description3": "液体" },
+    { "name": "3", "description1": "液体", "description2": "固体", "description3": "気体" },
+    { "name": "4", "description1": "液体", "description2": "気体", "description3": "固体" },
+    { "name": "5", "description1": "気体", "description2": "液体", "description3": "固体" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：背骨はこれ。「温度は右ほど高い／圧力は上ほど高い」。Aは0℃より左（低温側）にあるので固体。Bは100℃付近でも1気圧よりずっと高圧側なので、沸点が100℃より上がって液体。Cは低圧（10^4Pa付近）で高温側なので気体。",
+
+  "explanations": [
+    "正しい。Aは0℃より低温側にあり固体。Bは100℃付近でも1気圧（約10^5Pa）より高圧側なので沸点が上がり液体。Cは低圧（10^4Pa付近）で高温側なので気体。",
+    "誤り。Bは気体ではない。Bは100℃付近でも高圧（10^6Pa付近）なので、沸点が100℃より上がり液体として扱う。",
+    "誤り。Aは液体ではない。Aは0℃より低温側にあるため固体。",
+    "誤り。Bは気体ではない（高圧側なので液体）。またCも固体ではない（低圧・高温側なので気体）。",
+    "誤り。Aは気体ではない。Aは低温側なので固体。Cも固体ではなく、低圧・高温側なので気体。"
+  ],
+
+  "image": "states_of_matter/Otsux_Phy_States_of_Matter_006.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "物質の三態", "固体", "液体", "気体", "相図"],
+    "version": "2026-03-01"
+  }
+}
+

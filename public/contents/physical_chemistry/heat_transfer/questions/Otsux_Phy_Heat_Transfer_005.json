@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_Transfer_005",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_transfer",
+
+  "title": "【問5】基礎的な物理・化学：熱の移動",
+
+  "question": "熱伝導率が最も小さいものは次のうちどれか。",
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "アルミニウム" },
+    { "name": "2", "description": "水" },
+    { "name": "3", "description": "木材" },
+    { "name": "4", "description": "銅" },
+    { "name": "5", "description": "空気" }
+  ],
+
+  "answer": 5,
+
+  "hint": "ヒント：熱伝導率は、金属が大きく、木材や空気は小さい。さらに小さい方を比べると、木材より空気の方が熱を伝えにくい。",
+
+  "explanations": [
+  "誤り。アルミニウムは金属なので、熱伝導率は大きい。",
+  "誤り。水の熱伝導率は空気より大きい。",
+  "誤り。木材は熱を伝えにくいが、空気よりは大きい。",
+  "誤り。銅は金属の中でも熱伝導率が大きい。",
+  "正しい。空気は熱伝導率が非常に小さく、選択肢の中で最も熱を伝えにくい。"
+],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "熱の移動", "熱伝導率", "伝導", "物質の比較", "基礎定義"],
+    "version": "2026-03-15"
+  }
+}
+

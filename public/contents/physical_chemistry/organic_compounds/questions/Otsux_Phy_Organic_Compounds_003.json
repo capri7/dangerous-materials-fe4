@@ -1,0 +1,49 @@
+{
+  "id": "Otsux_Phy_Organic_Compounds_003",
+
+  "category": "physical_chemistry",
+  "subcategory": "organic_compounds",
+
+  "title": "【問3】基礎的な物理・化学：有機化合物【⭐️】",
+
+
+  "question": [
+    "カルボン酸とアルコールが反応し、水と共に生じる物質をエステルという。",
+    "次の化合物のうち、エステルに該当しないものはどれか。"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "酢酸エチル（CH₃COOC₂H₅）" },
+    { "name": "2", "description": "酢酸アンモニウム（CH₃COONH₄）" },
+    { "name": "3", "description": "酢酸ブチル（CH₃COOC₄H₉）" },
+    { "name": "4", "description": "酪酸エチル（C₃H₇COOC₂H₅）" },
+    { "name": "5", "description": "ギ酸メチル（HCOOCH₃）" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：エステルはカルボン酸（R-COOH）とアルコール（R-OH）から生成する化合物。なので、アルコール（-OHをもつ有機化合物）じゃないと反応しない。エタノール（C₂H₅OH）、ブタノール（C₄H₉OH）、メタノール（CH₃OH）はアルコール。では、アンモニア（NH₃）はアルコール？",
+
+  "explanations": [
+    "該当する。酢酸エチル（CH₃COOC₂H₅）は、酢酸CH₃COOH（カルボン酸）とエタノールC₂H₅OH（アルコール）が反応してできる典型的なエステルである。",
+    "該当しない。酢酸アンモニウム（CH₃COONH₄）は、酢酸CH₃COOH（カルボン酸）とアンモニアNH₃（塩基）から生じる塩である。アンモニアはヒドロキシ基（-OH）をもたないためアルコールではなく、したがって酢酸アンモニウムはエステルに該当しない。",
+    "該当する。酢酸ブチル（CH₃COOC₄H₉）は、酢酸CH₃COOH（カルボン酸）とブタノールC₄H₉OH（アルコール）から生成するエステルである。",
+    "該当する。酪酸エチル（C₃H₇COOC₂H₅）は、酪酸C₃H₇COOH（カルボン酸）とエタノールC₂H₅OH（アルコール）から生成するエステルである。",
+    "該当する。ギ酸メチル（HCOOCH₃）は、ギ酸HCOOH（カルボン酸）とメタノールCH₃OH（アルコール）が反応してできるエステルである。"
+  ],
+
+
+  "feedback_mode": "negation",
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "有機化合物", "エステル", "酢酸エチル", "ギ酸メチル", "酢酸アンモニウム", "酪酸エチル"],
+    "version": "2026-04-23"
+  }
+}
+
+

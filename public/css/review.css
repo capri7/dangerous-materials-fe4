@@ -1,27 +1,323 @@
-/* グリッドはそのまま。見出しを追加 */
-.review-cat { margin: 20px 0 28px; }
-.review-cat__title { font-size: 20px; margin: 10px 0 6px; }
-.review-sub__title { font-size: 16px; margin: 12px 0 8px; color:#374151; }
-.review-sub__title .count { color:#6b7280; font-size: 13px; margin-left:6px; }
+/* =========================================
+   review.css  復習リストページ専用（カード1段構成）
+   ========================================= */
 
-.card-list{
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap:16px;
+/* 横スクロール防止 */
+html,
+body.page-review {
+  overflow-x: hidden;
 }
-.card.review-card{
-  background:#fff;
-  border:1px solid var(--border, #e5e7eb);
-  border-radius:12px;
-  padding:16px;
-  box-shadow:0 1px 2px rgba(0,0,0,.04);
+
+/* ---------- レイアウトの土台（復習リスト専用） ---------- */
+
+/* wrapper は“何もしない箱”にしておく */
+body.page-review .main-container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
-.review-card__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-.badge{display:inline-block;background:#eef2ff;color:#3730a3;padding:2px 8px;border-radius:999px;font-size:12px;}
-.card__title{font-size:16px;line-height:1.5;margin:6px 0 4px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.card__meta{color:#6b7280;font-size:12px;margin:0;}
-.card__actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;}
-.btn--danger{background:#ef4444;color:#fff;border:1px solid #ef4444;}
-.mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
-.review-toolbar{display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px;}
-.review-count{color:#6b7280;font-size:14px;}
+
+/* 実際の幅を決めるのは site-main 側 */
+body.page-review .site-main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 960px;     /* ここが「コンテンツ列」の最大幅 */
+  margin: 0 auto;        /* 中央寄せ */
+  background: #f5f7fb;
+  padding: 16px 24px 20px;  /* 内側余白：上・左右・下 */
+}
+
+
+/* ---------- タイトルブロック ---------- */
+
+body.page-review .review-intro {
+  margin: 0 0 12px;
+}
+
+body.page-review .review-intro h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 4px;   /* 「復習リスト」と説明文の間 */
+}
+
+body.page-review .review-intro p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+/* ========================================
+   分野ごとの外側ラッパ（ここはカードにしない）
+   JS 側で：
+   <section class="review-body">
+     <div class="card-list">  ← 分野リスト
+       <div>                   ← 分野ラッパ
+         <h3>危険物に関する法令</h3>
+         <p>危険物の指定数量</p>
+         <ul class="card-list"> ← 各問題リスト
+           ...
+======================================== */
+
+/* 分野リスト自体 */
+body.page-review .review-body > .card-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 分野ラッパ（危険物に関する法令 / 危険物の指定数量） */
+body.page-review .review-body > .card-list > * {
+  margin: 0;
+  padding: 0;                /* カードの余白は消す */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+/* 分野見出し h3 */
+body.page-review .review-body > .card-list > * > h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 2px;           /* 上は 0 にして詰める */
+}
+
+/* その下の「危険物の指定数量」など */
+body.page-review .review-body > .card-list > * > p:first-of-type {
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+/* それ以外の p（もしあれば） */
+body.page-review .review-body > .card-list > * > p:not(:first-of-type) {
+  margin: 4px 0;
+}
+
+/* ---------- 各問題カード（ここだけカード見た目） ---------- */
+
+/* 分野の中にある内側 card-list が「問題リスト」 */
+body.page-review .review-body > .card-list .card-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 問題1件ずつのカード */
+body.page-review .review-body > .card-list .card-list > * {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+  padding: 14px 20px 16px;
+  margin: 0 0 12px;
+  box-sizing: border-box;
+}
+
+/* [問◯] タイトル（strong） */
+body.page-review .review-body > .card-list .card-list strong {
+  font-size: 1.0rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* 追加日などのテキスト（問題側） */
+body.page-review .review-body > .card-list .card-list p {
+  margin: 4px 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* ボタン行 */
+body.page-review .review-body > .card-list .card-list .actions,
+body.page-review .review-body > .card-list .card-list .btn-row {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* カード内ボタン */
+body.page-review .review-body > .card-list .card-list button,
+body.page-review .review-body > .card-list .card-list .btn,
+body.page-review .review-body > .card-list .card-list .btn-outline {
+  min-width: 140px;
+  font-size: 0.95rem;
+}
+
+/* ---------- 空メッセージ ---------- */
+
+body.page-review #empty-msg {
+  margin-top: 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* =========================================
+   分類見出しだけ非表示にする（:has を利用）
+   ========================================= */
+
+
+
+/* こういう系は全部消す */
+body.page-review #review-list h2 {
+  display: none;
+}
+
+/* 直後に .card-list（問題リスト）が続く h2 / h3 を消す */
+body.page-review #review-list h2:has(+ .card-list),
+body.page-review #review-list h3:has(+ .card-list),
+body.page-review #review-list h2:has(+ ul.card-list),
+body.page-review #review-list h3:has(+ ul.card-list) {
+  display: none;
+}
+
+
+
+/* =========================================
+   復習リストの「復習済みにする」ボタン（フラット＆細い枠）
+   ========================================= */
+
+body.page-review .review-body button {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #d1d5db;     /* 細いグレーの枠だけ */
+  border-radius: 9999px;         /* ちょっとリッチな pill 形状 */
+  background: #f9fafb;
+  color: #111827;
+  font-weight: 500;
+  padding: 8px 20px;
+  min-width: 160px;
+  box-shadow: none;              /* 太い影や枠を完全に消す */
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+body.page-review .review-body button:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+  transform: translateY(-1px);
+}
+
+body.page-review .review-body button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ---------- スマホ最適化（〜640px） ---------- */
+@media (max-width: 640px) {
+  /* コンテナ全体の余白 */
+  body.page-review .main-container {
+    padding: 0 10px 6px;
+  }
+
+  body.page-review .site-main {
+    padding: 10px 10px 8px;
+  }
+
+  body.page-review .review-body {
+    margin-bottom: 0;
+  }
+
+  /* 各カードの内側と間隔 */
+  body.page-review .review-body > .card-list .card-list > * {
+    padding: 12px 14px 14px;
+    margin: 0 0 12px;
+  }
+
+  body.page-review .review-body > .card-list .card-list > *:last-child {
+    margin-bottom: 12px;
+  }
+
+  /* フッターとの距離 */
+  body.page-review .site-footer {
+    margin-top: 6px;
+  }
+
+}
+
+/* ---------- カード下のボタン行（共通） ---------- */
+body.page-review .card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* ---------- スマホ時のボタン2分割レイアウト ---------- */
+@media (max-width: 640px) {
+
+  /* ボタン行を横並び・折り返しなしにする */
+  body.page-review .card__actions {
+    flex-wrap: nowrap;
+  }
+
+  /* 「確認する」「復習済みにする」を 1/2 幅ずつに */
+  body.page-review .card__actions .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;        /* min-width:160px を打ち消す */
+    padding-inline: 10px; /* 横幅がきついので少しだけ詰める */
+  }
+}
+
+/* ---------- タイトルブロック ---------- */
+
+body.page-review .review-intro {
+  margin: 0 0 12px;
+}
+
+/* 見出し＋件数バッジを横並びに */
+body.page-review .review-intro__header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* h2 の下マージンは header 内ではゼロにする */
+body.page-review .review-intro__header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* 件数バッジ */
+body.page-review .review-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1f2933;
+  background: #e5edff;      /* うっすらブルー系 */
+  border: 1px solid #c3dafe;
+  line-height: 1.4;
+}
+
+/* 説明テキスト */
+body.page-review .review-intro p {
+  margin: 4px 0 0;
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+/* スマホではバッジを少し小さめに */
+@media (max-width: 640px) {
+  body.page-review .review-count-badge {
+    font-size: 0.75rem;
+    padding: 1px 8px;
+  }
+}
+

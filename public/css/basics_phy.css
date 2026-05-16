@@ -1,5 +1,15 @@
 /* basics_phy.css */
 
+/* === 第2章（物理・化学）用テーマカラー ================= */
+:root {
+  --accent: #12751d;             /* メインのグリーン */
+  --accent-soft: #e7f5ec;        /* カード背景などに使う淡いグリーン */
+  --accent-soft-hover: #d2ecdb;  /* ホバー時 */
+  --accent-border: #b7e3c5;      /* 枠線 */
+  --accent-text: #0f5132;        /* 文字色（濃い緑） */
+}
+
+
 /* 政令による試験セクション */
 .phy-test-section {
   margin-block: 2em;
@@ -145,41 +155,62 @@
 }
 
 /* デフォルトの左インデントを消す＆余白を整える */
+/* 一覧全体 */
+.law-index {
+  margin: 24px 0;
+}
+
+/* デフォルトの左インデントを消す＆余白を整える */
 .law-index ul {
   list-style: none;
-  padding-left: 0;   /* ← これが効きます */
+  padding-left: 0;
   margin: 0;
 }
 
-/* 行間 */
-.law-index li + li {
+
+/* 第2章インデックス（物理・化学）のカードの帯の色を緑系にする */
+.law-index li {
+  /* 好みでどちらか */
   margin-top: 12px;
+
+  /* 1) 外側の帯も薄いグリーンにするパターン */
+  background: #f3f7f5;           /* 薄いグリーン */
+  border-left: 4px solid #16813ddf; /* 濃いグリーン */
+
+  padding: 0.7rem 0.75rem;
+  margin-bottom: 0.9rem;
 }
+
 
 /* カード化：行全体をクリック可能に */
 .law-index a {
   display: block;
   width: 100%;
-  box-sizing: border-box;        /* ← はみ出し防止（padding/borderを幅に含める） */
+  box-sizing: border-box;
   text-decoration: none;
   padding: 14px 16px;
-  background: #e9f2ff;
-  border: 1px solid #d7e6ff;
+  background: var(--accent-soft);        /* ← ここを変数に */
+  border: 1px solid var(--accent-border);/* ← ここも */
   border-radius: 12px;
-  color: #123;                   /* 読みやすい濃紺 */
+  color: var(--accent-text);             /* ← 文字もグリーン寄りに */
   box-shadow: 0 1px 0 rgba(0,0,0,.04);
   transition: background .15s, box-shadow .15s, transform .02s;
 }
 
 .law-index a:hover,
 .law-index a:focus {
-  background: #dceaff;
+  background: var(--accent-soft-hover);  /* ← ホバーも変数 */
   box-shadow: 0 3px 10px rgba(0,0,0,.06);
   outline: none;
 }
 
 .law-index a:active {
   transform: translateY(1px);
+}
+
+/* 第2章のリスト左側の縦ラインをグリーン系に統一 */
+body.basics .law-index li {
+  border-left-color: var(--accent);   /* #12751d が入る */
 }
 
 /* --- モバイルだけファーストビューの余白をギュッと詰める --- */
@@ -197,6 +228,32 @@
   /* 3) 最初のセクションの見出しの上マージンを打ち消し */
   .site-main > .intro:first-of-type { margin-top: 0; }
   .site-main > .intro:first-of-type h2 { margin-top: 0; }
+}
+
+/* ============================
+   基礎知識トップページ専用の余白調整
+   ============================ */
+
+/* メインコンテンツの上側余白を少しだけにする */
+.basics .site-main {
+  padding-top: 0.6rem;   /* 大きすぎれば 0.8rem とかに調整してOK */
+}
+
+/* 「基礎知識」見出しの上の余白を詰める（このページ限定） */
+.basics .intro {
+  margin-top: 0;
+}
+
+/* 基礎知識 h2 とバンドの間隔 */
+.basics .intro h2 {
+  margin-top: 0.2em !important;   /* ほぼくっつくレベルまで詰める */
+  margin-bottom: 0.4em !important;
+}
+
+/* hover 時も青に戻らないように上書き */
+.law-index li:hover {
+  background: #d6f2df;              /* ちょい濃いグリーンに変化 */
+  border-left-color: #15803d;
 }
 
 

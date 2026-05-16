@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>練習問題 - 第1章：危険物に関する法令</title>
@@ -12,7 +20,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="/index.html">
-        <img src="/images/logo.png" alt="ロゴ" class="logo" />
+        <img src="/images/logo.svg" alt="ロゴ" class="logo" />
       </a>
       <h1 class="site-title">練習問題 | 第1章：危険物に関する法令 | 消防法で規定する危険物</h1>
       <!-- ここからハンバーガー -->
@@ -32,16 +40,20 @@
       <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
       <a href="#" class="nav-link logout">ログアウト</a>
     </nav>
-  </header> 
-  <nav class="breadcrumbs">
+  </header>
+
+
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
   <a href="/index.html">トップ</a> &gt;
   <a href="/contents/index.html">練習問題</a> &gt;
   <span>第1章：危険物に関する法令 | 消防法で規定する危険物</span>
-  </nav> 
+  </nav>
+
+<div class="main-container">
   <main class="site-main">
     <h2 id="title"></h2>
     <p id="question"></p>
-    <div id="choices"></div>
+    <div id="choices" class="table-scroll"></div>
     <div class="answer-wrapper">
     <!-- ここが「あなたの解答」を上書き表示する固定プレースホルダー -->
       <div id="your-answer" class="your-answer"></div>
@@ -67,97 +79,15 @@
     <button id="btn-next" class="button btn-next" type="button">次の問題へ</button>
     </div>
   </main>
-<!-- note（footer手前など） -->
-<div class="mistake-note-box" data-testid="mistake-note-box" style="position:fixed;right:16px;bottom:16px;padding:12px;background:#fff;border:1px solid #ccc;border-radius:8px;z-index:9999">
-  <div style="font-weight:600;margin-bottom:6px">この問題のメモ</div>
-  <textarea id="mistake-note" data-testid="mistake-note" rows="4" style="width:260px"></textarea>
-  <button id="mistake-save" style="margin-left:8px">保存</button>
-  <small id="mistake-status" style="margin-left:8px;color:#666"></small>
 </div>
-
-<script type="module">
-  // --- Supabase の準備待ち ---
-  const sleep = (ms)=>new Promise(r=>setTimeout(r,ms));
-  async function waitSupabase(timeout=10000){
-    const t0 = performance.now();
-    while(!(window.supabase?.from) && performance.now()-t0 < timeout){
-      await sleep(50);
-    }
-    if(!window.supabase?.from) throw new Error('Supabase not ready');
-  }
-  await waitSupabase();  // ← ここで必ず window.supabase が使える状態になる
-
-  // --- ここから元のロジック（少しだけ強化版） ---
-  const bodyQid = document.body.getAttribute('data-question-id') || '';
-  const pathQid = location.pathname.split('/').pop()?.replace(/\.html$/i,'') || '';
-  const qid = bodyQid || pathQid;  // data属性があれば優先
-  const ta = document.getElementById('mistake-note');
-  const btn = document.getElementById('mistake-save');
-  const status = document.getElementById('mistake-status');
-
-  // 自分の user_id（RLS対策で利用）
-  const { data: u } = await window.supabase.auth.getUser();
-  const uid = u?.user?.id ?? null;
-
-  async function loadLatest() {
-    const { data, error } = await window.supabase
-      .from('mistakes')
-      .select('id, notes, user_id')
-      .eq('question_id', qid)
-      .order('last_seen_at', { ascending: false })
-      .single();
-    if (error) throw error;
-    const rec = data?.[0];
-    if (rec?.notes) ta.value = rec.notes;
-    return rec?.id || null;
-  }
-
-  let currentId = await loadLatest();
-
-  const debounce = (fn, ms) => { let t; return (...a)=>(clearTimeout(t), t=setTimeout(()=>fn(...a), ms)); };
-
-  async function save() {
-    const text = ta.value.trim();
-    if (!text) return;
-
-    try {
-      let q;
-      if (currentId) {
-        // UPDATE は RLS の USING with_check を満たすために user_id も絞ると安全
-        q = window.supabase.from('mistakes').update({ notes: text }).eq('id', currentId);
-        if (uid) q = q.eq('user_id', uid);
-      } else {
-        // INSERT は RLS によっては user_id 必須のことがある（トリガ無し想定で送る）
-        const payload = uid ? { question_id: qid, notes: text, user_id: uid }
-                            : { question_id: qid, notes: text };
-        q = window.supabase.from('mistakes').insert(payload);
-      }
-      const { data, error } = await q.select('id').limit(1);
-      if (error) throw error;
-      currentId = data?.[0]?.id ?? currentId;
-
-      status.textContent = '保存しました';
-    } catch (e) {
-      console.error(e);
-      status.textContent = '保存に失敗';
-      window.__mistake_last_error__ = (e && e.message) ? e.message : String(e); 
-    } finally {
-      setTimeout(() => (status.textContent = ''), 1200);
-    }
-  }
-
-  ta.addEventListener('input', debounce(save, 800));
-  btn.addEventListener('click', save);
-  window.__mistake_ready__ = true;
-</script>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="copyright">© 2025 乙種4類危険物取扱者試験対策</p>
+      <p class="copyright">© 2026 乙種4類危険物取扱者試験対策</p>
       <div class="legal-links">
-        <a href="#" class="footer-link">プライバシーポリシー</a>
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a>
           ／
-        <a href="#" class="footer-link">利用規約</a>
+        <a href="/terms.html" class="footer-link">利用規約</a>
       </div>
     </div>
   </footer>

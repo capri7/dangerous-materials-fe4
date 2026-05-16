@@ -1,39 +1,41 @@
 {
   "id": "Otsux_Phy_Ignition_and_Flash_Point_003",
   "category": "physical_chemistry",
+
   "subcategory": "ignition_and_flash_point",
   "title": "【問3】基礎的な物理・化学 : 引火と発火",
-  "question": "可燃性液体の燃焼について、次のうち誤っているものはどれか。",
-  "fields":  ["description"],
+
+   "question": "次の作業環境：Zone 1（ガス危険場所）、ガスグループ IIC（例：水素/アセチレン系）、対象雰囲気の自着火温度（AIT）= 90°C（例：二硫化炭素に相当）。この環境で恒常設置に適合する防爆機器の表示として、正しいものはどれか。",
+
+  "fields": ["description"],
   "headers": [""],
+
   "choices": [
-    { "name": "1", "description": "可燃性液体が爆発（燃焼）下限界の濃度の蒸気を発生させるときの液温を引火点という。"},
-    { "name": "2", "description": "液体の温度が引火点より低い場合は、燃焼に必要な温度の蒸気は発生しない。"},
-    { "name": "3", "description": "引火点は、物質によって異なる値を示す。" },
-    { "name": "4", "description": "可燃性液体の温度がその引火点より高いときは、火源により引火する危険がある。"},
-    { "name": "5", "description": "液温が引火点に達すると、液体表面からの蒸気に加えて、液体内部からも気化しはじめる。"},
-    { "name": "6", "description": "液体がいったん燃え出したとき、継続的な燃焼を起こす最低の液温を燃焼点という。"}
+    { "name": "1", "description": "Ex d IIB T4 Gc" },
+    { "name": "2", "description": "Ex e IIC T4 Gb" },
+    { "name": "3", "description": "Ex ia IIC T5 Ga" },
+    { "name": "4", "description": "Ex d IIC T6 Gb" },
+    { "name": "5", "description": "Ex ec IIC T6 Gc" }
   ],
 
-  "answer": 5,
-  "hint": "ヒント：引火点は「可燃性蒸気を発生させる温度」、燃焼点は「自己持続的に燃焼を続ける温度」です。それぞれの要件（濃度、持続条件、点火源）に着目して選択肢を検討しましょう。",
+  "answer": 4,
+
+  "hint": "ヒント：見るのは3つだけ。①ガスグループ：危険側の IIC に対応しているか（IIB 止まりは NG）。②温度等級：T記号の最大表面温度が AIT=90°C より低い等級（この条件なら T6 クラスが必要）。③ゾーン：Zone 1 なら EPL は Gb 以上（Gc は Zone 2 用）。この3条件を全部クリアする表示を選ぼう。",
+
   "explanations": [
-    "選択肢1：<strong>正しい記述です。</strong>引火点は爆発下限濃度の蒸気を発生させる温度を指します。",
-    "選択肢2：<strong>正しい記述です。</strong>引火点未満では必要な蒸気が発生せず、燃焼は起こりません。",
-    "選択肢3：<strong>正しい記述です。</strong>引火点は物質ごとに異なる値を示します。",
-    "選択肢4：<strong>正しい記述です。</strong>液温が引火点を超えると火源で引火する危険があります。",
-    "選択肢5：<strong>誤りです。</strong>蒸気は液面からのみ発生し、液体内部から気化が始まるのは沸点以上の温度の場合です。",
-    "選択肢6：<strong>正しい記述です。</strong>燃焼点は一度燃え始めた蒸気を自己持続的に燃焼させる最低温度を指します。"
+    "誤り：Ex d だがガスグループが IIB までで、危険側の IIC 環境には不足。さらに EPL Gc は Zone 2 相当で Zone 1 の恒常設置には足りない。",
+    "誤り：IIC かつ EPL Gb で Zone 1 自体には対応できるが、T4=135°C は AIT=90°C を超えており温度等級が不足。",
+    "誤り：グループ IIC・EPL Ga は Zone 0 までカバーできる“上位”だが、T5=100°C は AIT=90°C を超えてしまい、この環境では T6 クラスが必要。",
+    "正しい：IIC 対応で最も厳しいガス群に適合し、T6=85°C は AIT=90°C より低い最大表面温度。EPL Gb は Zone 1 に適合（Zone 2 も可）で、三条件をすべて満たす。",
+    "誤り：ガスグループ IIC・温度等級 T6 は条件を満たすが、EPL Gc は Zone 2 相当で Zone 1 の恒常設置には不足している。"
   ],
 
-
-  "feedback_mode": "negation",
   "image": null,
   "is_paid": true,
   "meta": {
-    "difficulty": "basic",
-    "tags": ["基礎的な物理・化学", "引火点と燃焼点","発火点","着火源","防爆構造"],
-    "version": "2025.7.23"
+    "difficulty": "intermediate",
+    "tags": ["基礎的な物理・化学", "引火と発火", "防爆表示", "Ex d", "IIB/IIC", "温度等級T4", "EPL Ga/Gb/Gc", "ゾーニング"],
+    "version": "2026-02-09"
   }
 }
 

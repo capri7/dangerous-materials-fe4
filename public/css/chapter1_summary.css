@@ -1,0 +1,1292 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+/*第1章41節-5のchapter1_notifications_and_destinations.cssとトーンを統一して第1章41節-6のchapter1_periodic_inspections.cssを作成
+   - すべてlaw
+   - 表：横スクロール対応、1列目 sticky、table-fixed
+   - 出る出るポイント（exam-notes)
+   - ひっかけ注意（exam-points）、コールアウト（callout）
+   - 品目の色識別バッジ（赤/黄/緑/青）
+*/
+
+/* ---------- カラートークン ---------- */
+:root {
+  /* === 第1章：危険物に関する法令 青トーン === */
+  --law-accent: #0b5cab;           /* ブルー基調（既存と合わせる） */
+  --law-accent-strong: #090160;                  /* 見出しなどの濃い青 */
+  --law-accent-soft: rgba(43,108,176,.06);
+
+  --law-muted:         #6b7280;
+
+  --law-border:        #e5e7eb;
+  --law-border-light:  #eef2f6;
+
+  --law-row:           #fafbfc;
+  --law-head:          #f9fafb;
+
+  --law-bg-soft:       #fdf2f2;                  /* ほんのり赤みのある背景 */
+
+  --law-note-bg:       #fff8e8;                  /* 出る出るボックス背景（共通のままでOK） */
+  --law-note-border:   #f1c073;
+
+  --law-ok:            #059669;
+  --law-warn:          #d97706;
+  --law-ng:            #b91c1c;                  /* NG を章テーマ色に寄せる */
+
+    /* 品目色（識別） */
+  --fuel-regular: #e11d48;     /* レギュラー（赤） */
+  --fuel-premium: #eab308;     /* ハイオク（黄） */
+  --fuel-diesel:  #16a34a;     /* 軽油（緑） */
+  --fuel-kerosene:#2563eb;     /* 灯油（青） */
+
+  /* 旧スタイルとの互換用エイリアス（必要なら他ページでも流用可） */
+  --accent: var(--law-accent);
+  --border: var(--law-border);
+  --row:    var(--law-row);
+  --head:   var(--law-head);
+}
+
+
+/* ---------- レイアウトのガード（basics共通） ---------- */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body.basics {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 基礎知識ページ内は box-sizing を統一 */
+body.basics *,
+body.basics *::before,
+body.basics *::after {
+  box-sizing: border-box;
+}
+
+
+/* ---------- 出る出るポイント（exam-notes） ---------- */
+
+
+.exam-notes {
+  background: var(--law-note-bg);
+  border: 2px dashed var(--law-note-border);
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+.exam-notes > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+.exam-notes > h4::before {
+  content: "📝";
+  font-size: 1.1em;
+}
+
+/* ★ ここから修正ポイント ★ */
+.exam-notes ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+.exam-notes ul.compact li::before { content: none; }
+
+.exam-notes:empty { display: none; }
+
+
+/* ================== ひっかけ注意（exam-points） ================== */
+
+.exam-points {
+  background: #edf4ff;
+  border: 2px dashed #5792f1;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin: 20px 0 18px;
+}
+
+
+.exam-points > h4 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* ひっかけ注意アイコン */
+.exam-points > h4::before {
+  content: "⚡️";
+  font-size: 1.1em;
+}
+
+/* リストはディスク表記で端正に */
+.exam-points ul {
+  list-style: disc;
+  margin: 0;
+  padding: 0 0 0 1.2em;
+}
+
+.exam-points ul.compact li::before { content: none; }
+
+/* 中身が空のときは箱自体を消す */
+.exam-points:empty { display: none; }
+
+/* ---------- コールアウト（注釈・注意・OK・NG） ---------- */
+.callout {
+  background:hsl(23, 74%, 92%);                        /* exam-notes に近いトーン。好みで調整OK */
+  border: 2px dashed var(--law-ng);
+  border-radius: 12px;
+  padding: 18px 18px 16px;                     /* ★ exam-notes と同じくらいの余白 */
+  margin: 20px 0 18px;                         /* 左右は 0 でOK（中央カラムの中で揃う） */
+}
+
+/* 見出し共通（h3） */
+.callout > h3 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* ★ ここから修正ポイント ★ */
+.callout ul {
+  list-style: disc;          /* 自前の「・」をやめて disc に */
+  margin: 0;
+  padding: 0 0 0 1.2em;      /* ひっかけ注意と同じ余白 */
+}
+
+.callout ul.compact li::before { content: none; }
+
+.callout ol.compact li::before { content: none; }
+
+.callout:empty { display: none; }
+
+
+/* check / OK / WARN / NG 共通のベース色（文字色だけ変える） */
+.callout.check { background: #fdf3ec; border-color: #f3bfa7; color: #4e0806; }
+.callout.ok   { background: #ecfdf5; border-color: #a7f3d0; color: #064e3b; }
+.callout.warn { background: #fffbeb; border-color: #fde68a; color: #7c2d12; }
+.callout.ng   { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+
+/* アイコンだけ種類別に上書き */
+.callout.check > h3::before { content: "📌"; }
+.callout.ok > h3::before   { content: "✅"; }
+.callout.warn > h3::before { content: "⚠️"; }
+.callout.ng > h3::before   { content: "⛔️"; }
+
+/* 余白の“二重取り”を止める：直前ブロックがある時は上を詰める */
+.band-card + .callout,
+.table-container + .callout,
+.exam-notes + .callout,
+.exam-points + .callout,
+.law-section > h2 + .callout,
+.law-section > h3 + .callout{
+  margin-top: 16px; /* ←ここを出る出るポイント基準で統一。好みで 12〜18 */
+}
+
+
+/* ========== details（補足）/ callout ========== */
+details.note{
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  overflow:hidden;
+}
+details.note > summary::-webkit-details-marker{
+  display:none;
+}
+details.note > summary{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:12px 14px;
+  cursor:pointer;
+  font-weight:600;
+  background:#f8fafc;
+  user-select:none;
+}
+details.note > summary::before{
+  content:"▸";
+  display:inline-block;
+  transform-origin:center;
+  transition:transform .18s ease;
+  font-size:1rem;
+  color:#334155;
+}
+details.note[open] > summary::before{
+  transform:rotate(90deg);
+}
+details.note > summary:hover{
+  background:#f1f5f9;
+}
+details.note > summary:focus-visible{
+  outline:2px solid #60a5fa;
+  outline-offset:2px;
+  border-radius:8px;
+}
+details.note > *:not(summary){
+  padding:12px 14px;
+  background:#fff;
+  border-top:1px solid #e5e7eb;
+}
+
+/* 定義コールアウト本体（幅制限だけは新CSSに既にあるので共存OK） */
+.callout.definition{
+  position:relative;
+  margin:12px 0 20px;
+  padding:14px 16px;
+  background:#f5f9ff;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  overflow:hidden;
+}
+.callout.definition::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:6px;
+  background:#60a5fa;
+  border-radius:12px 0 0 12px;
+}
+.callout.definition .callout-title{
+  margin:0 0 6px;
+  font-weight:700;
+  font-size:1rem;
+  color:#1e40af;
+  display:flex;
+  align-items:center;
+  gap:.4rem;
+}
+.callout.definition p{
+  margin:0;
+  line-height:1.7;
+}
+
+/* 計算ヒント（電卓メモ的な箱） */
+.calc-hint{
+  margin:12px 0 4px;
+  padding:10px 12px;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:10px;
+  background:#f7f9fc;
+  font-size:.95rem;
+}
+.calc-hint ol{
+  margin:6px 0 0 1.2em;
+}
+.calc-hint li{
+  margin:4px 0;
+}
+@media (prefers-color-scheme:dark){
+  .calc-hint{
+    background:#0f1b2b;
+    border-color:rgba(255,255,255,.14);
+  }
+}
+
+
+
+/* ================== テーブル（共通ベース） ================== */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container.table-scroll::-webkit-scrollbar { height: 8px; }
+.table-container.table-scroll::-webkit-scrollbar-thumb {
+  background: #cfd8e3;
+  border-radius: 4px;
+}
+
+/* ベース表 */
+.styled-table {
+  width: 100%;
+  min-width: 640px;                 /* スマホは横スクロールへ退避 */
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid var(--law-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  font-size: .95rem;
+}
+
+
+.styled-table.table-fixed {
+  table-layout: fixed;
+}
+
+/* リストの見た目を整える */
+.law-defined-table td {
+  vertical-align: top;
+}
+
+/* 箇条書きのベースをリセット */
+.law-defined-table td ul {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding-left: 0;
+}
+
+/* 行ごとの詰まり感・読みやすさを調整 */
+.law-defined-table td ul li {
+  position: relative;
+  padding-left: 1.1em;
+  line-height: 1.6;
+  margin: 0.1rem 0;
+}
+
+/* 「・」をきれいに揃えて表示 */
+.law-defined-table td ul li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* スマホでの詰まり感を軽くする */
+@media (max-width: 640px) {
+  .styled-table--law th,
+  .styled-table--law td {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+.styled-table thead th {
+  background: var(--law-head);
+  color: #111827;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 1px solid var(--law-border);
+  padding: .75rem .9rem;
+  white-space: nowrap;
+}
+
+.styled-table tbody td,
+.styled-table tbody th {
+  border-bottom: 1px solid #eef2f6;
+  border-right: 1px solid #eef2f6;
+  padding: .7rem .9rem;
+  vertical-align: top;
+}
+
+.styled-table tbody tr:nth-child(odd) { background: var(--law-row); }
+
+.styled-table thead th:first-child { border-top-left-radius: 8px; }
+.styled-table thead th:last-child  { border-top-right-radius: 8px; }
+.styled-table tbody tr:last-child td:first-child { border-bottom-left-radius: 8px; }
+.styled-table tbody tr:last-child td:last-child  { border-bottom-right-radius: 8px; }
+.styled-table tbody td:last-child { border-right: 0; }
+
+/* テーブルでは、最右列もちゃんと線を出す */
+.law-defined-table tbody td:last-child,
+.law-defined-table tbody th:last-child {
+  border-right: 1px solid #eef2f6;
+}
+
+
+@media (hover:hover) {
+  .styled-table tbody tr:hover {
+    background: var(--law-accent-soft);  /* えんじ系のごく薄い背景 */
+  }
+}
+
+/* ================== sticky 1列目 ================== */
+
+/* sticky の基準となる親 */
+.table-container.table-scroll {
+  position: relative;
+  scrollbar-color: #cfd8e3 transparent;
+}
+
+.sticky-first-col thead th.sticky {
+  z-index: 3;
+  border-right: 0;
+  background: var(--law-head);
+}
+
+/* ================== 物理と化学テーブル専用（styled-table--phy） ================== */
+
+/* 種別：条文 ≒ 26 : 74 
+.styled-table--law {
+  min-width: 640px;
+}*/
+
+/* 長文条文を気持ちよく折り返す */
+.styled-table--law.table-fixed td,
+.styled-table--law.table-fixed th {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: loose;
+  white-space: normal;
+}
+
+/* sticky 1列目の丸ポチを無効にしてインデントだけ残す */
+.styled-table--law .sticky::before { content: none !important; }
+
+.styled-table--law th.sticky,
+.styled-table--law td.sticky {
+  padding-left: .9rem;
+  font-weight: 700;
+}
+
+.styled-table--law th.sticky {
+  vertical-align: middle;
+}
+
+
+/* スマホでの閾値を少し下げる */
+@media (max-width: 480px) {
+  .styled-table--law { min-width: 560px; }
+
+  .styled-table thead th,
+  .styled-table tbody td,
+  .styled-table tbody th {
+    padding: .6rem .7rem;
+    font-size: .9rem;
+  }
+
+  .table-container { margin-bottom: 1.4rem; }
+}
+
+/* このページ専用：行の高さを少し抑える */
+.styled-table--law thead th,
+.styled-table--law tbody th,
+.styled-table--law tbody td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;   /* ほんの少しだけ文字を小さく */
+}
+
+/* ================== リスト（詰め表示） ================== */
+ul.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ul.compact li {
+  margin: .2em 0;
+}
+
+ol.compact {
+  margin: 0;
+  padding-left: 1.1em;
+}
+ol.compact li {
+  margin: .2em 0;
+}
+
+
+/* ================== バンドカード（左帯） ================== */
+
+.band-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--law-border);
+  border-radius: 8px;
+  padding: 0.25rem 1rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  margin-bottom: .75rem;
+}
+
+/* h2 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h2 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+/* h3 のすぐ下に band-card が来る場合だけ、余白を少し詰める */
+body.basics .site-main h3 + .band-card {
+  margin-top: -0.25rem;  /* -0.2〜-0.3rem あたりで好みで微調整OK */
+}
+
+.band-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--law-accent);        /* 第3章はえんじ色の帯  */
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* 隣り合うカードの密着防止 */
+.band-card + .callout { margin-top: 16px; }
+.callout + .callout { margin-top: 20px; }
+
+/* band-card 内の dl は詰まりやすいので、ここだけ余白を増やす */
+.band-card .law-summary{
+  margin-top: .7rem;
+  gap: .7rem 1.2rem;      /* ←縦の間隔を増やす（効く） */
+}
+
+.band-card .law-summary dt{
+  line-height: 1.4;
+}
+
+.band-card .law-summary dd{
+  line-height: 1.75;      /* ←詰まり感の主因に直撃 */
+}
+
+
+
+
+/* ================== ページ全体レイアウト微調整 ================== */
+
+/* bascis 共通の余白を少し詰める（このページだけ） */
+.basics .site-main {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* law-section 同士の間隔 */
+.law-section + .law-section { margin-top: 1.6rem; }
+.quiz-section { margin-top: 2.0rem; }
+
+@media (min-width: 768px) {
+  .law-section + .law-section { margin-top: 2.2rem; }
+}
+
+/* テーブル幅を少しだけ広める（PC） */
+@media (min-width: 1024px) {
+  .law-section .table-container {
+    max-width: 960px;        /* 960 より少し細いくらい */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== 小UIユーティリティ ================== */
+
+.muted { color: #6b7280; }
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+
+/* ================== アクセシビリティ ================== */
+
+
+/* フォーカス可視（キーボード） */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--law-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 低視力配慮：リンクのホバー/フォーカス */
+a:hover { text-decoration: underline; }
+
+/* 動きに配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* メインコンテンツの箱も安全側に寄せておく */
+.site-main,
+.breadcrumbs,
+.intro,
+.content,
+.law-section,
+.quiz-section,
+.next-button,
+.table-container {
+  max-width: 100%;
+}
+
+
+/* basics ページ用：念のため width を明示 */
+body.basics {
+  width: 100%;
+}
+
+/* === ヘッダー／ナビが 100vw で飛び出すのを強制的に止める === */
+
+body.basics .site-header,
+body.basics .header-container,
+body.basics .nav-links {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* === PC のときは中央カラム幅に絞る === */
+@media (min-width: 1024px) {
+  /* パンくずと本文を同じ幅で中央寄せ */
+  body.basics .breadcrumbs,
+  body.basics .site-main {
+    width: min(960px, calc(100% - 64px)); /* 960px か 画面幅-64px の小さい方 */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+/* ================== このページ専用：見出しの統一 ================== */
+
+/* h2 を共通トーンに揃える */
+body.basics .site-main h2 {
+  font-size: clamp(22px, 2.6vw, 26px);  /* どの h2 も同じ大きさ */
+  line-height: 1.35;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* 最初の白カードだけ、上の余白を少し増やす */
+body.basics .site-main .law-section:first-of-type {
+  padding-top: 0.4rem;   /* 好みで 2.0〜2.6rem くらいに微調整OK */
+}
+
+
+/* ================== 類バッジ（色＝類） ================== */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+/* 第1〜第6類の色分け（色＝類） */
+.tag.category-1 {
+  background: #dbeafe;   /* 青系：第1類 */
+  color: #1d4ed8;
+}
+
+.tag.category-2 {
+  background: #fee2e2;   /* 赤系：第2類 */
+  color: #b91c1c;
+}
+
+.tag.category-3 {
+  background: #fef3c7;   /* 黄〜オレンジ系：第3類 */
+  color: #b45309;
+}
+
+.tag.category-4 {
+  background: #dcfce7;   /* 緑系：第4類 */
+  color: #15803d;
+}
+
+.tag.category-5 {
+  background: #f3e8ff;   /* 紫系：第5類 */
+  color: #7e22ce;
+}
+
+.tag.category-6 {
+  background: #e5e7eb;   /* グレー系：第6類 */
+  color: #111827;
+}
+
+
+
+/* 第4類の中の品名専用(特殊引火物・第1〜第4石油類・アルコール類 ・動植物油類 ）の カラー（全部グリーン系でトーンだけ変える）*/
+
+.tag.subcat {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.55rem;
+  border-radius: 12px; 
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid rgba(15, 118, 110, 0.2); /* 薄い枠だけ共通 */
+}
+
+.tag.subcat-special {           /* 特殊引火物 */
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.tag.subcat-petroleum {         /* 第1〜第4石油類 */
+  background: #dce8fc;
+  color: #165d65;
+}
+
+.tag.subcat-alcohol {           /* アルコール類 */
+  background: #eee0fe;
+  color: #1b03a1;
+}
+
+.tag.subcat-animal-veg-oil {    /* 動植物油類 */
+  background: #fefce8;
+  color: #854d0e;
+}
+
+
+
+/* ================== ヘッダー固定＆パンくず押し下げ ================== */
+
+/* basics ページのヘッダーを画面上部に固定 */
+body.basics .site-header.basics-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: var(--color-header-footer, #242d60);
+}
+
+/* デフォルト（スマホ〜タブレット）用の押し下げ量 */
+body.basics {
+  padding-top: 80px;   /* 今の 72px より少し多めにしておく */
+}
+
+/* PCのときはヘッダーが高いので、さらに下げる */
+@media (min-width: 1024px) {
+  body.basics {
+    padding-top: 140px;  /* 実際の見た目を見て 120〜160px の間で微調整してOK */
+  }
+}
+
+/* main の余白は上に足さない（ヘッダーぶんだけで十分） */
+body.basics .site-main {
+  margin-top: 0;
+}
+
+/* パンくずとヘッダーの間に少し余白 */
+body.basics .breadcrumbs {
+  margin-top: 1rem;
+}
+
+/* === スマホでのテーブル幅を少しだけ詰める調整 === */
+
+/* 〜480px：最小幅を 520px まで下げて、横スクロールを軽くする */
+@media (max-width: 480px) {
+  body.basics .styled-table,
+  body.basics .styled-table--law {
+    min-width: 520px;
+  }
+}
+
+/* 〜360px：極小画面では無理に横スクロールさせず、100% におさめる */
+@media (max-width: 360px) {
+  body.basics .styled-table,
+  body.basics .styled-table--law {
+    min-width: 100%;
+  }
+}
+
+
+/* ==== 上部カード ==== */
+
+.class4-summary {
+  padding: 0.9rem 1.2rem 1.1rem;
+}
+
+.class4-summary-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.class4-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.class4-lead {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* 概要リスト（dt:項目名 / dd:内容） */
+.law-summary {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem 1.2rem;
+}
+
+.law-summary-row {
+  display: contents; /* dt と dd を同じグリッドに乗せる */
+}
+
+.law-summary dt {
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.law-summary dd {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.law-summary dd > p{
+  margin: 0.15rem 0;
+}
+.law-summary dd > p + p{
+  margin-top: 0.45rem; /* 段落の区切り */
+}
+
+
+/* PCでは「項目」「内容」の2列レイアウト */
+@media (min-width: 640px) {
+  .law-summary {
+    grid-template-columns: minmax(110px, 0.9fr) minmax(0, 2.1fr);
+    align-items: baseline;
+  }
+}
+
+/* ================== 図版（figure / formula-card） ================== */
+:root{
+  --fig-max: 780px;          /* デスクトップ上限（必要なら960でもOK） */
+  --fig-radius: 12px;
+  --fig-shadow: 0 1px 2px rgba(0,0,0,.03);
+  --fig-card-bg: #eef1f9;
+}
+
+/* 横スクロール容器（必要なときだけ使う） */
+.figure-wrap{
+  margin: 1rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* figure：箱を統一（中央寄せ＋角丸＋影） */
+.law-section figure{
+  margin: 1rem auto;
+  max-width: var(--fig-max);
+  box-shadow: var(--fig-shadow);
+  border-radius: var(--fig-radius);
+  clip-path: inset(0 round var(--fig-radius));
+  overflow: clip; /* 古いブラウザは無視でOK */
+}
+
+/* figure内の画像/SVG：角丸は箱に任せる */
+.law-section figure img,
+.law-section figure svg,
+.law-section figure .circuit-svg{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+/* formula-card：図を“カードとして見せたい”ときの箱 */
+.formula-card{
+  margin: 1rem auto;
+  max-width: var(--fig-max);
+  padding: 16px 20px;
+  background: var(--fig-card-bg);
+  border-radius: var(--fig-radius);
+  box-shadow: var(--fig-shadow);
+  overflow: hidden;
+}
+
+/* formula-card内の図（中央寄せ＋上限） */
+.formula-card .circuit-svg,
+.formula-card img.circuit-svg{
+  display: block;
+  width: min(520px, 100%);
+  height: auto;
+  margin-inline: auto;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+/* キャプション間隔（1回だけ定義） */
+.figure-lead + .formula-card{ margin-top: 16px; }
+.formula-card + .figure-caption{ margin-top: 12px; }
+.figure-caption{ font-size: .95rem; color: #374151; }
+
+/* モバイルは上限を外す（1回だけ定義） */
+@media (max-width: 480px){
+  :root{ --fig-max: 100%; }
+}
+
+/* ============================
+   表内リスト（共通）
+   ============================ */
+.cell-list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.cell-list > li {
+  margin: .35rem 0;
+}
+
+.sub-list {
+  margin-top: .3rem;
+  padding-left: 1.4em;
+}
+.sub-list > li {
+  margin: .25rem 0;
+}
+
+/* ア・イ・ウの前の「・」を消す */
+.sub-list.no-index,
+.sub-list.no-index > li {
+  list-style: none;
+  padding-left: 0;  /* インデント残したければここを消す or 1.4em に */
+}
+
+/* ア・イ・ウの前の「・」を消す（no-index 用） */
+.law-defined-table td ul.sub-list.no-index > li::before {
+  content: none;
+}
+.sub-list.no-index { padding-left: 1.4em; }
+.sub-list.no-index > li { padding-left: 0; }  /* or 消してもOK */
+
+
+/**** 1列目 sticky の見た目を安定させる */
+.table-scroll.sticky-first-col .sticky{
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--table-bg, #fff);
+
+  /* ここが原因になりがち：強い境界を一旦オフ */
+  border-right: 0;
+  box-shadow: none;
+}
+
+/* 境界は疑似要素で “1本だけ” 描く（色は他の罫線に合わせる） */
+.table-scroll.sticky-first-col .sticky::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  width: 1px;
+  height: 100%;
+  background: var(--table-border, rgba(0,0,0,.08));
+  pointer-events: none;
+}
+
+/* 2列目の左罫線が残ってると二重線になるので消す */
+.table-scroll.sticky-first-col table tr > *:nth-child(2){
+  border-left: 0;
+}
+
+/* ヘッダーの sticky は前面に */
+.table-scroll.sticky-first-col thead .sticky{
+  z-index: 3;
+}
+
+/* Lをイタリック調で少し大きくする */
+.math-ell{
+  font-size: 1.05em;   /* 好みで 1.15〜1.35 */
+  font-weight: 400;
+}
+
+/* 出る出るポイント：式だけ“刺さるサイズ”に */
+.exam-notes .math-block{
+  display: inline-block;
+  font-size: 1.35em;
+  font-weight: 800;
+  line-height: 1.15;
+  padding: .18em .5em;
+  border-radius: 12px;
+  background: rgba(0,0,0,.04);
+  letter-spacing: .02em;
+
+  /* ℓが細く見える環境の保険（Mac/Win混在向け） */
+  font-family: "Cambria Math","STIX Two Math","Times New Roman","Noto Sans JP",serif;
+}
+
+.math-badge{
+  display:inline-block;
+  padding:.22em .6em;
+  border-radius:999px;
+  background:rgba(0,0,0,.06);
+  font-family:"STIX Two Math","Cambria Math","Noto Serif","Noto Sans JP",serif;
+  font-size:1.08em;
+  letter-spacing:.02em;
+}
+.math-badge .ell{
+  font-size:1.14em;   /* ℓ だけ少し大きく */
+}
+
+/* 直列/並列 定義ブロック（スマホ最適化） */
+.def-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 14px 0 10px;
+}
+
+@media (min-width: 860px){
+  .def-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.def-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+
+.def-title{
+  margin: 0 0 10px;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  letter-spacing: .02em;
+}
+
+.def-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.def-list li{
+  display: grid;
+  grid-template-columns: 4.2em 1fr;
+  column-gap: 10px;
+  align-items: start;
+  line-height: 1.65;
+}
+
+.def-term{
+  font-weight: 800;
+  letter-spacing: .02em;
+  opacity: .9;
+}
+
+.def-desc strong{
+  font-weight: 900;
+}
+
+.def-formula{
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.04);
+  overflow-x: auto;              /* 長い式は横スクロールで守る */
+  -webkit-overflow-scrolling: touch;
+}
+
+.def-formula .math{
+  white-space: nowrap;           /* 変な位置で改行しない */
+  font-variant-numeric: lining-nums;
+}
+
+/* 横スクロールのとき、式が“切れて見える”のを防ぐ */
+.def-formula::-webkit-scrollbar{
+  height: 8px;
+}
+
+
+/* =========================
+   defined_substances.css 追い貼りパッチ（商品顔安定）
+   ========================= */
+
+/* 1) タイポ＆段落間を固定（文章が教科書顔になる） */
+body.basics{
+  font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.85;
+  color: #111827;
+}
+
+body.basics .site-main p{
+  margin: 0 0 0.9em;
+}
+body.basics .site-main p:last-child{
+  margin-bottom: 0;
+}
+
+/* 2) 見出し直下の“負のmargin”を無効化して安定させる */
+body.basics .site-main h2{ margin: 0.6rem 0 0.65rem; }
+body.basics .site-main h3{ margin: 1.1rem 0 0.55rem; }
+
+body.basics .site-main h2 + .band-card,
+body.basics .site-main h3 + .band-card{
+  margin-top: 0.55rem !important;
+}
+
+/* 3) band-card の内側余白を商品っぽく（詰まり解消） */
+.band-card{
+  padding: 18px 20px 16px;         /* ← 0.25rem だと薄い。ここで勝つ */
+  border-radius: 12px;
+}
+.band-card::before{
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* 4) sticky 1列目は“疑似要素1本線”方式に統一（混線を止める） */
+.sticky-first-col .sticky{
+  border-right: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 5) ヘッダー固定の押し下げを変数化（被り/空きすぎを止める） */
+:root{ --basics-header-h: 92px; } /* スマホ基準 */
+@media (min-width: 1024px){
+  :root{ --basics-header-h: 132px; } /* PC基準（現状140より少し締め） */
+}
+body.basics{
+  padding-top: var(--basics-header-h) !important;
+}
+body.basics .breadcrumbs{
+  margin-top: 0.75rem;
+}
+
+/* =========================
+   callout 余白バグ潰し（最優先で最後に置く）
+   ========================= */
+
+/* 1) callout内の“先頭要素のmargin-top”が上に足されるのを殺す */
+body.basics .site-main .callout > :first-child{
+  margin-top: 0 !important;
+}
+
+/* 2) ついでに末尾も整える（下がダブつくのも防ぐ） */
+body.basics .site-main .callout > :last-child{
+  margin-bottom: 0 !important;
+}
+
+/* 3) 見出しが h3 でも h4 でも同じ見た目に揃える（ここが本丸） */
+body.basics .site-main .callout > :is(h3,h4){
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px !important;     /* ←上の余白をゼロに固定 */
+  font-size: clamp(16px, 2.1vw, 18px);
+  font-weight: 700;
+  color: #2B2B2B;
+}
+
+/* 4) callout内のpが先頭に来ても上が膨らまないように */
+body.basics .site-main .callout p{
+  margin: 0 0 .9em;
+}
+body.basics .site-main .callout p:last-child{
+  margin-bottom: 0;
+}
+
+/* ===== band-card 内の見出しだけ“上の余白”をゼロ固定 ===== */
+body.basics .site-main .band-card > h3,
+body.basics .site-main .band-card > h4{
+  margin-top: 0 !important;
+  margin-bottom: 12px;
+}
+
+/* === 法別表第3：第4類　指定数量テーブルの微調整 === */
+
+/* 品名（行見出し）を scope の違いに関係なく同じ見た目にする */
+.law-defined-table tbody th[scope="row"],
+.law-defined-table tbody th[scope="rowgroup"] {
+  font-size: 1rem;        /* 行見出しは少し大きく */
+  font-weight: 700;       /* 太字で章タイトル感を出す */
+  text-align: center;     /* 「品名」列の文字位置を中央に統一 */
+  vertical-align: middle; /* 行の中央に配置（rowspan 行も含めて揃える） */
+  white-space: nowrap;    /* 第1石油類／第2石油類などを折り返さない */
+}
+
+/* 区分（非水溶性・水溶性）の文字サイズをそろえる */
+/* 各行の「最初の td = 区分」にまとめて効かせる */
+.designated-quantities-table tbody tr > td:first-of-type {
+  font-size: 1rem;
+}
+
+/* 指定数量（50L, 200L, 10000L など）も少し大きくし、1行に収める */
+.designated-quantities-table tbody tr > td:nth-of-type(2) {
+  font-size: 1rem;
+  white-space: nowrap;  /* 10000L が 1000 / 0L に割れないように */
+}
+
+
+/* --- 必要・原則必要の表示用バッジ --- */
+
+/* ベース */
+.styled-table td.need,
+.styled-table td.principle {
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 「必要」…濃いめの安心グリーン系 */
+.styled-table td.need {
+  color: #166534;              /* 文字：やや深い緑 */
+}
+
+/* 「原則必要」…注意寄りのオレンジ系 */
+.styled-table td.principle {
+  color: #92400e;              /* 文字：濃いオレンジ */
+  background-color: #fffbeb;   /* 背景：淡いクリーム */
+}
+
+/* 既存の .chapter-icon に上書きで丸枠化 */ 
+.chapter-icon.num-circle{
+  width: 26px; 
+  height: 26px; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  border: 1px solid currentColor; 
+  border-radius: 50%; 
+  font-weight: 700; 
+  line-height: 1; 
+  font-size: 16px; 
+}
+
+/* メインコンテンツの上側余白を少しだけにする */ 
+.site-main {
+  padding-top: 0.5rem; /* 例：元が 2.5rem とかならここで圧縮 */ 
+} 
+
+/* セクション自体の余白を詰める */ 
+.law-section {
+  margin-top: 0; 
+}
+
+/* 見出しの上だけ微調整（ベタ付き防止） */ 
+.law-section > h2:first-of-type { 
+  margin-top: 0.1rem; 
+}
+
+
+
+
+
+
+

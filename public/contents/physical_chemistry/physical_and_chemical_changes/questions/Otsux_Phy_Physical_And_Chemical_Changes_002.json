@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_Physical_And_Chemical_Changes_002",
+
+  "category": "physical_chemistry",
+  "subcategory": "physical_and_chemical_changes",
+
+  "title": "【問2】基礎的な物理・化学：物理変化と化学変化【⭐️】",
+
+  "question": "化学変化に該当するもののみの組み合わせとして、次のうち正しいものはどれか。",
+
+  "fields":  ["description1", "description2", "description3"],
+  "headers": ["", "", ""],
+
+
+  "choices": [
+    { "name": "1", "description1": "分解", "description2": "燃焼", "description3": "中和" },
+    { "name": "2", "description1": "中和", "description2": "凝縮", "description3": "化合" },
+    { "name": "3", "description1": "燃焼", "description2": "分解", "description3": "凝縮" },
+    { "name": "4", "description1": "融解", "description2": "混合", "description3": "昇華" },
+    { "name": "5", "description1": "昇華", "description2": "融解", "description3": "化合" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：ここは「新しい物質ができるかどうか」で切ると解きやすいよ。分解・燃焼・中和・化合は化学変化。融解・凝縮・昇華・混合は、主に状態や形が変わる物理変化として整理しよう。",
+
+  "explanations": [
+    "正しい。分解・燃焼・中和はいずれも新しい物質ができる化学変化である。分解は1つの物質が2つ以上に変わる反応、燃焼は物質が酸素と反応する変化、中和は酸と塩基が反応して塩と水を生じる変化であり、いずれも化学変化に分類される。",
+    "誤り。中和と化合は化学変化だが、凝縮は気体が液体になる状態変化なので物理変化である。物理変化が含まれているため不適切である。",
+    "誤り。燃焼と分解は化学変化だが、凝縮は物理変化である。1つでも物理変化が混ざっているため不適切である。",
+    "誤り。融解・混合・昇華はいずれも新しい物質ができない物理変化である。したがって、化学変化のみの組み合わせにはならない。",
+    "誤り。化合は化学変化だが、昇華と融解は状態変化なので物理変化である。化学変化だけの組み合わせではない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学",  "物理変化", "化学変化", "状態変化", "分解", "燃焼", "中和", "化合"],
+    "version": "2026-03-17"
+  }
+}
+
+
+

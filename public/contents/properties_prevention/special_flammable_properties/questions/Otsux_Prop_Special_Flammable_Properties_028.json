@@ -1,0 +1,50 @@
+{
+  "id": "Otsux_Prop_Special_Flammable_Properties_028",
+  "category": "properties_prevention",
+  "subcategory": "special_flammable_properties",
+  "title": "【問28】危険物の性質・火災予防・消火の方法：特殊引火物の性状【⭐️⭐️】",
+
+  "question": [
+    "二硫化炭素の性状等について、次のA〜Dの記述のうち、正しいもののみを全てあげているものはどれか。",
+    "A. 蒸気比重は1より小さい。",
+    "B. 比重は1より大きく、水に溶けにくい。",
+    "C. 発火点は100℃より低い。",
+    "D. 空気との接触や日光の下で爆発性の過酸化物を生成しやすい。"
+  ],
+
+  "fields": ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "A" },
+    { "name": "2", "description": "A・B" },
+    { "name": "3", "description": "B・C" },
+    { "name": "4", "description": "C・D" },
+    { "name": "5", "description": "B・C・D" }
+  ],
+
+  "answer": 3,
+
+  "hint": "ヒント：二硫化炭素の蒸気は低い場所に滞留しやすい。また、水より重く、水に溶けにくく、発火点も低い。",
+
+  "explanations": [
+    "（A）誤り。二硫化炭素の蒸気は空気より重く、低い場所に滞留しやすい。",
+    "（A・B）誤り。Bは正しいが、Aが誤りである。",
+    "（B・C）正しい。BとCは正しい。二硫化炭素は比重が1より大きく、水に溶けにくい。また、発火点は100℃より低い。",
+    "（C・D）誤り。Cは正しいが、Dが誤りである。二硫化炭素は、爆発性の過酸化物を生成しやすい代表ではない。",
+    "（B・C・D）誤り。BとCは正しいが、Dが誤りである."
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["危険物の性質・火災予防・消火の方法", "特殊引火物の性状",  "二硫化炭素", "比重", "水溶性", "蒸気比重", "発火点", "過酸化物", "低所滞留"],
+    "version": "2026-04-01"
+  }
+}
+
+
+
+
+

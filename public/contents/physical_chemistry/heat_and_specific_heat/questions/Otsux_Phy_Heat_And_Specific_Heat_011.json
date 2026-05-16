@@ -1,0 +1,42 @@
+{
+  "id": "Otsux_Phy_Heat_And_Specific_Heat_011",
+
+  "category": "physical_chemistry",
+  "subcategory": "heat_and_specific_heat",
+
+  "title": "【問11】基礎的な物理・化学：熱量と比熱（kg・kJ版）【⭐️】",
+
+  "question": "ある固体 3.0 kg を 20 ℃ から 50 ℃ まで加熱するのに必要な熱量として、正しいものはどれか。ただし、この固体の比熱は 0.84 kJ/(kg·K) とする。",
+ 
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "75.6 kJ" },
+    { "name": "2", "description": "25.2 kJ" },
+    { "name": "3", "description": "75600 kJ" },
+    { "name": "4", "description": "0.0756 kJ" },
+    { "name": "5", "description": "84 kJ" }
+  ],
+
+  "answer": 1,
+
+  "hint": "ヒント：まず温度差を見る。50−20 で 30 K。あとは q = mcΔT に、そのまま入れればよい。m は kg、比熱 c も kJ/(kg·K) なので、今回は単位を直さずに計算できる。3.0×0.84×30 を計算すると 75.6 kJ になる。",
+
+  "explanations": [
+    "正しい。温度差は 50−20 = 30 K である。したがって、q = mcΔT = 3.0×0.84×30 = 75.6 kJ となる。",
+    "誤り。25.2 は 0.84×30 の計算結果であり、質量 3.0 kg を掛けていない。熱量は q = 3.0×0.84×30 = 75.6 kJ である。",
+    "誤り。比熱の単位がすでに kJ/(kg·K) で与えられているので、計算結果はそのまま kJ になる。したがって、75600 kJ にはならない。",
+    "誤り。比熱の単位がすでに kJ/(kg·K) で与えられているので、計算結果をさらに小さく換算する必要はない。正しくは 75.6 kJ である。",
+    "誤り。q = 3.0×0.84×30 = 75.6 kJ であり、84 kJ にはならない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "比熱", "熱量", "q=mcΔT", "単位"],
+    "version": "2026-03-14"
+  }
+}
+

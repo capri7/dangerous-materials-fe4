@@ -1,0 +1,43 @@
+{
+  "id": "Otsux_Phy_Basics_Of_Chemistry_046",
+
+  "category": "physical_chemistry",
+  "subcategory": "basics_of_chemistry",
+
+  "title": "【問46】基礎的な物理・化学：化学の基礎（NaCl中のNa⁺）",
+
+  "question": "塩化ナトリウム（NaCl）5.85gの水溶液中に含まれるナトリウムイオン（Na⁺）の物質量として、次のうち正しいものはどれか。ただし、Na＝23、Cl＝35.5 とする。",
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "0.05mol" },
+    { "name": "2", "description": "0.10mol" },
+    { "name": "3", "description": "0.15mol" },
+    { "name": "4", "description": "0.20mol" },
+    { "name": "5", "description": "0.30mol" }
+  ],
+
+  "answer": 2,
+
+
+  "hint": "ヒント：まず、NaCl の式量を求める。原子量は Na＝23、Cl＝35.5 なので、式量は 23 ＋ 35.5 ＝ ？ 次に、NaCl 5.85g が何molかを計算する。物質量(mol)＝ 質量(g) ÷ 式量。NaCl は水溶液中で NaCl → Na⁺ ＋ Cl⁻ のように電離し、NaCl 1molから Na⁺ が 1mol、Cl⁻ が 1mol 生じる。したがって、求めた NaCl のmol数がそのまま Na⁺ の物質量となる。",
+
+  "explanations": [
+    "誤り。NaCl の式量は 23 ＋ 35.5 ＝ 58.5 なので、NaCl 5.85g の物質量は 5.85 ÷ 58.5 ＝ 0.10mol となる。NaCl は NaCl → Na⁺ ＋ Cl⁻ と電離し、NaCl 1molから Na⁺ が 1mol 生じるので、Na⁺ の物質量は 0.10mol となる。0.05mol は 0.10mol の半分にあたる値である。",
+    "正しい。NaCl の式量は 23 ＋ 35.5 ＝ 58.5 なので、NaCl 5.85g の物質量は 5.85 ÷ 58.5 ＝ 0.10mol となる。NaCl は水溶液中で NaCl → Na⁺ ＋ Cl⁻ のように電離し、NaCl 1molから Na⁺ が 1mol、Cl⁻ が 1mol 生じる。したがって、Na⁺ の物質量は NaCl の物質量と等しく 0.10mol となる。なお NaCl のようにイオン結晶からなる化合物は分子を作らないため、厳密には「分子量」ではなく「式量」と呼ぶが、計算方法は分子量と同じく構成原子の原子量の合計で求める。",
+    "誤り。正しい計算では、NaCl 5.85g の物質量は 5.85 ÷ 58.5 ＝ 0.10mol、Na⁺ の物質量も 0.10mol となる。0.15mol にはならない。",
+    "誤り。正しい計算では、NaCl 5.85g の物質量は 5.85 ÷ 58.5 ＝ 0.10mol、Na⁺ の物質量も 0.10mol となる。0.20mol は 0.10 × 2 にあたる値であり、NaCl 1molから Na⁺ が 2mol 生じると誤って計算した場合に生じる。電離の式 NaCl → Na⁺ ＋ Cl⁻ から、NaCl 1molから Na⁺ は 1mol しか生じない。",
+    "誤り。正しい計算では、NaCl 5.85g の物質量は 5.85 ÷ 58.5 ＝ 0.10mol、Na⁺ の物質量も 0.10mol となる。0.30mol にはならない。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "化学の基礎", "分子量", "物質量", "イオン", "電解質"],
+    "version": "2026-05-07"
+  }
+}
+

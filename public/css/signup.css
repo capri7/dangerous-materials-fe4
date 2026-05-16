@@ -8,7 +8,7 @@
 #signup-feedback {
   min-height: 1.2em;
   font-size: .95rem;
-  margin-top: 8px;
+  margin: 8px 0 12px;  /* 上下 */
   text-align: center;
 }
 
@@ -64,8 +64,9 @@
   outline-offset: 2px;
 }
 
+
 /* カード影と余白を少しだけ強めて “面” をはっきり */
-.signup-card {
+.auth-card {
   max-width: 520px;
   margin: 0 auto;
   background: #fff;
@@ -74,19 +75,70 @@
   box-shadow: 0 10px 30px rgba(2,6,23,.06);
 }
 
-.signup-card h2 {
+.auth-card h2 {
   text-align: center;
   font-size: 1.9rem;
   margin-bottom: 10px;
 }
 
 /* 「安全に送信されます」行のトーンを login に寄せる */
-.secure-note {
+.secure-info {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   color: #6b7280;
   font-size: .95rem;
   margin: 6px 0 16px;
 }
+
+.secure-info .secure-icon {
+  font-size: 1rem;
+}
+
+/* フォーム全体の下の余白をほぼゼロにする */
+.auth-card form.auth-form {
+  margin-bottom: 0;
+}
+
+/* 登録ボタンの下の余白をかなり詰める */
+.auth-card form.auth-form button#signup-submit {
+  margin-bottom: 4px;   /* もっと詰めたければ 0 〜 2px でもOK */
+}
+
+
+
+/* ── signup.html 専用のレイアウト調整 ── */
+
+/* 上下の余白をこのページだけで調整 */
+.signup-page .site-main {
+  padding-top: 16px;     /* 顔がズルっと落ちない程度の余白 */
+  padding-bottom: 40px;
+}
+
+/* カード自体は上に寄せる */
+.signup-page .auth-card {
+  margin-top: 0;
+}
+
+/* フォームと注意書きの間隔を詰める */
+.signup-page .auth-form {
+  margin-bottom: 0;
+}
+
+/* 登録ボタンのすぐ下に注意書きを寄せる */
+.signup-page #signup-submit {
+  margin-bottom: 4px;    /* もっと詰めたければ 0〜2px でもOK */
+}
+
+/* 注意書きの p（signup-note）を小さめ＆左寄せに */
+.signup-page .signup-note {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  text-align: left;
+  color: #555;
+}
+
 

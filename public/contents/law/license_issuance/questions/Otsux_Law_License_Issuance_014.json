@@ -1,0 +1,47 @@
+{
+  "id": "Otsux_Law_License_Issuance_014",
+  "category": "law",
+
+  "subcategory": "license_issuance",
+  "title": "【問14】危険物に関する法令：免状の交付・書換え・再交付",
+
+
+   "question": [
+    "法令上、次の文の（ ）内のA～Cに当てはまる語句の組合せとして、正しいものはどれか。",
+    "「免状を（A）したとき、再交付を申請することができる。汚損により再交付を申請する場合は、現に所持する免状を（B）申請しなければならない。亡失により再交付を受けた者が後日旧免状を発見したときは、（C）以内に再交付を受けた都道府県知事に提出しなければならない。」"
+   ],
+
+  "fields": ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+
+  "choices": [
+    { "name": "1", "description1": "亡失・滅失・汚損・破損", "description2": "写しを添えて", "description3": "10日" },
+    { "name": "2", "description1": "亡失・汚損・破損", "description2": "添えて", "description3": "10日" },
+    { "name": "3", "description1": "亡失・滅失・汚損・破損", "description2": "添えて", "description3": "10日" },
+    { "name": "4", "description1": "亡失・滅失・汚損・破損", "description2": "添えて", "description3": "14日" },
+    { "name": "5", "description1": "亡失・滅失・汚損", "description2": "提示して", "description3": "7日" }
+  ],
+
+  "answer": 3,
+  "hint": "ヒント：Aの再交付事由は全部で4つ。1つでも抜けてたらアウト。Bは汚損した免状の「現物」をどう扱う？",
+
+
+  "explanations": [
+    "誤り。Aは正しいが、Bは写しではなく現物を添えて申請する。",
+    "誤り。再交付事由は亡失・滅失・汚損・破損の4つであり、「滅失」が欠けている。",
+    "正しい。A＝亡失・滅失・汚損・破損、B＝添えて、C＝10日。",
+    "誤り。AとBは正しいが、Cは14日ではなく10日。",
+    "誤り。「破損」が欠けており、Bは「提示」ではなく「添えて」、Cは7日ではなく10日。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["法令", "免状の交付・書換え・再交付", "再交付事由4つ", "汚損時の添付", "提出期限10日", "亡失"],
+    "version": "2026-04-10"
+  }
+}
+
+

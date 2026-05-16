@@ -1,0 +1,45 @@
+{
+  "id": "Otsux_Phy_States_of_Matter_009",
+
+  "category": "physical_chemistry",
+  "subcategory": "states_of_matter",
+
+  "title": "【問9】基礎的な物理・化学：物質の三態（外圧と沸点）【⭐️】",
+
+  "question": [
+    "次の文の（A）〜（C）に当てはまる語句の組合せとして、正しいものはどれか。",
+    "「液体の沸点は外圧が（A）なると低下し、外圧が（B）なると上昇する。圧力鍋は鍋内の圧力を（C）ことで沸点を上げる。」"
+  ],
+
+  "fields":  ["description1", "description2", "description3"],
+  "headers": ["A", "B", "C"],
+
+  "choices": [
+    { "name": "1", "description1": "高く", "description2": "低く", "description3": "下げる" },
+    { "name": "2", "description1": "低く", "description2": "高く", "description3": "上げる" },
+    { "name": "3", "description1": "低く", "description2": "高く", "description3": "下げる" },
+    { "name": "4", "description1": "高く", "description2": "低く", "description3": "上げる" },
+    { "name": "5", "description1": "変わらなく", "description2": "高く", "description3": "上げる" }
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：背骨はこれ。「外圧↓→沸点↓、外圧↑→沸点↑」。高地でお湯がぬるいのは外圧が低いから。圧力鍋は内圧を上げて沸点を上げる。だから A=低く、B=高く、C=上げる。",
+
+  "explanations": [
+    "誤り。AとBが逆。外圧が高いほど沸点は上がり、外圧が低いほど沸点は下がる。さらにCも『下げる』は不適。",
+    "正しい。外圧が低いほど沸点は低下し、外圧が高いほど沸点は上昇する。圧力鍋は鍋内の圧力を上げて沸点を上げる。",
+    "誤り。AとBは合っているが、Cが『下げる』で逆。圧力鍋は内圧を上げて沸点を上げる。",
+    "誤り。AとBが逆。外圧が高いほど沸点は上昇し、外圧が低いほど沸点は低下する。",
+    "誤り。Aが違う。沸点は外圧に依存して変化する（外圧が変われば沸点も変わる）。"
+  ],
+
+  "image": null,
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "物質の三態",  "外圧と沸点"],
+    "version": "2026-03-01"
+  }
+}
+

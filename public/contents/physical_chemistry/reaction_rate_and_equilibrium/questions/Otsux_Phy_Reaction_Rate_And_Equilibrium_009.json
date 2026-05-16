@@ -1,0 +1,58 @@
+{
+  "id": "Otsux_Phy_Reaction_Rate_And_Equilibrium_009",
+
+  "category": "physical_chemistry",
+  "subcategory": "reaction_rate_and_equilibrium",
+
+  "title": "【問9】基礎的な物理・化学：化学平衡",
+
+
+  "question": [
+    "次の気体の可逆反応で、温度が一定の場合、A〜Dの説明のうち正しいものの組み合わせはどれか。",
+    "N₂ ＋ 3H₂ ⇌ 2NH₃",
+    "A. NH₃を減らすと、平衡は右に移動する。",
+    "B. H₂を加えると、平衡は左に移動する。",
+    "C. 圧力を下げると、平衡は左に移動する。",
+    "D. 触媒を加えると、平衡は右に移動する。"
+  ],
+
+  "fields":  ["description"],
+  "headers": [""],
+
+  "choices": [
+    { "name": "1", "description": "AとB"},
+    { "name": "2", "description": "AとC"},
+    { "name": "3", "description": "BとC"},
+    { "name": "4", "description": "BとD"},
+    { "name": "5", "description": "CとD"}
+  ],
+
+  "answer": 2,
+
+  "hint": "ヒント：この反応の左辺は気体分子が N₂（1mol）＋H₂（3mol）＝4mol、右辺は NH₃（2mol）。濃度・圧力の変化は、増やした物質を減らす方向・圧力を打ち消す方向に平衡が移動する。触媒は平衡の位置を変えない。",
+
+  "explanations": [
+    "誤り。AとBの組み合わせは正しくない。Aは正しいが、Bは誤りである。",
+    "正しい。AとCはともに正しい。",
+    "誤り。BとCの組み合わせは正しくない。Cは正しいが、Bは誤りである。",
+    "誤り。BとDの組み合わせは正しくない。BもDも誤りである。",
+    "誤り。CとDの組み合わせは正しくない。Cは正しいが、Dは誤りである。"
+  ],
+
+  "statement_explanations": {
+    "A": "正しい。NH₃（生成物）を減らすと、その減少を補う方向、すなわち右（生成物側）に平衡が移動する。",
+    "B": "誤り。H₂（反応物）を加えると、その増加を打ち消す方向、すなわち右（生成物側）に平衡が移動する。「左に移動する」は逆である。",
+    "C": "正しい。圧力を下げると、気体分子数が増える方向（左側：4mol）に平衡が移動する。",
+    "D": "誤り。触媒は正反応・逆反応の活性化エネルギーをともに小さくして平衡に達するまでの時間を短縮するが、平衡の位置は変えない。「右に移動する」は誤りである。"
+  },
+
+
+  "image": "reaction_rate_and_equilibrium/Otsux_Phy_Reaction_Rate_And_Equilibrium_009.svg",
+  "is_paid": true,
+  "meta": {
+    "difficulty": "basic",
+    "tags": ["基礎的な物理・化学", "化学平衡", "ル・シャトリエの原理"],
+    "version": "2026-05-09"
+  }
+}
+

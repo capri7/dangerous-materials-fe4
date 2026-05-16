@@ -1,24 +1,209 @@
+/* =========================================
+   mistakes.css  誤答リストページ専用（カード1段構成）
+   ========================================= */
 
-/* ===== 誤答ページ：スマホの横ズレ対策（副作用最小） ===== */
+/* ---------- 横スクロール防止 ---------- */
+html,
+body.page-mistakes {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
 
-/* 基本のはみ出し防止 */
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
-img, svg, video, canvas { display: block; max-width: 100%; height: auto; }
+/* すべての要素で padding 込み計算にする */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/* レイアウト */
-.site-main { padding: 16px 0; }
-.container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+/* 画像などのはみ出し防止 */
+img, svg, video, canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- レイアウトの土台 ---------- */
+
+/* wrapper は“何もしない箱” */
+body.page-mistakes .main-container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 実際の幅は site-main / .container で決める */
+body.page-mistakes .site-main {
+  width: 100%;
+  background: #f5f7fb;
+  padding: 16px 0 20px;
+}
+
+body.page-mistakes .container {
+  max-width: 960px;     /* コンテンツ列の最大幅 */
+  margin: 0 auto;       /* 中央寄せ */
+  padding: 0 16px;      /* スマホ向け左右余白 */
+}
 
 /* リストの余白リセット */
-.list { list-style: none; margin: 0; padding: 0; }
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 /* モバイル時：ナビ周りで横幅が足されないようにする */
-@media (max-width: 768px){
-  .site-header { position: relative; }
+@media (max-width: 768px) {
+  .site-header {
+    position: relative;
+  }
+
   .nav-links {
     width: 100%;
-    box-sizing: border-box; /* ←ここが重要 */
-    /* 既存JSの開閉制御(nav-open)はそのまま使う前提。表示方法は既存CSSに従います。 */
+    box-sizing: border-box;
   }
 }
+
+/* ---------- ボタンの統一デザイン ---------- */
+
+/* 再読み込みなど基本ボタン */
+.site-main .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  background: #dce8f9;
+  color: #111827;
+  cursor: pointer;
+  box-shadow: none;
+  transition:
+    background-color 0.15s ease,
+    border-color     0.15s ease,
+    color            0.15s ease;
+}
+
+.site-main .btn:hover {
+  background: #f3f4f6;
+  border-color: #cbd5e1;
+}
+
+/* 無効状態 */
+.site-main .btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* 誤答カード内の「再挑戦」ボタン（btn-block）はメインの青ボタン */
+.site-main .btn.btn-block {
+  width: 100%;
+  max-width: 360px;
+  margin: 12px auto 0;
+
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.28);
+}
+
+.site-main .btn.btn-block:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* ツールバー内の「再読み込み」は右寄せ＆横幅は自動 */
+.toolbar .btn {
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+
+/* ---------- 誤答カードのレイアウト ---------- */
+
+.list-section .list > li {
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 12px 16px 14px;
+  margin: 0 0 14px;
+}
+
+.list-section .list > li > h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.list-section .list > li > p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* カード内の「再挑戦」ボタンは少しコンパクトに */
+.list-section .btn.btn-block {
+  margin-top: 10px;
+  width: auto;
+  min-width: 150px;
+  max-width: 220px;
+}
+
+/* スマホだけは 100% 幅に戻す */
+@media (max-width: 640px) {
+  .list-section .btn.btn-block {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ---------- 見出し・ツールバーの余白調整 ---------- */
+
+/* 誤答リスト h2 を少し上げて、下だけ軽く余白 */
+.site-main .container > h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+/* 説明文 ～ ツールバーの流れをコンパクトに */
+.site-main .page-hint {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* 「再読み込み」とカードの間に余白 */
+.toolbar {
+  margin: 4px 0 20px;
+}
+
+/* リスト全体の先頭マージンをゼロに */
+.list-section {
+  margin-top: 0;
+}
+
+/* ---------- 誤答ページ専用：フッターの下に余白を作らない ---------- */
+
+/* ページ全体を縦方向のフレックスレイアウトにする */
+html,
+body.page-mistakes {
+  height: 100%;
+}
+
+body.page-mistakes {
+  display: flex;
+  flex-direction: column;
+}
+
+/* コンテンツ部分だけを伸縮させる（ここで高さを稼ぐ） */
+body.page-mistakes .main-container {
+  flex: 1 0 auto;
+  min-height: auto;   /* site.css 側に min-height があっても打ち消す */
+}
+
+/* フッターは下端にくっつけて余計に伸びないようにする */
+body.page-mistakes .site-footer {
+  flex-shrink: 0;
+  margin-top: 0;      /* 念のため、上マージンもゼロで上に寄せる */
+}
+

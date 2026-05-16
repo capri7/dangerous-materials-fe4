@@ -1,7 +1,8 @@
 // public/js/question-main.js
-import { supabase } from '/js/supabaseClient.js';
+import { supabase, publicImageUrl } from '/js/supabaseClient.js';
 import { saveProgress } from './progress-writer.js';
-import { recordMistake } from '/js/mistakes-rpc.js';
+import { recordMistake, clearMistake } from '/js/mistakes-rpc.js';
+
 
 // 解答1回 = 1つのnonce（ブラウザ標準API）
 const makeNonce = () => crypto.randomUUID();
@@ -422,6 +423,19 @@ document.addEventListener('click', (e) => {
 
   syncScopeLockFromURL();
 
+  // ==== 横長テーブルを自動ラップして横スクロール可にする（スマホ折返し防止） ====
+  function wrapTablesForScroll(root){
+    if (!root) return;
+    root.querySelectorAll('table').forEach(t => {
+      if (t.closest('.table-scroll')) return;    // 二重ラップ防止
+      const w = document.createElement('div');
+      w.className = 'table-scroll';
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
+    });
+  }
+
+
   // ---- データ取得＆描画 ----
   const data = await fetchQuestionData();
   console.log('[PAGE]', currentQuestionId, location.pathname + location.search);
@@ -465,14 +479,50 @@ document.addEventListener('click', (e) => {
   container.appendChild(table);
   setChoicesHeader(table, data);
 
+  wrapTablesForScroll(document.querySelector('.site-main'));
+
   const titleEl = document.getElementById('title');
   if (titleEl && data.title) titleEl.textContent = data.title;
+
 
   const qEl = document.getElementById('question');
   if (qEl) {
     qEl.classList.add('question-body');
     qEl.textContent = String(data.question ?? '').replace(/\r\n?/g, '\n');
   }
+
+  // ✅ 画像ノードを「問題文の直後」に差し込む（常に move でOK）
+  {
+    let img = document.getElementById('q-image');
+    if (!img) {
+      img = document.createElement('img');
+      img.id = 'q-image';
+      img.hidden = true;
+    }
+    if (qEl) qEl.insertAdjacentElement('afterend', img);
+  }
+
+  // ✅ ここで関数として定義（未定義変数を使わない）
+  function renderImage(row) {
+    const img = document.getElementById('q-image');
+    if (!img) return;
+
+    const path = row?.image; // 例: "electricity_and_batteries/xxx.svg"
+    if (path) {
+      img.src = publicImageUrl(path);
+      img.alt = '問題図';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.hidden = false;
+      img.onerror = () => { img.hidden = true; }; // 404対策
+    } else {
+      img.hidden = true;
+    }
+  }
+
+  // ✅ 定義のあとで呼ぶ
+  renderImage(data);
+
 
 // === goNext 本体（ここでスタブを上書き） ===
 goNext = async function (source = 'manual') {
@@ -641,6 +691,7 @@ goNext = async function (source = 'manual') {
 
   attachEventHandlers(table, data, {
     hintBtn, hintEl, explBtn, explEl, feedbackEl,
+
     onJudged: async (isCorrect) => {
       try {
         const clientNonce = makeNonce();
@@ -650,8 +701,15 @@ goNext = async function (source = 'manual') {
           clientNonce,
         });
 
-        // 誤答なら mistakes を +1（1回だけ）
-        if (!isCorrect) {
+        if (isCorrect) {
+          // ✅ 正解したら、その問題を誤答リストから消す
+          try {
+            await clearMistake(currentQuestionId);
+          } catch (e) {
+            console.error('[mistakes] clear failed', e);
+          }
+        } else {
+          // ❌ 誤答なら mistakes を +1（1回だけ）
           if (__mistakeInFlight) return;
           __mistakeInFlight = true;
           try {
@@ -667,8 +725,18 @@ goNext = async function (source = 'manual') {
         showToast?.('記録に失敗しました（ネットワークをご確認ください）', 'error');
       }
     },
+
     goNext, // 正解時は「次の問題へ」のボタンを押して次に進む
   });
+
+  // ▼ 追加：以降の差し込み・表示切替でテーブルが増えても自動対応
+  {
+    const main = document.querySelector('.site-main');
+    if (main) {
+      const mo = new MutationObserver(() => wrapTablesForScroll(main));
+      mo.observe(main, { childList: true, subtree: true });
+    }
+  }
 
   // “次へ” の既存リスナーを無効化して差し替え
   const nextBtn = document.getElementById('btn-next');

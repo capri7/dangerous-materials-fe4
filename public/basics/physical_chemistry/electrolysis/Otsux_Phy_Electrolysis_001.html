@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎知識 | 第2章 11節：電気分解</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/electrolysis.css">
+  <link rel="stylesheet" href="/css/quiz_v2.css">
+
+  <base href="/basics/physical_chemistry/">
+</head>
+
+<body class="basics">
+  <header class="site-header basics-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo"></a>
+      <h1 class="site-title">基礎知識 | 第2章 11節：電気分解</h1>
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/" class="active">基礎知識</a>
+      <a href="/contents/">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>      
+    </nav>
+  </header>
+
+  <!-- パンくず -->
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+    <a href="/index.html">トップ</a> &gt;
+    <a href="/basics/index.html">基礎知識</a> &gt;
+    <span>第2章 11節：電気分解</span>
+  </nav>
+
+    <div class="main-container">
+      <main class="site-main">
+
+      <!-- ▼ 第2章トーン適用スコープ（緑系） -->
+      <div class="science-scope">
+        <!-- 1. 電気分解 -->
+        <section class="phy-section">
+          <h2>静電気の発生</h2>
+
+          <!-- 左帯つきの要点カード -->
+          <div class="band-card">
+            <p>
+              電解液に電極を入れて電流を流すと、
+              各電極で<strong>電子の授受</strong>が行われ、
+              <strong>酸化還元反応</strong>が起こる。
+              これを電気分解という。電気分解は、「電気エネルギーを使って
+            </p>
+            <p>
+              
+              <strong>電子を受け取った側は負に帯電</strong>し、<strong>電子を失った側は正に帯電</strong>します。
+              この電荷の偏りが静電気の正体です。なお、状況によっては<strong>帯電粒子（イオンや微粒子）の移動</strong>でも帯電が生じます。
+            </p>
+            <p>
+             物体どうしで電荷が移動しても、相互作用の前後で系全体の<strong>電気量（電荷の総和）は変化しません</strong>。
+             これを<strong>電気量（電荷）保存の法則</strong>といいます。
+            </p>
+          </div>
+
+          <p>修正中</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <!-- ひっかけ注意（exam-notes 版） -->
+         <div class="exam-notes" role="note" aria-label="ひっかけ注意">
+           <h4>ひっかけ注意</h4>
+              <div class="compact">
+                  <ul>
+                     <li>「正に帯電」＝“プラスの電気をもらった”ではない。<strong>電子を失って相対的に正が多くなった</strong>状態だよ。</li>
+                  </ul>
+              </div>
+         </div>
+
+         <!-- 電気量の保存：図と要点 -->
+         <div class="band-card">
+           <p>
+             帯電とは電荷の偏りです。<strong>電子の移動</strong>が起きても、相互作用の前後で
+             系全体の<strong>電気量（正−負の総和）は変化しません</strong>。これを
+             <strong>電気量（電荷）保存の法則</strong>といいます。
+           </p>
+         </div>
+
+         <figure class="formula-card" aria-labelledby="sum-law-title" aria-describedby="sum-law-cap">
+           <img
+             src="../../../phy_svg/電気量の総和.svg"
+             alt="2つの領域AとBで正電荷と負電荷の個数がそれぞれ8で釣り合い、A+B全体の電気量が0になることを示す図"
+             class="circuit-svg"
+             sizes="(max-width: 640px) 92vw, 780px"
+             loading="lazy"
+             decoding="async"
+             width="800" height="280">
+           <figcaption id="sum-law-cap">
+             <strong id="sum-law-title">電気量の保存</strong> — AとBを合わせた系では、
+             <span class="nowrap">正の電荷 8</span> と <span class="nowrap">負の電荷 8</span> が等しく、
+             合計は<strong>0</strong>のままです（電子が片方へ移っても全体は変わりません）。
+           </figcaption>
+         </figure>
+
+         <!-- 図の見方（短いガイド） -->
+         <div class="callout" role="note" aria-label="図の見方">
+           <strong>図の見方：</strong> AとBの境界で電子が移動しても、<u>A+B全体</u>で数えると
+           <strong>正＝負</strong>が維持されます。<em>“部分で増えても、全体は不変”</em>がポイント。
+         </div>
+
+         <!-- ひっかけ注意（用語） -->
+         <div class="exam-notes" role="note" aria-label="ひっかけ注意">
+           <h3>ひっかけ注意</h3>
+           <ul class="compact">
+             <li>「正に帯電」＝<strong>電子を失った</strong>状態。<u>プラスの電気をもらった</u>ではありません。</li>
+           </ul>
+         </div>
+
+         <!-- 帯電（Aは負に、Bは正に） -->
+         <figure class="formula-card" aria-labelledby="electrification-title" aria-describedby="electrification-cap">
+           <img
+             src="../../../phy_svg/帯電.svg"
+             alt="二つの領域AとBが接触・剥離して電子がA側へ移動し、Aは負に、Bは正に帯電する様子。Aは＋4より－6が多く、Bは＋4が－2より多い。中央のギャップでは電位差により放電が起こりうる。"
+             class="circuit-svg"
+             sizes="(max-width: 640px) 92vw, 780px"
+             loading="lazy" decoding="async" width="800" height="280">
+           <figcaption id="electrification-cap">
+             <strong id="electrification-title">帯電</strong> — 接触・剥離で電子が<strong>Aへ移動</strong>すると、
+             Aは<strong>負に帯電（＋4 ＜ −6）</strong>、Bは<strong>正に帯電（＋4 ＞ −2）</strong>となります。
+             全体の電気量は保存され、<u>境界の電位差</u>が大きいと<strong>火花放電</strong>の原因になります。
+           </figcaption>
+         </figure>
+
+         <!-- 図の見方（短いガイド） -->
+         <div class="callout" role="note" aria-label="図の見方">
+           <strong>図の見方：</strong> 帯電は「正と負の<strong>差</strong>」で判定するよ。Aは負が多い＝負に帯電、Bは正が多い＝正に帯電。
+         </div>
+
+         <!-- ひっかけ注意（試験対策） -->
+         <div class="exam-notes" role="note" aria-label="ひっかけ注意">
+           <h3>ひっかけ注意</h3>
+           <ul class="compact">
+             <li>「正に帯電」＝<strong>電子を失った</strong>状態。プラスの電気を“もらう”わけではない。</li>
+             <li>帯電は<strong>相手との組合せで変わる相対概念</strong>（帯電列の順を固定の“絶対順位”と誤解しない）。</li>
+           </ul>
+         </div>
+
+         <!-- 補足（短く・端正に） -->
+         <div class="callout" role="note" aria-label="確認ポイント">
+           <h3>確認ポイント</h3>
+           <ul class="compact">
+             <li><strong>電荷</strong>には正と負があり、電子は<strong>負電荷</strong>、陽子は<strong>正電荷</strong>をもつ。</li>
+             <li><strong>同極は反発、異極は引力</strong>で作用する。これを<strong>静電力（クーロン力）</strong>という。</li>
+             <li>物体や原<strong>子</strong>などがもつ電気的性質を<strong>電荷</strong>、その量を<strong>電気量</strong>という。</li>
+             <li>電気量の単位は<strong>クーロン（C）</strong>。参考：素電荷 <code>e ≈ 1.60×10<sup>−19</sup> C</code>。</li>
+             <li>静電気は<strong>絶縁性が高く乾燥した環境</strong>ほど逃げ道が少なく、<strong>蓄積しやすい</strong>。</li>
+             <li><strong>固体・液体・気体</strong>のいずれも帯電する（液体・気体は漏えいしやすく<strong>残りにくい</strong>）。</li>
+             <li>代表的な測定：<strong>箔検電器</strong>、<strong>表面電位計（電界計）</strong>、<strong>ファラデーケージ（筒）＋クーロンメータ</strong>、エレクトロメータ等。</li>
+           </ul>
+         </div> 
+
+         <!-- 電気素量 -->
+         <div class="callout example" role="note" aria-labelledby="elementary-charge-title">
+           <h3 id="elementary-charge-title">電気素量</h3>
+           <p class="compact">
+             <strong>電気素量</strong>（elementary charge）とは、電荷の<strong>最小単位</strong>です。
+             電子がもつ電荷は <strong>−e</strong>、陽子は <strong>＋e</strong> で、<br>
+             その大きさは等しく
+             <strong>e ≈ 1.602×10<sup>−19</sup> C</strong> です。
+           </p>
+           <p class="compact">
+             すべての電気量 <em>Q</em> は、この最小単位の<strong>整数倍</strong>で表されます：
+             <code>Q = n·e</code>（<em>n</em> は整数）。
+           </p>
+         </div>
+
+         <!-- ひっかけ注意（数値・符号の取り違え） -->
+         <div class="exam-notes" role="note" aria-label="ひっかけ注意">
+           <h3>ひっかけ注意</h3>
+           <ul class="compact">
+             <li><strong>10<sup>−19</sup></strong> を <strong>10<sup>19</sup></strong> と書き間違えない（桁が大違い）。</li>
+             <li>電子は<strong>−e</strong>、陽子は<strong>＋e</strong>。大きさは同じで<strong>符号だけが逆</strong>。</li>
+           </ul>
+         </div>
+
+         <!-- 箔検電器（図は後で差し替え） -->
+         <div class="callout example" role="note" aria-labelledby="foil-electroscope-title">
+           <h3 id="foil-electroscope-title">箔検（はくけん）電器</h3>
+           <p class="compact">
+             帯電の有無を調べる代表的な器具です。金属の<strong>集電板</strong>と導体棒の先に、軽い
+             <strong>金属箔（2枚）</strong>が吊られています（容器はガラスなどの絶縁体）。
+           </p>
+
+           <ul class="compact">
+             <li><strong>① 静電誘導：</strong> 帯電体を集電板に<strong>近づける</strong>と、導体内で電荷が移動し、
+                箔には<strong>同符号</strong>の電荷が集まります。</li>
+             <li><strong>② 反発で開く：</strong> 同符号どうしが<strong>斥力</strong>で反発し、2枚の箔が左右に開きます。</li>
+             <li><strong>③ 接触でより大きく：</strong> 帯電体を<strong>直接触れる</strong>と電荷が移り、開きがさらに大きくなります。</li>
+           </ul>
+
+           <p class="compact">
+             開きの<strong>有無や大きさ</strong>で帯電の有無・強さを確認します（極性の判定は基準電荷と比較して行います）。
+           </p>
+         </div>
+
+         <!-- 図プレースホルダ（後でSVGに差し替え） -->
+         <figure class="formula-card" aria-labelledby="foil-fig-title" aria-describedby="foil-fig-cap">
+           <!-- 画像はローンチ後に差し替え -->
+           <img
+             src="#"
+             alt="箔検電器の概念図：上部に集電板、下部に2枚の金属箔。帯電体を近づけると箔が左右に開く。"
+             class="circuit-svg"
+             loading="lazy" decoding="async" width="800" height="320">
+           <figcaption id="foil-fig-cap">
+             <strong id="foil-fig-title">箔検電器の動き</strong> — 帯電体を近づけると静電誘導で箔に同符号の電荷が集まり、
+             斥力（せきりょく）で<strong>箔が開く</strong>。
+           </figcaption>
+         </figure>
+
+         <!-- ひっかけ注意 -->
+         <div class="exam-notes" role="note" aria-label="ひっかけ注意">
+           <h3>ひっかけ注意</h3>
+           <ul class="compact">
+             <li>箔が開く原因は<strong>同符号どうしの反発</strong>（斥力）。「異符号で引き合う」が混ざりやすい。</li>
+             <li>「近づける（誘導）」でも開く。<strong>接触だけで開く</strong>と覚えない。</li>
+             <li>容器は<strong>絶縁体</strong>で支持（漏えいすると開きが小さくなる）。</li>
+           </ul>
+         </div>
+
+         <!-- 取り扱いの注意（任意） -->
+         <div class="callout warn" role="note" aria-label="取り扱い注意">
+           乾燥環境ではよく開き、湿潤環境では開きにくくなります。測定時は<strong>手で接地（アース）しない</strong>よう注意。
+         </div>
+
+          <!-- 帯電列 -->
+          <div class="callout example" aria-labelledby="charged-series-title">
+            <h3>帯電列（たいでんれつ）</h3>
+              <p class="compact">
+                帯電列とは、2種類の材質を摩擦したり接触分離したとき、プラス側に帯電しやすい材質を上位に、
+                マイナス側に帯電しやすいものを下位に並べた序列の表です。<br>
+                摩擦する材質が帯電列上でより離れていれば、より多くの電荷が移動します。
+              </p>
+          </div>
+
+          <!-- 帯電列の序列表 -->
+          <figure class="formula-card" aria-labelledby="charged-series-title" aria-describedby="charged-series-cap">
+             <img
+               src="../../../phy_svg/帯電列.svg"
+               alt="摩擦する材質が帯電列上でより離れている場合、より多くの電荷が移動する。"
+               class="circuit-svg"
+               sizes="(max-width: 640px) 92vw, 780px"
+               loading="lazy" decoding="async" width="800" height="280">
+             <figcaption id="charged-series-cap">
+               <strong id="charged-series-title">帯電列</strong>
+             </figcaption>
+          </figure>
+
+          <!-- 補足（短く・端正に） -->
+          <div class="callout" role="note" aria-label="確認ポイント">
+            <h3>確認ポイント</h3>
+            <ul class="compact">
+               <li>ガラス棒とナイロンを摩擦➡️ガラス棒は（＋）、ナイロンは（−）に帯電。</li>
+               <li>アクリル棒とナイロンを摩擦➡️ナイロンは（＋）、アクリル棒は（➖）に帯電。</li>
+               <li>毛皮と塩化ビニル管を摩擦➡️毛皮（＋）、塩化ビニル管は（−）に帯電。</li>
+               <li>
+                「ガラス棒×ナイロン」と「ガラス棒×木綿」を摩擦した時を比較すると、<br>
+                序列により開きのある「ガラス棒と木綿」の方が静電気はより多く発生する。</li>
+            </ul>
+          </div> 
+
+        </section>
+
+        <!-- 発生機構 -->
+        <section class="phy-section" id="conductivity" aria-labelledby="conductivity-title">
+          <h2 id="conductivity-title">導電率 σ（シグマ）</h2>
+
+          <div class="band-card">
+            <p>
+              <strong>導電率</strong>（電気伝導率）は、物質の<strong>電気の流れやすさ</strong>を表す量です。
+              値が大きいほど電気を通しやすく、抵抗は小さくなります。
+            </p>
+            <p>
+              導電率は<strong>抵抗率</strong>（流れにくさ）<strong>ρ</strong>の逆数で、
+              <strong>σ = 1 / ρ</strong>。単位は <strong>S/m（ジーメンス毎メートル）</strong>。
+            </p>
+            <p>
+              形状に依存する実際の通しやすさ（コンダクタンス）は
+              <strong>G = σ·A/L</strong>（A：断面積、L：長さ）。抵抗は <strong>R = ρ·L/A</strong>。
+              つまり <em>「材質（σ）×形状」</em>で決まります。
+            </p>
+            <p>
+              液体（電解質）では塩分や酸の濃さの指標として用います。
+              例：食塩水は濃いほど σ↑（※通常は 25℃ への温度換算で管理）。
+            </p>
+          </div>
+
+          <!-- 伝導率の式 -->
+          <figure class="formula-card">
+             <img src="../../../phy_svg/conductivity.svg"
+                  alt="導電率の関係式 σ = 1 / ρ を示す図"
+                  class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+             <figcaption id="conductivity-cap">
+               導電率の式：<span class="math"><code>σ = 1 / ρ</code></span>
+             </figcaption>
+          </figure>
+
+          <!-- 補足（短く・端正に） -->
+          <div class="callout">
+            <h3>確認ポイント</h3>
+              <ul class="compact">
+                <li><strong>定義：</strong>導電率は<strong>通しやすさ</strong>、抵抗率は<strong>通しにくさ</strong>。<code>σ = 1/ρ</code>。</li>
+                <li><strong>形状との関係：</strong>R = ρ·L/A、G = σ·A/L。材質と形状をセットで考える。</li>
+                <li><strong>大小関係の直感：</strong>σ↑ ⇒ R↓（通電良好）。<em>金属</em> &gt; <em>電解質溶液</em> &gt; <em>純水・絶縁体</em>。</li>
+                <li><strong>温度依存：</strong>金属はT↑で<strong>σ↓</strong>（散乱↑）、電解質溶液はT↑で<strong>σ↑</strong>（移動度↑）。</li>
+                <li><strong>単位の実務表記：</strong>測定器は mS/cm を多用。<code>1 mS/cm = 0.1 S/m</code>（<code>1000 μS/cm = 0.1 S/m</code>）。</li>
+                <li><strong>測定のコツ：</strong>塩分換算は“温度補正（25℃換算）+ 検量線”。条件が違うと数値はずれる。</li>
+              </ul>
+          </div>
+        </section>
+
+      <!-- オームの法則 -->
+      <section class="phy-section" id="ohm-law" aria-labelledby="ohm-law-title">
+        <h2 id="ohm-law-title">オームの法則</h2>
+
+        <div class="band-card">
+          <!-- 1) 概要 -->
+          <p class="lead">
+            オームの法則は、抵抗を流れる電流 <em>I</em> がその両端の電圧 <em>V</em> に比例し、
+            抵抗 <em>R</em> に反比例する関係を表します。式は <strong>V = I・R</strong> です。
+          </p>
+          <p>
+            ここでの単位は、<strong>V：</strong>ボルト [V]、<strong>I：</strong>アンペア [A]、
+            <strong>R：</strong>オーム [Ω] を用います。直流（DC）または低周波で、温度がほぼ一定の
+            <strong>「オーム性（線形）抵抗」</strong>に適用します。
+          </p>
+        </div>
+
+        <!-- オームの法則:電流 -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/電流.svg"
+               alt="電流の式"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="current-cap">
+            電流の式：<span class="math">I=V / R</span>
+          </figcaption>
+        </figure>
+
+        <!-- オームの法則:抵抗 -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/抵抗.svg"
+               alt="抵抗の式"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="resistance-cap">
+            抵抗の式：<span class="math">R=V / I</span>
+          </figcaption>
+        </figure>
+
+        <!-- オームの法則:電圧 -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/電圧.svg"
+               alt="電圧の式"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="voltage-cap">
+            電圧の式：<span class="math">V = I R</span>
+          </figcaption>
+        </figure>
+
+        <!-- オームの法則:三角図 -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/オームの法則.svg"
+               alt="指で隠すとよくわかるオームの法則"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="triangle-cap">
+            三角図の使い方：<strong>隠した記号＝残りの二つの関係</strong>（例：Vを隠すと <span class="math">V=I・R</span>）。
+          </figcaption>
+        </figure>
+
+        <!-- 確認ポイント：式の下に置く要点 -->
+        <div class="callout">
+          <h3>確認ポイント</h3>
+          <ul class="compact">
+            <li><strong>適用範囲：</strong>オーム性（線形）抵抗に適用します。温度が上がると抵抗値が変わる場合があり、厳密には V–I が直線でない素子（電球・半導体・整流器など）にはそのまま当てはめません。</li>
+            <li><strong>単位整合：</strong>V [V]、I [A]、R [Ω]。ミリ・キロなどの接頭語に注意しましょう（例：mA＝10<sup>−3</sup>A）。</li>
+            <li><strong>電力の関係：</strong><span class="math">P = V・I = I<sup>2</sup>R = V<sup>2</sup>/R</span>。計算の近道として使います。</li>
+            <li><strong>直列・並列の前提：</strong>直列は電流一定・電圧分担、並列は電圧一定・電流分担。合成後に <span class="math">V=I・R</span> を当てます。</li>
+            <li><strong>温度依存：</strong>金属抵抗は温度上昇で R が増える傾向があります（電球が冷間時に低抵抗なのはこのためです）。</li>
+            <li><strong>測定のコツ：</strong>テスターの内部抵抗やリード線抵抗が結果に影響します。精密計算では配線抵抗もモデル化します。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 直列と並列の合成抵抗 -->
+      <section class="phy-section" id="series-parallel" aria-labelledby="series-parallel-title">
+        <h2 id="series-parallel-title">直列と並列の合成抵抗</h2>
+        <div class="band-card">
+          <p>
+            抵抗のつなぎ方には<strong>直列</strong>と<strong>並列</strong>があります。直列は同じ電流が順番に流れます。
+            並列は同じ電圧が各枝にかかります。合成（等価）抵抗は次の式で求めます。
+          </p>
+        </div>
+
+          <h3 id="series-def-title" class="series-title">直列の定義</h3>
+          <ul class="lead">
+            <li>各抵抗に流れる電流は<strong>同じ</strong>です（電流一定）。</li>
+            <li>電圧は抵抗値に比例して<strong>分担</strong>します（電圧分割）。</li>
+            <li>合成抵抗は<strong>足し算</strong>です：
+              <span class="math">R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + …</span>
+            </li>
+          </ul>
+        
+        <!-- 直列接続（外部SVG読み込み） -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/直列.svg"
+               alt="直列回路：R1→R2→R3を一列に接続した図。合成抵抗は足し算。"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="series-cap">
+            直列の合成抵抗：<span class="math">R<sub>eq</sub>=R<sub>1</sub>+R<sub>2</sub>+R<sub>3</sub></span>
+          </figcaption>
+        </figure>
+
+        <!-- 並列の定義カード -->
+           <h3 id="parallel-def-title" class="parallel-title">並列の定義</h3>
+           <ul class="lead">
+             <li>各抵抗にかかる電圧は<strong>同じ</strong>です（電圧一定）。</li>
+             <li>電流は抵抗値に反比例して<strong>分流</strong>します（電流分割）。</li>
+             <li>合成抵抗は<strong>逆数の和</strong>です：
+               <span class="math">1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub> + …</span>
+             </li>
+           </ul>
+
+        <!-- 並列接続（外部SVG読み込み） -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/並列.svg"
+               alt="並列回路：共通の上下母線にR1・R2・R3が縦に接続された図。合成抵抗は逆数和。"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+            <figcaption id="para-cap">
+              並列の合成抵抗：<span class="math">1/R<sub>eq</sub>=1/R<sub>1</sub>+1/R<sub>2</sub>+1/R<sub>3</sub></span>
+            </figcaption>
+        </figure>
+
+        <!-- 確認ポイント（式カードの直下に置く要点） -->
+        <div class="callout">
+          <h3>確認ポイント</h3>
+          <ul class="compact">
+             <li><strong>直列：</strong>電流はどこでも同じ、電圧は分かれて足し算になります。</li>
+             <li><strong>並列：</strong>電圧はどこでも同じ、電流は枝ごとに分かれて合流します。</li>
+             <li><strong>見分け：</strong>直列は「一本道」、並列は「同じ始点・終点に枝が並ぶ」。</li>
+             <li><strong>直列の電圧分割：</strong><span class="math">V<sub>k</sub> = V·R<sub>k</sub> / R<sub>eq</sub></span> です。合計は元の電圧になります。</li>
+             <li><strong>並列の電流分割：</strong><span class="math">I<sub>k</sub> = I·(R<sub>他</sub>/（R<sub>k</sub>+R<sub>他</sub>）)</span>（2枝のとき）。抵抗が小さい枝ほど電流が多く流れます。</li>
+             <li><strong>ショート／オープンの極端値：</strong>直列に<strong>オープン（∞Ω）</strong>があると <span class="math">R<sub>eq</sub>→∞</span>（電流0）。並列に<strong>ショート（0Ω）</strong>があると <span class="math">R<sub>eq</sub>→0</span> になります。</li>
+             <li><strong>等しい抵抗の簡略式：</strong>直列 n 本は <span class="math">nR</span>、並列 n 本は <span class="math">R/n</span> です。</li>
+             <li><strong>2抵抗の並列ショートカット：</strong>
+               <span class="math">R<sub>eq</sub>=\dfrac{R_1 R_2}{R_1+R_2}</span> を覚えておくと計算が速いです。
+             </li>
+             <li><strong>単位と桁：</strong>kΩ・MΩ、mA などの接頭語に<strong>注意しましょう</strong>。換算ミスが最頻の誤答です。</li>
+          </ul>
+        </div>
+      </section>
+
+    <!-- 電池の仕組み -->
+    <section class="phy-section" id="battery-basics" aria-labelledby="battery-title">
+      <h2 id="battery-title">電池の仕組み</h2>
+
+      <div class="band-card">
+        <p>
+          電池は、<strong>酸化還元反応の化学エネルギーを電気エネルギーに変換する装置</strong>です。
+          金属などの電極を電解液に浸し、外部を導線でつなぐと電流が流れます。
+        </p>
+        <p>
+          <strong>負極（アノード）</strong>では<strong>酸化</strong>が起こり、電子を放出します（電子は外部回路へ流れ出ます）。
+          <strong>正極（カソード）</strong>では<strong>還元</strong>が起こり、外部から来た電子を受け取ります。
+          ※<em>電池（ガルバニ電池）では「負＝アノード」「正＝カソード」</em>です。<em>電気分解</em>では極性が逆なので区別して覚えましょう。
+        </p>
+        <p>
+          溶液中では電荷のつり合いを保つために<strong>イオン</strong>が移動します（電解液・塩橋・セパレータの役割）。
+          <strong>電子の流れは負極→正極、電流の向き（約束）は正極→負極</strong>です。
+        </p>
+      </div>
+
+      <!-- 代表例（ダニエル電池：理解の型） -->
+      <div class="callout example" aria-labelledby="daniel-title">
+        <h3>代表例（ダニエル電池の型）</h3>
+        <p class="compact">
+          負極：Zn → Zn<sup>2+</sup> + 2e<sup>−</sup>（酸化）<br>
+          正極：Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu（還元）
+        </p>
+        <p class="compact">
+          起電力 <strong>E</strong> は両極の電位差で決まり、濃度が変わると反応の進みやすさが変わります（実務では温度・濃度条件をそろえて測定します）。
+        </p>
+      </div>
+
+      <!-- 確認ポイント（式カードの下に置く用の要点） -->
+      <div class="callout">
+        <h3>確認ポイント</h3>
+        <ul class="compact">
+          <li><strong>語の対応：</strong>電池（発電）では「負＝アノード（酸化）」「正＝カソード（還元）」です。</li>
+          <li><strong>流れの向き：</strong>電子は 負極→正極、電流の約束の向きは 正極→負極 です。</li>
+          <li><strong>イオンの役割：</strong>外部は電子、内部はイオンが回路を完成させます（塩橋・セパレータ）。</li>
+          <li><strong>起電力と端子電圧：</strong>端子電圧は <code>V = E − I r</code>（r：内部抵抗）で下がります。電流が大きいほど電圧降下が大きくなります。</li>
+          <li><strong>シリーズ／パラレル：</strong>直列で電圧が加算、並列で電流供給力が増加（内部抵抗は並列で低下）します。</li>
+          <li><strong>覚え方：</strong><em>「酸化は負極・還元は正極」</em>（<span aria-label="語呂">サンカはマイ、ゲンはプラ</span>）で混乱を防ぎます。</li>
+          <li><strong>安全面：</strong>漏液やガス発生は腐食性・可燃性の危険があります。作業時は換気と保護具を使用します。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 起電力の大きさ -->
+    <section class="phy-section" id="emf" aria-labelledby="emf-title">
+      <h2 id="emf-title">起電力の大きさ</h2>
+
+      <div class="band-card">
+        <p><strong>起電力</strong>（E）は、電池の2電極間に生じる理想的な電位差（外部に電流を流さないときの電圧）です。</p>
+        <p>起電力はおおまかに<strong>両電極のイオン化傾向（標準電極電位）の差</strong>で決まります。差が大きいほど E は大きくなります。</p>
+      </div>
+
+      <!-- 確認ポイント（緑コールアウト） -->
+      <div class="callout">
+        <h3>確認ポイント</h3>
+        <ul class="compact">
+          <li><strong>極性：</strong> 正極＝還元、負極＝酸化。外部回路の電子の流れは<strong>負極 → 正極</strong>です。</li>
+          <li><strong>無負荷 vs 実測：</strong> 起電力 <span class="math">E</span> は“無負荷電圧”。実際に電流が流れると端子電圧は
+            <span class="math">V = E − I r</span> で<strong>Eより小さくなります</strong>（内部抵抗による電圧降下）。</li>
+          <li><strong>直列・並列：</strong> 直列では<strong>E も r も加算</strong>、並列では<strong>Eは同じで r が低下</strong>して電流供給力が上がります。</li>
+          <li><strong>極性の見分け：</strong> 金属のイオン化傾向が<strong>大きい方が負極</strong>（溶けやすい）です。</li>
+          <li><strong>代表値の目安：</strong> ダニエル電池は起電力およそ<strong>1.10 V</strong>です（用語確認レベル）。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ひっかけ注意（緑トーンで運用） -->
+    <section class="summary" id="summary-list"> 
+      <div class="exam-notes">
+        <h3>ひっかけ注意</h3>
+        <ul class="compact">
+          <li><strong>端子電圧＝起電力</strong>と決めつけない。負荷をつないだ瞬間、
+            <span class="math">V = E − I r</span> で<strong>コツンと下がる</strong>。</li>
+
+          <li><strong>濃度が高いほど必ず E が大きい</strong>とは限らない。まずは<strong>極の組合せ（イオン化傾向の差）</strong>で考える。
+            迷ったら「<strong>負極＝イオン化傾向が大きい金属</strong>」で整理。</li>
+
+          <li><strong>電子の流れ</strong>と<strong>電流の向き（約束）</strong>は逆。
+            外部回路は「<strong>電子：負極 → 正極</strong>」「<strong>電流：正極 → 負極</strong>」。</li>
+
+          <li><strong>直列・並列の取り違え</strong>に注意。直列は<strong>E も r も足し算</strong>。並列は<strong>E は同じで r が小さく</strong>なり、電流を出しやすい。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 主な電池の起電力と素材 -->
+    <section class="phy-section" id="battery-table" aria-labelledby="battery-table-title">
+      <h2 id="battery-table-title">主な電池の起電力と素材</h2>
+      <!-- 一時電池 -->
+      <h3>一次電池</h3>
+      <div class="table-container table-scroll">
+        <table class="styled-table sticky-first-col table-fixed styled-table--battery">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+          <caption class="sr-only">一次電池の起電力と素材</caption>
+          <thead>
+            <tr>
+              <th class="sticky" scope="col">電池の種類</th>
+              <th>起電力</th>
+              <th>正極</th>
+              <th>負極</th>
+              <th class="break-slash">電解液/電解質</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <th class="sticky" scope="row">マンガン乾電池</th>
+             <td>1.5V</td>
+             <td>二酸化マンガン</td>
+             <td>亜鉛</td>
+             <td>塩化亜鉛/塩化アンモニウム</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">アルカリ<br>マンガン乾電池</th>
+              <td>約1.5V</td>
+              <td>二酸化マンガン</td>
+              <td>亜鉛</td>
+              <td>水酸化カリウム</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">リチウム電池</th>
+              <td>約3.0V</td>
+              <td>二酸化マンガン<br>硫化鉄など</td>
+              <td>リチウム</td>
+              <td>非水系<br>有機電解液</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">酸化銀電池</th>
+              <td>約1.55V</td>
+              <td>酸化銀</td>
+              <td>亜鉛</td>
+              <td>水酸化カリウム<br>水酸化ナトリウム</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">空気亜鉛電池</th>
+              <td>約1.3V</td>
+              <td>酸素</td>
+              <td>亜鉛</td>
+              <td>水酸化ナトリウム</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>※一次電池：放電のみの使い切り</p>
+      </div>
+
+      <!-- 二時電池 -->
+      <h3>二次電池</h3>
+      <div class="table-container table-scroll">
+        <table class="styled-table sticky-first-col table-fixed styled-table--battery">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+          <caption class="sr-only">二次電池</caption>
+          <thead>
+            <tr>
+              <th class="sticky" scope="col">電池の種類</th>
+              <th>起電力</th>
+              <th>正極</th>
+              <th>負極</th>
+              <th class="break-slash">電解液/電解質</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <th class="sticky" scope="row">鉛蓄電池</th>
+             <td>約2.0V</td>
+             <td>二酸化鉛</td>
+             <td>鉛</td>
+             <td>希硫酸</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">ニッケル<br>カドミウム電池</th>
+              <td>約1.3V</td>
+              <td>ニッケル酸化物</td>
+              <td>カドミウム</td>
+              <td>水酸化カリウム</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">ニッケル<br>水素電池</th>
+              <td>約1.35V</td>
+              <td>ニッケル酸化物</td>
+              <td>水素吸蔵<br>合金</td>
+              <td>水酸化カリウム</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">リチウム<br>イオン電池</th>
+              <td>約4.0V</td>
+              <td>リチウム複合<br>酸化物</td>
+              <td>炭素</td>
+              <td>非水系<br>有機電解液</td>
+            </tr>
+            <tr>
+              <th class="sticky" scope="row">ナトリウム<br>硫黄電池</th>
+              <td>約2.1V</td>
+              <td>硫黄</td>
+              <td>ナトリウム</td>
+              <td>β・アルミナ</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>※二次電池：外部電池からの充電で繰り返し使用。</p>
+      </div>
+    </section>
+
+    <!-- ひっかけ注意（緑トーンで運用） -->
+    <section class="summary" id="summary-list"> 
+      <div class="exam-notes">
+        <h3>ひっかけ注意</h3>
+        <ul class="compact">
+          <li><strong>アルカリ＝水酸化カリウム、マンガン乾電池＝塩化アンモニウム/塩化亜鉛</strong>。
+            入れ替えひっかけ注意。
+          </li>
+
+          <li><strong>酸化銀電池＝約1.55V、空気亜鉛＝約1.3V</strong>
+            （1.5Vと混同させる出題アリ）。
+          </li>
+
+          <li><strong>二次電池：鉛＝希硫酸、NiMH＝KOH、Li-ion＝非水系</strong>。
+            電解液セットで覚える。
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  <!-- インタラクティブクイズ -->
+  <section class="quiz-section">
+    <h2 id="quiz-label">クイズ</h2>
+
+    <form id="quiz-form" class="quiz" aria-labelledby="quiz-label">
+      <fieldset>
+        <legend id="q1-label">
+          オームの法則に<strong>該当しない</strong>のは次のうちどれか。
+        </legend>
+
+    <div class="quiz-options" role="radiogroup" aria-labelledby="q1-label">
+        <div class="quiz-option">
+          <input id="q1-opt3" type="radio" name="q1" value="opt3" data-correct="true" />
+          <label for="q1-opt3">V=IS</label>
+        </div>
+
+        <div class="quiz-option">
+          <input id="q1-opt1" type="radio" name="q1" value="opt1" data-correct="false" />
+          <label for="q1-opt1">R=V/I</label>
+        </div>
+
+        <div class="quiz-option">
+          <input id="q1-opt2" type="radio" name="q1" value="opt2" data-correct="false" />
+          <label for="q1-opt2">V=IR</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <div class="quiz-feedback" role="status" aria-live="polite" hidden tabindex="-1"></div>
+
+    <div class="quiz-retry-wrap" hidden>
+      <button type="button" class="quiz-retry" aria-label="もう一度挑戦する">もう一度挑戦する</button>
+    </div>
+  </form>
+
+  <script>
+    (() => {
+      const root  = document.currentScript.closest('.quiz-section') || document;
+      const quiz  = root.querySelector('#quiz-form');
+      if (!quiz) return;
+
+      const radios = Array.from(quiz.querySelectorAll('input[type="radio"]'));
+      const options = radios.map(r => r.closest('.quiz-option'));
+      const fb     = quiz.querySelector('.quiz-feedback');
+      const retryW = quiz.querySelector('.quiz-retry-wrap');
+      const retry  = quiz.querySelector('.quiz-retry');
+
+      function setState(el, state){ el?.classList.toggle('is-correct', state==='correct');
+                                   el?.classList.toggle('is-wrong',   state==='wrong'); }
+      function lockUI(lock){
+        radios.forEach(r => r.disabled = lock);
+        options.forEach(o => o?.classList.toggle('is-locked', lock));
+      }
+      function resetUI(){
+        radios.forEach(r => { r.checked = false; r.disabled = false; r.removeAttribute('aria-invalid'); });
+        options.forEach(o => { o?.classList.remove('is-correct','is-wrong','is-locked'); });
+        if (fb) { fb.hidden = true; fb.textContent = ''; }
+        if (retryW) retryW.hidden = true;
+        radios[0]?.focus();
+      }
+
+      quiz.addEventListener('change', (e) => {
+        const picked = e.target;
+        if (!(picked instanceof HTMLInputElement) || picked.type !== 'radio') return;
+
+        const opt = picked.closest('.quiz-option');
+        const isCorrect = picked.dataset.correct === 'true';
+
+        options.forEach(o => o?.classList.remove('is-correct','is-wrong'));
+        radios.forEach(r => r.removeAttribute('aria-invalid'));
+
+        if (fb) {
+          fb.hidden = false;
+          if (isCorrect) {
+            fb.textContent = '✅ 正解です！「V=IS」はオームの法則ではありません。正しくは「V=IR、I=V/R、R=V/I」です。';
+            setState(opt, 'correct');
+          } else {
+            if (picked.value === 'opt1') {
+              fb.textContent = '❌ 不正解です。「R=V/I」はオームの法則です。';
+            } else if (picked.value === 'opt2') {
+              fb.textContent = '❌ 不正解です。「V=IR」はオームの法則です。';
+            } else {
+              fb.textContent = '❌ 不正解です。';
+            }
+            picked.setAttribute('aria-invalid', 'true');
+            setState(opt, 'wrong');
+          }
+          fb.focus({ preventScroll: true });
+          fb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        lockUI(true);
+        if (retryW) retryW.hidden = false;
+      });
+
+      retry?.addEventListener('click', resetUI);
+    })();
+  </script>
+
+    <p>次は<strong>第2章10節：静電気</strong>に進みまます。</p>
+    </section>
+
+    <!-- 次の基礎知識に進むのボタン -->
+    <section class="next-button">
+      <a href="static_electricity/Otsux_Phy_Static_Electricity_001.html" class="button">静電気</a>
+    </section>
+    </main> 
+  </div>
+ 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a> ／
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>
