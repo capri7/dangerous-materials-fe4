@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!target) return;
 
     // 要素自身がマッチするセレクタに修正（navスコープ内なのでこれで十分）
-    const t = target.closest('#link-logout, a.logout, [data-action="logout"]');
+    const t = target.closest('#logout-link, a.logout, [data-action="logout"]');
     if (!t) return;
     t.blur?.();
 
