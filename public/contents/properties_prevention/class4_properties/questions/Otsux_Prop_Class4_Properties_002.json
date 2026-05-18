@@ -6,15 +6,15 @@
 
   "question": "次の危険物のうち、水より重いものはどれか。",
 
-  "fields": ["class"],
+  "fields": ["description"],
   "headers": [""],
 
   "choices": [
-    { "name": "1", "class": "軽油" },
-    { "name": "2", "class": "二硫化炭素" },
-    { "name": "3", "class": "トルエン" },
-    { "name": "4", "class": "メタノール" },
-    { "name": "5", "class": "エチルメチルケトン" }
+    { "name": "1", "description": "軽油" },
+    { "name": "2", "description": "二硫化炭素" },
+    { "name": "3", "description": "トルエン" },
+    { "name": "4", "description": "メタノール" },
+    { "name": "5", "description": "エチルメチルケトン" }
   ],
 
   "answer": 2,
