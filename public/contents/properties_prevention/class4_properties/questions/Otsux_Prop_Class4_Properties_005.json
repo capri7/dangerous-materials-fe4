@@ -8,6 +8,7 @@
 
   "fields": ["description"],
   "headers": [""],
+  
   "choices": [
   { "name": "1", "description": "非水溶性のものは、流動、かくはんなどにより静電気が発生し、蓄積しやすい。"},
   { "name": "2", "description": "水溶性のものは、水で薄めると引火点が低くなる。"},
