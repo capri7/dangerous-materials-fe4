@@ -383,7 +383,7 @@
 /* ============================================================
    7. マイページのイメージ（スマホモック）
    ============================================================ */
-.section-dashboard {
+.home .section-dashboard {
   background: #f0f5ff !important;
   border-radius: var(--radius-lg) !important;
   padding: 40px 32px !important;
