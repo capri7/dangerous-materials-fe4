@@ -532,7 +532,7 @@
   position: relative !important;
   overflow: hidden !important;
   max-width: 1052px !important;
-  margin: 0 auto !important;
+  margin: 0 24px 56px !important;
 }
 
 .section-cta::before {
@@ -646,6 +646,10 @@
     padding: 8px 0 24px !important;
     z-index: 1100 !important;
     margin-left: 0 !important;
+  }
+
+  .section-cta {
+    margin: 0 16px 40px !important;
   }
 
   .site-header.nav-open .nav-links {
