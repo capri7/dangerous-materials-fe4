@@ -676,13 +676,14 @@
   }
 
   .hero-ctas {
-    flex-direction: column !important;
-    align-items: stretch !important;
+  flex-direction: column !important;
+  align-items: center !important;
   }
 
   .hero-ctas .btn {
-    width: 100% !important;
-    min-width: 0 !important;
+    width: auto !important;
+    min-width: 260px !important;
+    max-width: 320px !important;
   }
 
   .home .section {
