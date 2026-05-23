@@ -24,7 +24,13 @@
    ============================================================ */
 .site-header {
   background: var(--navy);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: none !important;
+}
+
+/* パンくずリストの上の線を消す */
+.breadcrumbs {
+  border-top: none !important;
+  border-bottom: 1px solid var(--border);
 }
 
 /* header-container と nav-links を横並びに統合 */
@@ -121,12 +127,12 @@
 }
 
 .hero-inner {
-  max-width: 680px;
+  max-width: 860px !important;
   margin: 0 auto;
 }
 
 .hero-title {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(32px, 5vw, 52px) !important;
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
@@ -173,9 +179,9 @@
 }
 
 .hero-ctas .btn {
-  font-size: 14px;
-  padding: 13px 28px;
-  min-width: 200px;
+  font-size: 16px !important;
+  padding: 15px 32px !important;
+  min-width: 240px !important;
   border-radius: 8px;
 }
 
