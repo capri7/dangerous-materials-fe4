@@ -531,9 +531,8 @@
   text-align: center !important;
   position: relative !important;
   overflow: hidden !important;
-  width: calc(100% - 48px) !important;  /* 追加 */
   max-width: 1052px !important;
-  margin: 40 auto 56px !important;
+  margin: 40px auto 56px !important;
 }
 
 .section-cta::before {
