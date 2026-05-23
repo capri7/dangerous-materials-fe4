@@ -30,7 +30,6 @@
 /* パンくずリストの上の線を消す */
 .breadcrumbs {
   border-top: none !important;
-  border-bottom: 1px solid var(--border);
 }
 
 /* header-container と nav-links を横並びに統合 */
