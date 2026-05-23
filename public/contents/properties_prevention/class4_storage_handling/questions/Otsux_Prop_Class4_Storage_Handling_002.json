@@ -9,15 +9,15 @@
     "「第4類危険物の貯蔵および取扱いにあたっては、炎、火花または（A）との接近を避けるとともに、発生した蒸気を屋外の（B）に排出するか、または（C）を良くして蒸気の拡散を図る。また、容器に収納する場合は、（D）危険物を詰め、蒸気が漏えいしないように密栓をする。」"
   ],
 
-  "fields": ["property1", "property2", "property3", "property4"],
+  "fields": ["description1", "description2", "description3", "description4"],
   "headers": ["A", "B", "C", "D"],
 
   "choices": [
-  { "name": "1", "property1": "可燃物", "property2": "低所", "property3": "通風", "property4": "若干の空間を残して"},
-  { "name": "2", "property1": "可燃物", "property2": "低所", "property3": "通風", "property4": "一杯に"},
-  { "name": "3", "property1": "高温体", "property2": "高所", "property3": "通風", "property4": "若干の空間を残して"},
-  { "name": "4", "property1": "水分", "property2": "高所", "property3": "冷暖房", "property4": "若干の空間を残して"},
-  { "name": "5", "property1": "高温体", "property2": "低所", "property3": "冷暖房", "property4": "一杯に"}
+  { "name": "1", "description1": "可燃物", "description2": "低所", "description3": "通風", "description4": "若干の空間を残して"},
+  { "name": "2", "description1": "可燃物", "description2": "低所", "description3": "通風", "description4": "一杯に"},
+  { "name": "3", "description1": "高温体", "description2": "高所", "description3": "通風", "description4": "若干の空間を残して"},
+  { "name": "4", "description1": "水分", "description2": "高所", "description3": "冷暖房", "description4": "若干の空間を残して"},
+  { "name": "5", "description1": "高温体", "description2": "低所", "description3": "冷暖房", "description4": "一杯に"}
   ],
 
   "answer": 3,

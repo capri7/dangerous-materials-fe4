@@ -13,15 +13,15 @@
     "D. 移し替え・注入などの取扱いでは、静電気による着火を防ぐため、容器や機器の接地（アース）や流速の抑制などの措置を行う。"
   ],
 
-  "fields": ["property"],
+  "fields": ["description"],
   "headers": [""],
 
   "choices": [
-    { "name": "1", "property": "AとB" },
-    { "name": "2", "property": "AとC" },
-    { "name": "3", "property": "BとC" },
-    { "name": "4", "property": "BとD" },
-    { "name": "5", "property": "CとD" }
+    { "name": "1", "description": "AとB" },
+    { "name": "2", "description": "AとC" },
+    { "name": "3", "description": "BとC" },
+    { "name": "4", "description": "BとD" },
+    { "name": "5", "description": "CとD" }
   ],
 
   "answer": 5,

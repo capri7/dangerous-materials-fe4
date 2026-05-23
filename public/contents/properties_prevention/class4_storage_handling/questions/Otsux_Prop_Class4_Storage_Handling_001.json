@@ -13,14 +13,14 @@
     "D. 蒸気が滞留する恐れがある場所で使用する電気設備は防爆構造のものとする。"
   ],
 
-  "fields": ["property"],
+  "fields": ["description"],
   "headers": [""],
   "choices": [
-  { "name": "1", "property": "AとB"},
-  { "name": "2", "property": "AとC"},
-  { "name": "3", "property": "BとC"},
-  { "name": "4", "property": "BとD"},
-  { "name": "5", "property": "CとD"}
+  { "name": "1", "property": "description"},
+  { "name": "2", "property": "description"},
+  { "name": "3", "property": "description"},
+  { "name": "4", "property": "description"},
+  { "name": "5", "property": "description"}
   ],
 
   "answer": 1,
