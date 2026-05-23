@@ -532,7 +532,7 @@
   position: relative !important;
   overflow: hidden !important;
   max-width: 1052px !important;
-  margin: 0 auto 56px !important;
+  margin: 52 auto 56px !important;
 }
 
 .section-cta::before {
