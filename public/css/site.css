@@ -152,7 +152,6 @@ a:hover {
   width: 100%;
   background: var(--navy);
   z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .header-container {
@@ -265,7 +264,6 @@ a:hover {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   background: var(--white);
-  border-bottom: 1px solid var(--border);
 }
 
 .breadcrumbs::-webkit-scrollbar { display: none; }
