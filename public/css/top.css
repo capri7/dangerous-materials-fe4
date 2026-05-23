@@ -386,12 +386,10 @@
 .section-dashboard {
   background: #f0f5ff !important;
   border-radius: var(--radius-lg) !important;
-  padding: 0 32px 40px !important;
+  padding: 40px 32px !important;
   max-width: 1052px !important;
   margin: 0 auto !important;
 }
-
-
 
 .dash-hero {
   max-width: 1000px;
