@@ -391,6 +391,11 @@
   margin: 0 auto !important;
 }
 
+.home .section-dashboard .section-title {
+  margin-left: 24px !important;
+  margin-right: 24px !important;
+}
+
 .dash-hero {
   max-width: 1000px;
   margin: 0 auto;
