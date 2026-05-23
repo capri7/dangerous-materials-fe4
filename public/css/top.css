@@ -724,7 +724,7 @@
 
   .hero-buttons {
     flex-direction: column !important;
-    align-items: stretch !important;
+    align-items: center !important;
   }
 
   .hero-buttons .btn {
