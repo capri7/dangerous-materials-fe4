@@ -384,7 +384,7 @@
    7. マイページのイメージ（スマホモック）
    ============================================================ */
 .section-dashboard {
-  background: linear-gradient(135deg, #eef2ff 0%, #e0f2fe 50%, #f0f9ff 100%) !important;
+  background: #f0f5ff !important;
   border-radius: var(--radius-lg) !important;
   padding: 40px 32px !important;
   max-width: 1052px !important;
