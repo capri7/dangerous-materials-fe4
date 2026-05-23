@@ -386,9 +386,15 @@
 .section-dashboard {
   background: #f0f5ff !important;
   border-radius: var(--radius-lg) !important;
-  padding: 40px 32px !important;
+  padding: 0 32px 40px !important;
   max-width: 1052px !important;
   margin: 0 auto !important;
+}
+
+.section-dashboard .dash-title {
+  background: var(--bg) !important;
+  margin: 0 -32px 24px !important;
+  padding: 24px 32px !important;
 }
 
 .dash-hero {
@@ -423,6 +429,11 @@
   margin: 0 0 16px !important;
   border: none !important;
   padding: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 24px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
 }
 
 .dash-points {
