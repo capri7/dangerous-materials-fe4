@@ -73,7 +73,6 @@
 
   /* 後方互換 */
   --card-shadow:   var(--shadow-sm);
-  --radius:        var(--radius);
 }
 
 
