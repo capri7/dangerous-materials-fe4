@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="900" height="320" viewBox="0 0 900 320"
+     preserveAspectRatio="xMidYMid meet">
+  <title>火気厳禁（寸法入り例示）</title>
+  <desc>赤地・白字。高さ0.3m以上、長さ0.6m以上の例示。矢印と寸法表示付き（枠なし・角丸なし）。</desc>
+
+  <defs>
+    <style>
+      .stroke { stroke:#000; stroke-width:2; vector-effect:non-scaling-stroke; }
+      .panel  { fill:#e53935; } /* 明るめの赤 */
+      .label  { fill:#fff; font:700 64px/1 "Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo",sans-serif; }
+      .dim    { fill:#000; font:600 18px/1.3 "Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo",sans-serif; letter-spacing:.02em; }
+    </style>
+
+    <!-- 矢印マーカー（黒） -->
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 10,5 0,10Z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <!-- 標識パネル（枠なし・角丸なし） -->
+  <rect x="120" y="70" width="660" height="180" class="panel"/>
+
+  <!-- 文言（中央） -->
+  <text class="label" x="450" y="160" text-anchor="middle" dominant-baseline="middle">火気厳禁</text>
+
+  <!-- 右側：高さ寸法（0.3m以上） -->
+  <g aria-label="高さ0.3m以上">
+    <line x1="820" y1="70" x2="820" y2="250" class="stroke"
+          marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
+    <text class="dim" x="840" y="146">0.3m</text>
+    <text class="dim" x="840" y="170">以上</text>
+  </g>
+
+  <!-- 下側：長さ寸法（0.6m以上）— パネル幅いっぱい -->
+  <g aria-label="長さ0.6m以上">
+    <line x1="120" y1="305" x2="780" y2="305" class="stroke"
+          marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
+    <text class="dim" x="450" y="288" text-anchor="middle">0.6m 以上</text>
+  </g>
+</svg>

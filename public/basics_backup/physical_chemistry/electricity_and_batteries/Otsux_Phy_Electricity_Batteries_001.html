@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9D6XGBJWTC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9D6XGBJWTC');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基礎知識 | 第2章 9節：電気の計算・電池</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/hamburger.css">
+  <link rel="stylesheet" href="/css/basics.css">
+  <link rel="stylesheet" href="/css/electricity_and_batteries.css">
+  <link rel="stylesheet" href="/css/quiz_v2.css">
+
+  <base href="/basics/physical_chemistry/">
+</head>
+
+<body class="basics">
+  <header class="site-header basics-header">
+    <div class="header-container">
+      <a href="/index.html"><img src="/images/logo.svg" alt="ロゴ" class="logo"></a>
+      <h1 class="site-title">基礎知識 | 第2章 9節：電気の計算・電池</h1>
+      <button class="hamburger" aria-label="メニュー開閉" aria-expanded="false" aria-controls="site-nav" type="button">
+        <span></span><span></span><span></span></button>
+    </div>
+    <nav class="nav-links" id="site-nav" aria-label="メインメニュー">
+      <a href="/index.html">トップ</a>
+      <a href="/basics/" class="active">基礎知識</a>
+      <a href="/contents/">練習問題</a>
+      <a href="/mypage.html">マイページ</a>
+      <a id="link-checkout" href="/checkout.html" class="nav-link hidden">購入</a>
+      <a href="#" class="nav-link logout">ログアウト</a>      
+    </nav>
+  </header>
+
+  <!-- パンくず -->
+  <nav class="breadcrumbs" aria-label="パンくずリスト">
+    <a href="/index.html">トップ</a> &gt;
+    <a href="/basics/index.html">基礎知識</a> &gt;
+    <span>第2章 9節：電気の計算・電池</span>
+  </nav>
+
+  <div class="main-container">
+    <main class="site-main">
+
+      <!-- ▼ 第2章トーン適用スコープ（緑系） -->
+      <!-- 1. 抵抗率 -->
+      <section class="phy-section" id="resistivity" aria-labelledby="resistivity-title">
+          <h2 id="resistivity-title">抵抗率 ρ（ロー）</h2>
+
+          <!-- 左帯つきの要点カード -->
+          <div class="band-card">
+            <p class="muted nowrap">抵抗の基本関係：</p>
+            <p>導体の抵抗 <strong>R</strong> は「<strong>長さ l に比例</strong>」「<strong>断面積 S に反比例</strong>」。  
+               物質ごとの固有値 <strong>ρ（抵抗率）</strong> を用いると、次式で表されます。</p>
+          </div>
+
+          <!-- 数式と図 -->
+          <figure class="formula-card">
+            <img
+              src="../../../phy_svg/resistivity.svg"
+              alt="抵抗率の関係式 R = ρ · l / S を示す図"
+              class="circuit-svg" 
+              sizes="(max-width: 640px) 92vw, 780px" 
+              loading="lazy" 
+              decoding="async" 
+              width="800" 
+              height="280">
+            
+            <figcaption id="resistivity-cap">
+              抵抗率の式：<span class="math">R = ρ·<span class="math-ell">ℓ</span>/S</span>
+            </figcaption>
+          </figure>
+
+          <!-- 補足（短く・端正に） -->
+          <div class="callout">
+          <h3>覚えよう！</h3>
+            <ul class="compact">
+              <li><strong>ρ は物質固有値</strong>（材質で決まる）。</li>
+              <li>定義：<strong>断面積 1&nbsp;m²</strong>、<strong>長さ 1&nbsp;m</strong>の導体の両端の抵抗。</li>
+              <li>長さ <span class="math-ell">ℓ</span> と断面積 <em>S</em> の影響は<strong>逆方向</strong>（<span class="math-ell">ℓ</span>↑→R↑、S↑→R↓）。</li>
+              <li>単位は <strong>Ω・m（オーム・メートル）</strong>。</li>
+            </ul>
+          </div>
+
+          <!-- 出る出るポイント（試験で刺さるところだけ） -->
+          <div class="exam-notes" role="note" aria-label="出る出るポイント">
+            <h4>出る出るポイント</h4>
+            <ul class="compact">
+              <li>
+                  <strong>比例・反比例は式で固定：</strong><br>
+                  <span class="math-block">R = ρ · ℓ / S</span><br>
+                  同じ材質なら <strong>ρ</strong> は一定として扱う。
+              </li>
+              <li><strong>断面積Sの落とし穴</strong>：<em>直径が2倍</em> → <em>断面積は4倍</em> → <em>Rは1/4</em>。半径・直径の<strong>2乗</strong>を忘れない。</li>
+              <li><strong>単位換算で落とす</strong>：mm² → m²（<code>1 mm² = 1×10⁻⁶ m²</code>）。Sの換算ミスは即死。</li>
+              <li><strong>ρが小さいほど通しやすい</strong>（導体寄り）、ρが大きいほど通しにくい（絶縁体寄り）。次の「導電率σ」とセットで来る。</li>
+              <li><strong>定義の言い換え</strong>：「<em>1mの長さ</em>」「<em>1m²の断面積</em>」の導体の抵抗＝抵抗率ρ。文章問題でそのまま出る。</li>
+            </ul>
+          </div>
+      </section>
+
+      <!-- 導電率 -->
+      <section class="phy-section" id="conductivity" aria-labelledby="conductivity-title">
+        <h2 id="conductivity-title">導電率 σ（シグマ）</h2>
+
+          <div class="band-card">
+            <p>
+              <strong>導電率</strong>（電気伝導率）は、物質の<strong>電気の流れやすさ</strong>を表す量です。
+              値が大きいほど電気を通しやすく、抵抗は小さくなります。
+            </p>
+            <p>
+              導電率は<strong>抵抗率</strong>（流れにくさ）<strong>ρ</strong>の逆数で、
+              <strong>σ = 1 / ρ</strong>。単位は <strong>S/m（ジーメンス毎メートル）</strong>。
+            </p>
+            <p>
+              形状に依存する実際の通しやすさ（コンダクタンス）は
+              <strong>G = σ·A/L</strong>（A：断面積、L：長さ）。抵抗は <strong>R = ρ·L/A</strong>。
+              つまり <em>「材質（σ）×形状」</em>で決まります。
+            </p>
+            <p>
+              液体（電解質）では塩分や酸の濃さの指標として用います。
+              例：食塩水は濃いほど σ↑（※通常は 25℃ への温度換算で管理）。
+            </p>
+          </div>
+
+          <!-- 伝導率の式 -->
+          <figure class="formula-card">
+             <img src="../../../phy_svg/conductivity.svg"
+                  alt="導電率の関係式 σ = 1 / ρ を示す図"
+                  class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+             <figcaption id="conductivity-cap">
+               導電率の式：<span class="math"><code>σ = 1/ρ</code></span>
+             </figcaption>
+          </figure>
+
+          <!-- 覚えよう！（核だけ残す） -->
+          <div class="callout">
+            <h3>覚えよう！</h3>
+              <ul class="compact">
+                <li><strong>定義：</strong>導電率は<strong>通しやすさ</strong>、抵抗率は<strong>通しにくさ</strong>。</li>
+                <li><strong>関係式：</strong><span class="math-badge">σ = 1/ρ</span></li>
+                <li><strong>単位：</strong>σ：<strong>S/m</strong>、ρ：<strong>Ω·m</strong></li>
+                <li><strong>形状とセット：</strong><span class="math-badge">R = ρ·L/A</span>、<span class="math-badge">G = σ·A/L</span></li>
+              </ul>
+          </div>
+
+          <!-- 出る出るポイント！（罠だけ） -->
+          <div class="exam-notes">
+            <h4>出る出るポイント</h4>
+              <ul class="compact">
+                <li><strong>逆数トラップ：</strong>ρ↑ならσ↓。大小関係を<strong>逆</strong>に書かせる。</li>
+                <li><strong>単位トラップ：</strong>Gの単位は<strong>S</strong>、σは<strong>S/m</strong>（ここ混ぜて落とす）。</li>
+                <li><strong>換算で落とす：</strong><span class="math-badge">1 mS/cm = 0.1 S/m</span>（mS/cm ⇄ S/m）。</li>
+                <li><strong>温度依存：</strong>金属はT↑でσ↓、電解質溶液はT↑でσ↑（これも逆にしがち）。</li>
+                <li><strong>純水の扱い：</strong>純水はσが小さい。塩分が混ざるとσ↑（“純水も通す”は×）。</li>
+              </ul>
+          </div>
+      </section>
+
+      <!-- オームの法則 -->
+      <section class="phy-section" id="ohm-law" aria-labelledby="ohm-law-title">
+        <h2 id="ohm-law-title">オームの法則</h2>
+
+        <div class="band-card">
+          <p class="lead">
+            オームの法則は、<strong>抵抗 R</strong> の両端の電圧 <em>V</em> と電流 <em>I</em> の関係を表します。
+            基本式は <strong><span class="math"><code>V = I・R</code></span></strong> です。
+          </p>
+          <p>
+            したがって、同じ抵抗では <em>V</em> を上げると <em>I</em> は増え、同じ電圧では <em>R</em> を大きくすると <em>I</em> は小さくなります。
+            ここでの単位は <strong>V：</strong>ボルト [V]、<strong>I：</strong>アンペア [A]、<strong>R：</strong>オーム [Ω] を用います。
+          </p>
+          <p>
+            オームの法則は、直流（DC）や低周波で、<strong>V–I の関係が直線</strong>になる
+            <strong>「オーム性（線形）抵抗」</strong>に適用します（温度変化が大きい場合は注意）。
+          </p>
+        </div>
+
+        <!-- 式（並びを揃える） -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/電圧.svg"
+               alt="電圧の式 V = I・R"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px"
+               loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="voltage-cap">
+               電圧の式：<span class="math"><code>V = I・R</code></span>
+          </figcaption>
+        </figure>
+
+        <figure class="formula-card">
+          <img src="../../../phy_svg/電流.svg"
+               alt="電流の式 I = V / R"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px"
+               loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="current-cap">
+            電流の式：<span class="math"><code>I = V/R</code></span>
+          </figcaption>
+        </figure>
+
+        <figure class="formula-card">
+          <img src="../../../phy_svg/抵抗.svg"
+               alt="抵抗の式 R = V / I"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px"
+               loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="resistance-cap">
+               抵抗の式：<span class="math"><code>R = V/I</code></span>
+          </figcaption>
+        </figure>
+
+        <figure class="formula-card">
+          <img src="../../../phy_svg/オームの法則.svg"
+               alt="オームの法則の三角図（V, I, R）"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px"
+               loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="triangle-cap">
+            三角図の使い方：<strong>隠した記号＝残り 2 つの関係</strong>
+           （例：V を隠すと <span class="math"><code>V = I・R</code></span>）。
+          </figcaption>
+        </figure>
+
+        <!-- 覚えよう！（短く・固定） -->
+        <div class="callout">
+          <h3>覚えよう！</h3>
+          <ul class="compact">
+            <li><strong>基本式：</strong><span class="math"><code>V = I・R</code></span>（3 量の関係はこれで固定）。</li>
+            <li><strong>変形式：</strong><span class="math"><code>I = V/R</code></span>、<span class="math"><code>R = V/I</code></span>（出題はこの形が多い）。</li>
+            <li><strong>単位セット：</strong>V [V]、I [A]、R [Ω]（まず単位を揃える）。</li>
+            <li><strong>適用：</strong>オーム性（線形）抵抗が前提（電球・半導体・整流器などは注意）。</li>
+          </ul>
+        </div>
+
+        <!-- 出る出るポイント！（トラップだけ） -->
+        <div class="exam-notes">
+          <h4>出る出るポイント！</h4>
+          <ul class="compact">
+            <li><strong>接頭語トラップ：</strong>mA＝10<sup>−3</sup>A、kΩ＝10<sup>3</sup>Ω、MΩ＝10<sup>6</sup>Ω。ここで落ちる。</li>
+            <li><strong>直列・並列の順番：</strong>まず合成抵抗（直列：足す／並列：逆数和）→ その後に <span class="math"><code>V = I・R</code></span>。</li>
+            <li><strong>電力の近道：</strong><span class="math"><code>P = V・I = I²R = V²/R</code></span>（単位は W）。</li>
+            <li><strong>温度でズレる：</strong>金属抵抗は温度↑で R↑（一定とみなせる条件か確認）。</li>
+            <li><strong>測定のひっかけ：</strong>リード線抵抗・内部抵抗が乗る（小さい R を測るほど効く）。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 直列と並列の合成抵抗 -->
+      <section class="phy-section" id="series-parallel" aria-labelledby="series-parallel-title">
+        <h2 id="series-parallel-title">直列と並列の合成抵抗</h2>
+        <div class="band-card">
+          <p>
+            抵抗のつなぎ方には<strong>直列</strong>と<strong>並列</strong>があります。直列は同じ電流が順番に流れます。
+            並列は同じ電圧が各枝にかかります。合成（等価）抵抗は次の式で求めます。
+          </p>
+        </div>
+
+        <!-- 直列・並列の定義（スマホ最適化） -->
+        <div class="def-grid" aria-label="直列と並列の定義">
+
+          <!-- 直列 -->
+          <section class="def-card def-card--series" aria-labelledby="series-def-title">
+            <h3 id="series-def-title" class="def-title">直列の定義</h3>
+
+              <ul class="def-list">
+                <li>
+                  <span class="def-term">電流</span>
+                  <span class="def-desc"><strong>どこでも同じ</strong>（電流一定）</span>
+                </li>
+                <li>
+                  <span class="def-term">電圧</span>
+                  <span class="def-desc">抵抗に比例して<strong>分担</strong>（電圧分割）</span>
+                </li>
+                <li>
+                  <span class="def-term">合成</span>
+                  <span class="def-desc"><strong>足し算</strong></span>
+                </li>
+              </ul>
+
+              <p class="def-formula" aria-label="直列の合成抵抗の式">
+                <span class="math">
+                  R<sub>eq</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub> + …
+                </span>
+              </p>
+          </section>
+        
+          <!-- 並列 -->
+          <section class="def-card def-card--parallel" aria-labelledby="parallel-def-title">
+            <h3 id="parallel-def-title" class="def-title">並列の定義</h3>
+
+            <ul class="def-list">
+              <li>
+                <span class="def-term">電圧</span>
+                <span class="def-desc"><strong>どこでも同じ</strong>（電圧一定）</span>
+              </li>
+              <li>
+                <span class="def-term">電流</span>
+                <span class="def-desc">抵抗に反比例して<strong>分流</strong>（電流分割）</span>
+              </li>
+              <li>
+                <span class="def-term">合成</span>
+                <span class="def-desc"><strong>逆数の和</strong></span>
+              </li>
+            </ul>
+
+            <p class="def-formula" aria-label="並列の合成抵抗の式">
+              <span class="math">
+                1/R<sub>eq</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub> + …
+              </span>
+            </p>
+          </section>
+        </div>
+
+        <!-- 直列接続（外部SVG読み込み） -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/直列.svg"
+               alt="直列回路：R1→R2→R3を一列に接続した図。合成抵抗は足し算。"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="series-cap">
+              直列の合成抵抗：<span class="math">R<sub>eq</sub>=R<sub>1</sub>+R<sub>2</sub>+R<sub>3</sub></span>
+          </figcaption>
+        </figure>
+
+        <!-- 並列接続（外部SVG読み込み） -->
+        <figure class="formula-card">
+          <img src="../../../phy_svg/並列.svg"
+               alt="並列回路：共通の上下母線にR1・R2・R3が縦に接続された図。合成抵抗は逆数和。"
+               class="circuit-svg" sizes="(max-width: 640px) 92vw, 780px" loading="lazy" decoding="async" width="800" height="280">
+          <figcaption id="para-cap">
+              並列の合成抵抗：<span class="math">1/R<sub>eq</sub>=1/R<sub>1</sub>+1/R<sub>2</sub>+1/R<sub>3</sub></span>
+          </figcaption>
+        </figure>
+
+        <!-- 覚えよう！ -->
+        <aside class="callout" aria-label="確認ポイント（要点）">
+          <h3>覚えよう！</h3>
+          <ul class="compact">
+            <li><strong>直列：</strong>電流はどこでも同じ（電流一定）。合成抵抗は<strong>足し算</strong>。</li>
+            <li><strong>並列：</strong>電圧はどこでも同じ（電圧一定）。合成抵抗は<strong>逆数の和</strong>。</li>
+            <li><strong>見分け：</strong>直列＝一本道／並列＝同じ始点・終点に枝が並ぶ。</li>
+            <li><strong>等しい抵抗：</strong>直列 n 本＝<span class="math">nR</span>、並列 n 本＝<span class="math">R/n</span>。</li>
+          </ul>
+        </aside>
+
+        <!-- 出る出るポイント！ -->
+        <aside class="exam-notes" aria-label="出る出るポイント">
+          <h4>出る出るポイント！</h4>
+          <ul class="compact">
+            <li><strong>直列の電圧分割：</strong>
+              <span class="math">V<sub>k</sub> = V · R<sub>k</sub> / R<sub>eq</sub></span>
+              合計は元の電圧）
+            </li>
+            <li><strong>並列の電流分割（2枝）：</strong>
+              <span class="math">I<sub>k</sub> = I · (R<sub>他</sub> / (R<sub>k</sub> + R<sub>他</sub>))</span>
+              抵抗が小さい枝ほど電流が多い）
+            </li>
+            <li><strong>2抵抗の並列ショートカット：</strong>
+              <span class="math">R<sub>eq</sub> = (R<sub>1</sub>R<sub>2</sub>) / (R<sub>1</sub> + R<sub>2</sub>)</span>
+            </li>
+            <li><strong>単位と桁：</strong>kΩ・MΩ、mA などの接頭語で<strong>換算ミス</strong>が出やすい。</li>
+          </ul>
+          </aside>
+
+          <!-- ひっかけ注意！ -->
+          <aside class="exam-points" aria-label="ひっかけ注意">
+            <h4>ひっかけ注意！</h4>
+            <ul class="compact">
+              <li><strong>直列＋オープン（∞Ω）：</strong><span class="math">R<sub>eq</sub>→∞</span> → 電流 0（全部止まる）</li>
+              <li><strong>並列＋ショート（0Ω）：</strong><span class="math">R<sub>eq</sub>→0</span> → ほぼショート扱い</li>
+              <li><strong>並列の合成抵抗：</strong>各抵抗より<strong>必ず小さくなる</strong>（ここを落とす人が多い）</li>
+              <li><strong>逆数の和：</strong><span class="math">1/R</span> を作り忘れて足し算してしまうミスに注意</li>
+            </ul>
+          </aside>
+      </section>
+
+      <!-- 電池の仕組み -->
+      <section class="phy-section" id="battery-basics" aria-labelledby="battery-title">
+        <h2 id="battery-title">電池の仕組み</h2>
+
+        <div class="band-card">
+          <p>
+            電池は、<strong>酸化還元反応の化学エネルギーを電気エネルギーに変換する装置</strong>です。
+            金属などの電極を電解液に浸し、外部回路を導線でつなぐと電流が流れます。
+          </p>
+
+          <p>
+            <strong>負極（アノード）</strong>では<strong>酸化</strong>が起こり、電子を放出します（電子は外部回路へ流れ出ます）。
+            <strong>正極（カソード）</strong>では<strong>還元</strong>が起こり、外部回路から来た電子を受け取ります。
+          </p>
+
+          <p>
+            ※<em>電池（ガルバニ電池）では「負＝アノード」「正＝カソード」</em>です。
+             <em>電気分解</em>では<strong>極性が逆</strong>なので区別して覚えましょう。
+          </p>
+
+          <p>
+            溶液中では電荷のつり合いを保つために<strong>イオン</strong>が移動します（電解液・塩橋・セパレータの役割）。
+            <strong>電子の流れは負極→正極、電流（約束方向）は正極→負極</strong>です。
+          </p>
+        </div>
+
+        <!-- 代表例（ダニエル電池：理解の型） -->
+        <div class="callout ok" aria-labelledby="daniel-title">
+          <h3>代表例（ダニエル電池の型）</h3>
+          <ol class="compact">
+            <li>負極：Zn → Zn<sup>2+</sup> + 2e<sup>−</sup>（酸化）</li>
+            <li>正極：Cu<sup>2+</sup> + 2e<sup>−</sup> → Cu（還元）</li>
+          </ol>
+
+          <p>
+            起電力 <strong>E</strong> は両極の電位差で決まり、溶液中のイオン濃度（濃度条件）が変わると電位が変化し、
+            起電力も変わります（測定では温度・濃度条件をそろえます）。
+          </p>
+        </div>
+
+        <!-- 覚えよう！ -->
+        <div class="callout" aria-labelledby="remember-title">
+          <h3>覚えよう！</h3>
+          <ul class="compact">
+            <li><strong>対応：</strong>電池（発電）は「<strong>負＝アノード（酸化）</strong>」「<strong>正＝カソード（還元）</strong>」</li>
+            <li><strong>向き：</strong>電子は <strong>負極→正極</strong>／電流（約束方向）は <strong>正極→負極</strong></li>
+            <li><strong>語呂：</strong><em>「酸化はマイ（−）、還元はプラ（＋）」</em>で混乱を防ぐ</li>
+          </ul>
+        </div>
+
+        <!-- 出る出るポイント！ -->
+        <div class="exam-notes" aria-labelledby="exam-title">
+          <h4>出る出るポイント！</h4>
+          <ul class="compact">
+            <li><strong>端子電圧：</strong><code>V = E − I r</code>（r：内部抵抗）→ <strong>I が大きいほど V は下がる</strong></li>
+            <li><strong>直列：</strong><strong>電圧が加算</strong>（例：1.5V×2本→3.0V）</li>
+            <li><strong>並列：</strong><strong>電圧は同じ</strong>で、<strong>電流供給力が増える</strong>（内部抵抗は並列で小さくなる）</li>
+            <li><strong>濃度の影響：</strong>起電力 <strong>E</strong> は電位差で決まり、<strong>濃度が変わると E も変わり得る</strong></li>
+          </ul>
+        </div>
+
+        <!-- ひっかけ注意！ -->
+        <div class="exam-points" aria-labelledby="trap-title">
+          <h4>ひっかけ注意！</h4>
+          <ul class="compact">
+            <li><strong>正負の混同：</strong>電池（発電）は「負＝アノード／正＝カソード」。<strong>電気分解は“正負が逆”</strong>になりやすい</li>
+            <li><strong>でもここは不変：</strong><strong>アノード＝酸化、カソード＝還元</strong>（ここだけは電池でも電気分解でも共通）</li>
+            <li><strong>流れの混同：</strong>電子の向き（負→正）と、電流の向き（正→負）を<strong>逆に書くミス</strong>が多い</li>
+            <li><strong>安全：</strong>漏液・ガスは<strong>腐食性／可燃性</strong>のリスク。作業は<strong>換気＋保護具</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 起電力の大きさ -->
+      <section class="phy-section" id="emf" aria-labelledby="emf-title">
+        <h2 id="emf-title">起電力の大きさ</h2>
+
+        <!-- バンド（まず定義を一本化） -->
+        <div class="band-card">
+          <p>
+            <strong>起電力（E）</strong>は、電池の2電極間に生じる<strong>理想的な電位差</strong>です
+            （外部に電流を流さないときの電圧）。
+          </p>
+          <p>
+            起電力は基本的に、<strong>正極と負極の電極電位差</strong>で決まります
+            （目安：<strong>E ＝ 正極 − 負極</strong>）。
+            つまり、<strong>組合せが違えば E も変わる</strong>、が最重要です。
+          </p>
+        </div>
+
+        <!-- 覚えよう！（暗記の芯だけ） -->
+        <div class="callout" aria-labelledby="emf-memo-title">
+          <h3 id="emf-memo-title">覚えよう！</h3>
+          <ul class="compact">
+            <li><strong>正極＝還元</strong>、<strong>負極＝酸化</strong>。</li>
+            <li><strong>電子</strong>は <strong>負極 → 正極</strong>、<strong>電流（約束）</strong>は <strong>正極 → 負極</strong>。</li>
+            <li>
+              実際に電流が流れると、端子電圧は
+              <span class="math">V = E − I r</span>（r：内部抵抗）で<strong>Eより小さくなる</strong>。
+            </li>
+          </ul>
+        </div>
+
+        <!-- 出る出るポイント！（試験で問われる“形”に寄せる） -->
+        <div class="exam-notes" aria-labelledby="emf-exam-title">
+          <h4 id="emf-exam-title">出る出るポイント！</h4>
+          <ul class="compact">
+            <li>
+              <strong>直列・並列：</strong>
+              直列は<strong>Eが加算</strong>（内部抵抗rも加算）。
+              並列は<strong>Eは同じ</strong>で、内部抵抗rが下がり<strong>電流供給力が増える</strong>。
+            </li>
+            <li>
+              <strong>負極の見分け：</strong>
+              金属の<strong>イオン化傾向が大きい方が負極</strong>（溶けやすい）になりやすい。
+            </li>
+            <li>
+              <strong>代表値：</strong>
+              ダニエル電池の起電力はおよそ<strong>1.10 V</strong>（用語・基準値レベルで押さえる）。
+            </li>
+          </ul>
+        </div>
+
+        <!-- ひっかけ注意！（最後にまとめて注意喚起） -->
+        <div class="exam-points">
+          <h4 id="emf-trap-title">ひっかけ注意！</h4>
+          <ul class="compact">
+            <li>
+              <strong>端子電圧＝起電力</strong>と決めつけない。
+              負荷をつないだ瞬間、<span class="math">V = E − I r</span>で<strong>下がる</strong>。
+            </li>
+            <li>
+              <strong>濃度が高いほど必ずEが大きい</strong>とは限らない。
+              まずは<strong>極の組合せ（電位差）</strong>で考える。
+              迷ったら「<strong>負極＝イオン化傾向が大きい金属</strong>」で整理。
+            </li>
+            <li>
+              <strong>電子の流れ</strong>と<strong>電流（約束）</strong>を逆に書いて落とす。
+              外部回路は「電子：<strong>負→正</strong>」「電流：<strong>正→負</strong>」。
+            </li>
+            <li>
+              <strong>直列・並列の取り違え</strong>に注意。
+              直列は<strong>Eもrも足し算</strong>、並列は<strong>Eは同じでrが小さく</strong>なる。
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    <!-- 主な電池の起電力と素材 -->
+    <section class="phy-section" aria-labelledby="battery-table-title">
+      <h2 id="battery-table-title">主な電池の起電力と素材</h2>
+      <!-- 一次電池 -->
+      <h3>一次電池</h3>
+
+        <div class="table-container table-scroll sticky-first-col battery-table1">
+                <table class="styled-table styled-table--phy phy-defined-table table-fixed">
+                    <caption class="sr-only">一次電池の起電力と素材</caption>
+
+                    <colgroup>
+                         <col class="col-kinds" />
+                         <col class="col-electromotive-force" />
+                         <col class="col-positive-electrode" />
+                         <col class="col-negative-electrode" />
+                         <col class="col-electrolyte" />
+                    </colgroup>
+
+                    <thead>
+                         <tr>
+                            <th scope="col" class="sticky">電池の<br>種類</th>
+                            <th scope="col">起電力</th>
+                            <th scope="col">正極</th>
+                            <th scope="col">負極</th>
+                            <th scope="col">電解液/電解質</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="sticky">マンガン乾電池</th>
+                        <td>1.5V</td>
+                        <td>二酸化マンガン</td>
+                        <td>亜鉛</td>
+                        <td>塩化亜鉛/塩化アンモニウム</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">アルカリ<br>マンガン乾電池</th>
+                        <td>約1.5V</td>
+                        <td>二酸化マンガン</td>
+                        <td>亜鉛</td>
+                        <td>水酸化カリウム</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">リチウム電池</th>
+                        <td>約3.0V</td>
+                        <td>二酸化マンガン<br>硫化鉄など</td>
+                        <td>リチウム</td>
+                        <td>非水系<br>有機電解液</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">酸化銀<br>電池</th>
+                        <td>約1.55V</td>
+                        <td>酸化銀</td>
+                        <td>亜鉛</td>
+                        <td>水酸化カリウム<br>水酸化ナトリウム</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">空気亜鉛電池</th>
+                        <td>約1.3V</td>
+                        <td>酸素</td>
+                        <td>亜鉛</td>
+                        <td>水酸化ナトリウム</td>
+                      </tr>
+                    </tbody>
+                </table>
+        </div>
+            <p>※一次電池：放電のみの使い切り</p>
+
+
+      <!-- 二次電池 -->
+      <h3>二次電池</h3>
+
+        <div class="table-container table-scroll sticky-first-col battery-table2">
+              <table class="styled-table styled-table--phy phy-defined-table table-fixed">
+                    <caption class="sr-only">二次電池の起電力と素材</caption>
+
+                    <colgroup>
+                         <col class="col-kinds" />
+                         <col class="col-electromotive-force" />
+                         <col class="col-positive-electrode" />
+                         <col class="col-negative-electrode" />
+                         <col class="col-electrolyte" />
+                    </colgroup>
+
+                    <thead>
+                         <tr>
+                            <th scope="col" class="sticky">電池の<br>種類</th>
+                            <th scope="col">起電力</th>
+                            <th scope="col">正極</th>
+                            <th scope="col">負極</th>
+                            <th scope="col">電解液/電解質</th>
+                         </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="sticky">鉛蓄電池</th>
+                        <td>約2.0V</td>
+                        <td>二酸化鉛</td>
+                        <td>鉛</td>
+                        <td>希硫酸</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">ニッケル<br>カドミウム電池</th>
+                        <td>約1.3V</td>
+                        <td>ニッケル酸化物</td>
+                        <td>カドミウム</td>
+                        <td>水酸化カリウム</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">ニッケル<br>水素電池</th>
+                        <td>約1.35V</td>
+                        <td>ニッケル酸化物</td>
+                        <td>水素吸蔵<br>合金</td>
+                        <td>水酸化カリウム</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">リチウム<br>イオン電池</th>
+                        <td>約4.0V</td>
+                        <td>リチウム複合<br>酸化物</td>
+                        <td>炭素</td>
+                        <td>非水系<br>有機電解液</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="sticky">ナトリウム<br>硫黄電池</th>
+                        <td>約2.1V</td>
+                        <td>硫黄</td>
+                        <td>ナトリウム</td>
+                        <td>β・アルミナ</td>
+                      </tr>
+                    </tbody>
+              </table>
+        </div>
+        <p>※二次電池：外部電池からの充電で繰り返し使用。</p>
+
+        <!-- 出る出るポイント -->
+        <section class="summary" aria-labelledby="battery-points-title">
+          <div class="exam-notes">
+            <h4 id="battery-points-title">出る出るポイント!</h4>
+            <ul class="compact">
+              <li><strong>一次＝充電不可／二次＝充電して再使用</strong>（まずここを取り切る）。</li>
+              <li><strong>電解液（電解質）はセット暗記</strong>：マンガン＝塩化アンモニウム/塩化亜鉛、アルカリ＝水酸化カリウム、鉛＝希硫酸…のように「種類→電解液」で即答。</li>
+              <li><strong>起電力の代表値</strong>：1.5V系／約1.55V（酸化銀）／約1.3V（空気亜鉛）／約3.0V（リチウム一次）／約2.0V（鉛蓄）など、よく混ぜて出る。</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ひっかけ注意 -->
+        <section class="summary" aria-labelledby="battery-trap-title">
+          <div class="exam-points">
+            <h4 id="battery-trap-title">ひっかけ注意!</h4>
+            <ul class="compact">
+              <li><strong>アルカリ＝水酸化カリウム、マンガン乾電池＝塩化アンモニウム/塩化亜鉛</strong>。入れ替えひっかけ注意。</li>
+              <li><strong>酸化銀電池＝約1.55V、空気亜鉛＝約1.3V</strong>（1.5Vと混同させる出題あり）。</li>
+              <li><strong>二次電池：鉛＝希硫酸、Ni系＝KOH、Li-ion＝非水系</strong>。電解液セットで覚える。</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- 9. インタラクティブクイズ -->
+      <section class="quiz-section">
+        <h2 id="quiz-label">クイズ</h2>
+
+        <form id="quiz-form" class="quiz" aria-labelledby="quiz-label">
+          <p id="q1-label">
+            オームの法則に<strong>該当しない</strong>のは次のうちどれか。
+          </p>
+
+          <div class="quiz-options" role="radiogroup" aria-labelledby="q1-label">
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="opt1" data-correct="true">
+              <code>V=IS</code>
+            </label>
+
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="opt2" data-correct="false">
+              <code>R=V/I</code>
+            </label>
+
+            <label class="quiz-option">
+              <input type="radio" name="q1" value="opt3" data-correct="false">
+              <code>V=IR</code>
+            </label>
+          </div>
+
+          <div class="quiz-feedback" aria-live="polite" hidden tabindex="-1"></div>
+
+          <div class="quiz-retry-wrap" hidden>
+            <button type="button" class="quiz-retry" aria-label="もう一度挑戦する">もう一度挑戦する</button>
+          </div>
+        </form>
+
+        <script>
+        (() => {
+          const root  = document.currentScript.closest('.quiz-section') || document;
+          const quiz  = root.querySelector('#quiz-form') || root.querySelector('form.quiz');
+          if (!quiz) return;
+
+          const radios = Array.from(quiz.querySelectorAll('input[type="radio"]'));
+          const labels = radios.map(r => r.closest('.quiz-option'));
+          const fb     = quiz.querySelector('.quiz-feedback');
+          const retryW = quiz.querySelector('.quiz-retry-wrap');
+          const retry  = quiz.querySelector('.quiz-retry');
+
+          function lockUI(lock) {
+            radios.forEach(r => r.disabled = lock);
+            labels.forEach(l => l?.classList.toggle('is-locked', lock));
+          }
+          function resetUI() {
+            radios.forEach(r => { r.checked = false; r.disabled = false; });
+            labels.forEach(l => l?.classList.remove('is-correct','is-wrong','is-locked'));
+            if (fb) fb.hidden = true;
+            if (retryW) retryW.hidden = true;
+          }
+
+          quiz.addEventListener('change', (e) => {
+            const picked = e.target;
+            if (!(picked instanceof HTMLInputElement) || picked.type !== 'radio') return;
+
+            const label = picked.closest('.quiz-option');
+            const isCorrect = picked.dataset.correct === 'true';
+
+            labels.forEach(l => l?.classList.remove('is-correct','is-wrong'));
+
+            if (fb) {
+              fb.hidden = false;
+              if (isCorrect) {
+                fb.textContent = '正解です！オームの法則は「V=IR」（I=V/R、R=V/Iも同じ）です。' +
+                       '「V=IS」はこの形に変形できず、I×Sの単位も[V]にならないため該当しません。';
+              } else {
+                // 誤答に応じた個別フィードバック
+                if (picked.value === 'opt2') {
+                  fb.textContent = '不正解です。「R=V/I」は「V=IR」をRについて解いた式です。' +
+                         '（V=IR → 両辺をIで割る → R=V/I）';
+                } else if (picked.value === 'opt3') {
+                  fb.textContent = '不正解です。「V=IR」はオームの法則そのものです。' +
+                         'この式からI=V/R、R=V/Iに変形して使います。';
+                } else {
+                  fb.textContent = '不正解です。';
+                }
+              }
+            }
+            if (label) label.classList.add(isCorrect ? 'is-correct' : 'is-wrong');
+
+            lockUI(true);
+            if (retryW) retryW.hidden = false;
+            fb?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          });
+
+          retry?.addEventListener('click', resetUI);
+        })();
+        </script>   
+      </section>
+
+        <p>次は第2章10節：<strong>静電気</strong>に進みます。</p>
+
+      <!-- 次の基礎知識に進むのボタン -->
+      <section class="next-button">
+        <a href="static_electricity/Otsux_Phy_Static_Electricity_001.html" class="button">静電気</a>
+      </section>
+    </main> 
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 乙種4類危険物取扱者試験対策</p>
+      <div class="legal-links">
+        <a href="/privacy.html" class="footer-link">プライバシーポリシー</a> ／
+        <a href="/terms.html" class="footer-link">利用規約</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/index.js" defer></script>
+  <script type="module" src="/js/nav.js" defer></script>
+  <script type="module" src="/js/nav-toggle.js" defer></script> 
+</body>
+</html>

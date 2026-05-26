@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="640" height="320" viewBox="0 0 640 320"
+     preserveAspectRatio="xMidYMid meet">
+  <title>掲示板（寸法入り）</title>
+  <desc>白地・黒字／外枠あり。高さ0.3m以上、長さ0.6m以上の寸法表示付き。数値は枠の外に表示。</desc>
+
+  <defs>
+    <style>
+      .stroke { stroke:#000; stroke-width:2; vector-effect:non-scaling-stroke; }
+      .frame  { fill:#fff;  stroke:#000; stroke-width:2; vector-effect:non-scaling-stroke; }
+      .label  { fill:#000;  font:700 28px/1 "Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo",sans-serif; }
+      .dim    { fill:#000;  font:600 16px/1.25 "Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo",sans-serif; letter-spacing:.02em; }
+    </style>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 10,5 0,10Z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <!-- 掲示板本体（角丸なし） -->
+  <rect class="frame" x="10" y="10" width="560" height="250"/>
+
+  <!-- 文言 -->
+  <text class="label" x="42" y="74">危険物の類別：第四類</text>
+  <text class="label" x="42" y="125">危険物の品名：第一石油類（ガソリン）</text>
+  <text class="label" x="42" y="176">貯蔵最大数量：10,000L（50倍）</text>
+  <text class="label" x="42" y="227">危険物保安監督者：乙　太郎</text>
+
+  <!-- 右側：高さ寸法（0.3m以上） -->
+  <g aria-label="高さ0.3m以上">
+    <!-- 掲示板上下端に合わせた縦矢印（枠の外） -->
+    <line x1="595" y1="10" x2="595" y2="260" class="stroke"
+          marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
+    <!-- ※ テキストを左へ寄せ、右端に余白を確保 -->
+    <text class="dim" x="596" y="142">0.3m</text>
+    <text class="dim" x="598" y="164">以上</text>
+  </g>
+
+  <!-- 下側：長さ寸法（0.6m以上） -->
+  <g aria-label="長さ0.6m以上">
+    <line x1="10" y1="295" x2="570" y2="295" class="stroke"
+          marker-start="url(#arrowHead)" marker-end="url(#arrowHead)"/>
+    <text class="dim" x="290" y="312" text-anchor="middle">0.6m 以上</text>
+  </g>
+</svg>
