@@ -10,6 +10,7 @@
 
   "fields":  ["description"],
   "headers": [""],
+  
   "choices": [
     { "name": "1", "description": "すべての製造所等において、危険物施設保安員を選任しなければならない。" },
     { "name": "2", "description": "危険物施設保安員を選任したときは、市町村長等に届出をしなければならない。" },
