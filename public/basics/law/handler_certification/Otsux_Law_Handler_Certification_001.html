@@ -249,8 +249,6 @@
       </div>
     </section>
 
-    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
-
     <!-- 3. 指定数量未満の危険物の取扱い -->
     <section class="law-section">
       <h3>指定数量未満の危険物の取扱い</h3>
@@ -436,13 +434,13 @@
               } else {
                 if (picked.value === 'opt1') {
                   fb.textContent = 
-                    '❌ 不正解です。これは丙種危険物取扱者が扱える指定危険物の例です。乙種免状は“免状に書かれた類（第1類〜第6類）だけ”を扱えます。';
+                    '❌ 不正解です。これは丙種危険物取扱者が扱える指定危険物の例です。乙種免状は「免状に書かれた類（第1類〜第6類）だけ」を扱えます。';
                 } else if (picked.value === 'opt3') {
                   fb.textContent = 
-                    '❌ 不正解です。「すべての危険物」を扱えるのは甲種です。乙種免状は“免状に書かれた類（第1類〜第6類）だけ”を扱えます。';
+                    '❌ 不正解です。「すべての危険物」を扱えるのは甲種です。乙種免状は「免状に書かれた類（第1類〜第6類）だけ」を扱えます。';
                 } else {
                   fb.textContent = 
-                    '❌ 不正解です。乙種免状は“免状に書かれた種類だけ”を扱えます。免状の区分を改めて確認してみましょう。';
+                    '❌ 不正解です。乙種免状は「免状に書かれた種類だけ」を扱えます。免状の区分を改めて確認してみましょう。';
                 }
                 picked.setAttribute('aria-invalid', 'true');
                 setState(opt, 'wrong');
