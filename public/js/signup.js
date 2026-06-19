@@ -133,17 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 成功（確認メール送信）
 
       signupSucceeded = true; 
-      if (passwordInput) passwordInput.value = "";
-
-      const btn = document.getElementById("signup-submit");
-
-      if (btn) btn.textContent = "メールを確認してね";
-
-
-      setFeedback("確認メールを送信しました。メール内のリンクから手続きを完了してください。", "ok");
-
-      // ★ここに追加（成功時に入力欄を完全停止）
-      form.querySelectorAll("input").forEach(el => el.disabled = true);
+      window.location.href = "/mypage.html";
 
     } catch (err) {
       setFeedback(`登録に失敗しました：${String(err)}`, "error");
