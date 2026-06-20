@@ -279,6 +279,9 @@
             </div>
     </section>
 
+    <!-- 次の基礎知識に進むのボタン -->
+    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
+
     <!-- 3. 自衛消防組織 -->
     <section class="law-section">
       <h2>自衛消防組織</h2>
@@ -426,10 +429,10 @@
                     '❌ 不正解です。届出先は都道府県知事ではなく「市町村長等（所轄消防長・消防署長等）」です。権限のレベルを一段階上げすぎている点が誤りになります。';
                 } else if (picked.value === 'opt3') {
                   fb.textContent = 
-                    '❌ 不正解です。「消防長または消防署長」だけでは法律上の表現として不十分です。条文では「市町村長等（所轄消防長・消防署長等）」と一括して規定しているので、この形で覚えましょう。';
+                    '❌ 不正解です。「消防長または消防署長」だけでは法律上の表現として不十分です。条文では「市町村長等（所轄消防長・消防署長等）」と一括して規定しています。';
                 } else {
                   fb.textContent = 
-                    '❌ 不正解です。危険物保安統括管理者の届出先は「市町村長等」です。選択肢の届出先が条文どおりかどうかを確認しましょう。';
+                    '❌ 不正解です。危険物保安統括管理者の届出先は「市町村長等」です。選択肢の届出先が条文どおりかどうかを確認する。';
                 }
                 picked.setAttribute('aria-invalid', 'true');
                 setState(opt, 'wrong');
