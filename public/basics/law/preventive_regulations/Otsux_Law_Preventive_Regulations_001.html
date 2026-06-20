@@ -195,6 +195,8 @@
       </div>
     </section>
 
+    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
+
     <!-- 3. 予防規程を定めなければならない製造所等 -->
     <section class="law-section">
       <h2>予防規程を定めなければならない製造所等</h2>
@@ -428,18 +430,18 @@
               fb.hidden = false;
               if (isCorrect) {
                 fb.textContent =
-                  '✅ 正解です！予防規程を定めなければならない製造所等で、市町村長等の認可を受けずに危険物を貯蔵・取扱いすると、消防法42条1項8号により「6か月以下の懲役または50万円以下の罰金」の対象になります。予防規程は〈作る・変える〉ときの認可だけでなく、その後の運用まで含めて管理される点も押さえておきましょう。';
+                  '✅ 正解です！予防規程を定めなければならない製造所等で、市町村長等の認可を受けずに危険物を貯蔵・取扱いすると、消防法42条1項8号により「6か月以下の懲役または50万円以下の罰金」の対象になります。予防規程は〈作る・変える〉ときの認可だけでなく、その後の運用まで含めて管理される点も押さえておく。';
                 setState(opt, 'correct');
               } else {
                 if (picked.value === 'opt2') {
                   fb.textContent = 
-                    '❌ 不正解です。選択肢2の説明は「許可」ではなく〈認可〉の定義です。認可は、当事者の行為だけでは効力が生じないときに、行政庁が同意してその効力を完成させる行為で、予防規程の認可が典型例です。いっぽう許可は、原則として禁止されている行為について、特定人・特定の事件に限り禁止を解く行為（例：給油取扱所の設置許可）でした。';
+                    '❌ 不正解です。選択肢2の説明は「許可」ではなく〈認可〉の定義です。認可は、当事者の行為だけでは効力が生じないときに、行政庁が同意してその効力を完成させる行為で、予防規程の認可が典型例です。いっぽう許可は、原則として禁止されている行為について、特定人・特定の事件に限り禁止を解く行為（例：給油取扱所の設置許可）です。';
                 } else if (picked.value === 'opt3') {
                   fb.textContent = 
-                    '❌ 不正解です。選択肢3の説明は「認可」ではなく〈許可〉の内容です。給油取扱所の設置許可などは、原則禁止の行為を個別に認める許可の代表例です。認可は「行為の効力を完成させる同意」、許可は「禁止の解除」と対比して覚えておきましょう。';
+                    '❌ 不正解です。選択肢3の説明は「認可」ではなく〈許可〉の内容です。給油取扱所の設置許可などは、原則禁止の行為を個別に認める許可の代表例です。認可は「行為の効力を完成させる同意」、許可は「禁止の解除」と対比して覚えておく。';
                 } else {
                   fb.textContent = 
-                    '❌ 不正解です。もう一度、認可と許可の定義、および予防規程に関する罰則を確認してみましょう。';
+                    '❌ 不正解です。もう一度、認可と許可の定義、および予防規程に関する罰則を確認する。';
                 }
                 picked.setAttribute('aria-invalid', 'true');
                 setState(opt, 'wrong');
@@ -459,7 +461,7 @@
 
       
     <!-- 次の基礎知識に進むのボタン -->
-    <section class="signup-cta" style="text-align:center;margin:32px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">無料登録して練習問題を解く</a></section>
+    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
      
   </main> 
 </div>
