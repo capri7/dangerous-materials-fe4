@@ -147,7 +147,7 @@
 
     <!-- 2. 設置場所・間隔 -->
     <section class="law-section">
-      <h3>設置場所と間隔</h3>
+      <h2>設置場所と間隔</h2>
 
       <div class="band-card">
         <p>
@@ -216,7 +216,7 @@
 
     <!-- 3. 容量の上限 -->
     <section class="law-section"> 
-      <h3>容量の上限</h3>
+      <h2>容量の上限</h2>
 
       <div class="band-card">
         <p>
@@ -300,7 +300,7 @@
 
     <!-- 4. 通気・安全装置 -->
     <section class="law-section">
-      <h3>通気・安全装置</h3>
+      <h2>通気・安全装置</h2>
 
       <div class="band-card">
         <p>
@@ -395,9 +395,11 @@
       </div>
     </section>
 
+    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
+
     <!-- 5. タンク専用室の構造 -->
     <section class="law-section">
-      <h3>タンク専用室の構造</h3>
+      <h2>タンク専用室の構造</h2>
 
       <div class="band-card">
         <p>
@@ -522,7 +524,7 @@
 
     <!-- 6. 床・出入口 -->
     <section class="law-section">
-      <h3>床・出入口</h3>
+      <h2>床・出入口</h2>
 
       <div class="band-card">
         <p>
@@ -613,7 +615,7 @@
 
     <!-- 7. 付帯設備 -->
     <section class="law-section">
-      <h3>付帯設備</h3>
+      <h2>付帯設備</h2>
 
       <div class="band-card">
         <p>
@@ -750,18 +752,18 @@
               fb.hidden = false;
               if (isCorrect) {
                 fb.textContent =
-                  '✅ 正解です。一般の屋内タンク貯蔵所では、タンク1基ごとの容量も、同じタンク専用室内のタンク容量の合計も「指定数量の40倍以下」におさめます。第4石油類（動植物油類を除く）の場合は、1基20,000L以下という別枠の上限もあわせて整理しておきましょう。';
+                  '✅ 正解です。一般の屋内タンク貯蔵所では、タンク1基ごとの容量も、同じタンク専用室内のタンク容量の合計も「指定数量の40倍以下」におさめます。第4石油類（動植物油類を除く）の場合は、1基20,000L以下です。';
                 setState(opt, 'correct');
               } else {
                 if (picked.value === 'opt1') {
                   fb.textContent =
-                  '❌ 不正解です。「30倍以下」は一見安全側の数字ですが、法令で定められている上限は「指定数量の40倍以下」です。実際の数値が違うので×になります。';
+                  '❌ 不正解です。「30倍以下」は一見安全側の数字ですが、法令で定められている上限は「指定数量の40倍以下」です。';
                 } else if (picked.value === 'opt2') {
                   fb.textContent = 
-                   '❌ 不正解です。屋内タンク貯蔵所のタンク容量の上限は「指定数量の40倍以下」です。「40倍」と「50倍」を入れ替える典型的なひっかけに注意しましょう。';
+                   '❌ 不正解です。屋内タンク貯蔵所のタンク容量の上限は「指定数量の40倍以下」です。「40倍」と「50倍」を入れ替える典型的なひっかけです。';
                 } else {
                   fb.textContent = 
-                    '❌ 不正解です。屋内タンク貯蔵所のタンク容量は「指定数量の40倍以下」です。あわせて、第4石油類（動植物油類を除く）の場合は容量そのものが20,000L以下であることも整理しておきましょう。';
+                    '❌ 不正解です。屋内タンク貯蔵所のタンク容量は「指定数量の40倍以下」です。あわせて、第4石油類（動植物油類を除く）の場合は容量そのものが20,000L以下です。';
                 }
                 picked.setAttribute('aria-invalid', 'true');
                 setState(opt, 'wrong');
@@ -782,7 +784,7 @@
 
       
     <!-- 次の基礎知識に進むのボタン -->
-    <section class="signup-cta" style="text-align:center;margin:32px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">無料登録して練習問題を解く</a></section>
+    <section class="signup-cta" style="text-align:center;margin:48px 0;"><a href="/signup.html" class="button" style="background:#2563eb;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:1rem;">この範囲の問題を解く（登録無料）</a></section>
      
     </main>
   </div> 

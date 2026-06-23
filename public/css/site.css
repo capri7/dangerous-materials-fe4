@@ -1093,3 +1093,19 @@ a:hover {
     width: 100%;
   }
 }
+
+.checkout-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+.checkout-benefits li {
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+.checkout-benefits li::before {
+  content: "✓ ";
+  color: #2563eb;
+  font-weight: bold;
+}
